@@ -9,7 +9,7 @@
     --sidebar-bg: #0F172A;
     --accent-orange: #F97316;
     --muted: #334155;
-    --sidebar-w: 260px;
+    --sidebar-w: 80px;
 }
 
 body {
@@ -86,11 +86,24 @@ body {
     font-size: 24px;
 }
 
+.menu-item span,
+.sidebar-logo span {
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
 .menu-item:hover,
 .menu-item.active {
     background: var(--muted);
     color: #CBD5E1;
     box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
+}
+
+.sidebar:hover .menu-item span,
+.sidebar:hover .sidebar-logo span {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* RODAPÉ */
