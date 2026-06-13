@@ -1,58 +1,2256 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIPE — Feedback da Coordenação</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Satisfy&display=swap");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIPE - Feedback Coordenação</title>
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-</head>
+      :root {
+        --primary: #6d28d9;
+        --secondary: #455629;
+        --sidebar-bg: #0f172a;
+        --accent-orange: #f97316;
+        --alert-critical-text: #e11d48;
+        --bg: #f1f5f9;
+        --white: #ffffff;
+        --border: #cbd5e1;
+        --text: #000000;
+        --muted: #334155;
+        --sidebar-w: 260px;
+        --header-h: 75px;
 
-<body>
-    <main class="app">
+        --status-approved-bg: #dcfce7;
+        --status-approved-text: #15803d;
+        --status-approved-border: #86efac;
+        --status-pending-bg: #fef9c3;
+        --status-pending-text: #a16207;
+        --status-pending-border: #fde047;
+        --status-rejected-bg: #fee2e2;
+        --status-rejected-text: #b91c1c;
+        --status-rejected-border: #fca5a5;
+      }
 
-        <div class="sidebar">
-            <div class="sidebar-logo">
-                <i class="ti ti-cpu"></i> <span>SIPE</span>
-            </div>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 19px;
+        line-height: 1.6;
+        height: 100vh;
+      }
 
-            <div class="sidebar-menu">
-                <a href="../index.html" class="menu-item">
-                    <i class="ti ti-layout-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="./planejamento.html" class="menu-item">
-                    <i class="ti ti-file-text"></i>
-                    <span>Planejamentos</span>
-                </a>
-                <a href="./avaliacoes.html" class="menu-item">
-                    <i class="ti ti-clipboard-list"></i>
-                    <span>Avaliações</span>
-                </a>
-                <a href="./biblioteca.html" class="menu-item">
-                    <i class="ti ti-books"></i>
-                    <span>Biblioteca</span>
-                </a>
-                <a href="./feedback.html" class="menu-item active">
-                    <i class="ti ti-message-heart"></i>
-                    <span>Feedback Coordenação</span>
-                </a>
-            </div>
+      .app {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
 
-            <div class="sidebar-footer">
-                <a href="#" class="menu-item" style="padding: 10px 14px;">
-                    <i class="ti ti-settings"></i>
-                    <span>Configurações</span>
-                </a>
-                <a href="#" class="menu-item" style="padding: 10px 14px;">
-                    <i class="ti ti-headset"></i>
-                    <span>Suporte</span>
-                </a>
-            </div>
+      /* ── SIDEBAR ── */
+      .sidebar {
+        width: var(--sidebar-w);
+        background: var(--sidebar-bg);
+        color: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+      .sidebar:hover {
+        width: 290px;
+      }
+      .sidebar-logo {
+        padding: 24px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sidebar-logo i {
+        color: var(--accent-orange);
+      }
+      .sidebar-menu {
+        padding: 20px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+      }
+      .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 18px;
+        color: #94a3b8;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .menu-item i {
+        margin-right: 14px;
+        font-size: 24px;
+      }
+      .menu-item:hover,
+      .menu-item.active {
+        background: var(--secondary);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
+      }
+      .sidebar-footer {
+        padding: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* ── MAIN PANEL ── */
+      .main-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* ── HEADER ── */
+      .header {
+        height: var(--header-h);
+        background: var(--white);
+        border-bottom: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        flex-shrink: 0;
+        z-index: 5;
+      }
+      .school-selector {
+        padding: 8px 18px;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--secondary);
+        background: transparent;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: uppercase;
+        outline: none;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .school-selector:focus {
+        border-color: var(--secondary);
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-icon-btn {
+        background: #fff7ed;
+        border: 2px solid var(--accent-orange);
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.2s;
+      }
+      .nav-icon-btn:hover {
+        transform: scale(1.05);
+      }
+      .nav-icon-btn i {
+        font-size: 32px;
+        color: var(--accent-orange);
+      }
+      .badge-orange {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #fff;
+        color: var(--accent-orange);
+        font-size: 14px;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--accent-orange);
+      }
+      .user-profile-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .user-avatar {
+        width: 45px;
+        height: 45px;
+        background: var(--secondary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      /* ── PAGE CONTAINER ── */
+      .page-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .page-title {
+        font-family: "Satisfy", cursive;
+        font-size: 52px;
+        color: #000;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-size: 17px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      /* ── KPI CARDS ── */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .kpi-card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease,
+          box-shadow 0.2s;
+      }
+      .kpi-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .kpi-card:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+      .kpi-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+      }
+      .kpi-number {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .kpi-label {
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 600;
+        margin-top: 3px;
+      }
+
+      /* ── MAIN LAYOUT ── */
+      .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 22px;
+        align-items: start;
+      }
+
+      /* ── CARD ── */
+      .card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      }
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card-title i {
+        color: var(--primary);
+        font-size: 22px;
+      }
+
+      /* ── PLANNING CARDS ── */
+      .plan-card {
+        background: #f8fafc;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        cursor: pointer;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .plan-card:last-child {
+        margin-bottom: 0;
+      }
+      .plan-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        border-radius: 2px 0 0 2px;
+      }
+      .plan-card.approved::before {
+        background: var(--status-approved-text);
+      }
+      .plan-card.pending::before {
+        background: var(--status-pending-text);
+      }
+      .plan-card.rejected::before {
+        background: var(--status-rejected-text);
+      }
+
+      .plan-card:hover {
+        border-color: var(--primary);
+        transform: translateX(3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+      .plan-card.selected {
+        border-color: var(--primary);
+        background: #f5f3ff;
+        box-shadow: 0 6px 20px rgba(109, 40, 217, 0.12);
+      }
+
+      .plan-card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .plan-name {
+        font-size: 16px;
+        font-weight: 800;
+        color: #1e293b;
+      }
+      .plan-meta {
+        display: flex;
+        gap: 14px;
+        font-size: 13px;
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
+      .plan-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .plan-meta i {
+        font-size: 15px;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .status-badge.approved {
+        background: var(--status-approved-bg);
+        color: var(--status-approved-text);
+        border: 1.5px solid var(--status-approved-border);
+      }
+      .status-badge.pending {
+        background: var(--status-pending-bg);
+        color: var(--status-pending-text);
+        border: 1.5px solid var(--status-pending-border);
+      }
+      .status-badge.rejected {
+        background: var(--status-rejected-bg);
+        color: var(--status-rejected-text);
+        border: 1.5px solid var(--status-rejected-border);
+      }
+
+      .plan-comment {
+        background: white;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #475569;
+        margin-top: 10px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .plan-comment i {
+        color: var(--primary);
+        font-size: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .plan-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #5b21b6;
+      }
+      .btn-outline {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+      .btn-outline:hover {
+        background: #f5f3ff;
+      }
+      .btn-orange {
+        background: var(--accent-orange);
+        color: white;
+      }
+      .btn-orange:hover {
+        background: #ea6c0a;
+      }
+      .btn-danger {
+        background: var(--alert-critical-text);
+        color: white;
+      }
+      .btn-danger:hover {
+        background: #b91c1c;
+      }
+      .btn-green {
+        background: #16a34a;
+        color: white;
+      }
+      .btn-green:hover {
+        background: #15803d;
+      }
+      .btn-ghost {
+        background: #f1f5f9;
+        color: var(--muted);
+        border: 2px solid var(--border);
+      }
+      .btn-ghost:hover {
+        background: #e2e8f0;
+      }
+
+      /* ── DETAIL PANEL (RIGHT) ── */
+      .detail-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline-steps {
+        position: relative;
+        padding-left: 0;
+      }
+      .timeline-item {
+        display: flex;
+        gap: 14px;
+        padding-bottom: 20px;
+        position: relative;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .timeline-item:last-child .tl-line {
+        display: none;
+      }
+
+      .tl-dot-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .tl-dot {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .tl-dot.done {
+        background: #dcfce7;
+        color: #16a34a;
+        border: 2px solid #86efac;
+      }
+      .tl-dot.pending {
+        background: var(--status-pending-bg);
+        color: var(--status-pending-text);
+        border: 2px solid var(--status-pending-border);
+      }
+      .tl-dot.rejected {
+        background: var(--status-rejected-bg);
+        color: var(--status-rejected-text);
+        border: 2px solid var(--status-rejected-border);
+      }
+      .tl-dot.upcoming {
+        background: #f1f5f9;
+        color: #94a3b8;
+        border: 2px dashed #cbd5e1;
+      }
+      .tl-line {
+        width: 2px;
+        background: #e2e8f0;
+        flex: 1;
+        min-height: 16px;
+        margin-top: 4px;
+      }
+
+      .tl-content {
+        padding-top: 4px;
+      }
+      .tl-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .tl-date {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* ── NOTIFICATION CENTER ── */
+      .notif-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .notif-item:last-child {
+        margin-bottom: 0;
+      }
+      .notif-item:hover {
+        border-color: var(--primary);
+        background: #f5f3ff;
+      }
+      .notif-item.unread {
+        background: #f5f3ff;
+        border-color: #c4b5fd;
+      }
+      .notif-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .notif-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+      .notif-time {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .notif-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+
+      /* ── AI SUGGESTION ── */
+      .ai-box {
+        background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+        border: 2px solid rgba(109, 40, 217, 0.2);
+        border-radius: 12px;
+        padding: 18px 20px;
+      }
+      .ai-box-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .ai-box-header i {
+        font-size: 22px;
+        color: var(--primary);
+      }
+      .ai-box-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: #4c1d95;
+      }
+      .ai-box-desc {
+        font-size: 13px;
+        color: #5b21b6;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+      .ai-suggestions {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .ai-suggestions.visible {
+        display: flex;
+      }
+      .ai-suggestion-item {
+        background: white;
+        border: 1.5px solid #c4b5fd;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #4c1d95;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .ai-suggestion-item i {
+        color: var(--primary);
+        flex-shrink: 0;
+        font-size: 16px;
+        margin-top: 1px;
+      }
+
+      /* ── COORDINATOR VIEW MODAL ── */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.6);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(3px);
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 32px;
+        width: 700px;
+        max-width: 95vw;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+      .modal-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: #1e293b;
+      }
+      .modal-close {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: #f1f5f9;
+        border: none;
+        cursor: pointer;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        transition: all 0.2s;
+      }
+      .modal-close:hover {
+        background: #fee2e2;
+        color: var(--alert-critical-text);
+      }
+
+      .coord-plan-item {
+        background: #f8fafc;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 12px;
+      }
+      .coord-plan-item:last-child {
+        margin-bottom: 0;
+      }
+      .coord-plan-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+      }
+      .coord-plan-name {
+        font-size: 15px;
+        font-weight: 800;
+        color: #1e293b;
+      }
+      .coord-plan-info {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .coord-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .coord-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .coord-approve {
+        background: #dcfce7;
+        color: #15803d;
+        border: 1.5px solid #86efac;
+      }
+      .coord-approve:hover {
+        background: #bbf7d0;
+      }
+      .coord-adjust {
+        background: #fef9c3;
+        color: #a16207;
+        border: 1.5px solid #fde047;
+      }
+      .coord-adjust:hover {
+        background: #fef08a;
+      }
+      .coord-reject {
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 1.5px solid #fca5a5;
+      }
+      .coord-reject:hover {
+        background: #fecaca;
+      }
+
+      .coord-view-badge {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        border-radius: 12px;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+        color: white;
+      }
+      .coord-view-badge i {
+        font-size: 28px;
+        color: var(--accent-orange);
+      }
+      .coord-view-title {
+        font-size: 15px;
+        font-weight: 800;
+      }
+      .coord-view-sub {
+        font-size: 12px;
+        opacity: 0.7;
+      }
+
+      /* ── NOTIFICATION TOAST ── */
+      .toast-container {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 200;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .toast-msg {
+        background: #1e293b;
+        color: white;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation:
+          fadeInRight 0.3s ease,
+          fadeOut 0.3s ease 2.7s forwards;
+        min-width: 280px;
+      }
+      .toast-msg i {
+        font-size: 20px;
+      }
+      .toast-success {
+        border-left: 4px solid #16a34a;
+      }
+      .toast-warning {
+        border-left: 4px solid var(--accent-orange);
+      }
+      .toast-info {
+        border-left: 4px solid var(--primary);
+      }
+      @keyframes fadeInRight {
+        from {
+          transform: translateX(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      /* ── REVISION HISTORY ── */
+      .revision-item {
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .revision-item:last-child {
+        margin-bottom: 0;
+      }
+      .revision-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .revision-version {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .revision-date {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .revision-comment {
+        font-size: 13px;
+        color: #475569;
+      }
+
+      /* ── FLOW BANNER ── */
+      .flow-banner {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        border-radius: 14px;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        gap: 0;
+        overflow: hidden;
+      }
+      .flow-step-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        font-weight: 700;
+        position: relative;
+      }
+      .flow-step-item.active {
+        color: white;
+      }
+      .flow-step-item.done {
+        color: #86efac;
+      }
+      .flow-step-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+      .flow-step-item.done .flow-step-num {
+        background: #16a34a;
+      }
+      .flow-step-item.active .flow-step-num {
+        background: var(--accent-orange);
+      }
+      .flow-arrow {
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 18px;
+        margin: 0 6px;
+        flex-shrink: 0;
+      }
+
+      /* ── SECTION DIVIDER ── */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .section-divider-line {
+        flex: 1;
+        height: 1.5px;
+        background: var(--border);
+      }
+      .section-divider-label {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* ── AI LOADING ── */
+      .ai-loading {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        font-size: 13px;
+        color: var(--primary);
+      }
+      .ai-loading.visible {
+        display: flex;
+      }
+      .ai-spinner {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #c4b5fd;
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── COORD VIEW BTN ── */
+      .coord-view-trigger {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .coord-view-trigger:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .coord-view-trigger i {
+        font-size: 20px;
+        color: var(--accent-orange);
+      }
+
+      /* ── FILTER TABS ── */
+      .filter-tabs {
+        display: flex;
+        gap: 8px;
+      }
+      .filter-tab {
+        padding: 7px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        border: 2px solid var(--border);
+        background: white;
+        color: var(--muted);
+        transition: all 0.2s;
+      }
+      .filter-tab.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: white;
+      }
+      .filter-tab:hover:not(.active) {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* ── SCROLLBAR ── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-logo"><i class="ti ti-cpu"></i> SIPE</div>
+        <div class="sidebar-menu">
+          <a href="../index.html" class="menu-item"
+            ><i class="ti ti-layout-dashboard"></i> Dashboard</a
+          >
+          <a href="./planejamento.html" class="menu-item"
+            ><i class="ti ti-file-text"></i> Planejamentos</a
+          >
+          <a href="./avaliacoes.html" class="menu-item"
+            ><i class="ti ti-clipboard-list"></i> Avaliações</a
+          >
+          <a href="./biblioteca.html" class="menu-item"
+            ><i class="ti ti-books"></i> Biblioteca</a
+          >
+          <a href="./feedback.html" class="menu-item active"
+            ><i class="ti ti-message-heart"></i> Feedback Coordenação</a
+          >
         </div>
-    </main>
-</body>
+        <div class="sidebar-footer">
+          <a href="#" class="menu-item" style="padding: 10px 14px"
+            ><i class="ti ti-settings"></i> Configurações</a
+          >
+          <a href="#" class="menu-item" style="padding: 10px 14px"
+            ><i class="ti ti-headset"></i> Suporte</a
+          >
+        </div>
+      </div>
 
+      <!-- MAIN PANEL -->
+      <div class="main-panel">
+        <!-- HEADER -->
+        <div class="header">
+          <div class="header-left">
+            <select class="school-selector">
+              <option>Colégio Cavlac</option>
+              <option>Colégio Anglo</option>
+            </select>
+          </div>
+          <div class="header-right">
+            <div class="nav-icon-btn" onclick="toggleNotifPanel()">
+              <i class="ti ti-bell"></i>
+              <div class="badge-orange" id="notifBadge">3</div>
+            </div>
+            <button class="coord-view-trigger" onclick="openCoordModal()">
+              <i class="ti ti-user-shield"></i> Visualizar como Coordenador
+            </button>
+            <div class="user-profile-header">
+              <div class="user-avatar">PE</div>
+              <span>Profª Elisabete</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div class="page-container">
+          <!-- TITLE -->
+          <div>
+            <div class="page-title">Feedback da Coordenação</div>
+            <div class="page-subtitle">
+              Acompanhe o status dos planejamentos e avaliações enviados para
+              análise.
+            </div>
+          </div>
+
+          <!-- FLOW BANNER -->
+          <div class="flow-banner">
+            <div class="flow-step-item done">
+              <div class="flow-step-num">
+                <i class="ti ti-check" style="font-size: 14px"></i>
+              </div>
+              <span>Professor Cria</span>
+            </div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step-item done">
+              <div class="flow-step-num">
+                <i class="ti ti-check" style="font-size: 14px"></i>
+              </div>
+              <span>Envia à Coord.</span>
+            </div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step-item active">
+              <div class="flow-step-num">3</div>
+              <span>Análise</span>
+            </div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step-item">
+              <div class="flow-step-num">4</div>
+              <span>Correções</span>
+            </div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step-item">
+              <div class="flow-step-num">5</div>
+              <span>Aprovação Final</span>
+            </div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step-item">
+              <div class="flow-step-num">6</div>
+              <span>Histórico</span>
+            </div>
+          </div>
+
+          <!-- KPI CARDS -->
+          <div class="kpi-grid">
+            <div class="kpi-card" id="kpi1">
+              <div class="kpi-icon" style="background: #dcfce7; color: #15803d">
+                <i class="ti ti-circle-check-filled"></i>
+              </div>
+              <div>
+                <div class="kpi-number" style="color: #15803d">12</div>
+                <div class="kpi-label">Planejamentos Aprovados</div>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi2">
+              <div class="kpi-icon" style="background: #fef9c3; color: #a16207">
+                <i class="ti ti-clock-edit"></i>
+              </div>
+              <div>
+                <div class="kpi-number" style="color: #a16207">3</div>
+                <div class="kpi-label">Aguardando Ajustes</div>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi3">
+              <div class="kpi-icon" style="background: #fee2e2; color: #b91c1c">
+                <i class="ti ti-circle-x-filled"></i>
+              </div>
+              <div>
+                <div class="kpi-number" style="color: #b91c1c">1</div>
+                <div class="kpi-label">Rejeitados</div>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi4">
+              <div class="kpi-icon" style="background: #ede9fe; color: #6d28d9">
+                <i class="ti ti-file-certificate"></i>
+              </div>
+              <div>
+                <div class="kpi-number" style="color: #6d28d9">8</div>
+                <div class="kpi-label">Avaliações Aprovadas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN LAYOUT: LIST + DETAIL -->
+          <div class="main-layout">
+            <!-- LEFT: PLANNING LIST -->
+            <div>
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">
+                    <i class="ti ti-file-stack"></i> Planejamentos Enviados
+                  </div>
+                  <div class="filter-tabs">
+                    <button
+                      class="filter-tab active"
+                      onclick="filterPlans('all', this)"
+                    >
+                      Todos
+                    </button>
+                    <button
+                      class="filter-tab"
+                      onclick="filterPlans('pending', this)"
+                    >
+                      Ajustes
+                    </button>
+                    <button
+                      class="filter-tab"
+                      onclick="filterPlans('approved', this)"
+                    >
+                      Aprovados
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PLAN CARD 1 — Pending -->
+                <div
+                  class="plan-card pending"
+                  id="plan1"
+                  onclick="selectPlan(1)"
+                >
+                  <div class="plan-card-top">
+                    <div>
+                      <div class="plan-name">
+                        Planejamento Semanal — Matemática
+                      </div>
+                      <div class="plan-meta" style="margin-top: 5px">
+                        <span><i class="ti ti-users"></i> 3º Ano A</span>
+                        <span
+                          ><i class="ti ti-calendar"></i> 12/05 a 16/05</span
+                        >
+                        <span
+                          ><i class="ti ti-send"></i> Enviado 14/05/2026</span
+                        >
+                      </div>
+                    </div>
+                    <span class="status-badge pending"
+                      ><i class="ti ti-clock"></i> Ajustes Solicitados</span
+                    >
+                  </div>
+                  <div class="plan-comment">
+                    <i class="ti ti-message-dots"></i>
+                    <span
+                      >"Adicionar atividade prática na quinta-feira. Reforçar
+                      conteúdo de sistema monetário."</span
+                    >
+                  </div>
+                  <div class="plan-actions">
+                    <button
+                      class="btn btn-primary"
+                      onclick="applyCorrections(event, 1)"
+                    >
+                      <i class="ti ti-pencil"></i> Aplicar Correções
+                    </button>
+                    <button class="btn btn-ghost" onclick="selectPlan(1)">
+                      <i class="ti ti-history"></i> Histórico
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PLAN CARD 2 — Approved -->
+                <div
+                  class="plan-card approved"
+                  id="plan2"
+                  onclick="selectPlan(2)"
+                >
+                  <div class="plan-card-top">
+                    <div>
+                      <div class="plan-name">
+                        Planejamento Semanal — História
+                      </div>
+                      <div class="plan-meta" style="margin-top: 5px">
+                        <span><i class="ti ti-users"></i> 8º Ano B</span>
+                        <span
+                          ><i class="ti ti-calendar"></i> 05/05 a 09/05</span
+                        >
+                        <span
+                          ><i class="ti ti-send"></i> Enviado 08/05/2026</span
+                        >
+                      </div>
+                    </div>
+                    <span class="status-badge approved"
+                      ><i class="ti ti-circle-check"></i> Aprovado</span
+                    >
+                  </div>
+                  <div
+                    class="plan-comment"
+                    style="border-color: #bbf7d0; background: #f0fdf4"
+                  >
+                    <i class="ti ti-message-dots" style="color: #16a34a"></i>
+                    <span style="color: #166534"
+                      >"Planejamento excelente! Boa articulação com as
+                      competências da BNCC. Aprovado sem ressalvas."</span
+                    >
+                  </div>
+                  <div class="plan-actions">
+                    <button
+                      class="btn btn-outline"
+                      onclick="viewDocument(event)"
+                    >
+                      <i class="ti ti-eye"></i> Visualizar Documento
+                    </button>
+                    <button class="btn btn-ghost" onclick="selectPlan(2)">
+                      <i class="ti ti-history"></i> Histórico
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PLAN CARD 3 — Rejected -->
+                <div
+                  class="plan-card rejected"
+                  id="plan3"
+                  onclick="selectPlan(3)"
+                >
+                  <div class="plan-card-top">
+                    <div>
+                      <div class="plan-name">
+                        Planejamento Bimestral — Artes
+                      </div>
+                      <div class="plan-meta" style="margin-top: 5px">
+                        <span><i class="ti ti-users"></i> 6º Ano C</span>
+                        <span><i class="ti ti-calendar"></i> Bimestre 1</span>
+                        <span
+                          ><i class="ti ti-send"></i> Enviado 29/04/2026</span
+                        >
+                      </div>
+                    </div>
+                    <span class="status-badge rejected"
+                      ><i class="ti ti-x"></i> Rejeitado</span
+                    >
+                  </div>
+                  <div
+                    class="plan-comment"
+                    style="border-color: #fca5a5; background: #fff5f5"
+                  >
+                    <i class="ti ti-message-dots" style="color: #b91c1c"></i>
+                    <span style="color: #991b1b"
+                      >"Objetivos de aprendizagem não estão alinhados ao PPP.
+                      Incluir estratégia diferenciada para recuperação."</span
+                    >
+                  </div>
+                  <div class="plan-actions">
+                    <button class="btn btn-danger" onclick="resendPlan(event)">
+                      <i class="ti ti-refresh"></i> Reenviar Planejamento
+                    </button>
+                    <button class="btn btn-ghost" onclick="selectPlan(3)">
+                      <i class="ti ti-history"></i> Histórico
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PLAN CARD 4 — Pending -->
+                <div
+                  class="plan-card pending"
+                  id="plan4"
+                  onclick="selectPlan(4)"
+                  style="display: none"
+                >
+                  <div class="plan-card-top">
+                    <div>
+                      <div class="plan-name">
+                        Planejamento Semanal — Geografia
+                      </div>
+                      <div class="plan-meta" style="margin-top: 5px">
+                        <span><i class="ti ti-users"></i> 7º Ano A</span>
+                        <span
+                          ><i class="ti ti-calendar"></i> 19/05 a 23/05</span
+                        >
+                        <span
+                          ><i class="ti ti-send"></i> Enviado 21/05/2026</span
+                        >
+                      </div>
+                    </div>
+                    <span class="status-badge pending"
+                      ><i class="ti ti-clock"></i> Ajustes Solicitados</span
+                    >
+                  </div>
+                  <div class="plan-comment">
+                    <i class="ti ti-message-dots"></i>
+                    <span
+                      >"Incluir estratégia diferenciada para recuperação dos
+                      alunos com dificuldade."</span
+                    >
+                  </div>
+                  <div class="plan-actions">
+                    <button
+                      class="btn btn-primary"
+                      onclick="applyCorrections(event, 4)"
+                    >
+                      <i class="ti ti-pencil"></i> Aplicar Correções
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: DETAIL PANEL -->
+            <div class="detail-panel" id="detailPanel">
+              <!-- TIMELINE CARD -->
+              <div class="card" id="timelineCard">
+                <div class="card-title" style="margin-bottom: 18px">
+                  <i class="ti ti-timeline"></i> Timeline de Aprovação
+                </div>
+                <div id="timelineContent">
+                  <!-- filled by JS -->
+                </div>
+              </div>
+
+              <!-- REVISION HISTORY -->
+              <div class="card" id="revisionsCard">
+                <div class="card-title" style="margin-bottom: 18px">
+                  <i class="ti ti-versions"></i> Histórico de Revisões
+                </div>
+                <div id="revisionsContent">
+                  <!-- filled by JS -->
+                </div>
+              </div>
+
+              <!-- AI SUGGESTION -->
+              <div class="ai-box" id="aiBox" style="display: none">
+                <div class="ai-box-header">
+                  <i class="ti ti-sparkles"></i>
+                  <div class="ai-box-title">Sugestões da IA para Correção</div>
+                </div>
+                <div class="ai-box-desc" id="aiBoxDesc"></div>
+                <div class="ai-loading" id="aiLoading">
+                  <div class="ai-spinner"></div>
+                  <span>Gerando sugestões pedagógicas...</span>
+                </div>
+                <div class="ai-suggestions" id="aiSuggestions"></div>
+                <button
+                  class="btn btn-primary"
+                  style="width: 100%; justify-content: center"
+                  onclick="generateSuggestions()"
+                >
+                  <i class="ti ti-bolt"></i> Gerar Sugestões
+                </button>
+              </div>
+
+              <!-- NOTIFICATIONS -->
+              <div class="card" id="notifCard" style="display: none">
+                <div class="card-title" style="margin-bottom: 18px">
+                  <i class="ti ti-bell-ringing"></i> Notificações
+                </div>
+                <div class="notif-item unread">
+                  <div
+                    class="notif-icon"
+                    style="background: #dcfce7; color: #16a34a"
+                  >
+                    <i class="ti ti-circle-check"></i>
+                  </div>
+                  <div style="flex: 1">
+                    <div class="notif-text">
+                      Seu planejamento de História foi aprovado.
+                    </div>
+                    <div class="notif-time">Hoje, 09:14</div>
+                  </div>
+                  <div class="notif-dot"></div>
+                </div>
+                <div class="notif-item unread">
+                  <div
+                    class="notif-icon"
+                    style="background: #fef9c3; color: #a16207"
+                  >
+                    <i class="ti ti-clock-edit"></i>
+                  </div>
+                  <div style="flex: 1">
+                    <div class="notif-text">
+                      A coordenação solicitou ajustes no planejamento de
+                      Matemática.
+                    </div>
+                    <div class="notif-time">Hoje, 08:47</div>
+                  </div>
+                  <div class="notif-dot"></div>
+                </div>
+                <div class="notif-item unread">
+                  <div
+                    class="notif-icon"
+                    style="background: #ede9fe; color: #6d28d9"
+                  >
+                    <i class="ti ti-file-certificate"></i>
+                  </div>
+                  <div style="flex: 1">
+                    <div class="notif-text">
+                      Sua avaliação de História (8º Ano) foi validada.
+                    </div>
+                    <div class="notif-time">Ontem, 16:22</div>
+                  </div>
+                  <div class="notif-dot"></div>
+                </div>
+                <div class="notif-item">
+                  <div
+                    class="notif-icon"
+                    style="background: #fff7ed; color: #f97316"
+                  >
+                    <i class="ti ti-alarm"></i>
+                  </div>
+                  <div style="flex: 1">
+                    <div class="notif-text">
+                      Prazo de entrega do planejamento bimestral se aproxima.
+                    </div>
+                    <div class="notif-time">18/06/2026</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end page-container -->
+      </div>
+      <!-- end main-panel -->
+    </div>
+    <!-- end app -->
+
+    <!-- COORDINATOR VIEW MODAL -->
+    <div class="modal-overlay" id="coordModal">
+      <div class="modal">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">Visão da Coordenação</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 3px">
+              Painel de revisão e aprovação de planejamentos
+            </div>
+          </div>
+          <button class="modal-close" onclick="closeCoordModal()">
+            <i class="ti ti-x"></i>
+          </button>
+        </div>
+        <div class="coord-view-badge">
+          <i class="ti ti-user-shield"></i>
+          <div>
+            <div class="coord-view-title">
+              Coordenadora Pedagógica — Profa. Fernanda Lins
+            </div>
+            <div class="coord-view-sub">
+              Colégio Cavlac · Ensino Fundamental II · Ano Letivo 2026
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 14px;
+          "
+        >
+          Planejamentos Recebidos para Análise
+        </div>
+        <div class="coord-plan-item">
+          <div class="coord-plan-top">
+            <div>
+              <div class="coord-plan-name">
+                Planejamento Semanal — Matemática
+              </div>
+              <div class="coord-plan-info">
+                Profª Elisabete · 3º Ano A · 12/05 a 16/05
+              </div>
+            </div>
+            <span class="status-badge pending"
+              ><i class="ti ti-clock"></i> Em Análise</span
+            >
+          </div>
+          <div class="coord-actions">
+            <button
+              class="coord-action-btn coord-approve"
+              onclick="coordAction(this, 'aprovado')"
+            >
+              <i class="ti ti-circle-check"></i> Aprovar
+            </button>
+            <button
+              class="coord-action-btn coord-adjust"
+              onclick="coordAction(this, 'ajustes')"
+            >
+              <i class="ti ti-pencil"></i> Solicitar Ajustes
+            </button>
+            <button
+              class="coord-action-btn coord-reject"
+              onclick="coordAction(this, 'rejeitado')"
+            >
+              <i class="ti ti-x"></i> Rejeitar
+            </button>
+          </div>
+        </div>
+        <div class="coord-plan-item">
+          <div class="coord-plan-top">
+            <div>
+              <div class="coord-plan-name">Planejamento Bimestral — Artes</div>
+              <div class="coord-plan-info">
+                Profª Elisabete · 6º Ano C · Bimestre 1
+              </div>
+            </div>
+            <span class="status-badge rejected"
+              ><i class="ti ti-x"></i> Rejeitado</span
+            >
+          </div>
+          <div class="coord-actions">
+            <button
+              class="coord-action-btn coord-approve"
+              onclick="coordAction(this, 'aprovado')"
+            >
+              <i class="ti ti-circle-check"></i> Aprovar
+            </button>
+            <button
+              class="coord-action-btn coord-adjust"
+              onclick="coordAction(this, 'ajustes')"
+            >
+              <i class="ti ti-pencil"></i> Solicitar Ajustes
+            </button>
+            <button
+              class="coord-action-btn coord-reject"
+              onclick="coordAction(this, 'rejeitado')"
+            >
+              <i class="ti ti-x"></i> Rejeitar
+            </button>
+          </div>
+        </div>
+        <div class="coord-plan-item">
+          <div class="coord-plan-top">
+            <div>
+              <div class="coord-plan-name">
+                Planejamento Semanal — Geografia
+              </div>
+              <div class="coord-plan-info">
+                Profª Elisabete · 7º Ano A · 19/05 a 23/05
+              </div>
+            </div>
+            <span class="status-badge pending"
+              ><i class="ti ti-clock"></i> Em Análise</span
+            >
+          </div>
+          <div class="coord-actions">
+            <button
+              class="coord-action-btn coord-approve"
+              onclick="coordAction(this, 'aprovado')"
+            >
+              <i class="ti ti-circle-check"></i> Aprovar
+            </button>
+            <button
+              class="coord-action-btn coord-adjust"
+              onclick="coordAction(this, 'ajustes')"
+            >
+              <i class="ti ti-pencil"></i> Solicitar Ajustes
+            </button>
+            <button
+              class="coord-action-btn coord-reject"
+              onclick="coordAction(this, 'rejeitado')"
+            >
+              <i class="ti ti-x"></i> Rejeitar
+            </button>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 20px;
+            padding: 14px 16px;
+            background: #f5f3ff;
+            border-radius: 10px;
+            border: 1.5px solid #c4b5fd;
+            font-size: 13px;
+            color: #4c1d95;
+          "
+        >
+          <strong>💡 SIPE — Governança Pedagógica:</strong> Todo histórico de
+          aprovações, ajustes e rejeições fica registrado permanentemente no
+          sistema, garantindo rastreabilidade institucional completa.
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+      // ── DATA ──
+      const planData = {
+        1: {
+          title: "Planejamento Semanal — Matemática",
+          status: "pending",
+          timeline: [
+            {
+              status: "done",
+              icon: "ti-circle-plus",
+              title: "Planejamento Criado",
+              date: "10/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-send",
+              title: "Enviado para Coordenação",
+              date: "11/05/2026",
+            },
+            {
+              status: "pending",
+              icon: "ti-clock-edit",
+              title: "Ajustes Solicitados",
+              date: "12/05/2026",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-pencil",
+              title: "Correções Aplicadas",
+              date: "—",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-circle-check",
+              title: "Aprovação Final",
+              date: "—",
+            },
+          ],
+          revisions: [
+            {
+              version: "Versão 1",
+              date: "11/05/2026",
+              comment: '"Adicionar atividade prática na quinta-feira."',
+            },
+            {
+              version: "Versão atual",
+              date: "12/05/2026",
+              comment: '"Aguardando aplicação das correções solicitadas."',
+            },
+          ],
+          aiPrompt:
+            "A coordenação solicitou atividade prática e reforço em sistema monetário. Deseja gerar sugestões pedagógicas?",
+          aiSuggestions: [
+            {
+              icon: "ti-device-gamepad-2",
+              text: "Atividade prática: Simulação de mercado com uso de notas fictícias — exercita operações e sistema monetário de forma lúdica.",
+            },
+            {
+              icon: "ti-files",
+              text: "Proposta: Exercício em duplas com recorte de preços de supermercado para calcular troco e comparar valores.",
+            },
+            {
+              icon: "ti-bulb",
+              text: 'Sugestão: Criação de um "cardápio de lanchonete" pelos alunos, praticando adição, subtração e representação de valores.',
+            },
+          ],
+        },
+        2: {
+          title: "Planejamento Semanal — História",
+          status: "approved",
+          timeline: [
+            {
+              status: "done",
+              icon: "ti-circle-plus",
+              title: "Planejamento Criado",
+              date: "05/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-send",
+              title: "Enviado para Coordenação",
+              date: "06/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-clock-edit",
+              title: "Ajustes Solicitados",
+              date: "07/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-pencil",
+              title: "Correções Aplicadas",
+              date: "08/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-circle-check",
+              title: "Aprovado",
+              date: "08/05/2026",
+            },
+          ],
+          revisions: [
+            {
+              version: "Versão 1",
+              date: "06/05/2026",
+              comment: '"Aprofundar análise das causas da 2ª Guerra Mundial."',
+            },
+            {
+              version: "Versão 2",
+              date: "07/05/2026",
+              comment: '"Incluir fonte primária como documento de análise."',
+            },
+            {
+              version: "Versão 3 — Aprovada",
+              date: "08/05/2026",
+              comment:
+                '"Planejamento aprovado sem ressalvas. Excelente estrutura BNCC."',
+            },
+          ],
+          aiPrompt: null,
+          aiSuggestions: [],
+        },
+        3: {
+          title: "Planejamento Bimestral — Artes",
+          status: "rejected",
+          timeline: [
+            {
+              status: "done",
+              icon: "ti-circle-plus",
+              title: "Planejamento Criado",
+              date: "26/04/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-send",
+              title: "Enviado para Coordenação",
+              date: "27/04/2026",
+            },
+            {
+              status: "rejected",
+              icon: "ti-x",
+              title: "Rejeitado pela Coordenação",
+              date: "29/04/2026",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-refresh",
+              title: "Aguardando Reenvio",
+              date: "—",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-circle-check",
+              title: "Aprovação Final",
+              date: "—",
+            },
+          ],
+          revisions: [
+            {
+              version: "Versão 1 — Rejeitada",
+              date: "29/04/2026",
+              comment:
+                '"Objetivos não alinhados ao PPP. Falta estratégia de recuperação."',
+            },
+          ],
+          aiPrompt:
+            "O planejamento foi rejeitado por desalinhamento com o PPP. Deseja sugestões para reestruturação?",
+          aiSuggestions: [
+            {
+              icon: "ti-target",
+              text: "Reformular objetivos de aprendizagem com base nas competências específicas do componente Arte (BNCC — EF69AR).",
+            },
+            {
+              icon: "ti-users",
+              text: "Incluir atividades diferenciadas: alunos em recuperação recebem roteiro simplificado com os mesmos conteúdos em linguagem visual acessível.",
+            },
+            {
+              icon: "ti-book",
+              text: "Vincular o planejamento ao Projeto Político-Pedagógico: citar eixo temático e competências previstas no documento institucional.",
+            },
+          ],
+        },
+        4: {
+          title: "Planejamento Semanal — Geografia",
+          status: "pending",
+          timeline: [
+            {
+              status: "done",
+              icon: "ti-circle-plus",
+              title: "Planejamento Criado",
+              date: "19/05/2026",
+            },
+            {
+              status: "done",
+              icon: "ti-send",
+              title: "Enviado para Coordenação",
+              date: "20/05/2026",
+            },
+            {
+              status: "pending",
+              icon: "ti-clock-edit",
+              title: "Ajustes Solicitados",
+              date: "21/05/2026",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-pencil",
+              title: "Correções Aplicadas",
+              date: "—",
+            },
+            {
+              status: "upcoming",
+              icon: "ti-circle-check",
+              title: "Aprovação Final",
+              date: "—",
+            },
+          ],
+          revisions: [
+            {
+              version: "Versão 1",
+              date: "20/05/2026",
+              comment:
+                '"Incluir estratégia diferenciada para alunos com dificuldade."',
+            },
+          ],
+          aiPrompt:
+            "A coordenação solicitou estratégia diferenciada. Deseja gerar sugestões de atividades de recuperação?",
+          aiSuggestions: [
+            {
+              icon: "ti-map",
+              text: "Proposta diferenciada: Alunos com dificuldade trabalham com mapa mudo interativo — identificam biomas com legendas guiadas.",
+            },
+            {
+              icon: "ti-video",
+              text: "Usar vídeo-aula curta (5 min) do conteúdo principal como reforço prévio para alunos em recuperação antes da aula coletiva.",
+            },
+            {
+              icon: "ti-star",
+              text: "Atividade gamificada: Quiz por equipes onde alunos com dificuldade são estrategicamente distribuídos para aprendizagem cooperativa.",
+            },
+          ],
+        },
+      };
+
+      let selectedPlan = null;
+      let suggestionsGenerated = {};
+
+      // ── INIT ──
+      document.addEventListener("DOMContentLoaded", () => {
+        // Animate KPI cards
+        const kpis = document.querySelectorAll(".kpi-card");
+        kpis.forEach((kpi, i) => {
+          setTimeout(() => kpi.classList.add("visible"), 150 + i * 100);
+        });
+
+        // Select first plan by default
+        selectPlan(1);
+      });
+
+      // ── SELECT PLAN ──
+      function selectPlan(id) {
+        selectedPlan = id;
+        document
+          .querySelectorAll(".plan-card")
+          .forEach((c) => c.classList.remove("selected"));
+        const card = document.getElementById("plan" + id);
+        if (card) card.classList.add("selected");
+
+        const data = planData[id];
+        renderTimeline(data.timeline);
+        renderRevisions(data.revisions);
+
+        const aiBox = document.getElementById("aiBox");
+        if (data.aiPrompt) {
+          aiBox.style.display = "block";
+          document.getElementById("aiBoxDesc").textContent = data.aiPrompt;
+          const suggestions = document.getElementById("aiSuggestions");
+          if (suggestionsGenerated[id]) {
+            renderSuggestions(id);
+            suggestions.classList.add("visible");
+            aiBox.querySelector("button").style.display = "none";
+            document.getElementById("aiLoading").classList.remove("visible");
+          } else {
+            suggestions.classList.remove("visible");
+            suggestions.innerHTML = "";
+            aiBox.querySelector("button").style.display = "";
+            document.getElementById("aiLoading").classList.remove("visible");
+          }
+        } else {
+          aiBox.style.display = "none";
+        }
+
+        // Show notif panel on first load
+        document.getElementById("notifCard").style.display =
+          id === 1 ? "block" : "none";
+      }
+
+      function renderTimeline(steps) {
+        const container = document.getElementById("timelineContent");
+        container.innerHTML = steps
+          .map(
+            (s) => `
+      <div class="timeline-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot ${s.status}">
+            <i class="ti ${s.icon}" style="font-size:15px"></i>
+          </div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-title">${s.title}</div>
+          <div class="tl-date">${s.date}</div>
+        </div>
+      </div>
+    `,
+          )
+          .join("");
+      }
+
+      function renderRevisions(revisions) {
+        const container = document.getElementById("revisionsContent");
+        container.innerHTML = revisions
+          .map(
+            (r) => `
+      <div class="revision-item">
+        <div class="revision-header">
+          <span class="revision-version">${r.version}</span>
+          <span class="revision-date">${r.date}</span>
+        </div>
+        <div class="revision-comment">${r.comment}</div>
+      </div>
+    `,
+          )
+          .join("");
+      }
+
+      // ── AI SUGGESTIONS ──
+      function generateSuggestions() {
+        if (!selectedPlan) return;
+        const id = selectedPlan;
+        const loading = document.getElementById("aiLoading");
+        const btn = document.querySelector("#aiBox button");
+        loading.classList.add("visible");
+        btn.style.display = "none";
+
+        setTimeout(() => {
+          loading.classList.remove("visible");
+          suggestionsGenerated[id] = true;
+          renderSuggestions(id);
+          document.getElementById("aiSuggestions").classList.add("visible");
+          showToast(
+            "Sugestões pedagógicas geradas com sucesso!",
+            "info",
+            "ti-sparkles",
+          );
+        }, 1800);
+      }
+
+      function renderSuggestions(id) {
+        const container = document.getElementById("aiSuggestions");
+        const data = planData[id];
+        container.innerHTML = data.aiSuggestions
+          .map(
+            (s) => `
+      <div class="ai-suggestion-item">
+        <i class="ti ${s.icon}"></i>
+        <span>${s.text}</span>
+      </div>
+    `,
+          )
+          .join("");
+      }
+
+      // ── FILTER ──
+      function filterPlans(filter, btn) {
+        document
+          .querySelectorAll(".filter-tab")
+          .forEach((t) => t.classList.remove("active"));
+        btn.classList.add("active");
+
+        const cards = {
+          plan1: "pending",
+          plan2: "approved",
+          plan3: "rejected",
+          plan4: "pending",
+        };
+        Object.entries(cards).forEach(([id, status]) => {
+          const el = document.getElementById(id);
+          if (filter === "all" || filter === status) {
+            el.style.display = "block";
+          } else {
+            el.style.display = "none";
+          }
+        });
+      }
+
+      // ── ACTIONS ──
+      function applyCorrections(event, id) {
+        event.stopPropagation();
+        showToast("Abrindo editor de planejamento...", "info", "ti-pencil");
+        setTimeout(() => {
+          showToast(
+            "Planejamento aberto para edição!",
+            "success",
+            "ti-circle-check",
+          );
+        }, 1000);
+      }
+
+      function viewDocument(event) {
+        event.stopPropagation();
+        showToast("Abrindo documento aprovado...", "success", "ti-eye");
+      }
+
+      function resendPlan(event) {
+        event.stopPropagation();
+        showToast(
+          "Preparando reenvio do planejamento...",
+          "warning",
+          "ti-refresh",
+        );
+        setTimeout(() => {
+          showToast(
+            "Planejamento reenviado à coordenação!",
+            "success",
+            "ti-send",
+          );
+        }, 1200);
+      }
+
+      // ── NOTIFICATIONS ──
+      function toggleNotifPanel() {
+        const notifCard = document.getElementById("notifCard");
+        const visible = notifCard.style.display === "block";
+        notifCard.style.display = visible ? "none" : "block";
+        document.getElementById("notifBadge").textContent = "0";
+        if (!visible) {
+          selectPlan(1);
+          setTimeout(() => {
+            notifCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 100);
+        }
+      }
+
+      // ── COORD MODAL ──
+      function openCoordModal() {
+        document.getElementById("coordModal").classList.add("open");
+      }
+      function closeCoordModal() {
+        document.getElementById("coordModal").classList.remove("open");
+      }
+      document
+        .getElementById("coordModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeCoordModal();
+        });
+
+      function coordAction(btn, action) {
+        const item = btn.closest(".coord-plan-item");
+        const badge = item.querySelector(".status-badge");
+        const actions = item.querySelector(".coord-actions");
+
+        if (action === "aprovado") {
+          badge.className = "status-badge approved";
+          badge.innerHTML = '<i class="ti ti-circle-check"></i> Aprovado';
+          showToast(
+            "Planejamento aprovado com sucesso!",
+            "success",
+            "ti-circle-check",
+          );
+        } else if (action === "ajustes") {
+          badge.className = "status-badge pending";
+          badge.innerHTML = '<i class="ti ti-clock"></i> Ajustes Solicitados';
+          showToast(
+            "Solicitação de ajustes enviada ao professor!",
+            "warning",
+            "ti-clock",
+          );
+        } else {
+          badge.className = "status-badge rejected";
+          badge.innerHTML = '<i class="ti ti-x"></i> Rejeitado';
+          showToast(
+            "Planejamento rejeitado. Professor será notificado.",
+            "warning",
+            "ti-x",
+          );
+        }
+        // disable buttons after action
+        actions.querySelectorAll("button").forEach((b) => {
+          b.disabled = true;
+          b.style.opacity = "0.4";
+        });
+      }
+
+      // ── TOAST ──
+      function showToast(msg, type, icon) {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = `toast-msg toast-${type}`;
+        toast.innerHTML = `<i class="ti ${icon}" style="font-size:18px"></i> ${msg}`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3100);
+      }
+    </script>
+  </body>
 </html>

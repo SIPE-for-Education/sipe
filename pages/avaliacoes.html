@@ -1,56 +1,2096 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIPE — Gerador de Avaliações</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Satisfy&display=swap");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIPE - Avaliações</title>
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --primary: #6d28d9;
+        --secondary: #455629;
+        --sidebar-bg: #0f172a;
+        --accent-orange: #f97316;
+        --alert-critical-text: #e11d48;
+        --bg: #f1f5f9;
+        --white: #ffffff;
+        --border: #cbd5e1;
+        --text: #000;
+        --muted: #334155;
+        --sidebar-w: 260px;
+        --header-h: 75px;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 19px;
+        line-height: 1.6;
+        height: 100vh;
+      }
+      .app {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
 
-</head>
+      /* SIDEBAR */
+      .sidebar {
+        width: var(--sidebar-w);
+        background: var(--sidebar-bg);
+        color: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+      .sidebar:hover {
+        width: 290px;
+      }
+      .sidebar-logo {
+        padding: 24px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sidebar-logo i {
+        color: var(--accent-orange);
+      }
+      .sidebar-menu {
+        padding: 20px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+      }
+      .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 18px;
+        color: #94a3b8;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .menu-item i {
+        margin-right: 14px;
+        font-size: 24px;
+      }
+      .menu-item:hover,
+      .menu-item.active {
+        background: var(--secondary);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
+      }
+      .sidebar-footer {
+        padding: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
 
-<body>
-    <main class="app">
+      /* MAIN */
+      .main-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .header {
+        height: var(--header-h);
+        background: var(--white);
+        border-bottom: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        flex-shrink: 0;
+        z-index: 5;
+      }
+      .school-selector {
+        padding: 8px 18px;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--secondary);
+        background: transparent;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: uppercase;
+        outline: none;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-icon-btn {
+        background: #fff7ed;
+        border: 2px solid var(--accent-orange);
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+      .nav-icon-btn i {
+        font-size: 32px;
+        color: var(--accent-orange);
+      }
+      .badge-orange {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #fff;
+        color: var(--accent-orange);
+        font-size: 14px;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--accent-orange);
+      }
+      .user-profile-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .user-avatar {
+        width: 45px;
+        height: 45px;
+        background: var(--secondary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
 
-        <div class="sidebar">
-            <div class="sidebar-logo">
-                <i class="ti ti-cpu"></i>
-                <span>SIPE</span>
-            </div>
+      .page-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
 
-            <div class="sidebar-menu">
-                <a href="../index.html" class="menu-item">
-                    <i class="ti ti-layout-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="./planejamento.html" class="menu-item">
-                    <i class="ti ti-file-text"></i>
-                    <span>Planejamentos</span>
-                </a>
-                <a href="./avaliacoes.html" class="menu-item active">
-                    <i class="ti ti-clipboard-list"></i> <span>Avaliações</span>
-                </a>
-                <a href="./biblioteca.html" class="menu-item">
-                    <i class="ti ti-books"></i> <span>Biblioteca</span>
-                </a>
-                <a href="./feedback.html" class="menu-item">
-                    <i class="ti ti-message-heart"></i> <span>Feedback Coordenação</span>
-                </a>
-            </div>
+      /* PAGE TITLE */
+      .page-title {
+        font-family: "Satisfy", cursive;
+        font-size: 52px;
+        color: #000;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-size: 17px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
 
-            <div class="sidebar-footer">
-                <a href="#" class="menu-item" style="padding: 10px 14px;">
-                    <i class="ti ti-settings"></i>
-                    <span>Configurações</span>
-                </a>
-                <a href="#" class="menu-item" style="padding: 10px 14px;">
-                    <i class="ti ti-headset"></i>
-                    <span>Suporte</span>
-                </a>
-            </div>
+      /* FLOW TIMELINE */
+      .flow-timeline {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .flow-step {
+        flex: 1;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+      }
+      .flow-step:not(:last-child)::after {
+        content: "›";
+        position: absolute;
+        right: -4px;
+        font-size: 28px;
+        color: #cbd5e1;
+        font-weight: 300;
+        z-index: 1;
+      }
+      .flow-step.done {
+        background: #f0fdf4;
+      }
+      .flow-step.done .fs-icon {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+      .flow-step.active {
+        background: #f5f3ff;
+      }
+      .flow-step.active .fs-icon {
+        background: rgba(109, 40, 217, 0.12);
+        color: var(--primary);
+      }
+      .flow-step.pending .fs-icon {
+        background: #f1f5f9;
+        color: #94a3b8;
+      }
+      .fs-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .fs-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .fs-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* TWO-COL LAYOUT */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 22px;
+        align-items: start;
+      }
+
+      /* CARDS */
+      .card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      }
+      .card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .card-title i {
+        color: var(--primary);
+        font-size: 22px;
+      }
+
+      /* ORIGIN OPTIONS */
+      .origin-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .origin-opt {
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 16px 18px;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .origin-opt:hover {
+        border-color: #c4b5fd;
+        background: #fafaff;
+      }
+      .origin-opt.selected {
+        border-color: var(--primary);
+        background: #f5f3ff;
+        box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+      }
+      .origin-opt .opt-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+        background: #ede9fe;
+      }
+      .origin-opt.selected .opt-icon {
+        background: rgba(109, 40, 217, 0.15);
+      }
+      .origin-opt .opt-label {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .origin-opt .opt-desc {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .origin-opt input[type="radio"] {
+        display: none;
+      }
+
+      /* FIELD */
+      .field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .field-group label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      .field-group select,
+      .field-group input[type="number"] {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        background: #f8fafc;
+        border: 2px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 10px 14px;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .field-group select:focus,
+      .field-group input:focus {
+        border-color: var(--primary);
+      }
+
+      /* DIFFICULTY */
+      .diff-row {
+        display: flex;
+        gap: 8px;
+      }
+      .diff-btn {
+        flex: 1;
+        padding: 10px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f8fafc;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #64748b;
+      }
+      .diff-btn.sel-easy {
+        border-color: #16a34a;
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+      .diff-btn.sel-med {
+        border-color: #d97706;
+        background: #fffbeb;
+        color: #d97706;
+      }
+      .diff-btn.sel-hard {
+        border-color: var(--alert-critical-text);
+        background: #fff5f5;
+        color: var(--alert-critical-text);
+      }
+
+      /* SOURCES PANEL */
+      .source-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 14px;
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .source-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+      .src-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .src-detail {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .src-badge {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-top: 4px;
+        display: inline-block;
+      }
+      .badge-green {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+      .badge-purple {
+        background: #ede9fe;
+        color: var(--primary);
+      }
+
+      /* GENERATE BUTTON */
+      .btn-generate {
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary) 0%, #5b21b6 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 16px 24px;
+        font-size: 17px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 4px 20px rgba(109, 40, 217, 0.35);
+        transition: all 0.2s;
+        margin-top: 18px;
+      }
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(109, 40, 217, 0.45);
+      }
+      .btn-generate i {
+        font-size: 22px;
+      }
+
+      /* QUALITY CARDS */
+      .quality-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .q-card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 18px;
+      }
+      .q-card .q-icon {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
+      .q-card .q-val {
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .q-card .q-label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .q-card.purple .q-val {
+        color: var(--primary);
+      }
+      .q-card.green .q-val {
+        color: #16a34a;
+      }
+      .q-card.orange .q-val {
+        color: var(--accent-orange);
+      }
+      .q-card.red .q-val {
+        color: var(--alert-critical-text);
+      }
+
+      /* DOCUMENT */
+      .doc-action-bar {
+        background: #1e293b;
+        border-radius: 12px 12px 0 0;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .doc-status-chip {
+        font-size: 13px;
+        font-weight: 700;
+        padding: 4px 14px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .chip-wait {
+        background: rgba(249, 115, 22, 0.2);
+        color: #fb923c;
+      }
+      .chip-ok {
+        background: rgba(34, 197, 94, 0.2);
+        color: #4ade80;
+      }
+      .chip-pulse {
+        animation: pulse-c 1.5s ease-in-out infinite;
+      }
+      @keyframes pulse-c {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .doc-bar-right {
+        display: flex;
+        gap: 10px;
+      }
+      .btn-bar {
+        background: transparent;
+        border: 1.5px solid rgba(255, 255, 255, 0.25);
+        color: #cbd5e1;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+      }
+      .btn-bar:hover {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: white;
+      }
+      .btn-bar-primary {
+        background: var(--secondary);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        padding: 8px 18px;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+      }
+      .btn-bar-primary:hover {
+        background: #354721;
+      }
+      .btn-bar-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .institutional-doc {
+        background: white;
+        border: 1px solid #cbd5e1;
+        border-top: none;
+        border-radius: 0 0 12px 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      }
+
+      .doc-header-stripe {
+        background: linear-gradient(135deg, var(--primary) 0%, #4c1d95 100%);
+        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: white;
+      }
+      .doc-school-logo {
+        width: 64px;
+        height: 64px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+      .doc-school-name {
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .doc-school-sub {
+        font-size: 13px;
+        opacity: 0.75;
+      }
+      .doc-meta-strip {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+      }
+      .doc-meta-pill {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .doc-meta-pill span {
+        opacity: 0.7;
+        margin-right: 4px;
+      }
+
+      .doc-info-row {
+        background: #f8fafc;
+        border-bottom: 2px solid #e2e8f0;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .doc-info-cell {
+        padding: 14px 20px;
+        border-right: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .doc-info-cell:last-child {
+        border-right: none;
+      }
+      .info-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      .info-val {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      /* QUESTIONS */
+      .doc-body {
+        padding: 28px 32px 32px;
+      }
+      .section-heading {
+        font-size: 16px;
+        font-weight: 800;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 10px 16px;
+        background: #f1f5f9;
+        border-left: 4px solid var(--primary);
+        border-radius: 4px;
+        margin-bottom: 16px;
+      }
+
+      .question-block {
+        margin-bottom: 22px;
+        padding: 18px 20px;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+        position: relative;
+        transition: background 0.15s;
+      }
+      .question-block:hover {
+        background: #fafaff;
+      }
+      .question-block.ai-filled {
+        border-left: 3px solid var(--primary);
+      }
+      .q-num {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .q-num .trace-tag {
+        background: #ede9fe;
+        color: var(--primary);
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: 700;
+      }
+      .q-text {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
+      .q-options {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        padding-left: 4px;
+      }
+      .q-option {
+        font-size: 14px;
+        color: #334155;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1.5px solid transparent;
+      }
+      .q-option.correct-opt {
+        background: #f0fdf4;
+        border-color: #bbf7d0;
+        color: #15803d;
+        font-weight: 600;
+      }
+      .q-option .opt-letter {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: #f1f5f9;
+        border: 1.5px solid #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .q-option.correct-opt .opt-letter {
+        background: #dcfce7;
+        border-color: #86efac;
+        color: #16a34a;
+      }
+
+      .q-dissert {
+        margin-top: 8px;
+      }
+      .dissert-lines {
+        border-top: 1px dashed #cbd5e1;
+        padding-top: 8px;
+      }
+      .dissert-line {
+        height: 1px;
+        background: #e2e8f0;
+        margin-bottom: 22px;
+        border-radius: 1px;
+      }
+
+      .bncc-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 7px;
+        margin-top: 6px;
+      }
+
+      /* RASTREABILIDADE */
+      .trace-section {
+        background: #fffbeb;
+        border: 2px solid #fde68a;
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-top: 24px;
+      }
+      .trace-title {
+        font-size: 15px;
+        font-weight: 800;
+        color: #92400e;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .trace-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .trace-card {
+        background: white;
+        border: 1.5px solid #fde68a;
+        border-radius: 10px;
+        padding: 14px 16px;
+      }
+      .trace-q {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #b45309;
+        margin-bottom: 6px;
+      }
+      .trace-origin {
+        font-size: 13px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .trace-detail {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* SKELETON */
+      .skeleton-line {
+        height: 10px;
+        border-radius: 4px;
+        background: linear-gradient(
+          90deg,
+          #e2e8f0 25%,
+          #f1f5f9 50%,
+          #e2e8f0 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.2s ease infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* LOADING OVERLAY */
+      .ai-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.88);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .ai-overlay.active {
+        display: flex;
+      }
+      .ai-box {
+        background: #1e293b;
+        border: 2px solid rgba(109, 40, 217, 0.4);
+        border-radius: 20px;
+        padding: 40px 52px;
+        text-align: center;
+        max-width: 460px;
+        width: 90%;
+      }
+      .ai-spinner {
+        width: 64px;
+        height: 64px;
+        border: 5px solid rgba(109, 40, 217, 0.2);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+        margin: 0 auto 20px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .ai-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 10px;
+      }
+      .ai-step {
+        font-size: 15px;
+        color: #94a3b8;
+        min-height: 22px;
+      }
+      .ai-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        height: 6px;
+        width: 100%;
+        margin-top: 20px;
+        overflow: hidden;
+      }
+      .ai-fill {
+        background: linear-gradient(90deg, var(--primary), #a78bfa);
+        height: 100%;
+        border-radius: 20px;
+        width: 0%;
+        transition: width 0.4s ease;
+      }
+      .scan-chips {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .scan-chip {
+        background: rgba(255, 255, 255, 0.08);
+        color: #94a3b8;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .scan-chip.lit {
+        background: rgba(109, 40, 217, 0.3);
+        color: #c4b5fd;
+        border-color: rgba(109, 40, 217, 0.4);
+      }
+
+      /* GABARITO MODAL */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.8);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-bg.open {
+        display: flex;
+      }
+      .modal-box {
+        background: white;
+        border-radius: 20px;
+        width: 700px;
+        max-width: 95vw;
+        max-height: 88vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+      }
+      .modal-header {
+        background: linear-gradient(135deg, var(--primary), #4c1d95);
+        padding: 24px 28px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .modal-header h3 {
+        font-size: 20px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .modal-close {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .modal-body {
+        padding: 28px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .gabarito-row {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 16px;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+      }
+      .gab-num {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: var(--primary);
+        color: white;
+        font-weight: 800;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .gab-answer {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary);
+      }
+      .gab-comment {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .gab-origin {
+        font-size: 12px;
+        font-weight: 600;
+        color: #16a34a;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* SUCCESS TOAST */
+      .toast {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        background: var(--secondary);
+        color: white;
+        border-radius: 12px;
+        padding: 16px 24px;
+        font-size: 15px;
+        font-weight: 600;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        z-index: 300;
+        align-items: center;
+        gap: 12px;
+        animation: slideUp 0.3s ease;
+      }
+      .toast.show {
+        display: flex;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-logo"><i class="ti ti-cpu"></i> SIPE</div>
+        <div class="sidebar-menu">
+          <a href="../index.html" class="menu-item"
+            ><i class="ti ti-layout-dashboard"></i> Dashboard</a
+          >
+          <a href="./planejamento.html" class="menu-item"
+            ><i class="ti ti-file-text"></i> Planejamentos</a
+          >
+          <a href="./avaliacoes.html" class="menu-item active"
+            ><i class="ti ti-clipboard-list"></i> Avaliações</a
+          >
+          <a href="./biblioteca.html" class="menu-item"
+            ><i class="ti ti-books"></i> Biblioteca</a
+          >
+          <a href="./feedback.html" class="menu-item"
+            ><i class="ti ti-message-heart"></i> Feedback Coordenação</a
+          >
         </div>
-    </main>
-</body>
+        <div class="sidebar-footer">
+          <a href="#" class="menu-item" style="padding: 10px 14px"
+            ><i class="ti ti-settings"></i> Configurações</a
+          >
+          <a href="#" class="menu-item" style="padding: 10px 14px"
+            ><i class="ti ti-headset"></i> Suporte</a
+          >
+        </div>
+      </div>
 
+      <!-- MAIN PANEL -->
+      <div class="main-panel">
+        <div class="header">
+          <div>
+            <select class="school-selector">
+              <option>Colégio Cavlac</option>
+              <option>Colégio Anglo</option>
+            </select>
+          </div>
+          <div class="header-right">
+            <div
+              style="
+                font-size: 15px;
+                color: var(--muted);
+                font-weight: 600;
+                text-align: right;
+                line-height: 1.3;
+              "
+            >
+              <div style="font-weight: 800; color: #1e293b">
+                Ano Letivo 2026
+              </div>
+              <div>2º Bimestre · 3º Ano A</div>
+            </div>
+            <div class="nav-icon-btn">
+              <i class="ti ti-bell"></i>
+              <div class="badge-orange">2</div>
+            </div>
+            <div class="user-profile-header">
+              <div class="user-avatar">PE</div>
+              <div>
+                <div>Profª Elisabete</div>
+                <div
+                  style="font-size: 13px; color: var(--muted); font-weight: 500"
+                >
+                  História · Geografia · Artes
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-container">
+          <!-- TITLE -->
+          <div>
+            <div class="page-title">Gerador de Avaliações</div>
+            <div class="page-subtitle">
+              Crie avaliações alinhadas ao conteúdo efetivamente ministrado em
+              sala.
+            </div>
+          </div>
+
+          <!-- FLOW TIMELINE -->
+          <div class="flow-timeline">
+            <div class="flow-step done">
+              <div class="fs-icon"><i class="ti ti-circle-check"></i></div>
+              <div>
+                <div class="fs-label">Planejamento Aprovado</div>
+                <div class="fs-sub">Semana 22 · 09–13/06</div>
+              </div>
+            </div>
+            <div class="flow-step done">
+              <div class="fs-icon"><i class="ti ti-circle-check"></i></div>
+              <div>
+                <div class="fs-label">Conteúdo Ministrado</div>
+                <div class="fs-sub">12 conteúdos aplicados</div>
+              </div>
+            </div>
+            <div class="flow-step active">
+              <div class="fs-icon"><i class="ti ti-sparkles"></i></div>
+              <div>
+                <div class="fs-label">IA Gerando Avaliação</div>
+                <div class="fs-sub">Baseada no que foi ensinado</div>
+              </div>
+            </div>
+            <div class="flow-step pending">
+              <div class="fs-icon"><i class="ti ti-send"></i></div>
+              <div>
+                <div class="fs-label">Envio para Aprovação</div>
+                <div class="fs-sub">Coordenação pedagógica</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QUALITY CARDS -->
+          <div class="quality-bar">
+            <div class="q-card purple">
+              <div class="q-icon">📊</div>
+              <div class="q-val" id="qv-cob">—</div>
+              <div class="q-label">Cobertura do Conteúdo</div>
+            </div>
+            <div class="q-card green">
+              <div class="q-icon">📚</div>
+              <div class="q-val" id="qv-cont">—</div>
+              <div class="q-label">Conteúdos Utilizados</div>
+            </div>
+            <div class="q-card orange">
+              <div class="q-icon">🎯</div>
+              <div class="q-val" id="qv-bncc">—</div>
+              <div class="q-label">Alinhamento BNCC</div>
+            </div>
+            <div class="q-card red">
+              <div class="q-icon">⚠</div>
+              <div class="q-val" id="qv-pend" style="color: #16a34a">—</div>
+              <div class="q-label">Questões p/ Revisão</div>
+            </div>
+          </div>
+
+          <!-- CONFIG + SOURCES -->
+          <div class="two-col">
+            <!-- LEFT: origin + config -->
+            <div style="display: flex; flex-direction: column; gap: 18px">
+              <!-- Origin -->
+              <div class="card">
+                <div class="card-title">
+                  <i class="ti ti-database"></i> Origem dos Conteúdos
+                </div>
+                <div class="origin-grid">
+                  <div
+                    class="origin-opt selected"
+                    onclick="selectOrigin(this, 'planejamento-semana')"
+                  >
+                    <div class="opt-icon">📅</div>
+                    <div>
+                      <div class="opt-label">Planejamento da Semana</div>
+                      <div class="opt-desc">
+                        Conteúdos da semana 22 (09–13/06)
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="origin-opt"
+                    onclick="selectOrigin(this, 'planejamento-mes')"
+                  >
+                    <div class="opt-icon">📆</div>
+                    <div>
+                      <div class="opt-label">Planejamento do Mês</div>
+                      <div class="opt-desc">Todo o conteúdo de junho/2026</div>
+                    </div>
+                  </div>
+                  <div
+                    class="origin-opt"
+                    onclick="selectOrigin(this, 'ministrado')"
+                  >
+                    <div class="opt-icon">🎓</div>
+                    <div>
+                      <div class="opt-label">Conteúdo Ministrado</div>
+                      <div class="opt-desc">
+                        Apenas o que foi aplicado em sala
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="origin-opt"
+                    onclick="selectOrigin(this, 'manual')"
+                  >
+                    <div class="opt-icon">✏️</div>
+                    <div>
+                      <div class="opt-label">Seleção Manual</div>
+                      <div class="opt-desc">Escolho os tópicos manualmente</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Config -->
+              <div class="card">
+                <div class="card-title">
+                  <i class="ti ti-adjustments-horizontal"></i> Configuração da
+                  Prova
+                </div>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 16px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div class="field-group">
+                    <label>Turma</label>
+                    <select>
+                      <option>3º Ano A</option>
+                      <option>3º Ano B</option>
+                      <option>8º Ano</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label>Disciplina</label>
+                    <select>
+                      <option>Matemática</option>
+                      <option>Português</option>
+                      <option>História</option>
+                      <option>Ciências</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label>Bimestre</label>
+                    <select>
+                      <option>2º Bimestre</option>
+                      <option>1º Bimestre</option>
+                      <option>3º Bimestre</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 16px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div class="field-group">
+                    <label>Total de Questões</label>
+                    <input type="number" value="10" min="5" max="20" />
+                  </div>
+                  <div class="field-group">
+                    <label>Objetivas</label>
+                    <input type="number" value="7" min="0" max="20" />
+                  </div>
+                  <div class="field-group">
+                    <label>Dissertativas</label>
+                    <input type="number" value="3" min="0" max="10" />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label>Nível de Dificuldade</label>
+                  <div class="diff-row">
+                    <button class="diff-btn" onclick="selectDiff(this, 'easy')">
+                      😊 Fácil
+                    </button>
+                    <button
+                      class="diff-btn sel-med"
+                      onclick="selectDiff(this, 'med')"
+                    >
+                      🧠 Médio
+                    </button>
+                    <button class="diff-btn" onclick="selectDiff(this, 'hard')">
+                      🔥 Difícil
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: sources + generate -->
+            <div class="card" style="position: sticky; top: 0">
+              <div class="card-title">
+                <i class="ti ti-sparkles"></i> Fontes que a IA Consultará
+              </div>
+
+              <div class="source-item">
+                <div class="source-icon" style="background: #eef2ff">📘</div>
+                <div>
+                  <div class="src-name">Apostila Anglo — Matemática</div>
+                  <div class="src-detail">Módulo 4 · Páginas 140–145</div>
+                  <span class="src-badge badge-green">✓ Homologado</span>
+                </div>
+              </div>
+              <div class="source-item">
+                <div class="source-icon" style="background: #f0fdf4">📗</div>
+                <div>
+                  <div class="src-name">Planejamento Semanal — Sem. 22</div>
+                  <div class="src-detail">
+                    Aprovado pela coordenação em 06/06
+                  </div>
+                  <span class="src-badge badge-purple">✓ Aprovado</span>
+                </div>
+              </div>
+              <div class="source-item">
+                <div class="source-icon" style="background: #fef9c3">📙</div>
+                <div>
+                  <div class="src-name">Conteúdo Ministrado em Sala</div>
+                  <div class="src-detail">Registro de aulas: 09/06 a 13/06</div>
+                  <span class="src-badge badge-green">✓ Verificado</span>
+                </div>
+              </div>
+              <div class="source-item">
+                <div class="source-icon" style="background: #fff0f0">📕</div>
+                <div>
+                  <div class="src-name">BNCC — Competências</div>
+                  <div class="src-detail">EF03MA05 · EF03MA07 · EF03MA12</div>
+                  <span class="src-badge badge-purple">✓ Alinhado</span>
+                </div>
+              </div>
+
+              <button class="btn-generate" onclick="startGeneration()">
+                <i class="ti ti-sparkles"></i> Gerar Avaliação com IA
+              </button>
+            </div>
+          </div>
+
+          <!-- DOCUMENT (hidden initially) -->
+          <div id="doc-section" style="display: none">
+            <!-- Action bar -->
+            <div class="doc-action-bar">
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div class="doc-status-chip chip-ok" id="doc-chip">
+                  <i class="ti ti-circle-check" style="font-size: 14px"></i>
+                  Avaliação gerada pela IA — pronta para revisão
+                </div>
+              </div>
+              <div class="doc-bar-right">
+                <button class="btn-bar" onclick="openGabarito()">
+                  <i class="ti ti-eye" style="font-size: 16px"></i> Ver Gabarito
+                </button>
+                <button class="btn-bar">
+                  <i class="ti ti-printer" style="font-size: 16px"></i> Imprimir
+                </button>
+                <button class="btn-bar-primary" id="btn-approve">
+                  <i class="ti ti-send" style="font-size: 16px"></i> Enviar para
+                  Aprovação
+                </button>
+              </div>
+            </div>
+
+            <div class="institutional-doc">
+              <!-- Doc header -->
+              <div class="doc-header-stripe">
+                <div class="doc-school-logo">CC</div>
+                <div>
+                  <div class="doc-school-name">Colégio Cavlac</div>
+                  <div class="doc-school-sub">
+                    Avaliação Bimestral — Gerada pelo Sistema SIPE
+                  </div>
+                </div>
+                <div class="doc-meta-strip">
+                  <div class="doc-meta-pill">
+                    <span>Bimestre:</span> 2º Bimestre 2026
+                  </div>
+                  <div class="doc-meta-pill"><span>Data:</span> 13/06/2026</div>
+                  <div class="doc-meta-pill">
+                    <span>Doc nº:</span> AVL-2026-0388
+                  </div>
+                </div>
+              </div>
+
+              <!-- Info row -->
+              <div class="doc-info-row">
+                <div class="doc-info-cell">
+                  <div class="info-label">Professora</div>
+                  <div class="info-val">Elisabete Pereira</div>
+                </div>
+                <div class="doc-info-cell">
+                  <div class="info-label">Turma</div>
+                  <div class="info-val">3º Ano A</div>
+                </div>
+                <div class="doc-info-cell">
+                  <div class="info-label">Disciplina</div>
+                  <div class="info-val">Matemática</div>
+                </div>
+                <div class="doc-info-cell">
+                  <div class="info-label">Nota Total</div>
+                  <div class="info-val">10,0 pontos</div>
+                </div>
+                <div class="doc-info-cell">
+                  <div class="info-label">Origem</div>
+                  <div
+                    class="info-val"
+                    style="color: var(--primary); font-size: 13px"
+                  >
+                    SIPE IA · Planej. Sem. 22
+                  </div>
+                </div>
+              </div>
+
+              <div class="doc-body" id="doc-body">
+                <!-- Questions rendered by JS -->
+              </div>
+            </div>
+          </div>
+          <!-- /doc-section -->
+        </div>
+        <!-- /page-container -->
+      </div>
+      <!-- /main-panel -->
+    </div>
+    <!-- /app -->
+
+    <!-- AI OVERLAY -->
+    <div class="ai-overlay" id="ai-overlay">
+      <div class="ai-box">
+        <div class="ai-spinner"></div>
+        <div class="ai-title">⚡ IA Gerando Avaliação</div>
+        <div class="ai-step" id="ai-step">
+          Iniciando análise do planejamento...
+        </div>
+        <div class="ai-track"><div class="ai-fill" id="ai-fill"></div></div>
+        <div class="scan-chips">
+          <div class="scan-chip" id="sc1">📅 Planejamento Sem. 22</div>
+          <div class="scan-chip" id="sc2">📘 Apostila Anglo</div>
+          <div class="scan-chip" id="sc3">📕 BNCC</div>
+          <div class="scan-chip" id="sc4">🎓 Conteúdo Ministrado</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GABARITO MODAL -->
+    <div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3><i class="ti ti-eye"></i> Gabarito Oficial — AVL-2026-0388</h3>
+          <button class="modal-close" onclick="closeModalBtn()">
+            <i class="ti ti-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div
+            style="
+              background: #f0fdf4;
+              border: 1.5px solid #bbf7d0;
+              border-radius: 10px;
+              padding: 14px 18px;
+              font-size: 14px;
+              font-weight: 600;
+              color: #15803d;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 4px;
+            "
+          >
+            <i class="ti ti-shield-check" style="font-size: 20px"></i>
+            Todas as questões foram geradas a partir de conteúdos homologados e
+            planejamentos aprovados pela coordenação.
+          </div>
+          <!-- gabarito rows -->
+          <div class="gabarito-row">
+            <div class="gab-num">1</div>
+            <div>
+              <div class="gab-answer">Alternativa B — Real</div>
+              <div class="gab-comment">
+                O aluno deve identificar a moeda oficial do Brasil dentro do
+                contexto do sistema monetário.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.4 · p.142 · EF03MA05
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">2</div>
+            <div>
+              <div class="gab-answer">Alternativa C — R$ 12,50</div>
+              <div class="gab-comment">
+                Resolução de situação-problema envolvendo adição de valores
+                monetários com reagrupamento.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.4 · p.143 · EF03MA07
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">3</div>
+            <div>
+              <div class="gab-answer">Alternativa A — 4 × 3 = 12</div>
+              <div class="gab-comment">
+                Introdução ao conceito de multiplicação como adição repetida.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.5 · p.150 · EF03MA12
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">4</div>
+            <div>
+              <div class="gab-answer">Alternativa B — 15</div>
+              <div class="gab-comment">
+                Aplicação da tabuada do 3: cálculo de 3 × 5 em contexto de
+                situação-problema.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.5 · p.151 · EF03MA12
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">5</div>
+            <div>
+              <div class="gab-answer">Alternativa D — Subtração</div>
+              <div class="gab-comment">
+                O aluno deve identificar a operação correta para resolver
+                problemas de troco.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Livro PNLD ·
+                Cap.6 · p.90 · EF03MA07
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">6</div>
+            <div>
+              <div class="gab-answer">Alternativa C — Quadrado</div>
+              <div class="gab-comment">
+                Reconhecimento de figuras planas com 4 lados iguais.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.6 · p.158 · EF03MA14
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">7</div>
+            <div>
+              <div class="gab-answer">Alternativa A — 24</div>
+              <div class="gab-comment">
+                Aplicação da tabuada do 4 em contexto de agrupamento de objetos.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Planejamento
+                Sem.22 · Tabuada · EF03MA12
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">8</div>
+            <div>
+              <div class="gab-answer">
+                Resposta dissertativa — ver critérios
+              </div>
+              <div class="gab-comment">
+                O aluno deve descrever com suas palavras a função do dinheiro na
+                sociedade, citando pelo menos 2 exemplos de trocas comerciais.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Apostila
+                Anglo · Mod.4 · p.140 · EF03MA05
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">9</div>
+            <div>
+              <div class="gab-answer">
+                Resposta dissertativa — ver critérios
+              </div>
+              <div class="gab-comment">
+                Resolução passo a passo de conta de adição com 3 parcelas.
+                Aceitar tanto a forma horizontal quanto vertical, desde que o
+                resultado (143) esteja correto.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Livro PNLD ·
+                Cap.6 · p.91 · EF03MA07
+              </div>
+            </div>
+          </div>
+          <div class="gabarito-row">
+            <div class="gab-num">10</div>
+            <div>
+              <div class="gab-answer">
+                Resposta dissertativa — ver critérios
+              </div>
+              <div class="gab-comment">
+                Produção de situação-problema de compra/venda com valores
+                coerentes. Avaliar a coerência matemática e o uso correto do
+                símbolo R$.
+              </div>
+              <div class="gab-origin">
+                <i class="ti ti-book-2" style="font-size: 13px"></i>Planejamento
+                Sem.22 · Situação-problema · EF03MA05
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS TOAST -->
+    <div class="toast" id="toast">
+      <i class="ti ti-circle-check" style="font-size: 24px"></i>
+      Avaliação gerada com rastreabilidade completa!
+    </div>
+
+    <script>
+      // ── ORIGIN SELECTION ──────────────────────────────────────────────────────────
+      function selectOrigin(el, type) {
+        document
+          .querySelectorAll(".origin-opt")
+          .forEach((o) => o.classList.remove("selected"));
+        el.classList.add("selected");
+      }
+
+      // ── DIFFICULTY ────────────────────────────────────────────────────────────────
+      function selectDiff(el, type) {
+        document
+          .querySelectorAll(".diff-btn")
+          .forEach((b) => (b.className = "diff-btn"));
+        const map = { easy: "sel-easy", med: "sel-med", hard: "sel-hard" };
+        el.classList.add(map[type]);
+      }
+
+      // ── GENERATION ────────────────────────────────────────────────────────────────
+      function startGeneration() {
+        const overlay = document.getElementById("ai-overlay");
+        const stepEl = document.getElementById("ai-step");
+        const fill = document.getElementById("ai-fill");
+        overlay.classList.add("active");
+
+        const steps = [
+          {
+            text: "Analisando planejamento da Semana 22...",
+            pct: 15,
+            chip: "sc1",
+          },
+          {
+            text: "Lendo Apostila Anglo — Módulo 4, páginas 140–145...",
+            pct: 30,
+            chip: "sc2",
+          },
+          {
+            text: "Verificando competências BNCC obrigatórias...",
+            pct: 48,
+            chip: "sc3",
+          },
+          {
+            text: "Cruzando com conteúdo efetivamente ministrado...",
+            pct: 62,
+            chip: "sc4",
+          },
+          { text: "Gerando questões objetivas...", pct: 75, chip: null },
+          { text: "Gerando questões dissertativas...", pct: 85, chip: null },
+          {
+            text: "Montando gabarito e rastreabilidade...",
+            pct: 94,
+            chip: null,
+          },
+          { text: "Finalizando documento oficial...", pct: 99, chip: null },
+        ];
+
+        let i = 0;
+        const iv = setInterval(() => {
+          if (i < steps.length) {
+            stepEl.textContent = steps[i].text;
+            fill.style.width = steps[i].pct + "%";
+            if (steps[i].chip)
+              document.getElementById(steps[i].chip).classList.add("lit");
+            i++;
+          } else {
+            clearInterval(iv);
+            fill.style.width = "100%";
+            setTimeout(() => {
+              overlay.classList.remove("active");
+              renderDocument();
+              updateQuality();
+              showToast();
+            }, 500);
+          }
+        }, 750);
+      }
+
+      function updateQuality() {
+        const vals = [
+          ["qv-cob", "87%"],
+          ["qv-cont", "12"],
+          ["qv-bncc", "92%"],
+          ["qv-pend", "0"],
+        ];
+        vals.forEach(([id, v], idx) => {
+          setTimeout(() => {
+            document.getElementById(id).textContent = v;
+          }, idx * 150);
+        });
+      }
+
+      // ── DOCUMENT RENDERING ────────────────────────────────────────────────────────
+      const questions = [
+        {
+          type: "obj",
+          num: 1,
+          val: "1,0 pt",
+          text: "O sistema monetário brasileiro utiliza qual moeda como unidade oficial de troca?",
+          opts: [
+            { l: "A", t: "Euro" },
+            { l: "B", t: "Real", correct: true },
+            { l: "C", t: "Peso" },
+            { l: "D", t: "Dólar" },
+          ],
+          bncc: "EF03MA05",
+          origin: "Apostila Anglo · Mod.4 · p.142",
+        },
+        {
+          type: "obj",
+          num: 2,
+          val: "1,0 pt",
+          text: "Maria foi à feira com R$ 20,00. Comprou frutas por R$ 7,50. Quanto sobrou de troco?",
+          opts: [
+            { l: "A", t: "R$ 7,50" },
+            { l: "B", t: "R$ 10,00" },
+            { l: "C", t: "R$ 12,50", correct: true },
+            { l: "D", t: "R$ 15,00" },
+          ],
+          bncc: "EF03MA07",
+          origin: "Apostila Anglo · Mod.4 · p.143",
+        },
+        {
+          type: "obj",
+          num: 3,
+          val: "1,0 pt",
+          text: 'Qual das expressões abaixo representa corretamente a ideia de "4 grupos de 3 objetos"?',
+          opts: [
+            { l: "A", t: "4 × 3 = 12", correct: true },
+            { l: "B", t: "4 + 3 = 7" },
+            { l: "C", t: "4 − 3 = 1" },
+            { l: "D", t: "4 ÷ 3 = 1,3" },
+          ],
+          bncc: "EF03MA12",
+          origin: "Apostila Anglo · Mod.5 · p.150",
+        },
+        {
+          type: "obj",
+          num: 4,
+          val: "1,0 pt",
+          text: "Uma professora distribuiu 3 lápis para cada um dos 5 alunos do grupo. Quantos lápis foram distribuídos ao todo?",
+          opts: [
+            { l: "A", t: "8" },
+            { l: "B", t: "15", correct: true },
+            { l: "C", t: "18" },
+            { l: "D", t: "20" },
+          ],
+          bncc: "EF03MA12",
+          origin: "Apostila Anglo · Mod.5 · p.151",
+        },
+        {
+          type: "obj",
+          num: 5,
+          val: "1,0 pt",
+          text: "João comprou um brinquedo por R$ 45,00 e pagou com R$ 50,00. Qual operação deve fazer para saber o troco?",
+          opts: [
+            { l: "A", t: "Adição" },
+            { l: "B", t: "Multiplicação" },
+            { l: "C", t: "Divisão" },
+            { l: "D", t: "Subtração", correct: true },
+          ],
+          bncc: "EF03MA07",
+          origin: "Livro PNLD · Cap.6 · p.90",
+        },
+        {
+          type: "obj",
+          num: 6,
+          val: "1,0 pt",
+          text: "Qual figura plana possui 4 lados iguais e 4 ângulos retos?",
+          opts: [
+            { l: "A", t: "Triângulo" },
+            { l: "B", t: "Retângulo" },
+            { l: "C", t: "Quadrado", correct: true },
+            { l: "D", t: "Círculo" },
+          ],
+          bncc: "EF03MA14",
+          origin: "Apostila Anglo · Mod.6 · p.158",
+        },
+        {
+          type: "obj",
+          num: 7,
+          val: "1,0 pt",
+          text: "Numa gincana, cada equipe marcou 4 pontos por rodada. Após 6 rodadas, quantos pontos uma equipe acumulou?",
+          opts: [
+            { l: "A", t: "24", correct: true },
+            { l: "B", t: "20" },
+            { l: "C", t: "28" },
+            { l: "D", t: "16" },
+          ],
+          bncc: "EF03MA12",
+          origin: "Planejamento Sem.22 · Tabuada do 4",
+        },
+        {
+          type: "diss",
+          num: 8,
+          val: "1,0 pt",
+          text: "Em suas próprias palavras, explique para que serve o dinheiro na vida das pessoas. Dê pelo menos dois exemplos de situações em que usamos dinheiro no dia a dia.",
+          bncc: "EF03MA05",
+          origin: "Apostila Anglo · Mod.4 · p.140",
+        },
+        {
+          type: "diss",
+          num: 9,
+          val: "1,0 pt",
+          text: "Resolva a conta abaixo mostrando todos os passos:\n\n   247 + 85 + 11 = ____\n\nExplique como você chegou ao resultado.",
+          bncc: "EF03MA07",
+          origin: "Livro PNLD · Cap.6 · p.91",
+        },
+        {
+          type: "diss",
+          num: 10,
+          val: "1,0 pt",
+          text: "Crie uma situação-problema de compra e venda usando números que você escolher. Depois, resolva o problema que você mesmo criou.",
+          bncc: "EF03MA05",
+          origin: "Planejamento Sem.22 · Situação-problema",
+        },
+      ];
+
+      function renderDocument() {
+        const body = document.getElementById("doc-body");
+
+        const objQs = questions.filter((q) => q.type === "obj");
+        const dissQs = questions.filter((q) => q.type === "diss");
+
+        let html = "";
+
+        // Objectives
+        html += `<div class="section-heading">Parte I — Questões Objetivas <span style="font-size:12px;font-weight:500;opacity:.7">(7 questões · 7,0 pontos)</span></div>`;
+        objQs.forEach((q, idx) => {
+          const delay = idx * 100;
+          html += `
+      <div class="question-block ai-filled" style="opacity:0;transition:opacity .4s ${delay}ms" data-q="${q.num}">
+        <div class="q-num">
+          Questão ${q.num}
+          <span class="trace-tag">📌 ${q.origin}</span>
+          <span style="margin-left:auto;font-size:12px;color:var(--muted);font-weight:600">${q.val}</span>
+        </div>
+        <div class="q-text">${q.text}</div>
+        <div class="q-options">
+          ${q.opts
+            .map(
+              (o) => `
+            <div class="q-option${o.correct ? " correct-opt" : ""}">
+              <div class="opt-letter">${o.l}</div> ${o.t}
+              ${o.correct ? '<i class="ti ti-check" style="margin-left:auto;font-size:16px;color:#16A34A"></i>' : ""}
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+        <div class="bncc-tag"><i class="ti ti-book-2" style="font-size:10px"></i>${q.bncc}</div>
+      </div>
+    `;
+        });
+
+        // Dissertative
+        html += `<div class="section-heading" style="margin-top:24px">Parte II — Questões Dissertativas <span style="font-size:12px;font-weight:500;opacity:.7">(3 questões · 3,0 pontos)</span></div>`;
+        dissQs.forEach((q, idx) => {
+          const delay = (objQs.length + idx) * 100;
+          html += `
+      <div class="question-block ai-filled" style="opacity:0;transition:opacity .4s ${delay}ms" data-q="${q.num}">
+        <div class="q-num">
+          Questão ${q.num}
+          <span class="trace-tag">📌 ${q.origin}</span>
+          <span style="margin-left:auto;font-size:12px;color:var(--muted);font-weight:600">${q.val}</span>
+        </div>
+        <div class="q-text" style="white-space:pre-line">${q.text}</div>
+        <div class="q-dissert">
+          <div class="dissert-lines">
+            ${Array(4).fill('<div class="dissert-line"></div>').join("")}
+          </div>
+        </div>
+        <div class="bncc-tag"><i class="ti ti-book-2" style="font-size:10px"></i>${q.bncc}</div>
+      </div>
+    `;
+        });
+
+        // Rastreabilidade
+        html += `
+    <div class="trace-section">
+      <div class="trace-title"><i class="ti ti-sitemap" style="font-size:20px"></i> Rastreabilidade Pedagógica — Gerado pelo SIPE</div>
+      <div class="trace-grid">
+        ${questions
+          .map(
+            (q) => `
+          <div class="trace-card">
+            <div class="trace-q">Questão ${q.num}</div>
+            <div class="trace-origin">${q.origin}</div>
+            <div class="trace-detail">${q.bncc}</div>
+          </div>
+        `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+
+        body.innerHTML = html;
+
+        // Show document section
+        document.getElementById("doc-section").style.display = "block";
+
+        // Fade in questions
+        setTimeout(() => {
+          document.querySelectorAll(".question-block").forEach((el, idx) => {
+            setTimeout(() => {
+              el.style.opacity = "1";
+            }, idx * 80);
+          });
+          // Scroll to doc
+          document
+            .getElementById("doc-section")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+
+      // ── MODAL ─────────────────────────────────────────────────────────────────────
+      function openGabarito() {
+        document.getElementById("modal-bg").classList.add("open");
+      }
+      function closeModal(e) {
+        if (e.target === document.getElementById("modal-bg")) closeModalBtn();
+      }
+      function closeModalBtn() {
+        document.getElementById("modal-bg").classList.remove("open");
+      }
+
+      // ── TOAST ─────────────────────────────────────────────────────────────────────
+      function showToast() {
+        const t = document.getElementById("toast");
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 4500);
+      }
+    </script>
+  </body>
 </html>

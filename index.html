@@ -1,19 +1,512 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIPE - Sistema Inteligente de Planejamento Escolar</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Satisfy&display=swap");
 
-<body>
-    <main class="app">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        <div class="sidebar">
+      :root {
+        /* Paleta Corporativa SIPE */
+        --primary: #6d28d9;
+        --secondary: #455629;
+        --sidebar-bg: #0f172a;
+        --accent-orange: #f97316;
+        --ai-purple-light: #f5f3ff;
+
+        /* Alerta Atenção Pedagógica */
+        --alert-critical-bg: #fff5f5;
+        --alert-critical-border: #f87171;
+        --alert-critical-text: #e11d48;
+
+        --bg: #f1f5f9;
+        --white: #ffffff;
+        --border: #cbd5e1;
+        --text: #000000;
+        --muted: #334155;
+
+        --sidebar-w: 260px;
+        --header-h: 75px;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 19px;
+        line-height: 1.6;
+        height: 100vh;
+      }
+
+      .app {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* SIDEBAR EXPANSÍVEL PROFISSIONAL */
+      .sidebar {
+        width: var(--sidebar-w);
+        background: var(--sidebar-bg);
+        color: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .sidebar:hover {
+        width: 290px;
+      }
+
+      .sidebar-logo {
+        padding: 24px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sidebar-logo i {
+        color: var(--accent-orange);
+      }
+
+      .sidebar-menu {
+        padding: 20px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+      }
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 18px;
+        color: #94a3b8;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+        font-size: 20px;
+      }
+
+      .menu-item i {
+        margin-right: 14px;
+        font-size: 24px;
+      }
+
+      .menu-item:hover,
+      .menu-item.active {
+        background: var(--secondary);
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
+      }
+
+      .sidebar-footer {
+        padding: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* PAINEL PRINCIPAL */
+      .main-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* HEADER CORRIGIDO COM FLEXBOX */
+      .header {
+        height: var(--header-h);
+        background: var(--white);
+        border-bottom: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        flex-shrink: 0;
+        z-index: 5;
+      }
+
+      .school-selector {
+        padding: 8px 18px;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--secondary);
+        background: transparent;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: uppercase;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      .school-selector:hover {
+        border-color: #94a3b8;
+        background: rgba(0, 0, 0, 0.02);
+      }
+
+      .school-selector:focus,
+      .school-selector:active {
+        border-color: var(--secondary);
+        background: transparent;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-icon-btn {
+        background: #fff7ed;
+        border: 2px solid var(--accent-orange);
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .nav-icon-btn i {
+        font-size: 32px;
+        color: var(--accent-orange);
+      }
+
+      .badge-orange {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #ffffff;
+        color: var(--accent-orange);
+        font-size: 14px;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--accent-orange);
+      }
+
+      /* ALINHAMENTO DEFINITIVO DO PERFIL */
+      .user-profile-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .user-avatar {
+        width: 45px;
+        height: 45px;
+        background: var(--secondary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center; /* Centraliza o "PE" verticalmente */
+        justify-content: center; /* Centraliza o "PE" horizontalmente */
+        font-weight: bold;
+        flex-shrink: 0; /* Impede a bolinha de achatar */
+      }
+
+      /* CONTEÚDO COM SCROLL */
+      .page-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dashboard-title-custom {
+        font-family: "Satisfy", cursive;
+        font-size: 56px;
+        color: #000000;
+        margin-bottom: 5px;
+      }
+
+      .section-sub {
+        font-size: 18px;
+        color: var(--muted);
+        margin-bottom: 25px;
+      }
+
+      .ai-insight-box {
+        background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+        border: 2px solid rgba(109, 40, 217, 0.15);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        box-shadow: 0 4px 15px rgba(109, 40, 217, 0.05);
+      }
+
+      .toast-alert {
+        display: flex;
+        align-items: center;
+        background: var(--alert-critical-bg);
+        border: 2px solid var(--alert-critical-border);
+        border-left: 10px solid var(--alert-critical-text);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 12px 24px -10px rgba(225, 29, 72, 0.15);
+      }
+
+      .toast-icon {
+        color: var(--alert-critical-text);
+        font-size: 36px;
+        margin-right: 20px;
+        display: flex;
+      }
+
+      .toast-content h4 {
+        font-size: 20px;
+        color: #881337;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .toast-action-btn {
+        margin-left: auto;
+        background: var(--alert-critical-text);
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 17px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .qa-card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .qa-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .qa-icon {
+        font-size: 38px;
+        color: var(--primary);
+        margin-bottom: 12px;
+      }
+
+      .qa-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .ai-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--ai-purple-light);
+        color: var(--primary);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+
+      .card-purple {
+        background: var(--primary);
+        color: white;
+        border: none;
+      }
+      .card-purple .qa-icon,
+      .card-purple .qa-desc {
+        color: white;
+        opacity: 0.9;
+      }
+      .card-lavender {
+        border: 3px solid var(--primary);
+      }
+      .card-military {
+        border-top: 6px solid var(--secondary);
+      }
+      .card-military .qa-icon {
+        color: var(--secondary);
+      }
+
+      .analytics-summary-bar {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        margin-bottom: 35px;
+      }
+
+      .metric-widget {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+
+      .metric-icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+      }
+
+      .thermometer-track {
+        background: #e2e8f0;
+        border-radius: 20px;
+        height: 12px;
+        width: 100%;
+        margin-top: 8px;
+        overflow: hidden;
+      }
+      .thermometer-fill {
+        background: linear-gradient(90deg, var(--secondary) 0%, #657f42 100%);
+        height: 100%;
+        width: 84%;
+        border-radius: 20px;
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        padding-bottom: 50px;
+      }
+
+      .main-card {
+        background: var(--white);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .cal-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        background: #f4f7f1;
+        border: 2px solid #d2dfce;
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .cal-day-name {
+        text-align: center;
+        font-weight: bold;
+        color: var(--secondary);
+        padding: 8px 0;
+      }
+
+      .cal-day {
+        background: var(--white);
+        border: 1px solid #e2eedf;
+        border-radius: 8px;
+        height: 75px;
+        padding: 8px;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .cal-day.today {
+        background: var(--secondary) !important;
+        color: white !important;
+        border: 2px solid #2a361a;
+      }
+
+      .cal-day.event-day {
+        border: 2px solid var(--accent-orange);
+        background: #fff7ed;
+      }
+
+      .event-label-mini {
+        font-size: 11px;
+        background: var(--accent-orange);
+        color: white;
+        padding: 2px 4px;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .timeline-card {
+        background: #f8fafc;
+        border: 2px solid var(--border);
+        border-left: 6px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 15px;
+      }
+
+      .timeline-card.orange-edge {
+        border-left-color: var(--accent-orange);
+      }
+      .timeline-card.military-edge {
+        border-left-color: var(--secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="sidebar">
             <div class="sidebar-logo">
                 <i class="ti ti-cpu"></i>
                 <span>SIPE</span>
@@ -29,16 +522,13 @@
                     <span>Planejamentos</span>
                 </a>
                 <a href="./pages/avaliacoes.html" class="menu-item">
-                    <i class="ti ti-clipboard-list"></i>
-                    <span>Avaliações</span>
+                    <i class="ti ti-clipboard-list"></i> <span>Avaliações</span>
                 </a>
                 <a href="./pages/biblioteca.html" class="menu-item">
-                    <i class="ti ti-books"></i>
-                    <span>Biblioteca</span>
+                    <i class="ti ti-books"></i> <span>Biblioteca</span>
                 </a>
                 <a href="./pages/feedback.html" class="menu-item">
-                    <i class="ti ti-message-heart"></i>
-                    <span>Feedback Coordenação</span>
+                    <i class="ti ti-message-heart"></i> <span>Feedback Coordenação</span>
                 </a>
             </div>
 
@@ -53,7 +543,252 @@
                 </a>
             </div>
         </div>
-    </main>
-</body>
 
+      <div class="main-panel">
+        <div class="header">
+          <div class="header-left">
+            <select class="school-selector">
+              <option value="cavlac">Colégio Cavlac</option>
+              <option value="anglo">Colégio Anglo</option>
+            </select>
+          </div>
+
+          <div class="header-right">
+            <div class="nav-icon-btn">
+              <i class="ti ti-bell"></i>
+              <div class="badge-orange">1</div>
+            </div>
+
+            <div class="user-profile-header">
+              <div class="user-avatar">PE</div>
+              <span>Profª Elisabete</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-container">
+          <h1 class="dashboard-title-custom">Dashboard</h1>
+          <div class="section-sub">
+            Atuação Docente Ativa: <strong>História, Geografia e Artes</strong>
+          </div>
+
+          <div class="ai-insight-box">
+            <i
+              class="ti ti-sparkles"
+              style="font-size: 28px; color: var(--primary)"
+            ></i>
+            <div style="font-size: 16px; color: #4c1d95">
+              <strong>Insight do Assistente SIPE:</strong> Baseado nas suas
+              últimas aulas de <em>História</em>, a IA recomenda a geração da
+              avaliação bimestral focada na competência
+              <strong>EF08HI03</strong> da BNCC.
+            </div>
+          </div>
+
+          <div class="toast-alert">
+            <div class="toast-icon"><i class="ti ti-alert-triangle"></i></div>
+            <div class="toast-content">
+              <h4>Atenção Pedagógica!</h4>
+              <p>
+                O plano de aula de <strong>História (8º Ano)</strong> exige
+                adequação de competências antes do fechamento do ciclo.
+              </p>
+            </div>
+            <button class="toast-action-btn">
+              Editar <i class="ti ti-pencil"></i>
+            </button>
+          </div>
+
+          <div class="quick-actions">
+            <div class="qa-card card-purple">
+              <div class="qa-icon"><i class="ti ti-circle-plus"></i></div>
+              <div class="qa-title">Criar Planejamento</div>
+              <div class="qa-desc">
+                Geração assistida orientada pelo projeto pedagógico.
+              </div>
+              <span class="ai-badge"
+                ><i class="ti ti-sparkles"></i> IA Ativa</span
+              >
+            </div>
+
+            <div class="qa-card card-lavender">
+              <div class="qa-icon"><i class="ti ti-file-certificate"></i></div>
+              <div class="qa-title">Gerar Avaliação</div>
+              <div class="qa-desc">
+                Provas customizadas sobre as matérias aplicadas.
+              </div>
+              <span class="ai-badge"
+                ><i class="ti ti-sparkles"></i> IA Ativa</span
+              >
+            </div>
+
+            <div class="qa-card card-military">
+              <div class="qa-icon"><i class="ti ti-archive"></i></div>
+              <div class="qa-title">Biblioteca de Conteúdo</div>
+              <div class="qa-desc">
+                Base de documentos alinhada às diretrizes.
+              </div>
+            </div>
+
+            <div class="qa-card" style="border-top: 6px solid var(--primary)">
+              <div class="qa-icon" style="color: var(--primary)">
+                <i class="ti ti-message-heart"></i>
+              </div>
+              <div class="qa-title">Feedback</div>
+              <div class="qa-desc">
+                Avaliações e devolutivas da coordenação.
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-summary-bar">
+            <div class="metric-widget">
+              <div
+                class="metric-icon-box"
+                style="background: #fef3c7; color: #d97706"
+              >
+                <i class="ti ti-hourglass-high"></i>
+              </div>
+              <div>
+                <div
+                  style="font-size: 14px; color: var(--muted); font-weight: 600"
+                >
+                  Tempo Otimizado
+                </div>
+                <div style="font-size: 20px; font-weight: 800; color: #1e293b">
+                  ⏳ 14h Salvas no mês
+                </div>
+              </div>
+            </div>
+
+            <div class="metric-widget">
+              <div
+                class="metric-icon-box"
+                style="background: #dcfce7; color: #15803d"
+              >
+                <i class="ti ti-activity"></i>
+              </div>
+              <div style="flex: 1">
+                <div
+                  style="
+                    font-size: 14px;
+                    color: var(--muted);
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: space-between;
+                  "
+                >
+                  <span>Termômetro de Cobertura BNCC</span>
+                  <span style="color: var(--secondary); font-weight: bold"
+                    >84%</span
+                  >
+                </div>
+                <div class="thermometer-track">
+                  <div class="thermometer-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="main-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 20px;
+                "
+              >
+                <h2 style="font-size: 22px">Calendário Escolar</h2>
+                <span style="font-weight: bold">Junho 2026</span>
+              </div>
+              <div class="cal-grid">
+                <div class="cal-day-name">D</div>
+                <div class="cal-day-name">S</div>
+                <div class="cal-day-name">T</div>
+                <div class="cal-day-name">Q</div>
+                <div class="cal-day-name">Q</div>
+                <div class="cal-day-name">S</div>
+                <div class="cal-day-name">S</div>
+                <div class="cal-day" style="opacity: 0.3">31</div>
+                <div class="cal-day">1</div>
+                <div class="cal-day">2</div>
+                <div class="cal-day">3</div>
+                <div class="cal-day">4</div>
+                <div class="cal-day">5</div>
+                <div class="cal-day">6</div>
+                <div class="cal-day">7</div>
+                <div class="cal-day">8</div>
+                <div class="cal-day">9</div>
+                <div class="cal-day today">10</div>
+                <div class="cal-day">11</div>
+                <div class="cal-day">12</div>
+                <div class="cal-day event-day">
+                  13
+                  <div class="event-label-mini">Copaneja 🎉</div>
+                </div>
+                <div class="cal-day">14</div>
+                <div class="cal-day">15</div>
+                <div class="cal-day">16</div>
+                <div class="cal-day">17</div>
+                <div class="cal-day">18</div>
+                <div class="cal-day">19</div>
+                <div class="cal-day">20</div>
+                <div class="cal-day">21</div>
+                <div class="cal-day">22</div>
+                <div class="cal-day">23</div>
+                <div class="cal-day">24</div>
+                <div class="cal-day">25</div>
+                <div class="cal-day">26</div>
+                <div class="cal-day">27</div>
+                <div class="cal-day">28</div>
+                <div class="cal-day">29</div>
+                <div class="cal-day">30</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 style="font-size: 22px; margin-bottom: 20px">
+                Quadro de Avisos
+              </h2>
+              <div class="timeline-card orange-edge">
+                <div
+                  style="
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: var(--muted);
+                  "
+                >
+                  13 de Junho
+                </div>
+                <div style="font-size: 18px; font-weight: bold">
+                  Festa Junina (Copaneja)
+                </div>
+                <div style="font-size: 15px">
+                  Integração institucional Colégio Cavlac.
+                </div>
+              </div>
+              <div class="timeline-card military-edge">
+                <div
+                  style="
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: var(--muted);
+                  "
+                >
+                  18 de Junho
+                </div>
+                <div style="font-size: 18px; font-weight: bold">
+                  Fechamento de Notas
+                </div>
+                <div style="font-size: 15px">
+                  Prazo diários: História, Geografia e Artes.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
