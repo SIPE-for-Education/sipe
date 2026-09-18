@@ -2,12 +2,6 @@
 
 Sistema desenvolvido para apoiar o **planejamento e a gestão escolar**, oferecendo recursos voltados à organização das atividades pedagógicas e ao acompanhamento das informações escolares.
 
-## Sobre o projeto
-
-O SIPE — Sistema Inteligente de Planejamento e Gestão Escolar — é um projeto acadêmico de desenvolvimento de software.
-
-O sistema tem como objetivo apoiar professores e gestores/coordenadores pedagógicos no planejamento, organização e gestão das atividades escolares.
-
 ## Objetivos
 
 O projeto busca desenvolver uma solução que contribua para:
@@ -36,14 +30,3 @@ A documentação oficial deve ser consultada antes da implementação de novas f
 - JavaScript
 
 Outras tecnologias serão adicionadas conforme a arquitetura e o desenvolvimento do sistema forem definidos.
-
-## Estrutura do projeto
-
-```text
-sipe/
-├── src/
-├── assets/
-├── tests/
-├── database/
-├── README.md
-└── ...
