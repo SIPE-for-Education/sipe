@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SIPE — Meu Planejamento</title>
+    <link rel="stylesheet" href="./planning.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+
+    <script defer src="./planning.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="sidebar">
+        <div class="sidebar-logo"><i class="ti ti-cpu"></i> SIPE</div>
+        <div class="sidebar-menu">
+            <a href="../../index.html" class="menu-item">
+                <i class="ti ti-layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="./planning.html" class="menu-item active">
+                <i class="ti ti-file-text"></i>
+                <span>Planejamentos</span>
+            </a>
+            <a href="../review/review.html" class="menu-item">
+                <i class="ti ti-clipboard-list"></i>
+                <span>Avaliações</span>
+            </a>
+            <a href="../library/library.html" class="menu-item">
+                <i class="ti ti-books"></i>
+                <span>Biblioteca</span>
+            </a>
+            <a href="../feedback/feedback.html" class="menu-item">
+                <i class="ti ti-message-heart"></i>
+                <span>Feedback Coordenação</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="ti ti-settings"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ti ti-headset"></i>
+                <span>Suporte</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="header">
+            <div class="header-left">
+                <label for="sel-school"></label>
+                <select id="sel-school" class="school-selector" onchange="handleSchoolChange(this)">
+                    <option value="cavlac">Colégio Cavlac</option>
+                    <option value="anglo">Colégio Anglo</option>
+                    <option value="estadual">E.E. Prof. Silva Neto</option>
+                </select>
+            </div>
+            <div class="header-right">
+                <div class="header-info">
+                    <strong>Ano Letivo 2026</strong>
+                    <div>2.º Bimestre · Semana 22</div>
+                </div>
+                <div class="navigation-icon-button">
+                    <i class="ti ti-bell"></i>
+                    <div class="badge-orange">2</div>
+                </div>
+                <div class="user-profile-header">
+                    <div class="user-avatar">PE</div>
+                    <div class="header-info">
+                        <h4>Profª Elisabete</h4>
+                        <div>História · Geografia · Artes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Meu Planejamento</h1>
+                    <div class="page-subtitle">Geração automática baseada em conteúdos homologados pela instituição
+                    </div>
+                </div>
+                <div class="step-trail">
+                    <div class="step-dot done"><i class="small-icon ti ti-check"></i></div>
+                    <span>Seleção</span>
+                    <span class="step-sep">›</span>
+                    <div class="step-dot active">2</div>
+                    <span>Geração</span>
+                    <span class="step-sep">›</span>
+                    <div class="step-dot">3</div>
+                    <span>Aprovação</span>
+                </div>
+            </div>
+
+            <div class="selector-card">
+                <h3><i class="ti ti-adjustments-horizontal"></i> Configurar Planejamento</h3>
+                <div class="selector-row">
+                    <div class="field-group">
+                        <label for="sel-class">Turma</label>
+                        <select id="sel-class">
+                            <option>3º Ano A</option>
+                            <option>3º Ano B</option>
+                            <option>4º Ano A</option>
+                            <option>8º Ano — História</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label for="sel-disciplina">Disciplina</label>
+                        <select id="sel-disciplina">
+                            <option>Matemática</option>
+                            <option>Português</option>
+                            <option>História</option>
+                            <option>Geografia</option>
+                            <option>Ciências</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label for="sel-week">Semana</label>
+                        <select id="sel-week">
+                            <option>09/06 a 13/06</option>
+                            <option>16/06 a 20/06</option>
+                            <option>23/06 a 27/06</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label for="sel-institutional">Modelo Institucional</label>
+                        <select id="sel-institutional">
+                            <option>Padrão Cavlac 2026</option>
+                            <option>Modelo Reforço BNCC</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="button-generate" onclick="startGeneration()">
+                            <i class="ti ti-sparkles"></i> Gerar Planejamento com IA
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workspace" id="workspace">
+                <div class="document-area">
+                    <div class="doc-action-bar">
+                        <div class="doc-action-bar-left">
+                            <div class="doc-status-chip chip-draft" id="doc-status-chip">
+                                <i class="small-icon ti ti-clock"></i>
+                                Aguardando geração
+                            </div>
+                            <span>|</span>
+                            <span>Planejamento Semanal — v1.0</span>
+                        </div>
+                        <div class="doc-action-bar-right">
+                            <button class="button-outline-white" onclick="togglePanel()">
+                                <i class="medium-icon ti ti-layout-sidebar-right"></i>
+                                <span>Referências IA</span>
+                            </button>
+                            <button class="button-outline-white">
+                                <i class="medium-icon ti ti-pencil"></i>
+                                <span>Editar</span>
+                            </button>
+                            <button class="button-approve" id="btn-approve" disabled>
+                                <i class="medium-icon ti ti-send"></i>
+                                <span>Enviar para Aprovação</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="institutional-doc">
+                        <div class="doc-header-stripe">
+                            <div class="doc-school-logo">CC</div>
+                            <div>
+                                <div class="doc-school-name">Colégio Cavlac</div>
+                                <div class="doc-school-sub">Coordenação Pedagógica — Sistema SIPE</div>
+                            </div>
+                            <div class="doc-meta-strip">
+                                <div class="doc-meta-pill">
+                                    <span>Bimestre:</span>
+                                    <span>2.º Bimestre 2026</span>
+                                </div>
+                                <div class="doc-meta-pill">
+                                    <span>Semana:</span>
+                                    <span>09/06 a 13/06</span>
+                                </div>
+                                <div class="doc-meta-pill">
+                                    <span>Doc n.º:</span>
+                                    <span>PLN-2026-1147</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-info-row">
+                            <div class="doc-info-cell">
+                                <div class="information-label">Professora</div>
+                                <div class="information-value">Elisabete Pereira</div>
+                            </div>
+                            <div class="doc-info-cell">
+                                <div class="information-label">Turma</div>
+                                <div class="information-value">3º Ano A</div>
+                            </div>
+                            <div class="doc-info-cell">
+                                <div class="information-label">Disciplina</div>
+                                <div class="information-value" id="info-disciplina">Matemática</div>
+                            </div>
+                            <div class="doc-info-cell">
+                                <div class="information-label">Período</div>
+                                <div class="information-value">Matutino</div>
+                            </div>
+                            <div class="doc-info-cell">
+                                <div class="information-label">Gerado por IA</div>
+                                <div class="information-value" id="information-generate-time">—</div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-grid-wrapper">
+                            <table class="schedule-table">
+                                <thead>
+                                <tr>
+                                    <th class="time-col">Horário</th>
+                                    <th>Segunda-feira<br/><span class="date">09/06</span></th>
+                                    <th>Terça-feira<br/><span class="date">10/06</span></th>
+                                    <th>Quarta-feira<br/><span class="date">11/06</span></th>
+                                    <th>Quinta-feira<br/><span class="date">12/06</span></th>
+                                    <th>Sexta-feira<br/><span class="date">13/06</span></th>
+                                </tr>
+                                </thead>
+                                <tbody id="schedule-body">
+                                <tr>
+                                    <td class="time-cell">07h30<br/>—<br/>08h20</td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty">
+                                            <i class="ti ti-dots"></i>
+                                        </div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty">
+                                            <i class="ti ti-dots"></i>
+                                        </div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty">
+                                            <i class="ti ti-dots"></i>
+                                        </div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty">
+                                            <i class="ti ti-dots"></i>
+                                        </div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty">
+                                            <i class="ti ti-dots"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="time-cell">08h20<br/>—<br/>09h10</td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="time-cell">09h30<br/>—<br/>10h20</td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="time-cell">10h20<br/>—<br/>11h00</td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="time-cell">11h00<br/>—<br/>12h00</td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                    <td class="lesson-cell">
+                                        <div class="cell-empty"><i class="ti ti-dots"></i></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-panel" id="side-panel">
+                    <div class="side-panel-inner">
+                        <div class="panel-header">
+                            <h4><i class="ti ti-sparkles"></i>Fontes Utilizadas pela IA</h4>
+                            <p>Conteúdos homologados pela instituição</p>
+                        </div>
+                        <div class="panel-body" id="panel-body">
+                            <div class="panel-section-title">Indicadores de Qualidade</div>
+                            <div class="quality-grid">
+                                <div class="quality-card">
+                                    <div class="quality-label">Cobertura BNCC</div>
+                                    <div class="quality-value purple" id="q-bncc">—</div>
+                                </div>
+                                <div class="quality-card">
+                                    <div class="quality-label">Conteúdos</div>
+                                    <div class="quality-value green" id="q-content">—</div>
+                                </div>
+                                <div class="quality-card">
+                                    <div class="quality-label">Conflitos</div>
+                                    <div class="quality-value green" id="q-conflicts">—</div>
+                                </div>
+                                <div class="quality-card">
+                                    <div class="quality-label">Aval. Pendentes</div>
+                                    <div class="quality-value orange" id="q-pending">—</div>
+                                </div>
+                            </div>
+
+                            <div class="panel-section-title">Referências Consultadas</div>
+
+                            <div class="source-item">
+                                <div class="source-icon"><i class="bi bi-journal-text purple"></i></div>
+                                <div>
+                                    <div class="source-name">Apostila Anglo — Matemática</div>
+                                    <div class="source-detail">Módulo 4 · Páginas 140–145</div>
+                                    <div class="source-detail purple">✓ Homologado</div>
+                                </div>
+                            </div>
+
+                            <div class="source-item">
+                                <div class="source-icon"><i class="bi bi-journal-text purple"></i></div>
+                                <div>
+                                    <div class="source-name">BNCC — Competências</div>
+                                    <div class="source-detail">EF03MA05 · EF03MA07 · EF03MA12</div>
+                                    <div class="source-detail green">✓ Alinhado</div>
+                                </div>
+                            </div>
+
+                            <div class="source-item">
+                                <div class="source-icon"><i class="bi bi-journal-text purple"></i></div>
+                                <div>
+                                    <div class="source-name">Planejamento Semana 20</div>
+                                    <div class="source-detail">Progressão de conteúdo verificada</div>
+                                    <div class="source-detail orange">↑ Contínuo</div>
+                                </div>
+                            </div>
+
+                            <div class="source-item">
+                                <div class="source-icon"><i class="bi bi-journal-text purple"></i></div>
+                                <div>
+                                    <div class="source-name">Material Socioemocional</div>
+                                    <div class="source-detail">Projeto de Vida · Semana 22</div>
+                                    <div class="source-detail purple">✓ Incluído</div>
+                                </div>
+                            </div>
+
+                            <div class="source-item">
+                                <div class="source-icon"><i class="bi bi-journal-text purple"></i></div>
+                                <div>
+                                    <div class="source-name">Livro Didático PNLD</div>
+                                    <div class="source-detail">Matemática — 3º Ano</div>
+                                    <div class="source-detail blue">✓ Referenciado</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ai-loading-overlay" id="ai-overlay">
+    <div class="ai-loader-box">
+        <div class="ai-spinner"></div>
+        <div class="ai-loader-title"><i class="bi bi-lightning-charge-fill yellow"></i> IA Gerando Planejamento</div>
+        <div class="ai-loader-step" id="ai-step-text">Iniciando consulta às fontes...</div>
+        <div class="ai-progress-track">
+            <div class="ai-progress-fill" id="ai-progress"></div>
+        </div>
+        <div class="sources-scanning">
+            <div class="scan-chip" id="chip-apostila">
+                <i class="bi bi-robot"></i>
+                <span> Apostila Anglo</span>
+            </div>
+            <div class="scan-chip" id="chip-bncc">
+                <i class="bi bi-robot"></i>
+                <span>BNCC</span>
+            </div>
+            <div class="scan-chip" id="chip-prev">
+                <i class="bi bi-robot"></i>
+                <span>Plano Anterior</span>
+            </div>
+            <div class="scan-chip" id="chip-socio">
+                <i class="bi bi-robot"></i>
+                <span>Socioemocional</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="success-toast" id="success-toast">
+    <i class="large-icon ti ti-circle-check"></i>
+    Planejamento gerado com sucesso! Pronto para revisão.
+</div>
+</body>
+</html>

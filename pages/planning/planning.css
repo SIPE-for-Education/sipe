@@ -1,0 +1,443 @@
+.step-trail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+}
+
+.step-trail .step-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--cotton);
+    color: var(--muted);
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+}
+
+.step-trail .step-dot.done {
+    background: var(--dark-green);
+    color: var(--white);
+}
+
+.step-trail .step-dot.active {
+    background: var(--purple);
+    color: var(--white);
+}
+
+.step-trail .step-sep {
+    color: var(--cotton);
+    font-size: var(--smaller-text-size);
+}
+
+.selector-card {
+    padding: 24px 32px;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    background: var(--white);
+}
+
+.selector-card h3 {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: var(--text-size);
+    font-weight: bold;
+}
+
+.selector-card h3 i {
+    color: var(--purple);
+    font-size: var(--larger-text-size);
+}
+
+.selector-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.workspace {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.document-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+}
+
+.chip-draft {
+    background: var(--brown);
+    color: var(--orange);
+}
+
+.chip-generated {
+    background: var(--dark-green);
+    color: var(--light-green);
+}
+
+.chip-pulse {
+    animation: pulse-chip 1.5s ease-in-out infinite;
+}
+
+.doc-action-bar-right {
+    display: flex;
+    gap: 10px;
+}
+
+.button-outline-white {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--cotton);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--cotton);
+    font-size: calc(var(--smaller-text-size) - 2px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button-outline-white:hover {
+    border-color: var(--cotton);
+    color: var(--white);
+}
+
+.button-approve {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--dark-green);
+    color: var(--white);
+    font-size: calc(var(--smaller-text-size) - 2px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button-approve:hover {
+    background: var(--dark-green);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--smaller-text-size);
+}
+
+.schedule-table th {
+    padding: 12px 16px;
+    background: var(--navy-blue);
+    color: var(--white);
+    font-size: calc(var(--smaller-text-size) - 4px);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.schedule-table .date {
+    font-size: calc(var(--smaller-text-size) - 4px);
+    font-weight: bold;
+    opacity: 0.6;
+    text-transform: none;
+}
+
+.schedule-table th.time-col {
+    background: var(--navy-blue);
+}
+
+.schedule-table tr:nth-child(odd) td {
+    background-color: var(--white);
+}
+
+.schedule-table tr:nth-child(even) td {
+    background: color-mix(
+            in oklab,
+            var(--cotton),
+            var(--white) 80%
+    );
+}
+
+
+.schedule-table td {
+    border: 1px solid var(--cotton);
+}
+
+.time-cell {
+    padding: 14px 12px;
+    border-right: 2px solid var(--cotton);
+    background: var(--white);
+    color: var(--muted);
+    font-weight: bold;
+    font-size: calc(var(--smaller-text-size) - 2px);
+    text-align: center;
+}
+
+.lesson-cell {
+    position: relative;
+    min-height: 90px;
+    padding: 12px 14px;
+    transition: background 0.15s;
+}
+
+.lesson-cell:hover {
+    background: var(--light-purple) !important;
+}
+
+.lesson-cell.ai-filled {
+    background: var(--light-purple);
+}
+
+.lesson-cell.ai-filled::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--purple);
+}
+
+.lesson-subject {
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lesson-content-title {
+    color: var(--navy-blue);
+    font-size: calc(var(--smaller-text-size) - 2px);
+    font-weight: bold;
+}
+
+.lesson-reference {
+    color: var(--muted);
+    font-size: calc(var(--smaller-text-size) - 4px);
+}
+
+.lesson-strategy {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    color: var(--muted);
+    font-size: calc(var(--smaller-text-size) - 4px);
+}
+
+.lesson-strategy i {
+    font-size: var(--smaller-text-size);
+    flex-shrink: 0;
+}
+
+.cell-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    color: var(--cotton);
+    font-size: var(--smaller-text-size);
+}
+
+.typing-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+}
+
+.subject-math {
+    color: var(--purple);
+}
+
+.subject-portuguese {
+    color: var(--blue);
+}
+
+.subject-geography {
+    color: var(--dark-green);
+}
+
+.subject-history {
+    color: var(--orange);
+}
+
+.subject-science {
+    color: var(--blue);
+}
+
+.side-panel {
+    flex-shrink: 0;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.side-panel.open {
+    width: 320px;
+}
+
+.side-panel-inner {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 100%;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow-y: auto;
+}
+
+.panel-header {
+    padding: 20px;
+    background: var(--navy-blue);
+    color: var(--white);
+    overflow: hidden;
+}
+
+.panel-header h4 {
+    margin-right: 10px;
+    color: var(--white);
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+}
+
+.panel-header p {
+    font-size: calc(var(--smaller-text-size) - 2px);
+    opacity: 0.6;
+}
+
+.panel-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
+
+.panel-section-title {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--cotton);
+    margin-top: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+}
+
+.quality-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.quality-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--cotton);
+    border-radius: var(--radius);
+    background: var(--light-cotton);
+    text-align: center;
+}
+
+.quality-card .quality-label {
+    color: var(--muted);
+    font-size: calc(var(--smaller-text-size) - 2px);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.quality-card .quality-value {
+    font-weight: bold;
+}
+
+.quality-card .quality-value.green {
+    color: var(--green);
+}
+
+.quality-card .quality-value.purple {
+    color: var(--purple);
+}
+
+.quality-card .quality-value.orange {
+    color: var(--orange);
+}
+
+.quality-card .quality-value.red {
+    color: var(--red);
+}
+
+.ai-loading-overlay {
+    position: fixed;
+    z-index: 2;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.ai-loading-overlay.active {
+    display: flex;
+}
+
+.ai-loader-box {
+    width: 90%;
+    max-width: 440px;
+    padding: 40px 52px;
+    border: 2px solid rgba(109, 40, 217, 0.4);
+    border-radius: var(--radius);
+    text-align: center;
+    background: var(--navy-blue);
+}
+
+.ai-loader-title {
+    margin-bottom: 10px;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.ai-loader-step {
+    min-height: 22px;
+    color: var(--cotton);
+    font-size: var(--smaller-text-size);
+}
+
+.ai-progress-track {
+    width: 100%;
+    height: 6px;
+    border-radius: var(--radius);
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.ai-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, var(--purple), #a78bfa);
+    transition: width 0.4s ease;
+}
+
+.sources-scanning {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}

@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SIPE — Biblioteca Inteligente de Conteúdos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./library.css">
+
+    <script defer src="./library.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="sidebar">
+        <div class="sidebar-logo"><i class="ti ti-cpu"></i> SIPE</div>
+        <div class="sidebar-menu">
+            <a href="../../index.html" class="menu-item">
+                <i class="ti ti-layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../planning/planning.html" class="menu-item">
+                <i class="ti ti-file-text"></i>
+                <span>Planejamentos</span>
+            </a>
+            <a href="../review/review.html" class="menu-item">
+                <i class="ti ti-clipboard-list"></i>
+                <span>Avaliações</span>
+            </a>
+            <a href="./library.html" class="menu-item active">
+                <i class="ti ti-books"></i>
+                <span>Biblioteca</span>
+            </a>
+            <a href="../feedback/feedback.html" class="menu-item">
+                <i class="ti ti-message-heart"></i>
+                <span>Feedback Coordenação</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="ti ti-settings"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ti ti-headset"></i>
+                <span>Suporte</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="header">
+            <div class="header-left">
+                <label for="school-selector"></label>
+                <select id="school-selector" class="school-selector">
+                    <option>Colégio Cavlac</option>
+                    <option>Colégio Anglo</option>
+                </select>
+                <div class="system-chip system-chip-purple">
+                    <i class="ti ti-school"></i>
+                    <span>Sistema Anglo</span>
+                </div>
+                <div class="system-chip system-chip-green">
+                    <i class="ti ti-calendar-check"></i>
+                    <span>2026</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="navigation-icon-button" onclick="showToast('4 novas notificações', 'info', 'ti-bell')">
+                    <i class="ti ti-bell"></i>
+                    <div class="badge-orange">4</div>
+                </div>
+                <button class="button-admin" onclick="openAdminModal()">
+                    <i class="ti ti-settings-2"></i>
+                    <span>Gestão de Conteúdos</span>
+                </button>
+                <div class="user-profile-header">
+                    <div class="user-avatar">PE</div>
+                    <span>Profª Elisabete</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="page-container" id="pageContent">
+                <div>
+                    <h1 class="page-title">Biblioteca Inteligente</h1>
+                    <div class="page-subtitle">Base oficial utilizada pela IA para gerar planejamentos e avaliações.
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card" id="kpi1">
+                        <div class="kpi-icon bg-light-purple purple">
+                            <i class="ti ti-books"></i>
+                        </div>
+                        <div>
+                            <div class="kpi-number purple">248</div>
+                            <div class="kpi-label">Materiais Disponíveis</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card" id="kpi2">
+                        <div class="kpi-icon bg-light-green green">
+                            <i class="ti ti-school"></i>
+                        </div>
+                        <div>
+                            <div class="kpi-number green">3</div>
+                            <div class="kpi-label">Sistemas de Ensino</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card" id="kpi3">
+                        <div class="kpi-icon bg-light-yellow amber">
+                            <i class="ti ti-cpu"></i>
+                        </div>
+                        <div>
+                            <div class="kpi-number amber">12.540</div>
+                            <div class="kpi-label">Conteúdos Indexados IA</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card" id="kpi4">
+                        <div class="kpi-icon bg-light-orange amber">
+                            <i class="ti ti-file-certificate"></i>
+                        </div>
+                        <div>
+                            <div class="kpi-number amber">1.284</div>
+                            <div class="kpi-label">Planejamentos Gerados</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-flow-banner">
+                    <div class="ai-flow-step done">
+                        <div class="ai-flow-icon"><i class="bi bi-building"></i></div>
+                        <div class="ai-flow-label">Material Institucional</div>
+                    </div>
+                    <div class="ai-flow-arrow">›</div>
+                    <div class="ai-flow-step hl">
+                        <div class="ai-flow-icon"><i class="ti ti-database-import"></i></div>
+                        <div class="ai-flow-label">Indexação SIPE</div>
+                    </div>
+                    <div class="ai-flow-arrow">›</div>
+                    <div class="ai-flow-step hl">
+                        <div class="ai-flow-icon"><i class="ti ti-brain"></i></div>
+                        <div class="ai-flow-label">IA Contextualizada</div>
+                    </div>
+                    <div class="ai-flow-arrow">›</div>
+                    <div class="ai-flow-step out">
+                        <div class="ai-flow-icon"><i class="ti ti-file-text"></i></div>
+                        <div class="ai-flow-label">Planejamento</div>
+                    </div>
+                    <div class="ai-flow-arrow">›</div>
+                    <div class="ai-flow-step out">
+                        <div class="ai-flow-icon"><i class="ti ti-clipboard-list"></i></div>
+                        <div class="ai-flow-label">Avaliação</div>
+                    </div>
+                    <div class="ai-flow-arrow">›</div>
+                    <div class="ai-flow-step out">
+                        <div class="ai-flow-icon"><i class="ti ti-circle-check"></i></div>
+                        <div class="ai-flow-label">Rastreabilidade</div>
+                    </div>
+                </div>
+
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <i class="ti ti-search"></i>
+                        <label for="searchInput"></label>
+                        <input type="text"
+                               placeholder="Buscar materiais, competências, conteúdos..."
+                               id="searchInput"
+                               oninput="filterMaterials()"/>
+                    </div>
+                    <div class="filter-divider"></div>
+                    <div>
+                        <div class="filter-label">Sistema</div>
+                        <label for="filterSistema"></label>
+                        <select class="filter-select" id="filterSistema" onchange="filterMaterials()">
+                            <option value="">Todos</option>
+                            <option value="anglo">Anglo</option>
+                            <option value="objetivo">Objetivo</option>
+                            <option value="positivo">Positivo</option>
+                            <option value="sas">SAS</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="filter-label">Série</div>
+                        <label for="filterSerie"></label>
+                        <select class="filter-select" id="filterSerie" onchange="filterMaterials()">
+                            <option value="">Todas</option>
+                            <option value="3ano">3º Ano</option>
+                            <option value="7ano">7º Ano</option>
+                            <option value="8ano">8º Ano</option>
+                            <option value="6ano">6º Ano</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="filter-label">Disciplina</div>
+                        <label for="filterDisc"></label>
+                        <select class="filter-select"
+                                id="filterDisc"
+                                onchange="filterMaterials()">
+                            <option value="">Todas</option>
+                            <option value="mat">Matemática</option>
+                            <option value="hist">História</option>
+                            <option value="geo">Geografia</option>
+                            <option value="port">Português</option>
+                            <option value="arte">Artes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="filter-label">Bimestre</div>
+                        <label for="filterBim"></label>
+                        <select class="filter-select"
+                                id="filterBim"
+                                onchange="filterMaterials()">
+                            <option value="">Todos</option>
+                            <option value="1">1º</option>
+                            <option value="2">2º</option>
+                            <option value="3">3º</option>
+                            <option value="4">4º</option>
+                        </select>
+                    </div>
+                    <div class="filter-divider"></div>
+                    <div class="view-toggle">
+                        <button class="view-button active"
+                                id="btnGrid"
+                                onclick="setView('grid')"
+                                title="Grade">
+                            <i class="ti ti-layout-grid"></i>
+                        </button>
+                        <button class="view-button"
+                                id="btnList"
+                                onclick="setView('list')"
+                                title="Lista">
+                            <i class="ti ti-layout-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="materials-grid" id="materialsGrid"></div>
+                <div class="empty-state" id="emptyState">
+                    <i class="ti ti-search-off"></i>
+                    <h3>Nenhum material encontrado</h3>
+                    <p>Tente ajustar os filtros ou a busca.</p>
+                </div>
+
+                <div style="height: 20px"></div>
+            </div>
+
+            <div class="detail-panel" id="detailPanel">
+                <div class="detail-inner">
+                    <div class="panel-header" id="panelHeader">
+                        <div>
+                            <div class="panel-materials-icon" id="panelIcon"></div>
+                            <div class="panel-materials-title" id="panelTitle">—</div>
+                            <div class="panel-materials-sub" id="panelSub">—</div>
+                        </div>
+                        <button class="panel-close" onclick="closePanel()"><i class="ti ti-x"></i></button>
+                    </div>
+                    <div class="panel-body" id="panelBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="adminModal">
+    <div class="modal">
+        <div class="modal-header">
+            <div>
+                <div class="modal-title">⚙ Gestão de Conteúdos</div>
+                <div class="modal-subtitle">Administração da base de conhecimento institucional</div>
+            </div>
+            <button class="modal-close" onclick="closeAdminModal()"><i class="ti ti-x"></i></button>
+        </div>
+        <div class="permissions-banner">
+            <i class="ti ti-shield-lock"></i>
+            <div>
+                <strong>Acesso Restrito — Administrador e Coordenação</strong>
+                <span>Professores possuem acesso somente a leitura. ‘Upload’ e gerenciamento são exclusivos da gestão.</span>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-section-title">
+                <i class="ti ti-books purple"></i>
+                <span>Apostilas e Livros Didáticos</span>
+            </div>
+            <div class="upload-grid">
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-book-2"></i>
+                    <div class="upload-item-name">Apostila Anglo — Mat. 3º Ano</div>
+                    <div class="upload-item-desc">Módulos 1–4 · 180 páginas</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item" onclick="simulateUpload(this)">
+                    <i class="ti ti-upload"></i>
+                    <div class="upload-item-name">Apostila Anglo — Hist. 8º Ano</div>
+                    <div class="upload-item-desc">Clique para enviar</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-book"></i>
+                    <div class="upload-item-name">Livro Didático Geografia 7º</div>
+                    <div class="upload-item-desc">Editora FTD · 220 páginas</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item" onclick="simulateUpload(this)">
+                    <i class="ti ti-upload"></i>
+                    <div class="upload-item-name">Livro Didático Artes 6.º Ano</div>
+                    <div class="upload-item-desc">Clique para enviar</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-section-title">
+                <i class="ti ti-heart amber"></i>
+                <span>Livros Socioemocionais</span>
+            </div>
+            <div class="upload-grid">
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-heart-handshake"></i>
+                    <div class="upload-item-name">Protagonismo Socioemocional</div>
+                    <div class="upload-item-desc">Anglo · Ensino Fundamental II</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item" onclick="simulateUpload(this)">
+                    <i class="ti ti-upload"></i>
+                    <div class="upload-item-name">Ser e Conviver — 6.º Ano</div>
+                    <div class="upload-item-desc">Clique para enviar</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-section-title">
+                <i class="ti ti-certificate red"></i>
+                <span>BNCC e Documentos Oficiais</span>
+            </div>
+            <div class="upload-grid">
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-building-government"></i>
+                    <div class="upload-item-name">BNCC — Ensino Fundamental</div>
+                    <div class="upload-item-desc">MEC · 2018 · Vigente</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-file-certificate"></i>
+                    <div class="upload-item-name">PPP — Colégio Cavlac 2026</div>
+                    <div class="upload-item-desc">Projeto Político-Pedagógico</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-section-title">
+                <i class="ti ti-clipboard-list blue"></i>
+                <span>Modelos de Avaliação e Planejamento</span>
+            </div>
+            <div class="upload-grid">
+                <div class="upload-item uploaded" onclick="simulateUpload(this)">
+                    <i class="ti ti-forms"></i>
+                    <div class="upload-item-name">Modelo de Avaliação Bimestral</div>
+                    <div class="upload-item-desc">Padrão institucional Cavlac</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="upload-item" onclick="simulateUpload(this)">
+                    <i class="ti ti-upload"></i>
+                    <div class="upload-item-name">Modelo de Planejamento Semanal</div>
+                    <div class="upload-item-desc">Clique para enviar</div>
+                    <div class="upload-progress">
+                        <div class="upload-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <i class="bi bi-robot"></i>
+            <strong> Indexação Automática:</strong>
+            <span>Após o ‘upload’, o SIPE processa, indexa e disponibiliza o conteúdo para a IA em até</span>
+            <strong>2 minutos.</strong>
+            <span>Todo material indexado fica rastreável — o sistema registra quais documentos geraram cada planejamento ou avaliação.</span>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+</body>
+</html>
