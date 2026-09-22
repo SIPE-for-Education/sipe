@@ -1,241 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <title>SIPE - Sistema Inteligente de Planejamento Escolar</title>
-
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 </head>
-<body>
-<div class="app">
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <i class="ti ti-cpu"></i>
-            <span>SIPE</span>
-        </div>
+<body class="landing-body">
+<header>
+    <div class="superior">
+        <a class="logo" href="#inicio"><img src="assets/images/logo.png" alt="SIPE"></a>
 
-        <div class="sidebar-menu">
-            <a href="./index.html" class="menu-item active">
-                <i class="ti ti-layout-dashboard"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="./pages/planning/planning.html" class="menu-item">
-                <i class="ti ti-file-text"></i>
-                <span>Planejamentos</span>
-            </a>
-            <a href="./pages/review/review.html" class="menu-item">
-                <i class="ti ti-clipboard-list"></i> <span>Avaliações</span>
-            </a>
-            <a href="./pages/library/library.html" class="menu-item">
-                <i class="ti ti-books"></i> <span>Biblioteca</span>
-            </a>
-            <a href="./pages/feedback/feedback.html" class="menu-item">
-                <i class="ti ti-message-heart"></i> <span>Feedback Coordenação</span>
-            </a>
-        </div>
+        <a class="items active" href="#modulos">Módulos</a>
+        <a class="items" href="#fluxo">Fluxo de Aprovação</a>
+        <a class="items" href="#coordenacao">Para a coordenação</a>
+        <a class="items" href="#inteligencia">Inteligência Artificial</a>
 
-        <div class="sidebar-footer">
-            <a href="#" class="menu-item">
-                <i class="ti ti-settings"></i>
-                <span>Configurações</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="ti ti-headset"></i>
-                <span>Suporte</span>
-            </a>
+        <div class="botoes-login">
+            <button class="buttom-join" type="button" onclick="window.location.href='pages/signin/signin.html'">Entrar
+            </button>
+
+            <button class="buttom-join" type="button" onclick="window.location.href='pages/signup/signup.html'">
+                Cadastrar
+            </button>
         </div>
     </div>
+</header>
+<main>
+    <section class="center-information" id="inicio">
+        <input class="sipe-focus" placeholder="Feito para redes de ensino e escolas particulares." disabled>
+        <p class="title-sipe">
+            <strong>
+                O plano de aula sai pronto. A palavra final continua sendo da coordenação.
+            </strong>
+        </p>
 
-    <div class="main-panel">
-        <div class="header">
-            <div class="header-left">
-                <label for="school-selector"></label>
-                <select id="school-selector" class="school-selector">
-                    <option value="cavlac">Colégio Cavlac</option>
-                    <option value="anglo">Colégio Anglo</option>
-                </select>
-            </div>
+        <p class="description">
+            O SIPE utiliza Inteligência Artificial para auxiliar professores e coordenadores
+            na criação, gestão e validação de planejamentos pedagógicos e avaliações,
+            utilizando os materiais institucionais da própria escola.
+        </p>
+    </section>
+    <section class="content-section" id="modulos">
+        <h2 class="content-title">Planejamento inteligente para uma rotina escolar mais eficiente.</h2>
+        <p class="content-description">O SIPE reúne ferramentas para planejamento, avaliações, organização de conteúdos
+            e acompanhamento pedagógico em uma única plataforma.</p>
 
-            <div class="header-right">
-                <div class="navigation-icon-button">
-                    <i class="ti ti-bell"></i>
-                    <div class="badge-orange">1</div>
-                </div>
+        <div class="content-cards">
+            <article class="content-card">
+                <h3>Dashboard Inteligente</h3>
+                <p>Acompanhe planejamentos ativos, avaliações criadas, aprovações pendentes, indicadores pedagógicos e
+                    sugestões geradas por IA.</p>
+            </article>
 
-                <div class="user-profile-header">
-                    <div class="user-avatar">PE</div>
-                    <span>Profª Elisabete</span>
-                </div>
-            </div>
+            <article class="content-card">
+                <h3>Planejamento Semanal Inteligente</h3>
+                <p>Estruture conteúdos, objetivos de aprendizagem, estratégias de ensino, observações pedagógicas e
+                    avaliações vinculadas com apoio da IA.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Assistente Pedagógico com IA</h3>
+                <p>Gere estratégias pedagógicas, atividades, questões, avaliações, cronogramas e recomendações
+                    metodológicas de forma contextualizada.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Biblioteca Institucional</h3>
+                <p>Organize apostilas, livros didáticos, materiais pedagógicos, materiais socioemocionais e conteúdos
+                    institucionais para utilização pela IA.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Gestão de Avaliações</h3>
+                <p>Crie e gerencie avaliações diagnósticas, formativas e somativas, além de simulados e trabalhos.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Relatórios e Indicadores</h3>
+                <p>Analise a evolução dos planejamentos, a utilização da IA, o desempenho das avaliações e os
+                    indicadores institucionais.</p>
+            </article>
         </div>
+    </section>
 
-        <div class="page-container">
-            <h1 class="page-title">Dashboard</h1>
-            <div class="page-subtitle">
-                Atuação Docente Ativa: <strong>História, Geografia e Artes</strong>
-            </div>
+    <section class="content-section" id="fluxo">
+        <h2 class="content-title">Mais controle para a coordenação.</h2>
+        <p class="content-description">O SIPE permite que coordenadores acompanhem o processo de criação e validação dos
+            conteúdos pedagógicos.</p>
 
-            <div class="ai-insight-box">
-                <i class="ti ti-sparkles"></i>
-                <div>
-                    <strong>Insight do Assistente SIPE:</strong> Baseado nas suas
-                    últimas aulas de <em>História</em>, a IA recomenda a geração da
-                    avaliação bimestral focada na competência
-                    <strong>EF08HI03</strong> da BNCC.
-                </div>
-            </div>
+        <div class="content-cards">
+            <article class="content-card">
+                <h3>Revisão</h3>
+                <p>Coordenadores podem revisar planejamentos e conteúdos antes da aprovação.</p>
+            </article>
 
-            <div class="toast-alert">
-                <div class="toast-icon"><i class="ti ti-alert-triangle"></i></div>
-                <div class="toast-content">
-                    <h4>Atenção Pedagógica!</h4>
-                    <p>
-                        O plano de aula de <strong>História (8.º Ano)</strong> exige
-                        adequação de competências antes do fechamento do ciclo.
-                    </p>
-                </div>
-                <button class="toast-action-button">
-                    Editar <i class="ti ti-pencil"></i>
-                </button>
-            </div>
+            <article class="content-card">
+                <h3>Ajustes</h3>
+                <p>Solicite alterações nos conteúdos quando forem necessários ajustes pedagógicos.</p>
+            </article>
 
-            <div class="quick-actions">
-                <div class="quick-actions-card card-purple">
-                    <div class="quick-actions-icon"><i class="ti ti-circle-plus"></i></div>
-                    <div class="quick-actions-title">Criar Planejamento</div>
-                    <div class="quick-actions-desc">Geração assistida orientada pelo projeto pedagógico.</div>
-                    <span class="ai-badge">
-                        <i class="ti ti-sparkles"></i>
-                        IA Ativa</span>
-                </div>
+            <article class="content-card">
+                <h3>Aprovação</h3>
+                <p>Aprove ou reprove conteúdos e mantenha o acompanhamento do processo.</p>
+            </article>
 
-                <div class="quick-actions-card card-purple">
-                    <div class="quick-actions-icon"><i class="ti ti-file-certificate"></i></div>
-                    <div class="quick-actions-title">Gerar Avaliação</div>
-                    <div class="quick-actions-desc">Provas customizadas sobre as matérias aplicadas.</div>
-                    <span class="ai-badge">
-                        <i class="ti ti-sparkles"></i>
-                        IA Ativa</span>
-                </div>
-
-                <div class="quick-actions-card card-dark-green">
-                    <div class="quick-actions-icon"><i class="ti ti-archive"></i></div>
-                    <div class="quick-actions-title">Biblioteca de Conteúdo</div>
-                    <div class="quick-actions-desc">
-                        Base de documentos alinhada às diretrizes.
-                    </div>
-                </div>
-
-                <div class="quick-actions-card">
-                    <div class="quick-actions-icon">
-                        <i class="ti ti-message-heart"></i>
-                    </div>
-                    <div class="quick-actions-title">Feedback</div>
-                    <div class="quick-actions-desc">
-                        Avaliações e devolutivas da coordenação.
-                    </div>
-                </div>
-            </div>
-
-            <div class="analytics-summary-bar">
-                <div class="metric-widget hourglass-high">
-                    <div class="metric-icon-box">
-                        <i class="ti ti-hourglass-high"></i>
-                    </div>
-                    <div>
-                        <div>Tempo Otimizado</div>
-                        <div>
-                            <strong>⏳ 14h Salvas no mês</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="metric-widget activity">
-                    <div class="metric-icon-box">
-                        <i class="ti ti-activity"></i>
-                    </div>
-                    <div class="activity-box">
-                        <div class="activity-bg">
-                            <span>Termômetro de Cobertura BNCC</span>
-                            <span class="activity-number">84%</span>
-                        </div>
-                        <div class="thermometer-track">
-                            <div class="thermometer-fill"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dashboard-grid">
-                <div class="main-card">
-                    <div class="dashboard-info">
-                        <h3>Calendário Escolar</h3>
-                        <strong>Junho 2026</strong>
-                    </div>
-                    <div class="calendar-grid">
-                        <div class="calendar-day-name">D</div>
-                        <div class="calendar-day-name">S</div>
-                        <div class="calendar-day-name">T</div>
-                        <div class="calendar-day-name">Q</div>
-                        <div class="calendar-day-name">Q</div>
-                        <div class="calendar-day-name">S</div>
-                        <div class="calendar-day-name">S</div>
-                        <div class="calendar-day outside-month">31</div>
-                        <div class="calendar-day">1</div>
-                        <div class="calendar-day">2</div>
-                        <div class="calendar-day">3</div>
-                        <div class="calendar-day">4</div>
-                        <div class="calendar-day">5</div>
-                        <div class="calendar-day">6</div>
-                        <div class="calendar-day">7</div>
-                        <div class="calendar-day">8</div>
-                        <div class="calendar-day">9</div>
-                        <div class="calendar-day today">10</div>
-                        <div class="calendar-day">11</div>
-                        <div class="calendar-day">12</div>
-                        <div class="calendar-day event-day">13
-                            <div class="event-label-mini">Copaneja 🎉</div>
-                        </div>
-                        <div class="calendar-day">14</div>
-                        <div class="calendar-day">15</div>
-                        <div class="calendar-day">16</div>
-                        <div class="calendar-day">17</div>
-                        <div class="calendar-day">18</div>
-                        <div class="calendar-day">19</div>
-                        <div class="calendar-day">20</div>
-                        <div class="calendar-day">21</div>
-                        <div class="calendar-day">22</div>
-                        <div class="calendar-day">23</div>
-                        <div class="calendar-day">24</div>
-                        <div class="calendar-day">25</div>
-                        <div class="calendar-day">26</div>
-                        <div class="calendar-day">27</div>
-                        <div class="calendar-day">28</div>
-                        <div class="calendar-day">29</div>
-                        <div class="calendar-day">30</div>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 style="font-size: 22px; margin-bottom: 20px">Quadro de Avisos</h2>
-                    <div class="timeline-card orange-edge">
-                        <div class="notice-date">13 de Junho</div>
-                        <div class="notice-title">Festa Junina (Copaneja)</div>
-                        <div class="notice-description" style="">Integração institucional Colégio Cavlac.</div>
-                    </div>
-                    <div class="timeline-card military-edge">
-                        <div class="notice-date">18 de Junho</div>
-                        <div class="notice-title">Fechamento de Notas</div>
-                        <div class="notice-description">Prazo diários: História, Geografia e Artes.</div>
-                    </div>
-                </div>
-            </div>
+            <article class="content-card">
+                <h3>Histórico</h3>
+                <p>Acompanhe o histórico de alterações realizadas nos planejamentos.</p>
+            </article>
         </div>
-    </div>
-</div>
+    </section>
+
+    <section class="content-section" id="coordenacao">
+        <h2 class="content-title">Desenvolvido para quem participa da rotina pedagógica.</h2>
+
+        <p class="content-description">O SIPE foi pensado para apoiar diferentes participantes do ambiente escolar,
+            respeitando suas necessidades dentro do processo pedagógico.</p>
+
+        <div class="content-cards">
+            <article class="content-card">
+                <h3>Para Professores</h3>
+                <p>Redução do tempo gasto com planejamento e elaboração de avaliações, permitindo maior foco nas
+                    atividades de ensino.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Para Coordenadores</h3>
+                <p>Maior controle, padronização e acompanhamento das atividades pedagógicas.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Para Escolas</h3>
+                <p>Preservação do conhecimento institucional e utilização de conteúdos previamente homologados pela
+                    instituição.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section" id="inteligencia">
+        <h2 class="content-title">Inteligência Artificial com contexto institucional.</h2>
+        <p class="content-description">Diferentemente de assistentes genéricos de Inteligência Artificial, o SIPE
+            utiliza materiais institucionais homologados para fundamentar suas gerações.</p>
+
+        <p class="content-description">A arquitetura baseada em RAG permite recuperar informações dos materiais da
+            instituição para produzir conteúdos contextualizados e alinhados às suas diretrizes pedagógicas.</p>
+
+        <div class="content-list">
+            <p>Apostilas</p>
+            <p>Livros Didáticos</p>
+            <p>Materiais Pedagógicos</p>
+            <p>BNCC</p>
+            <p>Conteúdos Homologados</p>
+            <p>Regras Pedagógicas Institucionais</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="content-title">Uma plataforma construída para a realidade escolar.</h2>
+        <p class="content-description">O SIPE foi concebido a partir de necessidades observadas diretamente na rotina
+            escolar, envolvendo professores da Educação Básica, coordenadores pedagógicos, gestores escolares e a
+            comunidade escolar da região do Alto Tietê.</p>
+    </section>
+
+    <section class="content-section final-section" id="contato">
+        <h2 class="content-title">Inteligência para planejar, tempo para ensinar.</h2>
+        <p class="content-description">O SIPE reúne planejamento, avaliações, biblioteca institucional, assistência
+            pedagógica e acompanhamento em uma plataforma voltada para instituições de ensino.</p>
+    </section>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
