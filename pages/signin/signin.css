@@ -227,6 +227,11 @@ input.text-field:focus {
     transition: 0.2s;
 }
 
+.login-button a {
+    color: white;
+    text-decoration: none;
+}
+
 .login-button:hover {
     transform: translateY(-1px);
     box-shadow: 0 7px 15px rgba(91, 32, 190, 0.35);

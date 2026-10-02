@@ -264,6 +264,11 @@
   transition: 0.2s;
 }
 
+.botao-cadastro a {
+    color: white;
+    text-decoration: none;
+}
+
 .botao-cadastro:hover {
   transform: translateY(-1px);
   box-shadow: 0 7px 15px rgba(91, 32, 190, 0.35);
