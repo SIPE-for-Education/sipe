@@ -5,79 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
     <link rel="stylesheet" href="./settings.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <script src="settings.js"></script>
   </head>
-  <body class="support">
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <span class="brand-name">SIPE</span>
+  <body>
+    <div class="app">
+      <div class="sidebar">
+        <div class="sidebar-logo">
+          <i class="ti ti-cpu"></i>
+          <span>SIPE</span>
+        </div>
+
+        <div class="sidebar-menu">
+          <a href="../dashboard/dashboard.html" class="menu-item">
+            <i class="ti ti-layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="../planning/planning.html" class="menu-item">
+            <i class="ti ti-file-text"></i>
+            <span>Planejamentos</span>
+          </a>
+          <a href="../review/review.html" class="menu-item">
+            <i class="ti ti-clipboard-list"></i>
+            <span>Avaliações</span>
+          </a>
+          <a href="../library/library.html" class="menu-item">
+            <i class="ti ti-books"></i>
+            <span>Biblioteca</span>
+          </a>
+          <a href="../feedback/feedback.html" class="menu-item active">
+            <i class="ti ti-message-heart"></i>
+            <span>Feedback Coordenação</span>
+          </a>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="../settings/settings.html" class="menu-item">
+            <i class="ti ti-settings"></i>
+            <span>Configurações</span>
+          </a>
+          <a href="../support/support.html" class="menu-item">
+            <i class="ti ti-headset"></i>
+            <span>Suporte</span>
+          </a>
+        </div>
       </div>
 
-      <nav class="sidebar-nav">
-        <a href="../dashboard/dashboard.html" class="sidebar-link">
-          <span>Dashboard</span>
-        </a>
-        <a href="../planning/planning.html" class="sidebar-link">
-          <span>Planejamentos</span>
-        </a>
-        <a href="../review/review.html" class="sidebar-link">
-          <span>Avaliações</span>
-        </a>
-        <a href="../library/library.html" class="sidebar-link">
-          <span>Biblioteca</span>
-        </a>
-        <a href="../feedback/feedback.html" class="sidebar-link">
-          <span>Feedback<br />Coordenação</span>
-        </a>
-      </nav>
-
-      <div class="sidebar-footer">
-        <a href="../settings/settings.html" class="sidebar-link active">
-          <span>Configurações</span>
-        </a>
-        <a href="../support/support.html" class="sidebar-link">
-          <span>Suporte</span>
-        </a>
-      </div>
-    </aside>
-
-    <div class="main-wrapper">
-      <header>
-        <select class="college-option">
-          <option>COLÉGIO CAVLAC</option>
-          <option>COLÉGIO ANGLO</option>
-        </select>
-
-        <div class="user-profile">
-          <div class="notification-badge">
-            <span class="bell-icon"></span>
-            <span class="badge-count">1</span>
+      <div class="main-panel">
+        <div class="header">
+          <div class="header-left">
+            <label for="school-selector"></label>
+            <select id="school-selector" class="school-selector">
+              <option value="cavlac">Colégio Cavlac</option>
+              <option value="anglo">Colégio Anglo</option>
+            </select>
           </div>
-          <div class="avatar">PE</div>
-          <span class="user-name">Profª Elisabete</span>
-        </div>
-      </header>
 
-      <div class="page-header">
-        <h1>Configurações</h1>
-        <p>
-          Gerencie seu perfil, notificações e preferências do Assistente de IA.
-        </p>
-      </div>
+          <div class="header-right">
+            <div class="navigation-icon-button">
+              <i class="ti ti-bell"></i>
+              <div class="badge-orange">1</div>
+            </div>
 
-      <div class="main-container">
-        <div class="left-corner">
-          <a onclick="perfilSection(this)" id="perfil">Perfil</a>
-          <a onclick="accountSection(this)" id="account">Conta</a>
-          <a onclick="notificationSection(this)" id="notifications"
-            >Notificações</a
-          >
-          <a onclick="preferencesSection(this)" id="preferences"
-            >Preferências</a
-          >
+            <div class="user-profile-header">
+              <div class="user-avatar">PE</div>
+              <span>Profª Elisabete</span>
+            </div>
+          </div>
         </div>
 
-        <div class="right-corner">
-          <section class="card-section" id="perfil">
+        <div class="page-header">
+          <h1>Configurações</h1>
+          <p>
+            Gerencie seu perfil, notificações e preferências do Assistente de
+            IA.
+          </p>
+        </div>
+        <section class="settings-content">
+          <div class="card-section">
             <h2>Perfil</h2>
             <p class="section-desc">
               Como seu nome e cargo aparecem para os demais usuários do SIPE.
@@ -111,9 +116,9 @@
                 <span class="tag">Artes</span>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section class="card-section" id="conta">
+          <div class="card-section">
             <h2>Conta</h2>
             <p class="section-desc">Dados de acesso e vínculo institucional.</p>
 
@@ -142,9 +147,9 @@
                 </div>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section class="card-section" id="notificacoes">
+          <div class="card-section">
             <h2>Notificações</h2>
             <p class="section-desc">
               Escolha como e quando o SIPE deve avisar você.
@@ -188,9 +193,9 @@
                 </label>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section class="card-section" id="preferencias">
+          <div class="card-section">
             <h2>Preferências</h2>
             <p class="section-desc">Ajustes gerais de exibição do SIPE.</p>
 
@@ -201,10 +206,9 @@
                 <button class="btn-mode">Modo Escuro</button>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>
-    <script src="settings.js"></script>
   </body>
 </html>
