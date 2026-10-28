@@ -1,3 +1,5 @@
+@import "@tabler/icons-webfont/dist/tabler-icons.min.css";
+
 .step-trail {
     display: flex;
     align-items: center;
