@@ -9,62 +9,39 @@
     <link rel="stylesheet" href="./library.css">
 
     <script defer src="./library.js"></script>
-    <script src="../../scripts/sidebar.js" defer></script>
-    <script src="../../scripts/notificacoes.js" defer></script>
 </head>
 <body>
 <div class="app">
     <div class="sidebar">
-        <div class="sidebar-logo">
-            <i class="ti ti-cpu"></i>
-            <span>SIPE</span>
-        </div>
-
-        <button
-            type="button"
-            class="sidebar-toggle"
-            id="sidebar-toggle"
-            aria-label="Minimizar menu"
-            aria-expanded="true"
-            title="Minimizar menu"
-        >
-            <i class="ti ti-chevrons-left"></i>
-        </button>
-
+        <div class="sidebar-logo"><i class="ti ti-cpu"></i> SIPE</div>
         <div class="sidebar-menu">
-            <a href="../dashboard/index.html" class="menu-item" title="Dashboard">
+            <a href="../dashboard/index.html" class="menu-item">
                 <i class="ti ti-layout-dashboard"></i>
                 <span>Dashboard</span>
             </a>
-
-            <a href="../planning/planning.html" class="menu-item" title="Planejamentos">
+            <a href="../planning/planning.html" class="menu-item">
                 <i class="ti ti-file-text"></i>
                 <span>Planejamentos</span>
             </a>
-
-            <a href="../review/review.html" class="menu-item" title="Avaliações">
+            <a href="../review/review.html" class="menu-item">
                 <i class="ti ti-clipboard-list"></i>
                 <span>Avaliações</span>
             </a>
-
-            <a href="../library/library.html" class="menu-item active" title="Biblioteca">
+            <a href="./library.html" class="menu-item active">
                 <i class="ti ti-books"></i>
                 <span>Biblioteca</span>
             </a>
-
-            <a href="../feedback/feedback.html" class="menu-item" title="Feedback Coordenação">
+            <a href="../feedback/feedback.html" class="menu-item">
                 <i class="ti ti-message-heart"></i>
                 <span>Feedback Coordenação</span>
             </a>
         </div>
-
         <div class="sidebar-footer">
-            <a href="#" class="menu-item " title="Configurações">
+            <a href="#" class="menu-item">
                 <i class="ti ti-settings"></i>
                 <span>Configurações</span>
             </a>
-
-            <a href="#" class="menu-item" title="Suporte">
+            <a href="#" class="menu-item">
                 <i class="ti ti-headset"></i>
                 <span>Suporte</span>
             </a>
@@ -89,9 +66,9 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="navigation-icon-button" id="botao-notificacoes" role="button" tabindex="0" aria-label="Notificações">
+                <div class="navigation-icon-button" onclick="showToast('4 novas notificações', 'info', 'ti-bell')">
                     <i class="ti ti-bell"></i>
-                    <div class="badge-orange" id="contador-notificacoes">0</div>
+                    <div class="badge-orange">4</div>
                 </div>
                 <button class="button-admin" onclick="openAdminModal()">
                     <i class="ti ti-settings-2"></i>

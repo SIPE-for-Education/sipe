@@ -7,70 +7,48 @@
 
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="index.css">
-    <script src="../../scripts/sidebar.js" defer></script>
-    <script src="notificacoes.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 </head>
 <body>
 <div class="app">
     <div class="sidebar">
-    <div class="sidebar-logo">
-        <i class="ti ti-cpu"></i>
-        <span>SIPE</span>
+        <div class="sidebar-logo">
+            <i class="ti ti-cpu"></i>
+            <span>SIPE</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="./index.html" class="menu-item active">
+                <i class="ti ti-layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../planning/planning.html" class="menu-item">
+                <i class="ti ti-file-text"></i>
+                <span>Planejamentos</span>
+            </a>
+            <a href="../review/review.html" class="menu-item">
+                <i class="ti ti-clipboard-list"></i> <span>Avaliações</span>
+            </a>
+            <a href="../library/library.html" class="menu-item">
+                <i class="ti ti-books"></i> <span>Biblioteca</span>
+            </a>
+            <a href="../feedback/feedback.html" class="menu-item">
+                <i class="ti ti-message-heart"></i> <span>Feedback Coordenação</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="ti ti-settings"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ti ti-headset"></i>
+                <span>Suporte</span>
+            </a>
+        </div>
     </div>
-
-    <button
-        type="button"
-        class="sidebar-toggle"
-        id="sidebar-toggle"
-        aria-label="Minimizar menu"
-        aria-expanded="true"
-        title="Minimizar menu"
-    >
-        <i class="ti ti-chevron-left"></i>
-    </button>
-
-    <div class="sidebar-menu">
-        <a href="./index.html" class="menu-item active" title="Dashboard">
-            <i class="ti ti-layout-dashboard"></i>
-            <span>Dashboard</span>
-        </a>
-
-        <a href="../planning/planning.html" class="menu-item" title="Planejamentos">
-            <i class="ti ti-file-text"></i>
-            <span>Planejamentos</span>
-        </a>
-
-        <a href="../review/review.html" class="menu-item" title="Avaliações">
-            <i class="ti ti-clipboard-list"></i>
-            <span>Avaliações</span>
-        </a>
-
-        <a href="../library/library.html" class="menu-item" title="Biblioteca">
-            <i class="ti ti-books"></i>
-            <span>Biblioteca</span>
-        </a>
-
-        <a href="../feedback/feedback.html" class="menu-item" title="Feedback Coordenação">
-            <i class="ti ti-message-heart"></i>
-            <span>Feedback Coordenação</span>
-        </a>
-    </div>
-
-    <div class="sidebar-footer">
-        <a href="#" class="menu-item" title="Configurações">
-            <i class="ti ti-settings"></i>
-            <span>Configurações</span>
-        </a>
-
-        <a href="#" class="menu-item" title="Suporte">
-            <i class="ti ti-headset"></i>
-            <span>Suporte</span>
-        </a>
-    </div>
-</div>
-
 
     <div class="main-panel">
         <div class="header">
@@ -83,11 +61,10 @@
             </div>
 
             <div class="header-right">
-
-                <button type="button" class="navigation-icon-button" id="botao-notificacoes" aria-label="Abrir notificações" aria-expanded="false">
+                <div class="navigation-icon-button">
                     <i class="ti ti-bell"></i>
-                    <div class="badge-orange" id="contador-notificacoes">1</div>
-                </button>
+                    <div class="badge-orange">1</div>
+                </div>
 
                 <div class="user-profile-header">
                     <div class="user-avatar">PE</div>
@@ -248,7 +225,7 @@
                     <div class="timeline-card orange-edge">
                         <div class="notice-date">13 de Junho</div>
                         <div class="notice-title">Festa Junina (Copaneja)</div>
-                        <div class="notice-description">Integração institucional Colégio Cavlac.</div>
+                        <div class="notice-description" style="">Integração institucional Colégio Cavlac.</div>
                     </div>
                     <div class="timeline-card military-edge">
                         <div class="notice-date">18 de Junho</div>

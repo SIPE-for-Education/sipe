@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 
     <script defer src="./review.js"></script>
-    <script src="../../scripts/sidebar.js" defer></script>
-    <script src="../../scripts/notificacoes.js" defer></script>
 </head>
 <body>
 <div class="app">
@@ -20,52 +18,34 @@
             <i class="ti ti-cpu"></i>
             <span>SIPE</span>
         </div>
-
-        <button
-            type="button"
-            class="sidebar-toggle"
-            id="sidebar-toggle"
-            aria-label="Minimizar menu"
-            aria-expanded="true"
-            title="Minimizar menu"
-        >
-            <i class="ti ti-chevrons-left"></i>
-        </button>
-
         <div class="sidebar-menu">
-            <a href="../dashboard/index.html" class="menu-item" title="Dashboard">
+            <a href="../dashboard/index.html" class="menu-item">
                 <i class="ti ti-layout-dashboard"></i>
                 <span>Dashboard</span>
             </a>
-
-            <a href="../planning/planning.html" class="menu-item" title="Planejamentos">
+            <a href="../planning/planning.html" class="menu-item">
                 <i class="ti ti-file-text"></i>
                 <span>Planejamentos</span>
             </a>
-
-            <a href="../review/review.html" class="menu-item active" title="Avaliações">
+            <a href="./review.html" class="menu-item active">
                 <i class="ti ti-clipboard-list"></i>
                 <span>Avaliações</span>
             </a>
-
-            <a href="../library/library.html" class="menu-item" title="Biblioteca">
+            <a href="../library/library.html" class="menu-item">
                 <i class="ti ti-books"></i>
                 <span>Biblioteca</span>
             </a>
-
-            <a href="../feedback/feedback.html" class="menu-item" title="Feedback Coordenação">
+            <a href="../feedback/feedback.html" class="menu-item">
                 <i class="ti ti-message-heart"></i>
                 <span>Feedback Coordenação</span>
             </a>
         </div>
-
         <div class="sidebar-footer">
-            <a href="#" class="menu-item" title="Configurações">
+            <a href="#" class="menu-item">
                 <i class="ti ti-settings"></i>
                 <span>Configurações</span>
             </a>
-
-            <a href="#" class="menu-item" title="Suporte">
+            <a href="#" class="menu-item">
                 <i class="ti ti-headset"></i>
                 <span>Suporte</span>
             </a>
@@ -81,24 +61,15 @@
                     <option>Colégio Anglo</option>
                 </select>
             </div>
-
             <div class="header-right">
                 <div class="header-info">
                     <strong>Ano Letivo 2026</strong>
                     <div>2º Bimestre · 3º Ano A</div>
                 </div>
-
-                <div
-                    class="navigation-icon-button"
-                    id="botao-notificacoes"
-                    role="button"
-                    tabindex="0"
-                    aria-label="Abrir notificações"
-                >
+                <div class="navigation-icon-button">
                     <i class="ti ti-bell"></i>
-                    <span class="badge-orange" id="contador-notificacoes">0</span>
+                    <div class="badge-orange">2</div>
                 </div>
-
                 <div class="user-profile-header">
                     <div class="user-avatar">PE</div>
                     <div>
@@ -125,7 +96,6 @@
                         <div class="flow-step-subtitle">Semana 22 · 09–13/06</div>
                     </div>
                 </div>
-
                 <div class="flow-step done">
                     <div class="flow-step-icon"><i class="ti ti-circle-check"></i></div>
                     <div>
@@ -133,7 +103,6 @@
                         <div class="flow-step-subtitle">12 conteúdos aplicados</div>
                     </div>
                 </div>
-
                 <div class="flow-step active">
                     <div class="flow-step-icon"><i class="ti ti-sparkles"></i></div>
                     <div>
@@ -141,7 +110,6 @@
                         <div class="flow-step-subtitle">Baseada no que foi ensinado</div>
                     </div>
                 </div>
-
                 <div class="flow-step pending">
                     <div class="flow-step-icon"><i class="ti ti-send"></i></div>
                     <div>
@@ -157,19 +125,16 @@
                     <div class="quality-value" id="qv-cob">—</div>
                     <strong class="quality-label">Cobertura do Conteúdo</strong>
                 </div>
-
                 <div class="quality-card green">
                     <div class="quality-icon"><i class="bi bi-bookmark-check-fill"></i></div>
                     <div class="quality-value" id="qv-cont">—</div>
                     <strong class="quality-label">Conteúdos Utilizados</strong>
                 </div>
-
                 <div class="quality-card orange">
                     <div class="quality-icon"><i class="bi bi-bullseye"></i></div>
                     <div class="quality-value" id="qv-bncc">—</div>
                     <strong class="quality-label">Alinhamento BNCC</strong>
                 </div>
-
                 <div class="quality-card red">
                     <div class="quality-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
                     <div class="quality-value" id="qv-pend">—</div>
@@ -184,7 +149,6 @@
                             <i class="ti ti-database"></i>
                             <span>Origem dos Conteúdos</span>
                         </div>
-
                         <div class="origin-grid">
                             <div class="origin-option selected" onclick="selectOrigin(this)">
                                 <div class="opt-icon purple"><i class="bi bi-calendar2-week"></i></div>
@@ -193,7 +157,6 @@
                                     <div class="opt-desc">Conteúdos da semana 22 (09–13/06)</div>
                                 </div>
                             </div>
-
                             <div class="origin-option" onclick="selectOrigin(this)">
                                 <div class="opt-icon purple"><i class="bi bi-calendar3"></i></div>
                                 <div>
@@ -201,7 +164,6 @@
                                     <div class="opt-desc">Todo o conteúdo de junho/2026</div>
                                 </div>
                             </div>
-
                             <div class="origin-option" onclick="selectOrigin(this)">
                                 <div class="opt-icon purple"><i class="bi bi-mortarboard"></i></div>
                                 <div>
@@ -209,7 +171,6 @@
                                     <div class="opt-desc">Apenas o que foi aplicado em sala</div>
                                 </div>
                             </div>
-
                             <div class="origin-option" onclick="selectOrigin(this)">
                                 <div class="opt-icon purple"><i class="bi bi-pencil-fill"></i></div>
                                 <div>
@@ -225,7 +186,6 @@
                             <i class="ti ti-adjustments-horizontal"></i>
                             <span>Configuração da Prova</span>
                         </div>
-
                         <div class="field-grid-container">
                             <div class="field-group">
                                 <label for="team-selector">Turma</label>
@@ -235,7 +195,6 @@
                                     <option>8º Ano</option>
                                 </select>
                             </div>
-
                             <div class="field-group">
                                 <label for="discipline-selector">Disciplina</label>
                                 <select id="discipline-selector">
@@ -245,7 +204,6 @@
                                     <option>Ciências</option>
                                 </select>
                             </div>
-
                             <div class="field-group">
                                 <label for="two-month-period-selector">Bimestre</label>
                                 <select id="two-month-period-selector">
@@ -255,37 +213,31 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="field-grid-container">
                             <div class="field-group">
                                 <label for="questions-input">Total de Questões</label>
                                 <input id="questions-input" type="number" value="10" min="5" max="20"/>
                             </div>
-
                             <div class="field-group">
                                 <label for="objectives-input">Objetivas</label>
                                 <input id="objectives-input" type="number" value="7" min="0" max="20"/>
                             </div>
-
                             <div class="field-group">
                                 <label for="essays">Dissertativas</label>
                                 <input id="essays" type="number" value="3" min="0" max="10"/>
                             </div>
                         </div>
-
                         <div class="field-group">
                             <label>Nível de Dificuldade</label>
                             <div class="difficulty-row">
-                                <button class="difficulty-button" onclick="selectDiff(this, 'easy')">
-                                    <i class="bi bi-check-circle-fill"></i> Fácil
+                                <button class="difficulty-button" onclick="selectDiff(this, 'easy')"><i
+                                        class="bi bi-check-circle-fill"></i> Fácil
                                 </button>
-
-                                <button class="difficulty-button sel-med" onclick="selectDiff(this, 'med')">
-                                    <i class="bi bi-speedometer2"></i> Médio
+                                <button class="difficulty-button sel-med" onclick="selectDiff(this, 'med')"><i
+                                        class="bi bi-speedometer2"></i> Médio
                                 </button>
-
-                                <button class="difficulty-button" onclick="selectDiff(this, 'hard')">
-                                    <i class="bi bi-fire"></i> Difícil
+                                <button class="difficulty-button" onclick="selectDiff(this, 'hard')"><i
+                                        class="bi bi-fire"></i> Difícil
                                 </button>
                             </div>
                         </div>
@@ -306,7 +258,6 @@
                             <span class="source-badge badge-green">✓ Homologado</span>
                         </div>
                     </div>
-
                     <div class="source-item">
                         <div class="source-icon green"><i class="bi bi-bookmark-check-fill"></i></div>
                         <div>
@@ -315,7 +266,6 @@
                             <span class="source-badge badge-purple">✓ Aprovado</span>
                         </div>
                     </div>
-
                     <div class="source-item">
                         <div class="source-icon orange"><i class="bi bi-bookmark-check-fill"></i></div>
                         <div>
@@ -324,7 +274,6 @@
                             <span class="source-badge badge-green">✓ Verificado</span>
                         </div>
                     </div>
-
                     <div class="source-item">
                         <div class="source-icon red"><i class="bi bi-bookmark-check-fill"></i></div>
                         <div>
@@ -349,18 +298,15 @@
                             <span>Avaliação gerada pela IA — pronta para revisão</span>
                         </div>
                     </div>
-
                     <div class="doc-bar-right">
                         <button class="button-bar" onclick="openGabarito()">
                             <i class="ti ti-eye"></i>
                             <span>Ver Gabarito</span>
                         </button>
-
                         <button class="button-bar">
                             <i class="ti ti-printer"></i>
                             <span>Imprimir</span>
                         </button>
-
                         <button class="button-bar-primary" id="btn-approve">
                             <i class="ti ti-send"></i>
                             <span>Enviar para Aprovação</span>
@@ -371,23 +317,19 @@
                 <div class="institutional-doc">
                     <div class="doc-header-stripe">
                         <div class="doc-school-logo">CC</div>
-
                         <div>
                             <div class="doc-school-name">Colégio Cavlac</div>
                             <div class="doc-school-sub">Avaliação Bimestral — Gerada pelo Sistema SIPE</div>
                         </div>
-
                         <div class="doc-meta-strip">
                             <div class="doc-meta-pill">
                                 <span>Bimestre:</span>
                                 <span>2.º Bimestre 2026</span>
                             </div>
-
                             <div class="doc-meta-pill">
                                 <span>Data:</span>
                                 <span>13/06/2026</span>
                             </div>
-
                             <div class="doc-meta-pill">
                                 <span>Doc n.º:</span>
                                 <span>AVL-2026-0388</span>
@@ -400,25 +342,23 @@
                             <div class="information-label">Professora</div>
                             <div class="information-value">Elisabete Pereira</div>
                         </div>
-
                         <div class="doc-info-cell">
                             <div class="information-label">Turma</div>
                             <div class="information-value">3º Ano A</div>
                         </div>
-
                         <div class="doc-info-cell">
                             <div class="information-label">Disciplina</div>
                             <div class="information-value">Matemática</div>
                         </div>
-
                         <div class="doc-info-cell">
                             <div class="information-label">Nota Total</div>
                             <div class="information-value">10,0 pontos</div>
                         </div>
-
                         <div class="doc-info-cell">
                             <div class="information-label">Origem</div>
-                            <div class="information-value purple">SIPE IA · Planej. Sem. 22</div>
+                            <div class="information-value purple">
+                                SIPE IA · Planej. Sem. 22
+                            </div>
                         </div>
                     </div>
 
@@ -437,23 +377,19 @@
         <div class="ai-track">
             <div class="ai-fill" id="ai-fill"></div>
         </div>
-
         <div class="scan-chips">
             <div class="scan-chip" id="sc1">
                 <i class="bi bi-calendar2-week"></i>
                 <span>Planejamento Sem. 22</span>
             </div>
-
             <div class="scan-chip" id="sc2">
                 <i class="bi bi-bookmark-check-fill"></i>
                 <span>Apostila Anglo</span>
             </div>
-
             <div class="scan-chip" id="sc3">
                 <i class="bi bi-bookmark-check-fill"></i>
                 <span>BNCC</span>
             </div>
-
             <div class="scan-chip" id="sc4">
                 <i class="bi bi-mortarboard"></i>
                 <span>Conteúdo Ministrado</span>
@@ -469,42 +405,44 @@
                 <i class="ti ti-eye"></i>
                 <span>Gabarito Oficial — AVL-2026-0388</span>
             </h3>
-
             <button class="modal-close" onclick="closeModalBtn()">
                 <i class="ti ti-x"></i>
             </button>
         </div>
-
         <div class="review-modal-body">
             <div class="review-modal-info">
                 <i class="ti ti-shield-check"></i>
-                <span>Todas as questões foram geradas a partir de conteúdos homologados e planejamentos aprovados pela coordenação.</span>
+                <span>Todas as questões foram geradas a partir de conteúdos homologados e planejamentos aprovados pela
+                    coordenação.</span>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">1</div>
                 <div>
                     <div class="answer-key-answer">Alternativa B — Real</div>
-                    <div class="answer-key-comment">O aluno deve identificar a moeda oficial do Brasil dentro do contexto do sistema monetário.</div>
+                    <div class="answer-key-comment"> O aluno deve identificar a moeda oficial do Brasil dentro do
+                        contexto do
+                        sistema monetário.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Apostila Anglo · Mod.4 · p.142 · EF03MA05</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">2</div>
                 <div>
                     <div class="answer-key-answer">Alternativa C — R$ 12,50</div>
-                    <div class="answer-key-comment">Resolução de situação-problema envolvendo adição de valores monetários com reagrupamento.</div>
+                    <div class="answer-key-comment">Resolução de situação-problema envolvendo adição de valores
+                        monetários com
+                        reagrupamento.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Apostila Anglo · Mod.4 · p.143 · EF03MA07</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">3</div>
                 <div>
@@ -516,31 +454,33 @@
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">4</div>
                 <div>
                     <div class="answer-key-answer">Alternativa B — 15</div>
-                    <div class="answer-key-comment">Aplicação da tabuada do 3: cálculo de 3 × 5 em contexto de situação-problema.</div>
+                    <div class="answer-key-comment">Aplicação da tabuada do 3: cálculo de 3 × 5 em contexto de
+                        situação-problema.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Apostila Anglo · Mod.5 · p.151 · EF03MA12</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">5</div>
                 <div>
                     <div class="answer-key-answer">Alternativa D — Subtração</div>
-                    <div class="answer-key-comment">O aluno deve identificar a operação correta para resolver problemas de troco.</div>
+                    <div class="answer-key-comment">O aluno deve identificar a operação correta para resolver problemas
+                        de
+                        troco.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Livro PNLD · Cap.6 · p.90 · EF03MA07</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">6</div>
                 <div>
@@ -552,48 +492,52 @@
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">7</div>
                 <div>
                     <div class="answer-key-answer">Alternativa A — 24</div>
-                    <div class="answer-key-comment">Aplicação da tabuada do 4 em contexto de agrupamento de objetos.</div>
+                    <div class="answer-key-comment">Aplicação da tabuada do 4 em contexto de agrupamento de objetos.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Planejamento Sem.22 · Tabuada · EF03MA12</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">8</div>
                 <div>
                     <div class="answer-key-answer">Resposta dissertativa — ver critérios</div>
-                    <div class="answer-key-comment">O aluno deve descrever com as suas palavras a função do dinheiro na sociedade, citando pelo menos 2 exemplos de trocas comerciais.</div>
+                    <div class="answer-key-comment"> O aluno deve descrever com as suas palavras a função do dinheiro na
+                        sociedade, citando pelo menos 2 exemplos de trocas comerciais.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Apostila Anglo · Mod.4 · p.140 · EF03MA05</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">9</div>
                 <div>
                     <div class="answer-key-answer">Resposta dissertativa — ver critérios</div>
-                    <div class="answer-key-comment">Resolução passo a passo de conta de adição com 3 parcelas. Aceitar tanto a forma horizontal quanto vertical, desde que o resultado (143) esteja correto.</div>
+                    <div class="answer-key-comment">Resolução passo a passo de conta de adição com 3 parcelas. Aceitar
+                        tanto a
+                        forma horizontal quanto vertical, desde que o resultado (143) esteja correto.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Livro PNLD · Cap.6 · p.91 · EF03MA07</span>
                     </div>
                 </div>
             </div>
-
             <div class="answer-key-row">
                 <div class="answer-key-num">10</div>
                 <div>
                     <div class="answer-key-answer">Resposta dissertativa — ver critérios</div>
-                    <div class="answer-key-comment">Produção de situação-problema de compra/venda com valores coerentes. Avaliar a coerência matemática e o uso correto do símbolo R$.</div>
+                    <div class="answer-key-comment">Produção de situação-problema de compra/venda com valores coerentes.
+                        Avaliar a coerência matemática e o uso correto do símbolo R$.
+                    </div>
                     <div class="answer-key-origin">
                         <i class="ti ti-book-2"></i>
                         <span>Planejamento Sem.22 · Situação-problema · EF03MA05</span>

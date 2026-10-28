@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="./feedback.css">
 
-    <script src="../../scripts/sidebar.js" defer></script>
-    <script src="./feedback.js" defer></script>
-    <script src="../../scripts/notificacoes.js" defer></script>
+    <script src="./feedback.js"></script>
 </head>
 <body>
 <div class="app">
@@ -21,51 +19,35 @@
             <span>SIPE</span>
         </div>
 
-        <button
-            type="button"
-            class="sidebar-toggle"
-            id="sidebar-toggle"
-            aria-label="Minimizar menu"
-            aria-expanded="true"
-            title="Minimizar menu"
-        >
-            <i class="ti ti-chevrons-left"></i>
-        </button>
-
         <div class="sidebar-menu">
-            <a href="../dashboard/index.html" class="menu-item" title="Dashboard">
+            <a href="../dashboard/index.html" class="menu-item">
                 <i class="ti ti-layout-dashboard"></i>
                 <span>Dashboard</span>
             </a>
-
-            <a href="../planning/planning.html" class="menu-item" title="Planejamentos">
+            <a href="../planning/planning.html" class="menu-item">
                 <i class="ti ti-file-text"></i>
                 <span>Planejamentos</span>
             </a>
-
-            <a href="../review/review.html" class="menu-item" title="Avaliações">
+            <a href="../review/review.html" class="menu-item">
                 <i class="ti ti-clipboard-list"></i>
                 <span>Avaliações</span>
             </a>
-
-            <a href="../library/library.html" class="menu-item" title="Biblioteca">
+            <a href="../library/library.html" class="menu-item">
                 <i class="ti ti-books"></i>
                 <span>Biblioteca</span>
             </a>
-
-            <a href="../feedback/feedback.html" class="menu-item active" title="Feedback Coordenação">
+            <a href="../feedback/feedback.html" class="menu-item active">
                 <i class="ti ti-message-heart"></i>
                 <span>Feedback Coordenação</span>
             </a>
         </div>
 
         <div class="sidebar-footer">
-            <a href="#" class="menu-item" title="Configurações">
+            <a href="#" class="menu-item">
                 <i class="ti ti-settings"></i>
                 <span>Configurações</span>
             </a>
-
-            <a href="#" class="menu-item" title="Suporte">
+            <a href="#" class="menu-item">
                 <i class="ti ti-headset"></i>
                 <span>Suporte</span>
             </a>
@@ -81,24 +63,15 @@
                     <option>Colégio Anglo</option>
                 </select>
             </div>
-
             <div class="header-right">
-                <div
-                    class="navigation-icon-button"
-                    id="botao-notificacoes"
-                    role="button"
-                    tabindex="0"
-                    aria-label="Abrir notificações"
-                >
+                <div class="navigation-icon-button" onclick="toggleNotifPanel()">
                     <i class="ti ti-bell"></i>
-                    <span class="badge-orange" id="contador-notificacoes">0</span>
+                    <div class="badge-orange" id="notifBadge">3</div>
                 </div>
-
                 <button class="coordination-view-trigger" onclick="openCoordModal()">
                     <i class="ti ti-user-shield"></i>
                     <span>Visualizar como Coordenador</span>
                 </button>
-
                 <div class="user-profile-header">
                     <div class="user-avatar">PE</div>
                     <span>Profª Elisabete</span>
@@ -109,7 +82,8 @@
         <div class="page-container">
             <div>
                 <h1 class="page-title">Feedback da Coordenação</h1>
-                <div class="page-subtitle">Acompanhe o status dos planejamentos e avaliações enviados para análise.</div>
+                <div class="page-subtitle">Acompanhe o status dos planejamentos e avaliações enviados para análise.
+                </div>
             </div>
 
             <div class="flow-banner">
@@ -119,39 +93,29 @@
                     </div>
                     <span>Professor Cria</span>
                 </div>
-
                 <div class="flow-arrow">›</div>
-
                 <div class="flow-step-item done">
                     <div class="flow-step-num">
                         <i class="ti ti-check"></i>
                     </div>
                     <span>Envia à Coord.</span>
                 </div>
-
                 <div class="flow-arrow">›</div>
-
                 <div class="flow-step-item active">
                     <div class="flow-step-num">3</div>
                     <span>Análise</span>
                 </div>
-
                 <div class="flow-arrow">›</div>
-
                 <div class="flow-step-item">
                     <div class="flow-step-num">4</div>
                     <span>Correções</span>
                 </div>
-
                 <div class="flow-arrow">›</div>
-
                 <div class="flow-step-item">
                     <div class="flow-step-num">5</div>
                     <span>Aprovação Final</span>
                 </div>
-
                 <div class="flow-arrow">›</div>
-
                 <div class="flow-step-item">
                     <div class="flow-step-num">6</div>
                     <span>Histórico</span>
@@ -168,7 +132,6 @@
                         <div class="kpi-label">Planejamentos Aprovados</div>
                     </div>
                 </div>
-
                 <div class="kpi-card" id="kpi2">
                     <div class="kpi-icon bg-light-yellow amber">
                         <i class="ti ti-clock-edit"></i>
@@ -178,7 +141,6 @@
                         <div class="kpi-label">Aguardando Ajustes</div>
                     </div>
                 </div>
-
                 <div class="kpi-card" id="kpi3">
                     <div class="kpi-icon bg-light-red red">
                         <i class="ti ti-circle-x-filled"></i>
@@ -188,7 +150,6 @@
                         <div class="kpi-label">Rejeitados</div>
                     </div>
                 </div>
-
                 <div class="kpi-card" id="kpi4">
                     <div class="kpi-icon bg-light-purple purple">
                         <i class="ti ti-file-certificate"></i>
@@ -208,7 +169,6 @@
                                 <i class="ti ti-file-stack"></i>
                                 <span>Planejamentos Enviados</span>
                             </div>
-
                             <div class="filter-tabs">
                                 <button class="filter-tab active" onclick="filterPlans('all', this)">Todos</button>
                                 <button class="filter-tab" onclick="filterPlans('pending', this)">Ajustes</button>
@@ -223,26 +183,25 @@
                                     <div class="planning-meta">
                                         <i class="ti ti-users"></i>
                                         <span>3º Ano A</span>
+
                                         <i class="ti ti-calendar"></i>
                                         <span>12/05 a 16/05</span>
+
                                         <i class="ti ti-send"></i>
-                                        <span>Enviado 14/05/2026</span>
+                                        <span> Enviado 14/05/2026</span>
                                     </div>
                                 </div>
                                 <span class="status-badge pending">Ajustes Solicitados</span>
                             </div>
-
                             <div class="planning-comment bg-light-yellow border-yellow">
                                 <i class="ti ti-message-dots amber"></i>
                                 <span>"Adicionar atividade prática na quinta-feira. Reforçar conteúdo de sistema monetário."</span>
                             </div>
-
                             <div class="planning-actions">
                                 <button class="button button-primary" onclick="applyCorrections(event, 1)">
                                     <i class="ti ti-pencil"></i>
                                     <span>Aplicar Correções</span>
                                 </button>
-
                                 <button class="button button-ghost" onclick="selectPlan(1)">
                                     <i class="ti ti-history"></i>
                                     <span>Histórico</span>
@@ -260,24 +219,20 @@
                                         <i class="ti ti-send"></i><span>Enviado 08/05/2026</span>
                                     </div>
                                 </div>
-
                                 <span class="status-badge approved">
                                     <i class="ti ti-circle-check"></i>
                                     <span>Aprovado</span>
                                 </span>
                             </div>
-
                             <div class="planning-comment bg-light-green border-green">
                                 <i class="ti ti-message-dots green"></i>
                                 <span>"Planejamento excelente! Boa articulação com as competências da BNCC. Aprovado sem ressalvas."</span>
                             </div>
-
                             <div class="planning-actions">
                                 <button class="button button-outline" onclick="viewDocument(event)">
                                     <i class="ti ti-eye"></i>
                                     <span>Visualizar Documento</span>
                                 </button>
-
                                 <button class="button button-ghost" onclick="selectPlan(2)">
                                     <i class="ti ti-history"></i>
                                     <span>Histórico</span>
@@ -295,24 +250,21 @@
                                         <i class="ti ti-send"></i><span>Enviado 29/04/2026</span>
                                     </div>
                                 </div>
-
                                 <span class="status-badge rejected">
                                     <i class="ti ti-x"></i>
                                     <span>Rejeitado</span>
                                 </span>
                             </div>
-
                             <div class="planning-comment bg-light-red border-red">
                                 <i class="ti ti-message-dots red"></i>
-                                <span>Objetivos de aprendizagem não estão alinhados ao PPP. Incluir estratégia diferenciada para recuperação.</span>
+                                <span> Objetivos de aprendizagem não estão alinhados ao PPP. Incluir
+                                    estratégia diferenciada para recuperação."</span>
                             </div>
-
                             <div class="planning-actions">
                                 <button class="button button-danger" onclick="resendPlan(event)">
                                     <i class="ti ti-refresh"></i>
                                     <span>Reenviar Planejamento</span>
                                 </button>
-
                                 <button class="button button-ghost" onclick="selectPlan(3)">
                                     <i class="ti ti-history"></i>
                                     <span>Histórico</span>
@@ -323,25 +275,24 @@
                         <div class="planning-card pending" id="plan4" onclick="selectPlan(4)" style="display: none">
                             <div class="planning-card-top">
                                 <div>
-                                    <div class="planning-name">Planejamento Semanal — Geografia</div>
+                                    <div class="planning-name">
+                                        Planejamento Semanal — Geografia
+                                    </div>
                                     <div class="planning-meta">
                                         <i class="ti ti-users"></i><span>7º Ano A</span>
                                         <i class="ti ti-calendar"></i><span>19/05 a 23/05</span>
                                         <i class="ti ti-send"></i><span>Enviado 21/05/2026</span>
                                     </div>
                                 </div>
-
                                 <span class="status-badge pending">
                                     <i class="ti ti-clock"></i>
                                     <span>Ajustes Solicitados</span>
                                 </span>
                             </div>
-
                             <div class="planning-comment bg-light-yellow border-yellow">
                                 <i class="ti ti-message-dots amber"></i>
                                 <span>"Incluir estratégia diferenciada para recuperação dos alunos com dificuldade."</span>
                             </div>
-
                             <div class="planning-actions">
                                 <button class="button button-primary" onclick="applyCorrections(event, 4)">
                                     <i class="ti ti-pencil"></i>
@@ -374,16 +325,12 @@
                             <i class="ti ti-sparkles"></i>
                             <div class="ai-box-suggestions-title">Sugestões da IA para Correção</div>
                         </div>
-
                         <div class="ai-box-suggestions-description" id="aiBoxDesc"></div>
-
                         <div class="ai-loading" id="aiLoading">
                             <div class="ai-spinner"></div>
                             <span>Gerando sugestões pedagógicas...</span>
                         </div>
-
                         <div class="ai-suggestions" id="aiSuggestions"></div>
-
                         <button class="button button-primary" onclick="generateSuggestions()">
                             <i class="ti ti-bolt"></i>
                             <span>Gerar Sugestões</span>
@@ -395,7 +342,6 @@
                             <i class="ti ti-bell-ringing"></i>
                             <span>Notificações</span>
                         </div>
-
                         <div class="notification-item unread">
                             <div class="notification-icon bg-light-green green">
                                 <i class="ti ti-circle-check"></i>
@@ -406,18 +352,18 @@
                             </div>
                             <div class="notification-dot"></div>
                         </div>
-
                         <div class="notification-item unread">
                             <div class="notification-icon bg-light-yellow amber">
                                 <i class="ti ti-clock-edit"></i>
                             </div>
                             <div class="notification-resume">
-                                <div class="notification-text">A coordenação solicitou ajustes no planejamento de Matemática.</div>
+                                <div class="notification-text">A coordenação solicitou ajustes no planejamento de
+                                    Matemática.
+                                </div>
                                 <div class="notification-time">Hoje, 08:47</div>
                             </div>
                             <div class="notification-dot"></div>
                         </div>
-
                         <div class="notification-item unread">
                             <div class="notification-icon bg-light-purple purple">
                                 <i class="ti ti-file-certificate"></i>
@@ -428,13 +374,13 @@
                             </div>
                             <div class="notification-dot"></div>
                         </div>
-
                         <div class="notification-item">
                             <div class="notification-icon bg-light-yellow amber">
                                 <i class="ti ti-alarm"></i>
                             </div>
                             <div class="notification-resume">
-                                <div class="notification-text">Prazo de entrega do planejamento bimestral se aproxima.</div>
+                                <div class="notification-text">Prazo de entrega do planejamento bimestral se aproxima.
+                                </div>
                                 <div class="notification-time">18/06/2026</div>
                             </div>
                         </div>
@@ -450,13 +396,12 @@
         <div class="modal-header">
             <div>
                 <div class="modal-title">Visão da Coordenação</div>
-                <div class="modal-subtitle">Painel de revisão e aprovação de planejamentos</div>
+                <div class="modal-subtitle">Painel de revisão e aprovação de
+                    planejamentos
+                </div>
             </div>
-            <button class="modal-close" onclick="closeCoordModal()">
-                <i class="ti ti-x"></i>
-            </button>
+            <button class="modal-close" onclick="closeCoordModal()"><i class="ti ti-x"></i></button>
         </div>
-
         <div class="coordination-view-badge">
             <i class="ti ti-user-shield"></i>
             <div>
@@ -464,9 +409,8 @@
                 <div class="coordination-view-sub">Colégio Cavlac · Ensino Fundamental II · Ano Letivo 2026</div>
             </div>
         </div>
-
-        <div>Planejamentos Recebidos para Análise</div>
-
+        <div>Planejamentos Recebidos para Análise
+        </div>
         <div class="coordination-plan-item">
             <div class="coordination-plan-top">
                 <div>
@@ -478,7 +422,6 @@
                     <span>Em Análise</span>
                 </span>
             </div>
-
             <div class="coordination-actions">
                 <button class="coordination-action-btn coordination-approve" onclick="coordAction(this, 'aprovado')">
                     <i class="ti ti-circle-check"></i>
@@ -494,7 +437,6 @@
                 </button>
             </div>
         </div>
-
         <div class="coordination-plan-item">
             <div class="coordination-plan-top">
                 <div>
@@ -506,7 +448,6 @@
                     <span>Rejeitado</span>
                 </span>
             </div>
-
             <div class="coordination-actions">
                 <button class="coordination-action-btn coordination-approve" onclick="coordAction(this, 'aprovado')">
                     <i class="ti ti-circle-check"></i>
@@ -522,7 +463,6 @@
                 </button>
             </div>
         </div>
-
         <div class="coordination-plan-item">
             <div class="coordination-plan-top">
                 <div>
@@ -534,27 +474,23 @@
                     <span>Em Análise</span>
                 </span>
             </div>
-
             <div class="coordination-actions">
                 <button class="coordination-action-btn coordination-approve" onclick="coordAction(this, 'aprovado')">
-                    <i class="ti ti-circle-check"></i>
-                    Aprovar
+                    <i class="ti ti-circle-check"></i> Aprovar
                 </button>
                 <button class="coordination-action-btn coordination-adjust" onclick="coordAction(this, 'ajustes')">
-                    <i class="ti ti-pencil"></i>
-                    Solicitar Ajustes
+                    <i class="ti ti-pencil"></i> Solicitar Ajustes
                 </button>
                 <button class="coordination-action-btn coordination-reject" onclick="coordAction(this, 'rejeitado')">
-                    <i class="ti ti-x"></i>
-                    Rejeitar
+                    <i class="ti ti-x"></i> Rejeitar
                 </button>
             </div>
         </div>
-
         <div class="purple-element">
             <i class="bi bi-lightbulb yellow"></i>
-            <strong>SIPE — Governança Pedagógica:</strong>
-            <span>Todo histórico de aprovações, ajustes e rejeições fica registrado permanentemente no sistema, garantindo rastreabilidade institucional completa.</span>
+            <strong> SIPE — Governança Pedagógica:</strong>
+            <span>Todo histórico de aprovações, ajustes e rejeições fica registrado permanentemente no
+            sistema, garantindo rastreabilidade institucional completa.</span>
         </div>
     </div>
 </div>
