@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SupportIA - SIPE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="support-IA">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-name">SIPE</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../dashboard/dashboard.html" class="sidebar-link">
+          <span>Dashboard</span>
+        </a>
+        <a href="../planning/planning.html" class="sidebar-link">
+          <span>Planejamentos</span>
+        </a>
+        <a href="../review/review.html" class="sidebar-link">
+          <span>Avaliações</span>
+        </a>
+        <a href="../library/library.html" class="sidebar-link">
+          <span>Biblioteca</span>
+        </a>
+        <a href="../feedback/feedback.html" class="sidebar-link">
+          <span>Feedback<br />Coordenação</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../settings/settings.html" class="sidebar-link">
+          <span>Configurações</span>
+        </a>
+        <a href="../support/support.html" class="sidebar-link active">
+          <span>Suporte</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header>
+        <select class="college-option">
+          <option>COLÉGIO CAVLAC</option>
+          <option>COLÉGIO ANGLO</option>
+        </select>
+        <div class="user-profile">
+          <div class="notification-badge">
+            <span class="bell-icon"></span>
+            <span class="badge-count">2</span>
+          </div>
+          <div class="avatar">PE</div>
+          <div class="user-info">
+            <span class="user-name">Profª Elisabete</span>
+            <span class="user-subjects">História · Geografia · Artes</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="main-content">
+        <div class="left-corner">
+          <div class="context">
+            <p class="title-context">CONTEXTO ATUAL</p>
+            <div class="class">
+              <p class="informations">Turma</p>
+              <p class="informations-awnser">3º Ano A</p>
+            </div>
+            <div class="discipline">
+              <p class="informations">Disciplina</p>
+              <p class="informations-awnser">Matemática</p>
+            </div>
+            <div class="week">
+              <p class="informations">Semana</p>
+              <p class="informations-awnser">22 · 09–13/06</p>
+            </div>
+            <button class="preferences-button">
+              Ajustar preferências da IA
+            </button>
+          </div>
+
+          <div class="conversations">
+            <p class="title-conversations">CONVERSAS RECENTES</p>
+            <div class="last-conversations">
+              <p class="about">Ideias para Copaneja</p>
+              <p class="time">Ontem, 16:40</p>
+            </div>
+            <div class="last-conversations">
+              <p class="about">Dúvida sobre EF03MA07</p>
+              <p class="time">05/06, 09:12</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="chat-container">
+          <div class="chat-header">
+            <h2>Assistente do SIPE</h2>
+            <span>· Contexto: 3º Ano A · Matemática</span>
+          </div>
+
+          <div class="chat-body">
+            <div class="welcome-section">
+              <div class="welcome-icon"></div>
+              <h1>Como posso ajudar na sua aula hoje?</h1>
+              <p>
+                Peça sugestões de atividades, tire dúvidas sobre a BNCC ou peça
+                para revisar um conteúdo. Suas respostas consideram o
+                planejamento e as avaliações já registrados no SIPE.
+              </p>
+            </div>
+            <div class="suggestions-grid">
+              <div class="suggestion-card">
+                <h3>Sugerir atividade prática</h3>
+                <p>Sobre frações, para o 3º ano</p>
+              </div>
+              <div class="suggestion-card">
+                <h3>Explicar uma competência BNCC</h3>
+                <p>O que cobre a EF03MA05?</p>
+              </div>
+              <div class="suggestion-card">
+                <h3>Sugerir plano de reforço</h3>
+                <p>Para alunos com dificuldade em operações</p>
+              </div>
+              <div class="suggestion-card">
+                <h3>Resumir a semana</h3>
+                <p>O que já foi ensinado e avaliado</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-footer">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                placeholder="Pergunte algo ao Assistente SIPE..."
+              />
+              <button class="send-button" aria-label="Enviar"></button>
+            </div>
+            <p class="disclaimer">
+              O Assistente SIPE pode cometer erros. Revise sempre antes de
+              aplicar em sala.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
