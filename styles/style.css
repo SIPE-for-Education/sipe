@@ -47,6 +47,7 @@
     --radius: 15px;
     --square-radius: 5px;
     --text-size: 20px;
+    --smallest-text-size: 12px;
     --smaller-text-size: 16px;
     --larger-text-size: 24px;
 }
@@ -1007,6 +1008,26 @@ html, body {
     font-size: calc(var(--smaller-text-size) - 4px);
 }
 
+.smaller-text-size {
+    font-size: var(--smaller-text-size);
+}
+
+.smallest-text-size{
+    font-size: var(--smallest-text-size);
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+a {
+    text-decoration: none;
+}
+
 i {
     font-size: 20px;
 }
@@ -1089,6 +1110,10 @@ i {
 
 .border-yellow {
     border-color: var(--yellow) !important;
+}
+
+.muted {
+    color: var(--muted) !important;
 }
 
 .chip-pulse {
