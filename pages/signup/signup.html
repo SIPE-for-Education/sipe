@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SIPE - Cadastro</title>
+    <link rel="stylesheet" href="./signup.css"/>
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+<body>
+<div class="app">
+    <div class="left-corner">
+        <div>
+            <img src="../../assets/images/logo.png" alt="SIPE Logo"/>
+        </div>
+
+        <section>
+            <div>
+                <div class="page-title">
+                    Crie sua conta
+                    <div class="orange-gradient">e comece a Planejar</div>
+                </div>
+                <p class="cotton">Junte-se aos professores que já economizam horas de planejamento com o apoio da IA do
+                    SIPE</p>
+            </div>
+
+            <div>
+                <div class="item">
+                    <div class="icon-box">
+                        <i class="bi bi-1-circle-fill"></i>
+                    </div>
+                    <p class="larger-text-size">Preencha os seus dados</p>
+                </div>
+
+                <div class="item">
+                    <div class="icon-box">
+                        <i class="bi bi-2-circle-fill"></i>
+                    </div>
+                    <p class="larger-text-size">Confirme o seu e-mail institucional</p>
+                </div>
+
+                <div class="item">
+                    <div class="icon-box">
+                        <i class="bi bi-3-circle-fill"></i>
+                    </div>
+                    <p class="larger-text-size">Acesse o seu painal personalizado</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cotton">
+            <p>© 2026 SIPE · Sistema Inteligente de Planejamento Escolar</p>
+        </div>
+    </div>
+
+    <div class="right-corner">
+        <form action="" method="post">
+            <h2>Criar sua conta!</h2>
+            <p>Leva menos de um minuto para começar.</p>
+
+            <div>
+                <label for="name">NOME COMPLETO</label>
+                <input id="name" placeholder="Ashley Correia" type="text"/>
+            </div>
+
+            <div>
+                <label for="email">E-MAIL INSTITUCIONAL</label>
+                <input id="email" placeholder="seunome@escola.com.br" type="email"/>
+            </div>
+
+            <div>
+                <label for="profile">PERFIL DE ACESSO</label>
+                <select id="profile">
+                    <option value="professor">Professor</option>
+                    <option value="coordination">Coordination</option>
+                    <option value="administrator">Administrator</option>
+                </select>
+            </div>
+
+            <div class="password-container">
+                <div>
+                    <label for="password">SENHA</label>
+                    <input id="password" placeholder="*******" type="password"/>
+                </div>
+
+                <div>
+                    <label for="confirmPassword">CONFIRMAR SENHA</label>
+                    <input id="confirmPassword" placeholder="*******" type="password"/>
+                    <p class="smaller-text-size">As senhas devem ser iguais</p>
+                </div>
+            </div>
+
+            <div class="terms-container">
+                <label for="terms">
+                    <input type="radio" name="terms" id="terms">
+                </label>
+                <p class="smaller-text-size">Li e concordo com os <a class="purple" href="#">Termos de Uso</a> e a <a
+                        class="purple" href="#">Política
+                    de Privacidade</a></p>
+            </div>
+
+            <button class="purple-button" type="submit">Entrar</button>
+            <p>Já tem uma conta? <a class="purple" href="../signin/signin.html">Voltar para o Login</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

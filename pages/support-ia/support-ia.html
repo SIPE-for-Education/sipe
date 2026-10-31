@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SIPE - Suporte IA</title>
+    <link rel="stylesheet" href="./support-ia.css"/>
+    <link rel="stylesheet" href="../../styles/style.css"/>
+</head>
+<body>
+<div class="app">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <i class="ti ti-cpu"></i>
+            <span>SIPE</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="../dashboard/dashboard.html" class="menu-item">
+                <i class="ti ti-layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../planning/planning.html" class="menu-item">
+                <i class="ti ti-file-text"></i>
+                <span>Planejamentos</span>
+            </a>
+            <a href="../review/review.html" class="menu-item">
+                <i class="ti ti-clipboard-list"></i>
+                <span>Avaliações</span>
+            </a>
+            <a href="../library/library.html" class="menu-item">
+                <i class="ti ti-books"></i>
+                <span>Biblioteca</span>
+            </a>
+            <a href="../feedback/feedback.html" class="menu-item">
+                <i class="ti ti-message-heart"></i>
+                <span>Feedback Coordenação</span>
+            </a>
+            <a href="../support-ia/support-ia.html" class="menu-item active-ia">
+                <i class="ti ti-message-heart"></i>
+                <span>Chatbot</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="../settings/settings.html" class="menu-item active">
+                <i class="ti ti-settings"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="../support/support.html" class="menu-item">
+                <i class="ti ti-headset"></i>
+                <span>Suporte</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="header">
+            <div class="header-left">
+                <label for="school-selector"></label>
+                <select id="school-selector" class="school-selector">
+                    <option value="cavlac">Colégio Cavlac</option>
+                    <option value="anglo">Colégio Anglo</option>
+                </select>
+            </div>
+
+            <div class="header-right">
+                <div class="navigation-icon-button">
+                    <i class="ti ti-bell"></i>
+                    <div class="badge-orange">1</div>
+                </div>
+
+                <div class="user-profile-header">
+                    <div class="user-avatar">PE</div>
+                    <span>Profª Elisabete</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-corner">
+                <div class="context">
+                    <strong>CONTEXTO ATUAL</strong>
+                    <div class="class">
+                        <p class="informations">Turma</p>
+                        <p>3.º Ano A</p>
+                    </div>
+                    <div class="discipline">
+                        <p class="informations">Disciplina</p>
+                        <p>Matemática</p>
+                    </div>
+                    <div class="week">
+                        <p class="informations">Semana</p>
+                        <p>22 · 09–13/06</p>
+                    </div>
+                    <button class="preferences-button">
+                        Ajustar preferências da IA
+                    </button>
+                </div>
+
+                <div class="conversations">
+                    <strong>CONVERSAS RECENTES</strong>
+                    <div class="last-conversations">
+                        <p>Ideias para Copaneja</p>
+                        <p>Ontem, 16:40</p>
+                    </div>
+                    <div class="last-conversations">
+                        <p>Dúvida sobre EF03MA07</p>
+                        <p>05/06, 09:12</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="chat-container">
+                <div class="chat-header">
+                    <strong>Assistente do SIPE</strong>
+                    <span>· Contexto: 3.º Ano A · Matemática</span>
+                </div>
+
+                <div class="chat-body">
+                    <div class="welcome-section">
+                        <i></i>
+                        <h1>Como posso ajudar na sua aula hoje?</h1>
+                        <p class="smaller-text-size">
+                            Peça sugestões de atividades, tire dúvidas sobre a BNCC ou peça
+                            para rever um conteúdo. As suas respostas consideram o
+                            planejamento e as avaliações já registrados no SIPE.
+                        </p>
+                    </div>
+                    <div class="suggestions-grid">
+                        <div class="suggestion-card">
+                            <h3>Sugerir atividade prática</h3>
+                            <p>Sobre frações, para o 3.º ano</p>
+                        </div>
+                        <div class="suggestion-card">
+                            <h3>Explicar uma competência BNCC</h3>
+                            <p>O que cobre a EF03MA05?</p>
+                        </div>
+                        <div class="suggestion-card">
+                            <h3>Sugerir plano de reforço</h3>
+                            <p>Para alunos com dificuldade em operações</p>
+                        </div>
+                        <div class="suggestion-card">
+                            <h3>Resumir a semana</h3>
+                            <p>O que já foi ensinado e avaliado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-footer">
+                    <div class="input-wrapper">
+                        <label>
+                            <input
+                                    type="text"
+                                    placeholder="Pergunte algo ao Assistente SIPE..."
+                            />
+                        </label>
+                        <button class="send-button" aria-label="Enviar"></button>
+                    </div>
+                    <p class="smaller-text-size">
+                        O Assistente SIPE pode cometer erros. Reveja sempre antes de
+                        aplicar em sala.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

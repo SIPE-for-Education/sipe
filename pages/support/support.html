@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SIPE - Support</title>
+    <link rel="stylesheet" href="./support.css"/>
+    <link rel="stylesheet" href="../../styles/style.css"/>
+</head>
+<body>
+<div class="app">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <i class="ti ti-cpu"></i>
+            <span>SIPE</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="../dashboard/dashboard.html" class="menu-item">
+                <i class="ti ti-layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../planning/planning.html" class="menu-item">
+                <i class="ti ti-file-text"></i>
+                <span>Planejamentos</span>
+            </a>
+            <a href="../review/review.html" class="menu-item">
+                <i class="ti ti-clipboard-list"></i> <span>Avaliações</span>
+            </a>
+            <a href="../library/library.html" class="menu-item">
+                <i class="ti ti-books"></i> <span>Biblioteca</span>
+            </a>
+            <a href="../feedback/feedback.html" class="menu-item">
+                <i class="ti ti-message-heart"></i>
+                <span>Feedback Coordenação</span>
+            </a>
+            <a href="../support-ia/support-ia.html" class="menu-item active-ia">
+                <i class="ti ti-message-heart"></i>
+                <span>Chatbot</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="../settings/settings.html" class="menu-item">
+                <i class="ti ti-settings"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="../support/support.html" class="menu-item active">
+                <i class="ti ti-headset"></i>
+                <span>Suporte</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="header">
+            <div class="header-left">
+                <label for="school-selector"></label>
+                <select id="school-selector" class="school-selector">
+                    <option value="cavlac">Colégio Cavlac</option>
+                    <option value="anglo">Colégio Anglo</option>
+                </select>
+            </div>
+
+            <div class="header-right">
+                <div class="navigation-icon-button">
+                    <i class="ti ti-bell"></i>
+                    <div class="badge-orange">1</div>
+                </div>
+
+                <div class="user-profile-header">
+                    <div class="user-avatar">PE</div>
+                    <span>Profª Elisabete</span>
+                </div>
+            </div>
+        </div>
+
+        <main class="page-container">
+            <div class="introduction-informations">
+                <div class="introduction">
+                    <h1 class="support">Suporte</h1>
+                    <p class="support-description">
+                        Tire dúvidas, acompanhe tutoriais ou fale com a nossa equipe.
+                    </p>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <nav>
+                    <p>Como podemos ajudar?</p>
+                    <p class="smaller-text-size">
+                        Busque por um tema, funcionalidade ou dúvida frequente
+                    </p>
+                    <label>
+                        <input
+                                type="text"
+                                placeholder="Ex.: como gerar uma avaliação com IA"
+                        />
+                    </label>
+                </nav>
+            </div>
+
+            <div class="help-category">
+                <p>Categorias de ajuda</p>
+
+                <div class="types-help">
+                    <div class="card">
+                        <a href="../settings/settings.html">
+                            <p class="account">Conta</p>
+                            <p class="account">Acesso, senha e dados de perfil</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="../planning/planning.html">
+                            <p class="plans">Planejamento</p>
+                            <p class="plans-desc">Geração e edição de planos de aula</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="../review/review.html">
+                            <p class="avaliation">Avaliações</p>
+                            <p class="avaliation-desc">Criação de provas e gabaritos</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="../library/library.html">
+                            <p class="materials">Materiais</p>
+                            <p class="materials-desc">Upload e organização da biblioteca</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="../support-ia/support-ia.html">
+                            <p class="IA">Assistente IA</p>
+                            <p class="IA-desc">Sugestões e funcionamento da IA</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="../feedback/feedback.html">
+                            <p class="aprovations">Aprovações</p>
+                            <p class="aprovations-desc">
+                                Fluxo de revisão com a coordenação
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="support-content-wrapper">
+                <section class="faq-section">
+                    <h2 class="faq-title">Perguntas frequentes</h2>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <span class="faq-category">CONTA</span>
+                            <p class="faq-question">Esqueci minha senha, o que eu faço?</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <span class="faq-category">PLANEJAMENTO</span>
+                            <p class="faq-question">
+                                Como a IA gera um planejamento de aula?
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <span class="faq-category">AVALIAÇÕES</span>
+                            <p class="faq-question">
+                                Posso editar uma avaliação gerada pela IA?
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <span class="faq-category">ASSISTENTE IA</span>
+                            <p class="faq-question">
+                                Como desativo as sugestões automáticas da IA?
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <span class="faq-category">MATERIAIS</span>
+                            <p class="faq-question">
+                                Quais formatos de arquivo posso enviar para a Biblioteca?
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <span class="faq-category">APROVAÇÕES</span>
+                            <p class="faq-question">
+                                O que acontece quando a coordenação solicita ajustes?
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="contact-sidebar">
+                    <h2>Contato</h2>
+
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <p class="smaller-text-size">E-mail: sipe@gmail.com</p>
+                            <span class="smallest-text-size muted"
+                            >Resposta em até 1 dia útil</span
+                            >
+                        </div>
+                    </div>
+
+                    <form class="request-form">
+                        <h3 class="smaller-text-size">Abrir uma solicitação</h3>
+
+                        <div class="form-group">
+                            <label for="category-select" class="smaller-text-size"
+                            >Categoria</label
+                            >
+                            <select id="category-select" class="form-select">
+                                <option value="conta">Conta</option>
+                                <option value="planejamento">Planejamento</option>
+                                <option value="avaliacoes">Avaliações</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue-description" class="form-label"
+                            >Descreva o problema</label
+                            >
+                            <textarea
+                                    id="issue-description"
+                                    class="form-textarea"
+                                    placeholder="Conte com detalhes o que está acontecendo..."
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            Enviar solicitação
+                        </button>
+                    </form>
+                </aside>
+            </div>
+
+            <section class="tutorials-section">
+                <h2 class="tutorials-title">Tutoriais e artigos</h2>
+
+                <div class="tutorials-list">
+                    <div class="tutorial-item">
+                        <div class="tutorial-info">
+                            <p class="smaller-text-size">Primeiros passos no SIPE</p>
+                            <span class="smallest-text-size">Vídeo · 4 min</span>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-item">
+                        <div class="tutorial-info">
+                            <p class="smaller-text-size">
+                                Gerando seu primeiro planejamento com IA
+                            </p>
+                            <span class="smallest-text-size">Artigo · 5 min de leitura</span>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-item">
+                        <div class="tutorial-info">
+                            <p class="smaller-text-size">
+                                Como funciona a aprovação da coordenação
+                            </p>
+                            <span class="smallest-text-size">Vídeo · 3 min</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+</body>
+</html>

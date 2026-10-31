@@ -1,3 +1,4 @@
 # IDEs e Editores
 .vscode/
 /.idea
+/node_modules

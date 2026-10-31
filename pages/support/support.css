@@ -1,0 +1,263 @@
+@import "@tabler/icons-webfont/dist/tabler-icons.min.css";
+
+.introduction-informations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.support {
+    display: flex;
+    font-size: 40px;
+    color: var(--navy-blue);
+}
+
+.support-description {
+    color: var(--muted);
+    font-size: var(--smaller-text-size);
+}
+
+.navigation {
+    display: flex;
+    width: 100%;
+}
+
+.navigation nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    border-radius: var(--radius);
+    background-color: var(--purple);
+    color: var(--white);
+    text-align: center;
+}
+
+.navigation nav label {
+    width: 100%;
+}
+
+.navigation nav input {
+    width: 100%;
+    max-width: 50%;
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--cotton);
+    outline: none;
+    font-size: var(--smaller-text-size);
+}
+
+.help-category {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.types-help {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    padding: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card p:first-of-type {
+    color: var(--navy-blue);
+    font-size: var(--smaller-text-size);
+}
+
+.card p:last-of-type {
+    color: var(--muted);
+    font-size: var(--smaller-text-size);
+}
+
+.icon-box {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    background-color: var(--light-purple);
+}
+
+.support-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+}
+
+.faq-section {
+    flex: 2;
+    padding: 1rem;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    background-color: var(--white);
+}
+
+.faq-title {
+    color: var(--navy-blue);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem;
+    border: 1px solid var(--cotton);
+    border-radius: var(--radius);
+    background-color: var(--white);
+}
+
+.faq-category {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    background-color: var(--light-purple);
+    color: var(--purple);
+    font-size: calc(var(--smaller-text-size) - 2px);
+    white-space: nowrap;
+}
+
+.faq-question {
+    color: var(--navy-blue);
+    font-size: var(--smaller-text-size);
+}
+
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    background-color: var(--white);
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--cotton);
+    border-radius: var(--radius);
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    width: 36px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--light-purple);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    outline: none;
+    background-color: var(--light-cotton);
+    font-size: var(--smallest-text-size);
+}
+
+.form-textarea {
+    aspect-ratio: 4/2;
+    resize: none;
+}
+
+.submit-button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--purple);
+    color: var(--white);
+    font-size: var(--smaller-text-size);
+    transition: opacity 0.2s ease;
+}
+
+.tutorials-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--cotton);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    transform: scale(0.96);
+}
+
+.tutorials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.tutorial-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cotton);
+}
+
+.tutorial-item:last-child {
+    border-bottom: none;
+}
+
+.tutorial-icon {
+    flex-shrink: 0;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    background-color: var(--light-yellow);
+}
+
+.tutorial-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@tabler/icons-webfont": "^3.50.0",
+    "bootstrap": "^6.0.0-alpha.1",
+    "bootstrap-icons": "^1.13.2"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
+}

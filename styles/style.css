@@ -47,6 +47,7 @@
     --radius: 15px;
     --square-radius: 5px;
     --text-size: 20px;
+    --smallest-text-size: 12px;
     --smaller-text-size: 16px;
     --larger-text-size: 24px;
 }
@@ -119,7 +120,12 @@ html, body {
 .menu-item:active {
     background: var(--dark-green);
     color: var(--white);
-    box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
+}
+
+.menu-item.active-ia, .menu-item.active-ia:hover {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
+    color: var(--white);
+    font-weight: bold;
 }
 
 .menu-item i {
@@ -130,7 +136,6 @@ html, body {
 .menu-item:hover,
 .menu-item.active {
     background: var(--muted);
-    box-shadow: 0 4px 12px rgba(69, 86, 41, 0.3);
 }
 
 .sidebar-footer {
@@ -277,6 +282,7 @@ html, body {
 
 .page-title {
     font-size: 56px;
+    font-weight: bold;
 }
 
 .page-subtitle {
@@ -1007,6 +1013,39 @@ html, body {
     font-size: calc(var(--smaller-text-size) - 4px);
 }
 
+.purple-button{
+    padding: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--dark-purple);
+    color: var(--white);
+    font-size: var(--larger-text-size);
+}
+
+.larger-text-size {
+    font-size: var(--larger-text-size);
+}
+
+.smaller-text-size {
+    font-size: var(--smaller-text-size);
+}
+
+.smallest-text-size {
+    font-size: var(--smallest-text-size);
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+a {
+    text-decoration: none;
+}
+
 i {
     font-size: 20px;
 }
@@ -1055,6 +1094,10 @@ i {
     color: var(--blue) !important;
 }
 
+.cotton {
+    color: var(--cotton) !important;
+}
+
 .bg-light-purple {
     background: var(--light-purple) !important;
 }
@@ -1089,6 +1132,10 @@ i {
 
 .border-yellow {
     border-color: var(--yellow) !important;
+}
+
+.muted {
+    color: var(--muted) !important;
 }
 
 .chip-pulse {
