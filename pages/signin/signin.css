@@ -28,12 +28,12 @@
     position: relative;
 }
 
-.logo {
+.copyright {
     display: grid;
     align-items: center;
 }
 
-.logo img {
+.copyright img {
     width: clamp(60px, 6vw, 80px);
     height: auto;
 }
@@ -327,7 +327,7 @@ input.text-field:focus {
         padding: 40px 20px;
     }
 
-    .logo img {
+    .copyright img {
         width: 75px;
     }
 

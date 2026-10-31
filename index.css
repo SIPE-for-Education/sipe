@@ -42,7 +42,7 @@ body {
     align-items: center;
 }
 
-.logo {
+.copyright {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -51,21 +51,21 @@ body {
     white-space: nowrap;
 }
 
-.logo img {
+.copyright img {
     width: 29px;
     height: 29px;
     object-fit: contain;
     display: block;
 }
 
-.logo strong {
+.copyright strong {
     color: #10182a;
     font-size: 18px;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
 
-.logo span {
+.copyright span {
     color: #777c87;
     font-size: 8px;
     font-weight: 600;
@@ -721,7 +721,7 @@ body {
 }
 
 @media (max-width: 900px) {
-    .logo span {
+    .copyright span {
         font-size: 7px;
     }
 
@@ -761,20 +761,20 @@ body {
         padding: 10px 18px;
     }
 
-    .logo {
+    .copyright {
         align-self: start;
     }
 
-    .logo img {
+    .copyright img {
         width: 28px;
         height: 28px;
     }
 
-    .logo strong {
+    .copyright strong {
         font-size: 16px;
     }
 
-    .logo span {
+    .copyright span {
         max-width: 170px;
         font-size: 6px;
         white-space: normal;
@@ -882,11 +882,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    .logo span {
+    .copyright span {
         display: none;
     }
 
-    .logo strong {
+    .copyright strong {
         font-size: 17px;
     }
 

@@ -282,6 +282,7 @@ html, body {
 
 .page-title {
     font-size: 56px;
+    font-weight: bold;
 }
 
 .page-subtitle {
@@ -1012,11 +1013,24 @@ html, body {
     font-size: calc(var(--smaller-text-size) - 4px);
 }
 
+.purple-button{
+    padding: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--dark-purple);
+    color: var(--white);
+    font-size: var(--larger-text-size);
+}
+
+.larger-text-size {
+    font-size: var(--larger-text-size);
+}
+
 .smaller-text-size {
     font-size: var(--smaller-text-size);
 }
 
-.smallest-text-size{
+.smallest-text-size {
     font-size: var(--smallest-text-size);
 }
 
@@ -1078,6 +1092,10 @@ i {
 
 .blue {
     color: var(--blue) !important;
+}
+
+.cotton {
+    color: var(--cotton) !important;
 }
 
 .bg-light-purple {
