@@ -3,111 +3,77 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="../../assets/favicon.ico"/>
-    <link rel="stylesheet" href="./signin.css"/>
     <title>SIPE - Login</title>
+    <link rel="stylesheet" href="./signin.css"/>
+    <link rel="stylesheet" href="../../styles/style.css">
 </head>
-<body class="login-screen">
-<main class="container">
+<body>
+<div class="app">
     <div class="left-corner">
-        <div class="logo">
-            <a href="../../index.html">
-                <img src="../../assets/images/logo.png" alt="SIPE"/>
-            </a>
-        </div>
-        <div class="introduction">
-            <h1>Planejar nunca foi<span>tão inteligente.</span></h1>
+        <div>
+            <img src="../../assets/images/logo.png" alt="SIPE Logo"/>
         </div>
 
-        <p class="description">
-            Centralize planejamentos, avaliações e feedback pedagógico em um só
-            lugar, com apoio de inteligência artificial alinhada à BNCC.
-        </p>
-
-        <div class="list-item">
-            <div class="benefit-item">
-                <div class="icon-box"></div>
-                <div>
-                    <p class="icons">
-                        <strong>Geração assistida por IA</strong>
-                    </p>
-
-                    <p class="icons">Planejamentos e avaliações em minutos.</p>
-                </div>
+        <section>
+            <div>
+                <p class="page-title">
+                    Planejar nunca foi <span class="orange-gradient">tão inteligente</span>
+                </p>
+                <p class="cotton">
+                    Centralize Planejamentos, Avaliações e Feedback pedagógico em um só lugar, com apoio de inteligência
+                    artificial alinhada à BNCC</p>
             </div>
 
-            <div class="benefit-item">
-                <div class="icon-box"></div>
-                <div>
-                    <p class="icons">
-                        <strong>Feedback da coordenação</strong>
-                    </p>
-
-                    <p class="icons">Acompanhe aprovações e devolutivas.</p>
+            <div class="grid-container">
+                <div class="block icon-box">
+                    <i class="bi bi-check-all"></i>
                 </div>
+                <p class="larger-text-size">Geração assistida por IA</p>
+                <p class="cotton">Planejamentos e avaliações em minutos.</p>
             </div>
 
-            <div class="benefit-item">
-                <div class="icon-box"></div>
-                <div>
-                    <p class="icons">
-                        <strong>Biblioteca de conteúdo</strong>
-                    </p>
-
-                    <p class="icons">Documentos e diretrizes sempre à mão.</p>
+            <div class="grid-container">
+                <div class="block icon-box">
+                    <i class="bi bi-people-fill"></i>
                 </div>
+                <p class="larger-text-size">Feedback da coordenação</p>
+                <p class="cotton">Acompanhe aprovações e devolutivas.</p>
             </div>
+
+            <div class="grid-container">
+                <div class="block icon-box">
+                    <i class="bi bi-journal-richtext"></i>
+                </div>
+                <p class="larger-text-size">Biblioteca de conteúdo</p>
+                <p class="cotton">Documentos e diretrizes sempre à mão.</p>
+            </div>
+        </section>
+
+        <div class="cotton">
+            <p>© 2026 SIPE · Sistema Inteligente de Planejamento Escolar</p>
         </div>
-
-        <p class="bottom">
-            © 2026 SIPE · Sistema Inteligente de Planejamento Escolar
-        </p>
     </div>
 
     <div class="right-corner">
-        <div class="log-in">
-            <h2>Bem-vindo(a) de volta</h2>
-            <p>Entre com suas credenciais para acessar o painel.</p>
-        </div>
+        <form action="" method="post">
+            <h2>Bem-vindo(a) de volta!</h2>
+            <p>Entre com suas credenciais para acessar seu painel.</p>
 
-        <form>
-            <div class="email">
-                <label for="email" class="email-text">E-MAIL INSTITUCIONAL</label>
-                <input
-                        id="email"
-                        class="text-field"
-                        placeholder="seunome@escola.com.br"
-                        type="email"
-                        required
-                />
-            </div>
-            <div class="password">
-                <label for="password" class="password-text">SENHA</label>
-                <input
-                        id="password"
-                        class="text-field"
-                        placeholder="Senha"
-                        type="password"
-                        required
-                />
-
-                <a
-                        class="forgot-password"
-                        href="../forgot-password/forgot-password.html"
-                >Esqueci minha senha</a
-                >
+            <div>
+                <label for="email">E-MAIL INSTITUCIONAL</label>
+                <input id="email" placeholder="seunome@escola.com.br" type="email"/>
             </div>
 
-            <a class="login-button" href="../dashboard/dashboard.html">Entrar</a>
+            <div>
+                <label for="password">SENHA</label>
+                <input id="password" placeholder="**********" type="password"/>
+                <a class="purple" href="../forgot-password/forgot-password.html">Esqueci minha senha</a>
+            </div>
+
+            <button class="purple-button" type="submit">Entrar</button>
+            <p>Ainda não tem uma conta? <a href="../signup/signup.html">Cadastre-se</a></p>
         </form>
-
-        <div class="register-password">
-            <p>
-                Ainda não tem cadastro?
-                <a class="register" href="../signup/signup.html">Cadastre-se</a>
-            </p>
-        </div>
     </div>
-</main>
+</div>
 </body>
 </html>
