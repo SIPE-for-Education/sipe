@@ -1,47 +1,8 @@
-.system-chip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: var(--radius);
-    font-size: calc(var(--smaller-text-size) - 4px);
-    font-weight: bold;
-}
-
-.system-chip-purple {
-    border: 1px solid var(--purple-border);
-    background: var(--light-purple);
-    color: var(--purple);
-}
-
-.system-chip-green {
-    border: 1px solid var(--green-border);
-    background: var(--light-green);
-    color: var(--green);
-}
-
-.button-admin {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: var(--radius);
-    background: linear-gradient(135deg, var(--navy-blue), var(--muted));
-    color: var(--white);
-    font-size: calc(var(--smaller-text-size) - 4px);
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.button-admin:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
-.button-admin i {
-    color: var(--orange);
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .button-generate-suggestions:hover {

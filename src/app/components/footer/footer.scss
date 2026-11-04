@@ -1,0 +1,74 @@
+.footer {
+  width: 100%;
+  background: var(--navy-blue);
+  color: var(--white);
+
+  .container {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      width: 33%;
+    }
+
+    p {
+      color: var(--cotton);
+      font-size: var(--smallest-text-size);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      img {
+        width: 50px;
+        aspect-ratio: 1;
+        object-fit: contain;
+      }
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-evenly;
+      width: 66%;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h3 {
+          font-size: 0.5rem;
+        }
+
+        a {
+          color: var(--cotton);
+          font-size: var(--smallest-text-size);
+          transition: 1s ease;
+        }
+
+        a:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid var(--muted);
+    color: var(--cotton);
+    font-size: var(--smallest-text-size);
+  }
+}

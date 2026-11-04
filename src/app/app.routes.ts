@@ -18,10 +18,12 @@ export const routes: Routes = [
     path: 'forgot-password',
     loadComponent: () =>
       import('./pages/forgot-password/forgot-password').then((m) => m.ForgotPassword),
+    data: { public: true },
   },
   {
     path: 'home',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
+    data: { public: true },
   },
   {
     path: 'library',
@@ -42,10 +44,12 @@ export const routes: Routes = [
   {
     path: 'signin',
     loadComponent: () => import('./pages/signin/signin').then((m) => m.Signin),
+    data: { public: true },
   },
   {
     path: 'signup',
     loadComponent: () => import('./pages/signup/signup').then((m) => m.Signup),
+    data: { public: true },
   },
   {
     path: 'support',

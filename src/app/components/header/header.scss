@@ -1,0 +1,173 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: 10vh;
+  padding: 0 2rem;
+  border-bottom: 2px solid var(--cotton);
+  background-color: var(--white);
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .school-selector {
+      padding: 0.5rem 1rem;;
+      border: 2px solid var(--navy-blue);
+      border-radius: var(--radius);
+      color: var(--navy-blue);
+      font-size: var(--smaller-text-size);
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .school-selector:focus {
+      border-color: var(--dark-green);
+    }
+
+    .system-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      font-size: var(--smallest-text-size);
+      font-weight: bold;
+    }
+
+    .system-chip-purple {
+      border: 1px solid var(--purple-border);
+      background: var(--light-purple);
+      color: var(--purple);
+    }
+
+    .system-chip-green {
+      border: 1px solid var(--green-border);
+      background: var(--light-green);
+      color: var(--green);
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .team-information {
+      color: var(--muted);
+      font-size: calc(var(--smaller-text-size) - 2px);
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .right-alignment {
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+    }
+
+    .navigation-icon-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px; //attention
+      aspect-ratio: 1;
+      border: 2px solid var(--orange);
+      border-radius: var(--radius);
+      background-color: color-mix(in oklab,
+      var(--orange),
+      var(--white) 90%);
+      cursor: pointer;
+
+      i {
+        color: var(--orange);
+        font-size: var(--larger-text-size);
+      }
+
+      .badge-orange {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        aspect-ratio: 1;
+        border: 2px solid var(--orange);
+        border-radius: 50%;
+        background: var(--white);
+        color: var(--orange);
+        font-size: calc(var(--smaller-text-size) - 2px);
+        font-weight: bold;
+      }
+    }
+
+    .button-admin {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--navy-blue), var(--muted));
+      color: var(--white);
+      font-size: var(--smallest-text-size);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      i {
+        color: var(--orange);
+      }
+    }
+
+    .coordination-view-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--navy-blue) 0%, var(--muted) 100%);
+      color: var(--white);
+      font-size: calc(var(--smaller-text-size) - 2px);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      i {
+        color: var(--orange);
+      }
+    }
+
+    .button-admin:hover, .coordination-view-trigger:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .user-profile-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: var(--smaller-text-size);
+      font-weight: bold;
+
+      .user-avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 45px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--dark-green);
+        color: var(--white);
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,9 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [RouterLink],
+  imports: [],
   selector: 'app-dashboard',
   styleUrl: './dashboard.scss',
   templateUrl: './dashboard.html',
@@ -15,3 +14,4 @@ export class Dashboard implements OnInit {
     this.titleService.setTitle('SIPE - Dashboard');
   }
 }
+

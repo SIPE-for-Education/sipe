@@ -1,0 +1,29 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+
+  app-sidebar {
+    display: block;
+    flex: 0 0 15vw;
+    height: 100%;
+    transition: flex-basis 0.3s ease;
+  }
+
+  app-sidebar:hover {
+    flex: 0 0 17vw;
+  }
+
+  .content {
+    flex: 1;
+    min-width: 0;
+  }
+}

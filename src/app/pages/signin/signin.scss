@@ -1,8 +1,12 @@
+:host {
+  display: flex;
+  flex: 1;
+  height: 90vh;
+}
+
 .left-corner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
     flex: 1;
     padding: 2.5rem;
     background-color: var(--navy-blue);
@@ -12,9 +16,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: 65px 85%;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    width: 75%;
+    gap: 0.5rem;
     padding: 1rem;
 }
 

@@ -1,261 +1,196 @@
-<header class="header">
-  <nav class="navbar">
-    <a class="logo" routerLink="#inicio" aria-label="Página inicial do SIPE">
-      <img src="/favicon.ico" alt="Ícone SIPE" style="width: 25px">
-      <strong>SIPE </strong>
-      <span>SISTEMA INTELIGENTE DE PLANEJAMENTO ESCOLAR</span>
-    </a>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <span class="small-label">FEITO PARA REDES DE ENSINO E ESCOLAS PARTICULARES</span>
 
-    <div class="nav-links">
-      <a class="nav-item active" routerLink="#modulos">Módulos</a>
-      <a class="nav-item" routerLink="#contato">Contato</a>
+    <h1>
+      O plano de aula sai pronto.
+      <span>A palavra final continua sendo da <strong>Coordenação</strong></span>
+    </h1>
+
+    <p class="hero-description">
+      SIPE gera planejamentos e avaliações com IA a partir do material que a sua escola já usa --
+      apostilas, livros didáticos e a BNCC, organizando tudo num fluxo de aprovação que a coordenação
+      acompanha do início ao fim.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="button button-primary hero-button" routerLink="/signup">Quero conhecer o SIPE</a>
+
+      <a class="text-button" routerLink="#modulos">Ver módulos</a>
     </div>
+  </div>
 
-    <div class="nav-buttons">
-      <a class="button button-outline" routerLink="/signup">Cadastrar</a>
+  <div class="hero-visual">
+    <div class="post-it-column">
+      <div class="post-it post-it-purple">
+        <strong>Planejamento</strong>
+      </div>
 
-      <a class="button button-primary" routerLink="/signin">Acesso administrativo</a>
-    </div>
-  </nav>
-</header>
+      <div class="post-it post-it-orange">
+        <strong>Avaliações</strong>
+      </div>
 
-<main>
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <span class="small-label">FEITO PARA REDES DE ENSINO E ESCOLAS PARTICULARES</span>
+      <div class="post-it post-it-blue">
+        <strong>Bibliotecas</strong>
+      </div>
 
-      <h1>
-        O plano de aula sai pronto.
-        <span>A palavra final continua sendo da <strong>Coordenação</strong></span>
-      </h1>
-
-      <p class="hero-description">
-        SIPE gera planejamentos e avaliações com IA a partir do material que a sua escola já usa --
-        apostilas, livros didáticos e a BNCC, organizando tudo num fluxo de aprovação que a coordenação
-        acompanha do início ao fim.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="button button-primary hero-button" routerLink="/signup">Quero conhecer o SIPE</a>
-
-        <a class="text-button" routerLink="#modulos">Ver módulos</a>
+      <div class="post-it post-it-dark">
+        <strong>Feedback</strong>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="post-it-column">
-        <div class="post-it post-it-purple">
-          <strong>Planejamento</strong>
-        </div>
+    <div class="assistant-card">
+      <div class="assistant-header">
+        <div class="assistant-icon">✦</div>
 
-        <div class="post-it post-it-orange">
-          <strong>Avaliações</strong>
-        </div>
-
-        <div class="post-it post-it-blue">
-          <strong>Bibliotecas</strong>
-        </div>
-
-        <div class="post-it post-it-dark">
-          <strong>Feedback</strong>
+        <div class="assistant-title">
+          <strong>Insight do assistente SIPE</strong>
+          <span>Com base nas últimas aulas de História</span>
         </div>
       </div>
 
-      <div class="assistant-card">
-        <div class="assistant-header">
-          <div class="assistant-icon">✦</div>
-
-          <div class="assistant-title">
-            <strong>Insight do assistente SIPE</strong>
-            <span>Com base nas últimas aulas de História</span>
-          </div>
-        </div>
-
-        <div class="assistant-message">
-          A turma do 8º ano já cobriu o conteúdo nescessário para a competência EF08HI03. Recomendo
-          gerar a avaliação bimestral agora, enquanto o conteúdo está fresco.
-        </div>
-
-        <div class="assistant-item">
-          <div class="assistant-item-header">
-            <span>Coberturaa BNCC</span>
-            <strong>84%</strong>
-          </div>
-
-          <div class="progress">
-            <span class="progress-green"></span>
-          </div>
-        </div>
-
-        <div class="assistant-item">
-          <div class="assistant-item-header">
-            <span>Fonte Homologada</span>
-            <strong>100%</strong>
-          </div>
-
-          <div class="progress">
-            <span class="progress-purple"></span>
-          </div>
-        </div>
-
-        <button class="approved-button" type="button">✓ APROVADO</button>
+      <div class="assistant-message">
+        A turma do 8º ano já cobriu o conteúdo nescessário para a competência EF08HI03. Recomendo
+        gerar a avaliação bimestral agora, enquanto o conteúdo está fresco.
       </div>
+
+      <div class="assistant-item">
+        <div class="assistant-item-header">
+          <span>Coberturaa BNCC</span>
+          <strong>84%</strong>
+        </div>
+
+        <div class="progress">
+          <span class="progress-green"></span>
+        </div>
+      </div>
+
+      <div class="assistant-item">
+        <div class="assistant-item-header">
+          <span>Fonte Homologada</span>
+          <strong>100%</strong>
+        </div>
+
+        <div class="progress">
+          <span class="progress-purple"></span>
+        </div>
+      </div>
+
+      <button class="approved-button" type="button">✓ APROVADO</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="fronts-section" id="modulos">
-    <div class="section-container">
-      <span class="section-label">O ESSENCIAL EM UM SÓ LUGAR</span>
+<section class="fronts-section" id="modulos">
+  <div class="section-container">
+    <span class="section-label">O ESSENCIAL EM UM SÓ LUGAR</span>
 
-      <h2>Três frentes, um só lugar</h2>
+    <h2>Três frentes, um só lugar</h2>
 
-      <p class="section-introduction">
-        Planejamento, avaliação e apoio pedagógico em uma única plataforma.
-      </p>
+    <p class="section-introduction">
+      Planejamento, avaliação e apoio pedagógico em uma única plataforma.
+    </p>
 
-      <div class="front-cards">
-        <div class="front-card front-card-purple">
-          <div class="card-number">01</div>
+    <div class="front-cards">
+      <div class="front-card front-card-purple">
+        <div class="card-number">01</div>
 
-          <h3>Planejamento Inteligente</h3>
-
-          <p>
-            Geração automática de planejamentos orientada pela BNCC, com base em materiais didáticos e
-            apostilas da escola.
-          </p>
-
-          <a routerLink="#contato">CONHEÇA →</a>
-        </div>
-
-        <div class="front-card front-card-orange">
-          <div class="card-number">02</div>
-
-          <h3>Gestão de Avaliações</h3>
-
-          <p>
-            Provas criadas a partir do conteúdo efetivamente ministrado em sala.
-          </p>
-
-          <a routerLink="#contato">CONHEÇA →</a>
-        </div>
-
-        <div class="front-card front-card-blue">
-          <div class="card-number">03</div>
-
-          <h3>Feedback da Coordenação</h3>
-
-          <p>
-            Envio, análise e aprovação -- com histórico completo de cada material.
-          </p>
-
-          <a routerLink="#contato">CONHEÇA →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section" id="contato">
-    <div class="contact-container">
-      <div class="contact-information">
-        <span class="section-label light-label">LEVE O SIPE PARA SUA ESCOLA</span>
-
-        <h2>Leve o SIPE para sua escola</h2>
+        <h3>Planejamento Inteligente</h3>
 
         <p>
-          Conte um pouco sobre sua instituição e nossa equipe organizará uma demonstração com as turmas e
-          disciplinas da sua realidade.
+          Geração automática de planejamentos orientada pela BNCC, com base em materiais didáticos e
+          apostilas da escola.
         </p>
 
-        <div class="contact-points">
-          <span>✓ Planejamento pedagógico</span>
-          <span>✓ Gestão de avaliações</span>
-          <span>✓ Acompanhamento da coordenação</span>
-        </div>
+        <a routerLink="#contato">CONHEÇA →</a>
       </div>
 
-      <div class="contact-form-card">
-        <div class="form-title">
-          <strong>Ficha de contato</strong>
-          <span>Preencha seus dados para falar com o SIPE.</span>
-        </div>
+      <div class="front-card front-card-orange">
+        <div class="card-number">02</div>
 
-        <form id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-            </div>
+        <h3>Gestão de Avaliações</h3>
 
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-            </div>
-          </div>
+        <p>
+          Provas criadas a partir do conteúdo efetivamente ministrado em sala.
+        </p>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="telefone">Telefone</label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
-            </div>
+        <a routerLink="#contato">CONHEÇA →</a>
+      </div>
 
-            <div class="form-group">
-              <label for="cargo">Cargo</label>
-              <input type="text" id="cargo" name="cargo" placeholder="Seu cargo">
-            </div>
+      <div class="front-card front-card-blue">
+        <div class="card-number">03</div>
+
+        <h3>Feedback da Coordenação</h3>
+
+        <p>
+          Envio, análise e aprovação -- com histórico completo de cada material.
+        </p>
+
+        <a routerLink="#contato">CONHEÇA →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contato">
+  <div class="contact-container">
+    <div class="contact-information">
+      <span class="section-label light-label">LEVE O SIPE PARA SUA ESCOLA</span>
+
+      <h2>Leve o SIPE para sua escola</h2>
+
+      <p>
+        Conte um pouco sobre sua instituição e nossa equipe organizará uma demonstração com as turmas e
+        disciplinas da sua realidade.
+      </p>
+
+      <div class="contact-points">
+        <span>✓ Planejamento pedagógico</span>
+        <span>✓ Gestão de avaliações</span>
+        <span>✓ Acompanhamento da coordenação</span>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <div class="form-title">
+        <strong>Ficha de contato</strong>
+        <span>Preencha seus dados para falar com o SIPE.</span>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
           </div>
 
           <div class="form-group">
-            <label for="instituicao">Instituição</label>
-            <input type="text" id="instituicao" name="instituicao" placeholder="Nome da escola">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
           </div>
 
-          <button class="button button-primary form-button" type="submit">
-            Solicitar contato
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
+          <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <input type="text" id="cargo" name="cargo" placeholder="Seu cargo">
+          </div>
+        </div>
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <img src="assets/favicon.ico" alt="Ícone SIPE">
-        <strong>SIPE</strong>
-      </div>
+        <div class="form-group">
+          <label for="instituicao">Instituição</label>
+          <input type="text" id="instituicao" name="instituicao" placeholder="Nome da escola">
+        </div>
 
-      <p>Sistema Inteligente de Planejamento Escolar.</p>
-
-      <span>Feito por quem também já ficou até tarde corrigindo prova</span>
-    </div>
-
-    <div class="footer-column">
-      <h3>NAVEGAÇÃO</h3>
-      <a routerLink="#inicio">Início</a>
-      <a routerLink="#modulos">Módulos</a>
-      <a routerLink="#contato">Contato</a>
-    </div>
-
-    <div class="footer-column">
-      <h3>RECURSOS</h3>
-      <a routerLink="#modulos">Planejamento</a>
-      <a routerLink="#modulos">Avaliações</a>
-      <a routerLink="#modulos">Coordenação</a>
-    </div>
-
-    <div class="footer-column">
-      <h3>INSTITUCIONAL</h3>
-      <a routerLink="#">Sobre o SIPE</a>
-      <a routerLink="#">Privacidade</a>
-      <a routerLink="#">Termos de uso</a>
+        <button class="button button-primary form-button" type="submit">
+          Solicitar contato
+        </button>
+      </form>
     </div>
   </div>
-
-  <div class="footer-bottom">
-    <span>© 2026 SIPE - Sistema Inteligente de Planejamento Escolar.</span>
-    <span>Desenvolvido para a realidade escolar.</span>
-  </div>
-</footer>
-
+</section>

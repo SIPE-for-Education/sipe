@@ -1,432 +1,356 @@
-<div class="app">
-  <div class="sidebar">
-    <div class="sidebar-logo">
-      <i class="ti ti-cpu"></i>
-      <span>SIPE</span>
+<div>
+  <h1 class="page-title">Gerador de Avaliações</h1>
+  <div class="muted">
+    Crie avaliações alinhadas ao conteúdo efetivamente ministrado em
+    sala.
+  </div>
+</div>
+
+<div class="flow-timeline">
+  <div class="flow-step done">
+    <div class="flow-step-icon">
+      <i class="ti ti-circle-check"></i>
     </div>
-    <div class="sidebar-menu">
-      <a routerLink="/dashboard" class="menu-item">
-        <i class="ti ti-layout-dashboard"></i>
-        <span>Dashboard</span>
-      </a>
-      <a routerLink="/planning" class="menu-item">
-        <i class="ti ti-file-text"></i>
-        <span>Planejamentos</span>
-      </a>
-      <a routerLink="/review" class="menu-item active">
-        <i class="ti ti-clipboard-list"></i>
-        <span>Avaliações</span>
-      </a>
-      <a routerLink="/library" class="menu-item">
-        <i class="ti ti-books"></i>
-        <span>Biblioteca</span>
-      </a>
-      <a routerLink="/feedback" class="menu-item">
-        <i class="ti ti-message-heart"></i>
-        <span>Feedback Coordenação</span>
-      </a>
-      <a routerLink="/support-ia" class="menu-item active-ia">
-        <i class="ti ti-message-heart"></i>
-        <span>Chatbot</span>
-      </a>
-    </div>
-    <div class="sidebar-footer">
-      <a routerLink="/settings" class="menu-item">
-        <i class="ti ti-settings"></i>
-        <span>Configurações</span>
-      </a>
-      <a routerLink="/support" class="menu-item">
-        <i class="ti ti-headset"></i>
-        <span>Suporte</span>
-      </a>
+    <div>
+      <div class="flow-step-label">Planejamento Aprovado</div>
+      <div class="flow-step-subtitle">Semana 22 · 09–13/06</div>
     </div>
   </div>
-
-  <div class="main-panel">
-    <div class="header">
-      <div>
-        <label for="school-selector"></label>
-        <select id="school-selector" class="school-selector">
-          <option>Colégio Cavlac</option>
-          <option>Colégio Anglo</option>
-        </select>
+  <div class="flow-step done">
+    <div class="flow-step-icon">
+      <i class="ti ti-circle-check"></i>
+    </div>
+    <div>
+      <div class="flow-step-label">Conteúdo Ministrado</div>
+      <div class="flow-step-subtitle">12 conteúdos aplicados</div>
+    </div>
+  </div>
+  <div class="flow-step active">
+    <div class="flow-step-icon"><i class="ti ti-sparkles"></i></div>
+    <div>
+      <div class="flow-step-label">IA Gerando Avaliação</div>
+      <div class="flow-step-subtitle">
+        Baseada no que foi ensinado
       </div>
-      <div class="header-right">
-        <div class="header-info">
-          <strong>Ano Letivo 2026</strong>
-          <div>2º Bimestre · 3º Ano A</div>
-        </div>
-        <div class="navigation-icon-button">
-          <i class="ti ti-bell"></i>
-          <div class="badge-orange">2</div>
-        </div>
-        <div class="user-profile-header">
-          <div class="user-avatar">PE</div>
+    </div>
+  </div>
+  <div class="flow-step pending">
+    <div class="flow-step-icon"><i class="ti ti-send"></i></div>
+    <div>
+      <div class="flow-step-label">Envio para Aprovação</div>
+      <div class="flow-step-subtitle">Coordenação pedagógica</div>
+    </div>
+  </div>
+</div>
+
+<div class="quality-bar">
+  <div class="quality-card purple">
+    <div class="quality-icon purple">
+      <i class="bi bi-bar-chart-fill"></i>
+    </div>
+    <div class="quality-value" id="qv-cob">—</div>
+    <strong class="quality-label">Cobertura do Conteúdo</strong>
+  </div>
+  <div class="quality-card green">
+    <div class="quality-icon">
+      <i class="bi bi-bookmark-check-fill"></i>
+    </div>
+    <div class="quality-value" id="qv-cont">—</div>
+    <strong class="quality-label">Conteúdos Utilizados</strong>
+  </div>
+  <div class="quality-card orange">
+    <div class="quality-icon"><i class="bi bi-bullseye"></i></div>
+    <div class="quality-value" id="qv-bncc">—</div>
+    <strong class="quality-label">Alinhamento BNCC</strong>
+  </div>
+  <div class="quality-card red">
+    <div class="quality-icon">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+    <div class="quality-value" id="qv-pend">—</div>
+    <strong class="quality-label">Questões para Revisão</strong>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-title">
+        <i class="ti ti-database"></i>
+        <span>Origem dos Conteúdos</span>
+      </div>
+      <div class="origin-grid">
+        <div
+          class="origin-option selected"
+          onclick="selectOrigin(this)"
+        >
+          <div class="opt-icon purple">
+            <i class="bi bi-calendar2-week"></i>
+          </div>
           <div>
-            <div>Profª Elisabete</div>
-            <div class="header-info">História · Geografia · Artes</div>
+            <div class="opt-label">Planejamento da Semana</div>
+            <div class="opt-desc">
+              Conteúdos da semana 22 (09–13/06)
+            </div>
+          </div>
+        </div>
+        <div class="origin-option" onclick="selectOrigin(this)">
+          <div class="opt-icon purple">
+            <i class="bi bi-calendar3"></i>
+          </div>
+          <div>
+            <div class="opt-label">Planejamento do Mês</div>
+            <div class="opt-desc">Todo o conteúdo de junho/2026</div>
+          </div>
+        </div>
+        <div class="origin-option" onclick="selectOrigin(this)">
+          <div class="opt-icon purple">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <div>
+            <div class="opt-label">Conteúdo Ministrado</div>
+            <div class="opt-desc">
+              Apenas o que foi aplicado em sala
+            </div>
+          </div>
+        </div>
+        <div class="origin-option" onclick="selectOrigin(this)">
+          <div class="opt-icon purple">
+            <i class="bi bi-pencil-fill"></i>
+          </div>
+          <div>
+            <div class="opt-label">Seleção Manual</div>
+            <div class="opt-desc">Escolho os tópicos manualmente</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="page-container">
-      <div>
-        <h1 class="page-title">Gerador de Avaliações</h1>
-        <div class="page-subtitle">
-          Crie avaliações alinhadas ao conteúdo efetivamente ministrado em
-          sala.
+    <div class="card">
+      <div class="card-title">
+        <i class="ti ti-adjustments-horizontal"></i>
+        <span>Configuração da Prova</span>
+      </div>
+      <div class="field-grid-container">
+        <div class="field-group">
+          <label for="team-selector">Turma</label>
+          <select id="team-selector">
+            <option>3º Ano A</option>
+            <option>3º Ano B</option>
+            <option>8º Ano</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="discipline-selector">Disciplina</label>
+          <select id="discipline-selector">
+            <option>Matemática</option>
+            <option>Português</option>
+            <option>História</option>
+            <option>Ciências</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="two-month-period-selector">Bimestre</label>
+          <select id="two-month-period-selector">
+            <option>2º Bimestre</option>
+            <option>1º Bimestre</option>
+            <option>3º Bimestre</option>
+          </select>
         </div>
       </div>
-
-      <div class="flow-timeline">
-        <div class="flow-step done">
-          <div class="flow-step-icon">
-            <i class="ti ti-circle-check"></i>
-          </div>
-          <div>
-            <div class="flow-step-label">Planejamento Aprovado</div>
-            <div class="flow-step-subtitle">Semana 22 · 09–13/06</div>
-          </div>
+      <div class="field-grid-container">
+        <div class="field-group">
+          <label for="questions-input">Total de Questões</label>
+          <input
+            id="questions-input"
+            type="number"
+            value="10"
+            min="5"
+            max="20"
+          />
         </div>
-        <div class="flow-step done">
-          <div class="flow-step-icon">
-            <i class="ti ti-circle-check"></i>
-          </div>
-          <div>
-            <div class="flow-step-label">Conteúdo Ministrado</div>
-            <div class="flow-step-subtitle">12 conteúdos aplicados</div>
-          </div>
+        <div class="field-group">
+          <label for="objectives-input">Objetivas</label>
+          <input
+            id="objectives-input"
+            type="number"
+            value="7"
+            min="0"
+            max="20"
+          />
         </div>
-        <div class="flow-step active">
-          <div class="flow-step-icon"><i class="ti ti-sparkles"></i></div>
-          <div>
-            <div class="flow-step-label">IA Gerando Avaliação</div>
-            <div class="flow-step-subtitle">
-              Baseada no que foi ensinado
-            </div>
-          </div>
-        </div>
-        <div class="flow-step pending">
-          <div class="flow-step-icon"><i class="ti ti-send"></i></div>
-          <div>
-            <div class="flow-step-label">Envio para Aprovação</div>
-            <div class="flow-step-subtitle">Coordenação pedagógica</div>
-          </div>
+        <div class="field-group">
+          <label for="essays">Dissertativas</label>
+          <input
+            id="essays"
+            type="number"
+            value="3"
+            min="0"
+            max="10"
+          />
         </div>
       </div>
-
-      <div class="quality-bar">
-        <div class="quality-card purple">
-          <div class="quality-icon purple">
-            <i class="bi bi-bar-chart-fill"></i>
-          </div>
-          <div class="quality-value" id="qv-cob">—</div>
-          <strong class="quality-label">Cobertura do Conteúdo</strong>
-        </div>
-        <div class="quality-card green">
-          <div class="quality-icon">
-            <i class="bi bi-bookmark-check-fill"></i>
-          </div>
-          <div class="quality-value" id="qv-cont">—</div>
-          <strong class="quality-label">Conteúdos Utilizados</strong>
-        </div>
-        <div class="quality-card orange">
-          <div class="quality-icon"><i class="bi bi-bullseye"></i></div>
-          <div class="quality-value" id="qv-bncc">—</div>
-          <strong class="quality-label">Alinhamento BNCC</strong>
-        </div>
-        <div class="quality-card red">
-          <div class="quality-icon">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-          </div>
-          <div class="quality-value" id="qv-pend">—</div>
-          <strong class="quality-label">Questões para Revisão</strong>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="card-container">
-          <div class="card">
-            <div class="card-title">
-              <i class="ti ti-database"></i>
-              <span>Origem dos Conteúdos</span>
-            </div>
-            <div class="origin-grid">
-              <div
-                class="origin-option selected"
-                onclick="selectOrigin(this)"
-              >
-                <div class="opt-icon purple">
-                  <i class="bi bi-calendar2-week"></i>
-                </div>
-                <div>
-                  <div class="opt-label">Planejamento da Semana</div>
-                  <div class="opt-desc">
-                    Conteúdos da semana 22 (09–13/06)
-                  </div>
-                </div>
-              </div>
-              <div class="origin-option" onclick="selectOrigin(this)">
-                <div class="opt-icon purple">
-                  <i class="bi bi-calendar3"></i>
-                </div>
-                <div>
-                  <div class="opt-label">Planejamento do Mês</div>
-                  <div class="opt-desc">Todo o conteúdo de junho/2026</div>
-                </div>
-              </div>
-              <div class="origin-option" onclick="selectOrigin(this)">
-                <div class="opt-icon purple">
-                  <i class="bi bi-mortarboard"></i>
-                </div>
-                <div>
-                  <div class="opt-label">Conteúdo Ministrado</div>
-                  <div class="opt-desc">
-                    Apenas o que foi aplicado em sala
-                  </div>
-                </div>
-              </div>
-              <div class="origin-option" onclick="selectOrigin(this)">
-                <div class="opt-icon purple">
-                  <i class="bi bi-pencil-fill"></i>
-                </div>
-                <div>
-                  <div class="opt-label">Seleção Manual</div>
-                  <div class="opt-desc">Escolho os tópicos manualmente</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-title">
-              <i class="ti ti-adjustments-horizontal"></i>
-              <span>Configuração da Prova</span>
-            </div>
-            <div class="field-grid-container">
-              <div class="field-group">
-                <label for="team-selector">Turma</label>
-                <select id="team-selector">
-                  <option>3º Ano A</option>
-                  <option>3º Ano B</option>
-                  <option>8º Ano</option>
-                </select>
-              </div>
-              <div class="field-group">
-                <label for="discipline-selector">Disciplina</label>
-                <select id="discipline-selector">
-                  <option>Matemática</option>
-                  <option>Português</option>
-                  <option>História</option>
-                  <option>Ciências</option>
-                </select>
-              </div>
-              <div class="field-group">
-                <label for="two-month-period-selector">Bimestre</label>
-                <select id="two-month-period-selector">
-                  <option>2º Bimestre</option>
-                  <option>1º Bimestre</option>
-                  <option>3º Bimestre</option>
-                </select>
-              </div>
-            </div>
-            <div class="field-grid-container">
-              <div class="field-group">
-                <label for="questions-input">Total de Questões</label>
-                <input
-                  id="questions-input"
-                  type="number"
-                  value="10"
-                  min="5"
-                  max="20"
-                />
-              </div>
-              <div class="field-group">
-                <label for="objectives-input">Objetivas</label>
-                <input
-                  id="objectives-input"
-                  type="number"
-                  value="7"
-                  min="0"
-                  max="20"
-                />
-              </div>
-              <div class="field-group">
-                <label for="essays">Dissertativas</label>
-                <input
-                  id="essays"
-                  type="number"
-                  value="3"
-                  min="0"
-                  max="10"
-                />
-              </div>
-            </div>
-            <div class="field-group">
-              <label>Nível de Dificuldade</label>
-              <div class="difficulty-row">
-                <button
-                  class="difficulty-button"
-                  onclick="selectDiff(this, 'easy')"
-                >
-                  <i class="bi bi-check-circle-fill"></i> Fácil
-                </button>
-                <button
-                  class="difficulty-button sel-med"
-                  onclick="selectDiff(this, 'med')"
-                >
-                  <i class="bi bi-speedometer2"></i> Médio
-                </button>
-                <button
-                  class="difficulty-button"
-                  onclick="selectDiff(this, 'hard')"
-                >
-                  <i class="bi bi-fire"></i> Difícil
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card aside-card">
-          <div class="card-title">
-            <i class="ti ti-sparkles"></i>
-            <span>Fontes que a IA Consultará</span>
-          </div>
-
-          <div class="source-item">
-            <div class="source-icon blue">
-              <i class="bi bi-bookmark-check-fill"></i>
-            </div>
-            <div>
-              <div class="source-name">Apostila Anglo — Matemática</div>
-              <div class="source-detail">Módulo 4 · Páginas 140–145</div>
-              <span class="source-badge badge-green">✓ Homologado</span>
-            </div>
-          </div>
-          <div class="source-item">
-            <div class="source-icon green">
-              <i class="bi bi-bookmark-check-fill"></i>
-            </div>
-            <div>
-              <div class="source-name">Planejamento Semanal — Sem. 22</div>
-              <div class="source-detail">
-                Aprovado pela coordenação em 06/06
-              </div>
-              <span class="source-badge badge-purple">✓ Aprovado</span>
-            </div>
-          </div>
-          <div class="source-item">
-            <div class="source-icon orange">
-              <i class="bi bi-bookmark-check-fill"></i>
-            </div>
-            <div>
-              <div class="source-name">Conteúdo Ministrado em Sala</div>
-              <div class="source-detail">
-                Registro de aulas: 09/06 a 13/06
-              </div>
-              <span class="source-badge badge-green">✓ Verificado</span>
-            </div>
-          </div>
-          <div class="source-item">
-            <div class="source-icon red">
-              <i class="bi bi-bookmark-check-fill"></i>
-            </div>
-            <div>
-              <div class="source-name">BNCC — Competências</div>
-              <div class="source-detail">
-                EF03MA05 · EF03MA07 · EF03MA12
-              </div>
-              <span class="source-badge badge-purple">✓ Alinhado</span>
-            </div>
-          </div>
-
-          <button class="button-generate" onclick="startGeneration()">
-            <i class="ti ti-sparkles"></i>
-            <span>Gerar Avaliação com IA</span>
+      <div class="field-group">
+        <label>Nível de Dificuldade</label>
+        <div class="difficulty-row">
+          <button
+            class="difficulty-button"
+            onclick="selectDiff(this, 'easy')"
+          >
+            <i class="bi bi-check-circle-fill"></i> Fácil
+          </button>
+          <button
+            class="difficulty-button sel-med"
+            onclick="selectDiff(this, 'med')"
+          >
+            <i class="bi bi-speedometer2"></i> Médio
+          </button>
+          <button
+            class="difficulty-button"
+            onclick="selectDiff(this, 'hard')"
+          >
+            <i class="bi bi-fire"></i> Difícil
           </button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div id="doc-section" class="doc-section">
-        <div class="doc-action-bar">
-          <div>
-            <div class="doc-status-chip chip-ok" id="doc-chip">
-              <i class="ti ti-circle-check"></i>
-              <span>Avaliação gerada pela IA — pronta para revisão</span>
-            </div>
-          </div>
-          <div class="doc-bar-right">
-            <button class="button-bar" onclick="openGabarito()">
-              <i class="ti ti-eye"></i>
-              <span>Ver Gabarito</span>
-            </button>
-            <button class="button-bar">
-              <i class="ti ti-printer"></i>
-              <span>Imprimir</span>
-            </button>
-            <button class="button-bar-primary" id="btn-approve">
-              <i class="ti ti-send"></i>
-              <span>Enviar para Aprovação</span>
-            </button>
-          </div>
+  <div class="card aside-card">
+    <div class="card-title">
+      <i class="ti ti-sparkles"></i>
+      <span>Fontes que a IA Consultará</span>
+    </div>
+
+    <div class="source-item">
+      <div class="source-icon blue">
+        <i class="bi bi-bookmark-check-fill"></i>
+      </div>
+      <div>
+        <div class="source-name">Apostila Anglo — Matemática</div>
+        <div class="source-detail">Módulo 4 · Páginas 140–145</div>
+        <span class="source-badge badge-green">✓ Homologado</span>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-icon green">
+        <i class="bi bi-bookmark-check-fill"></i>
+      </div>
+      <div>
+        <div class="source-name">Planejamento Semanal — Sem. 22</div>
+        <div class="source-detail">
+          Aprovado pela coordenação em 06/06
         </div>
+        <span class="source-badge badge-purple">✓ Aprovado</span>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-icon orange">
+        <i class="bi bi-bookmark-check-fill"></i>
+      </div>
+      <div>
+        <div class="source-name">Conteúdo Ministrado em Sala</div>
+        <div class="source-detail">
+          Registro de aulas: 09/06 a 13/06
+        </div>
+        <span class="source-badge badge-green">✓ Verificado</span>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-icon red">
+        <i class="bi bi-bookmark-check-fill"></i>
+      </div>
+      <div>
+        <div class="source-name">BNCC — Competências</div>
+        <div class="source-detail">
+          EF03MA05 · EF03MA07 · EF03MA12
+        </div>
+        <span class="source-badge badge-purple">✓ Alinhado</span>
+      </div>
+    </div>
 
-        <div class="institutional-doc">
-          <div class="doc-header-stripe">
-            <div class="doc-school-logo">CC</div>
-            <div>
-              <div class="doc-school-name">Colégio Cavlac</div>
-              <div class="doc-school-sub">
-                Avaliação Bimestral — Gerada pelo Sistema SIPE
-              </div>
-            </div>
-            <div class="doc-meta-strip">
-              <div class="doc-meta-pill">
-                <span>Bimestre:</span>
-                <span>2.º Bimestre 2026</span>
-              </div>
-              <div class="doc-meta-pill">
-                <span>Data:</span>
-                <span>13/06/2026</span>
-              </div>
-              <div class="doc-meta-pill">
-                <span>Doc n.º:</span>
-                <span>AVL-2026-0388</span>
-              </div>
-            </div>
-          </div>
+    <button class="button-generate" onclick="startGeneration()">
+      <i class="ti ti-sparkles"></i>
+      <span>Gerar Avaliação com IA</span>
+    </button>
+  </div>
+</div>
 
-          <div class="doc-info-row">
-            <div class="doc-info-cell">
-              <div class="information-label">Professora</div>
-              <div class="information-value">Elisabete Pereira</div>
-            </div>
-            <div class="doc-info-cell">
-              <div class="information-label">Turma</div>
-              <div class="information-value">3º Ano A</div>
-            </div>
-            <div class="doc-info-cell">
-              <div class="information-label">Disciplina</div>
-              <div class="information-value">Matemática</div>
-            </div>
-            <div class="doc-info-cell">
-              <div class="information-label">Nota Total</div>
-              <div class="information-value">10,0 pontos</div>
-            </div>
-            <div class="doc-info-cell">
-              <div class="information-label">Origem</div>
-              <div class="information-value purple">
-                SIPE IA · Planej. Sem. 22
-              </div>
-            </div>
-          </div>
+<div id="doc-section" class="doc-section">
+  <div class="doc-action-bar">
+    <div>
+      <div class="doc-status-chip chip-ok" id="doc-chip">
+        <i class="ti ti-circle-check"></i>
+        <span>Avaliação gerada pela IA — pronta para revisão</span>
+      </div>
+    </div>
+    <div class="doc-bar-right">
+      <button class="button-bar" onclick="openGabarito()">
+        <i class="ti ti-eye"></i>
+        <span>Ver Gabarito</span>
+      </button>
+      <button class="button-bar">
+        <i class="ti ti-printer"></i>
+        <span>Imprimir</span>
+      </button>
+      <button class="button-bar-primary" id="btn-approve">
+        <i class="ti ti-send"></i>
+        <span>Enviar para Aprovação</span>
+      </button>
+    </div>
+  </div>
 
-          <div class="doc-body" id="doc-body"></div>
+  <div class="institutional-doc">
+    <div class="doc-header-stripe">
+      <div class="doc-school-logo">CC</div>
+      <div>
+        <div class="doc-school-name">Colégio Cavlac</div>
+        <div class="doc-school-sub">
+          Avaliação Bimestral — Gerada pelo Sistema SIPE
+        </div>
+      </div>
+      <div class="doc-meta-strip">
+        <div class="doc-meta-pill">
+          <span>Bimestre:</span>
+          <span>2.º Bimestre 2026</span>
+        </div>
+        <div class="doc-meta-pill">
+          <span>Data:</span>
+          <span>13/06/2026</span>
+        </div>
+        <div class="doc-meta-pill">
+          <span>Doc n.º:</span>
+          <span>AVL-2026-0388</span>
         </div>
       </div>
     </div>
+
+    <div class="doc-info-row">
+      <div class="doc-info-cell">
+        <div class="information-label">Professora</div>
+        <div class="information-value">Elisabete Pereira</div>
+      </div>
+      <div class="doc-info-cell">
+        <div class="information-label">Turma</div>
+        <div class="information-value">3º Ano A</div>
+      </div>
+      <div class="doc-info-cell">
+        <div class="information-label">Disciplina</div>
+        <div class="information-value">Matemática</div>
+      </div>
+      <div class="doc-info-cell">
+        <div class="information-label">Nota Total</div>
+        <div class="information-value">10,0 pontos</div>
+      </div>
+      <div class="doc-info-cell">
+        <div class="information-label">Origem</div>
+        <div class="information-value purple">
+          SIPE IA · Planej. Sem. 22
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-body" id="doc-body"></div>
   </div>
 </div>
 

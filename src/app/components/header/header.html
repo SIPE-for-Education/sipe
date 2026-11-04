@@ -1,0 +1,71 @@
+<!--<header class="header">-->
+<!--  <nav class="navbar">-->
+<!--    <a class="logo" routerLink="#inicio" aria-label="Página inicial do SIPE">-->
+<!--      <img src="/favicon.ico" alt="Ícone SIPE" style="width: 25px">-->
+<!--      <strong>SIPE </strong>-->
+<!--      <span>SISTEMA INTELIGENTE DE PLANEJAMENTO ESCOLAR</span>-->
+<!--    </a>-->
+
+<!--    <div class="nav-links">-->
+<!--      <a class="nav-item active" routerLink="#modulos">Módulos</a>-->
+<!--      <a class="nav-item" routerLink="#contato">Contato</a>-->
+<!--    </div>-->
+
+<!--    <div class="nav-buttons">-->
+<!--      <a class="button button-outline" routerLink="/signup">Cadastrar</a>-->
+
+<!--      <a class="button button-primary" routerLink="/signin">Acesso administrativo</a>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</header>-->
+
+<header>
+  <div class="left">
+    <label for="school-selector"></label>
+    <select id="school-selector" class="school-selector" onchange="handleSchoolChange(this)">
+      <option value="cavlac">Colégio Cavlac</option>
+      <option value="anglo">Colégio Anglo</option>
+      <option value="estadual">E.E. Prof. Silva Neto</option>
+    </select>
+
+    <div class="system-chip system-chip-purple">
+      <i class="ti ti-school"></i>
+      <span>Sistema Anglo</span>
+    </div>
+    <div class="system-chip system-chip-green">
+      <i class="ti ti-calendar-check"></i>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="team-information right-alignment">
+      <span>Ano Letivo 2026</span>
+      <div>2.º Bimestre · Semana 22</div>
+    </div>
+
+    <div class="navigation-icon-button" onclick="toggleNotifPanel()"
+         onclick="showToast('4 novas notificações', 'info', 'ti-bell')">
+      <i class="ti ti-bell"></i>
+      <div class="badge-orange">1</div>
+    </div>
+
+    <button class="button-admin" onclick="openAdminModal()">
+      <i class="ti ti-settings-2"></i>
+      <span>Gestão de Conteúdos</span>
+    </button>
+
+    <button class="coordination-view-trigger" onclick="openCoordModal()">
+      <i class="ti ti-user-shield"></i>
+      <span>Visualizar como Coordenador</span>
+    </button>
+
+    <div class="user-profile-header">
+      <div class="user-avatar">PE</div>
+      <div class="team-information">
+        <strong>Profª Elisabete</strong>
+        <div>História · Geografia · Artes</div>
+      </div>
+    </div>
+  </div>
+</header>
