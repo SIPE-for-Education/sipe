@@ -1,0 +1,49 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: sipe-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/sipe
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - mysql
+    networks:
+      - sipe-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sipe-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - sipe-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: sipe-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sipe
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - sipe-network
+
+volumes:
+  mysql_data:
+
+networks:
+  sipe-network:
+    driver: bridge

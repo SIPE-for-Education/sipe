@@ -1,0 +1,10 @@
+.git
+.gitignore
+.gitattributes
+*.md
+.vscode
+.idea
+*.iml
+target
+*.log
+node_modules
