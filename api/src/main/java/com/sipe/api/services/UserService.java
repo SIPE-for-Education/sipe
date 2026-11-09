@@ -1,5 +1,6 @@
 package com.sipe.api.services;
 
+import com.sipe.api.exceptions.DataConflictException;
 import com.sipe.api.dtos.request.UserRegisterRequest;
 import com.sipe.api.dtos.request.UserUpdateEmailRequest;
 import com.sipe.api.dtos.request.UserUpdatePasswordRequest;
@@ -40,7 +41,7 @@ public class UserService implements IUserService {
     public UserResponse register(UserRegisterRequest dto) throws Exception {
         var request = repository.findByEmail(dto.email());
         if (request.isPresent())
-            throw new Exception("User already exist");
+            throw new DataConflictException("User already exist");
 
         User entity = User.builder()
                 .name(dto.name())
