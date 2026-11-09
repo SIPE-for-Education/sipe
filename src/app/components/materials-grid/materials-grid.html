@@ -1,0 +1,107 @@
+<div class="materials">
+
+  @for (material of materials(); track material.id) {
+    <div class="card" (click)="openPanel(material.id)">
+      <!--${selectedId === m.id ? "selected" : ""}" id="mat_${m.id}"-->
+      <div class="spine {{ material.type }}"></div>
+      <div class="body">
+        <div class="row">
+            <span class="badge {{material.type}}">
+              @switch (material.type) {
+                @case ("apostila") {
+                  <i class="bi bi-journals"></i>
+                }
+                @case ("livro") {
+                  <i class="bi bi-journal-text"></i>
+                }
+                @case ("bncc") {
+                  <i class="bi bi-bookmark"></i>
+                }
+                @case ("modelo") {
+                  <i class="bi bi-bookmark-star"></i>
+                }
+                @case ("institucional") {
+                  <i class="bi bi-journal-richtext"></i>
+                }
+                @default {
+                  <i class="bi bi-journals"></i>
+                }
+              }
+
+              {{ material.type }}
+            </span>
+
+          <span class="status {{material.status}}">
+              @if (material.status === "ok") {
+                <i class="bi bi-check-circle"></i> Homologado
+              } @else {
+                <i class="bi bi-clock"></i> Em revisão
+              }
+            </span>
+        </div>
+        <strong class="title">{{ material.title }}</strong>
+        <div class="subtitle">{{ material.subtitle }}</div>
+
+        <div class="information">
+          <i class="bi bi-arrow-counterclockwise"></i> {{ material.updated }}
+        </div>
+
+        <div class="tags">
+          @for (tag of $any(material.tags); track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+
+        <div class="footer">
+          <div class="actions">
+            <button class="button button-view"
+                    (click)="openPanel(material.id)"> <!--event.stopPropagation();-->
+              <i class="bi bi-eye"></i> Visualizar
+            </button>
+            <button class="button button-ai"
+                    (click)="openPanelAndSuggest(material.id)"><!--event.stopPropagation();-->
+              <i class="bi bi-stars"></i> Usar IA
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="usage-bar">
+        <div class="usage-status">
+          <strong>{{ material.uses.plans }}</strong> Planos
+        </div>
+        <div class="usage-status">
+          <strong>{{ material.uses.evals }}</strong> Avaliações
+        </div>
+        <div class="usage-status">
+          @switch (material.uses.lastUpdated) {
+            @case (0) {
+              <span>Hoje</span>
+            }
+            @case (1) {
+              <span>Ontem</span>
+            }
+            @default {
+              <span>{{ material.uses.lastUpdated }} dias</span>
+            }
+          }
+          <strong>{{ material.uses.last }}</strong>
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <p>Nenhum material encontrado.</p>
+  }
+</div>
+
+<!--  function setView(v) {-->
+<!--  currentView = v;-->
+<!--  const grid = document.getElementById("materialsGrid");-->
+<!--  document-->
+<!--  .getElementById("btnGrid")-->
+<!--  .classList.toggle("active", v === "grid");-->
+<!--  document-->
+<!--  .getElementById("btnList")-->
+<!--  .classList.toggle("active", v === "list");-->
+<!--  grid.classList.toggle("list-view", v === "list");-->
+<!--  }-->

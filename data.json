@@ -1,0 +1,381 @@
+{
+  "materials": [
+    {
+      "id": 1,
+      "system": "anglo",
+      "series": 3,
+      "discipline": "mat",
+      "bimester": 2,
+      "type": "apostila",
+      "title": "Apostila Anglo Matemática",
+      "subtitle": "Módulo 4 · 3º Ano · Pág. 140–180",
+      "tags": ["3º Ano", "Matemática", "2º Bimestre", "Anglo"],
+      "pages": 180,
+      "updated": "15/04/2026",
+      "status": "ok",
+      "uses": { "plans": 156, "evals": 89, "lastUpdated": 1 },
+      "topics": [
+        {
+          "icon": "ti-coin",
+          "name": "Sistema Monetário",
+          "sub": "Pp. 140–152 · EF03MA23"
+        },
+        {
+          "icon": "ti-math-function",
+          "name": "Operações Fundamentais",
+          "sub": "Pp. 153–165 · EF03MA07"
+        },
+        {
+          "icon": "ti-wallet",
+          "name": "Educação Financeira",
+          "sub": "Pp. 166–180 · EF03MA25"
+        },
+        {
+          "icon": "ti-history",
+          "name": "História do Dinheiro",
+          "sub": "Pp. 140–143 · Contexto"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Avaliações Objetivas",
+        "Atividades Práticas",
+        "Sugestões Didáticas",
+        "Recomendações BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-award",
+          "text": "Com base no Módulo 4, recomenda-se trabalhar o Sistema Monetário com situações-problema contextualizadas ao cotidiano dos alunos."
+        },
+        {
+          "icon": "ti-device-gamepad-2",
+          "text": "Atividade prática sugerida: simulação de mercado em sala com notas fictícias, exercitando operações e representação de valores."
+        },
+        {
+          "icon": "ti-chart-bar",
+          "text": "A IA identificou 3 competências BNCC não exploradas nas pp. 153–165. Recomenda inclusão em avaliação bimestral."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "system": "anglo",
+      "series": 8,
+      "discipline": "hist",
+      "bimester": 1,
+      "type": "apostila",
+      "title": "Apostila Anglo História",
+      "subtitle": "Módulo 2 · 8º Ano · Pág. 60–95",
+      "tags": ["8º Ano", "História", "1º Bimestre", "Anglo"],
+      "pages": 230,
+      "updated": "10/03/2026",
+      "status": "ok",
+      "uses": { "plans": 98, "evals": 54, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "ti-globe",
+          "name": "2ª Guerra Mundial",
+          "sub": "Pp. 60–75 · EF08HI03"
+        },
+        {
+          "icon": "ti-flag",
+          "name": "Nazismo e Fascismo",
+          "sub": "Pp. 76–85 · EF08HI04"
+        },
+        {
+          "icon": "ti-users",
+          "name": "Movimentos de Resistência",
+          "sub": "Pp. 86–95 · EF08HI05"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Avaliações Discursivas",
+        "Fontes Primárias",
+        "Sugestões BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-file-text",
+          "text": "Sugestão: incluir análise de documento histórico como fonte primária (ex: Manifesto Nazista) para trabalhar EF08HI03."
+        },
+        {
+          "icon": "ti-users",
+          "text": "A IA recomenda uso de debate estruturado sobre movimentos de resistência — competência socioemocional + BNCC integrada."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "system": "anglo",
+      "series": 7,
+      "discipline": "geo",
+      "bimester": 2,
+      "type": "livro",
+      "title": "Livro Didático Geografia",
+      "subtitle": "FTD · 7º Ano · 2º Bimestre",
+      "tags": ["7º Ano", "Geografia", "2º Bimestre", "FTD"],
+      "pages": 220,
+      "updated": "01/02/2026",
+      "status": "ok",
+      "uses": { "plans": 72, "evals": 38, "lastUpdated": 3 },
+      "topics": [
+        {
+          "icon": "ti-leaf",
+          "name": "Biomas Brasileiros",
+          "sub": "Pp. 80–110 · EF07GE08"
+        },
+        {
+          "icon": "ti-droplet",
+          "name": "Bacias Hidrográficas",
+          "sub": "Pp. 111–130 · EF07GE09"
+        },
+        {
+          "icon": "ti-map",
+          "name": "Cartografia Temática",
+          "sub": "Pp. 60–79 · EF07GE01"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Mapas e Atividades",
+        "Avaliações Objetivas",
+        "Recomendações BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-map-2",
+          "text": "Recomenda-se trabalhar Biomas com mapa mudo interativo — identifica regiões e características com legenda guiada."
+        },
+        {
+          "icon": "ti-droplet",
+          "text": "Atividade integrada sugerida: cartografia de bacias hidrográficas com dados reais do IBGE, trabalhando EF07GE09."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "system": "sas",
+      "series": 6,
+      "discipline": "arte",
+      "bimester": 1,
+      "type": "apostila",
+      "title": "Material SAS Artes",
+      "subtitle": "Linguagens Visuais · 6º Ano · 1º Bim.",
+      "tags": ["6º Ano", "Artes", "1º Bimestre", "SAS"],
+      "pages": 96,
+      "updated": "05/02/2026",
+      "status": "pending",
+      "uses": { "plans": 31, "evals": 14, "lastUpdated": 7 },
+      "topics": [
+        {
+          "icon": "ti-brush",
+          "name": "Linguagem Visual",
+          "sub": "Pp. 10–28 · EF69AR01"
+        },
+        {
+          "icon": "ti-photo",
+          "name": "Arte Contemporânea",
+          "sub": "Pp. 29–50 · EF69AR04"
+        },
+        {
+          "icon": "ti-color-swatch",
+          "name": "Elementos Visuais",
+          "sub": "Pp. 51–70 · EF69AR02"
+        }
+      ],
+      "aiUses": ["Planejamento Bimestral", "Avaliações Práticas", "Sugestões Criativas"],
+      "aiSuggestions": [
+        {
+          "icon": "ti-camera",
+          "text": "Sugestão: criar portfólio visual como atividade avaliativa — alunos registram produções em diferentes linguagens visuais."
+        },
+        {
+          "icon": "ti-ppp",
+          "text": "A IA identificou desalinhamento com o PPP vigente. Recomenda-se revisar objetivos da unidade 1 antes do próximo planejamento."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "system": "bncc",
+      "series": null,
+      "discipline": "",
+      "bimester": null,
+      "type": "bncc",
+      "title": "BNCC — Ensino Fundamental",
+      "subtitle": "MEC · 2018 · Todas as disciplinas",
+      "tags": ["Nacional", "Oficial", "MEC", "Vigente", "Todas as Séries"],
+      "pages": 472,
+      "updated": "01/01/2026",
+      "status": "ok",
+      "uses": { "plans": 1284, "evals": 891, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "ti-star",
+          "name": "Competências Gerais",
+          "sub": "10 competências · Base curricular"
+        },
+        {
+          "icon": "ti-list-check",
+          "name": "Habilidades por Componente",
+          "sub": "EF01 a EF09 · 569 habilidades"
+        },
+        {
+          "icon": "ti-circles-relation",
+          "name": "Áreas do Conhecimento",
+          "sub": "5 áreas · Integração curricular"
+        }
+      ],
+      "aiUses": [
+        "Todos os Planejamentos",
+        "Todas as Avaliações",
+        "Verificação de Cobertura",
+        "Recomendações Didáticas",
+        "Rastreabilidade Curricular"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-checkup-list",
+          "text": "A BNCC é a fonte principal de rastreabilidade da IA. Cada planejamento gerado é automaticamente vinculado às competências correspondentes."
+        },
+        {
+          "icon": "ti-chart-dots",
+          "text": "Termômetro BNCC ativo: cobertura atual de 84% das competências previstas para o 3º Ano no 2º Bimestre. Recomenda-se priorizar EF03HI06."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "system": "anglo",
+      "series": null,
+      "discipline": "",
+      "bimester": null,
+      "type": "institucional",
+      "title": "PPP — Colégio Cavlac 2026",
+      "subtitle": "Projeto Político-Pedagógico · Vigente",
+      "tags": ["Institucional", "PPP", "2026", "Cavlac"],
+      "pages": 128,
+      "updated": "15/01/2026",
+      "status": "ok",
+      "uses": { "plans": 342, "evals": 178, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "ti-target",
+          "name": "Missão e Visão Institucional",
+          "sub": "Pp. 12–18 · Identidade pedagógica"
+        },
+        {
+          "icon": "ti-route",
+          "name": "Diretrizes Curriculares",
+          "sub": "Pp. 40–78 · Eixos pedagógicos"
+        },
+        {
+          "icon": "ti-users-group",
+          "name": "Perfil dos Estudantes",
+          "sub": "Pp. 20–38 · Público-alvo"
+        }
+      ],
+      "aiUses": [
+        "Alinhamento de Planejamentos",
+        "Validação pela Coordenação",
+        "Sugestões Pedagógicas",
+        "Diretrizes de Avaliação"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-building",
+          "text": "O PPP é cruzado automaticamente com cada planejamento submetido para aprovação, garantindo alinhamento institucional."
+        },
+        {
+          "icon": "ti-alert-triangle",
+          "text": "A IA identificou que o Planejamento Bimestral de Artes (6º Ano) apresenta desvio em relação ao eixo temático do PPP. Recomenda revisão."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "system": "positivo",
+      "series": 3,
+      "discipline": "port",
+      "bimester": 3,
+      "type": "apostila",
+      "title": "Apostila Positivo Português",
+      "subtitle": "Vol. 3 · 3º Ano · 3º Bimestre",
+      "tags": ["3º Ano", "Português", "3º Bimestre", "Positivo"],
+      "pages": 160,
+      "updated": "01/07/2026",
+      "status": "ok",
+      "uses": { "plans": 64, "evals": 29, "lastUpdated": 5 },
+      "topics": [
+        {
+          "icon": "ti-abc",
+          "name": "Produção Textual",
+          "sub": "Pp. 80–105 · EF35LP07"
+        },
+        {
+          "icon": "ti-quote",
+          "name": "Gêneros Textuais",
+          "sub": "Pp. 106–130 · EF35LP14"
+        },
+        {
+          "icon": "ti-grammar",
+          "name": "Gramática Contextualizada",
+          "sub": "Pp. 131–160 · EF35LP28"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Ditados e Produção",
+        "Avaliações de Escrita",
+        "Sugestões BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "ti-pencil",
+          "text": "Sugestão de sequência didática: iniciar com leitura coletiva de gênero (notícia), identificar estrutura, produzir texto individual."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "system": "sas",
+      "series": 8,
+      "discipline": "hist",
+      "bimester": 2,
+      "type": "modelo",
+      "title": "Modelo de Avaliação Bimestral",
+      "subtitle": "Padrão Cavlac · Todas as disciplinas",
+      "tags": ["Modelo", "Avaliação", "Institucional", "Todas as Séries"],
+      "pages": 8,
+      "updated": "10/02/2026",
+      "status": "ok",
+      "uses": { "plans": 0, "evals": 421, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "ti-list-numbers",
+          "name": "Questões Objetivas",
+          "sub": "15 questões · Gabarito incluso"
+        },
+        {
+          "icon": "ti-writing",
+          "name": "Questões Discursivas",
+          "sub": "3 questões · Critérios de correção"
+        },
+        {
+          "icon": "ti-checkup-list",
+          "name": "Cabeçalho Institucional",
+          "sub": "Logo, turma, data, professor"
+        }
+      ],
+      "aiUses": ["Geração de Avaliações", "Formatação Automática", "Alinhamento Curricular"],
+      "aiSuggestions": [
+        {
+          "icon": "ti-sparkles",
+          "text": "A IA gera avaliações completas usando este modelo como template, preenchendo automaticamente com conteúdos indexados da apostila selecionada."
+        }
+      ]
+    }
+  ]
+}

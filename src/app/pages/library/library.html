@@ -27,7 +27,7 @@
   </div>
   <div class="kpi-card" id="kpi3">
     <div class="kpi-icon bg-light-yellow amber">
-      <i class="ti ti-cpu"></i>
+      <i class="bi bi-cpu"></i>
     </div>
     <div>
       <div class="kpi-number amber">12.540</div>
@@ -53,31 +53,35 @@
   <div class="ai-flow-arrow">›</div>
   <div class="ai-flow-step hl">
     <div class="ai-flow-icon">
-      <i class="ti ti-database-import"></i>
+      <i class="bi bi-database-check"></i>
     </div>
     <div class="ai-flow-label">Indexação SIPE</div>
   </div>
   <div class="ai-flow-arrow">›</div>
   <div class="ai-flow-step hl">
-    <div class="ai-flow-icon"><i class="ti ti-brain"></i></div>
+    <div class="ai-flow-icon">
+      <i class="bi bi-stars"></i>
+    </div>
     <div class="ai-flow-label">IA Contextualizada</div>
   </div>
   <div class="ai-flow-arrow">›</div>
   <div class="ai-flow-step out">
-    <div class="ai-flow-icon"><i class="ti ti-file-text"></i></div>
+    <div class="ai-flow-icon">
+      <i class="bi bi-file-earmark-text"></i>
+    </div>
     <div class="ai-flow-label">Planejamento</div>
   </div>
   <div class="ai-flow-arrow">›</div>
   <div class="ai-flow-step out">
     <div class="ai-flow-icon">
-      <i class="ti ti-clipboard-list"></i>
+      <i class="bi bi-card-checklist"></i>
     </div>
     <div class="ai-flow-label">Avaliação</div>
   </div>
   <div class="ai-flow-arrow">›</div>
   <div class="ai-flow-step out">
     <div class="ai-flow-icon">
-      <i class="ti ti-circle-check"></i>
+      <i class="bi bi-check-circle"></i>
     </div>
     <div class="ai-flow-label">Rastreabilidade</div>
   </div>
@@ -177,7 +181,8 @@
   </div>
 </div>
 
-<div class="materials-grid" id="materialsGrid"></div>
+<app-materials-grid [materials]="materials()"></app-materials-grid>
+
 <div class="empty-state" id="emptyState">
   <i class="ti ti-search-off"></i>
   <h3>Nenhum material encontrado</h3>

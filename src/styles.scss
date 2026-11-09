@@ -18,7 +18,7 @@
   --yellow: #fde047;
 
   --light-purple: #e0dcf8;
-  --light-blue: #8ba3e1;
+  --light-blue: #e0f2fe;
   --light-green: #DCFCE7;
   --light-red: #fee2e2;
   --light-orange: #dda787;
@@ -45,10 +45,10 @@
 
   --radius: 1rem;
   --square-radius: 0.5rem;
+  --text-size: clamp(1rem, 0.9rem + 0.2vw, 1.125rem);
   --page-title-size: clamp(2rem, 1.4rem + 2vw, 3.5rem);
-  --text-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --smallest-text-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
-  --smaller-text-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --smallest-text-size: clamp(0.6rem, 0.55rem + 0.15vw, 0.75rem);
+  --smaller-text-size: clamp(0.75rem, 0.70rem + 0.2vw, 0.8rem);
   --larger-text-size: clamp(1.5rem, 1.44rem + 0.3vw, 1.688rem);
 }
 
@@ -159,7 +159,6 @@ html, body {
 }
 
 .card {
-  padding: 24px;
   border: 2px solid var(--cotton);
   border-radius: var(--radius);
   background: var(--white);
