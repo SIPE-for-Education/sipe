@@ -216,7 +216,6 @@ html, body {
   background: var(--light-cotton);
   color: var(--muted);
   font-size: var(--smaller-text-size);
-  cursor: pointer;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -235,7 +234,6 @@ html, body {
   color: var(--navy-blue);
   font-size: calc(var(--smaller-text-size) - 2px);
   font-weight: bold;
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -307,7 +305,6 @@ html, body {
   color: var(--white);
   font-size: var(--smaller-text-size);
   font-weight: bold;
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -613,7 +610,6 @@ html, body {
   border-radius: var(--radius);
   background: var(--light-cotton);
   color: var(--muted);
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -648,7 +644,6 @@ html, body {
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.15);
   color: var(--white);
-  cursor: pointer;
 }
 
 .toast-container {
@@ -758,7 +753,7 @@ html, body {
   font-size: var(--smallest-text-size);
 }
 
-button {
+select, label, input, button {
   cursor: pointer;
 }
 

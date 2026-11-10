@@ -20,7 +20,6 @@ header {
       color: var(--navy-blue);
       font-size: var(--smaller-text-size);
       font-weight: bold;
-      cursor: pointer;
       text-transform: uppercase;
     }
 
@@ -81,7 +80,6 @@ header {
       background-color: color-mix(in oklab,
       var(--orange),
       var(--white) 90%);
-      cursor: pointer;
 
       i {
         color: var(--orange);
@@ -117,7 +115,6 @@ header {
       color: var(--white);
       font-size: var(--smallest-text-size);
       font-weight: bold;
-      cursor: pointer;
       transition: all 0.2s;
 
       i {
@@ -136,7 +133,6 @@ header {
       color: var(--white);
       font-size: calc(var(--smaller-text-size) - 2px);
       font-weight: bold;
-      cursor: pointer;
       transition: all 0.2s;
 
       i {

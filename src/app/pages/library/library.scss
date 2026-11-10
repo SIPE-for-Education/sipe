@@ -22,7 +22,6 @@
   color: var(--white);
   font-size: calc(var(--smaller-text-size) - 4px);
   font-weight: bold;
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -114,7 +113,6 @@
   color: var(--navy-blue);
   font-size: calc(var(--smaller-text-size) - 4px);
   font-weight: bold;
-  cursor: pointer;
   transition: border-color 0.2s;
   -webkit-appearance: none;
 }
@@ -154,7 +152,6 @@
   background: var(--light-cotton);
   color: var(--muted);
   font-size: var(--smaller-text-size);
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -206,7 +203,6 @@
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.1);
   color: var(--muted);
-  cursor: pointer;
   transition: all 0.2s;
 }
 

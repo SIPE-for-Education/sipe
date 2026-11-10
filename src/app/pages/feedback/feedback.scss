@@ -189,7 +189,6 @@
     border-radius: var(--radius);
     font-size: calc(var(--smaller-text-size) - 4px);
     font-weight: bold;
-    cursor: pointer;
     border: none;
     transition: all 0.2s;
 }
@@ -539,7 +538,6 @@
     border-radius: var(--radius);
     font-size: calc(var(--smaller-text-size) - 4px);
     font-weight: bold;
-    cursor: pointer;
     border: none;
     transition: all 0.2s;
 }
@@ -725,7 +723,6 @@
     color: var(--muted);
     font-size: calc(var(--smaller-text-size) - 4px);
     font-weight: bold;
-    cursor: pointer;
     transition: all 0.2s;
 }
 
