@@ -7,9 +7,10 @@ import { Kpis } from '../../components/kpis/kpis';
 import { KpiService } from '../../services/kpiService';
 import { KpiResponse } from '../../models/KpiResponse';
 import { AiFlowBanner } from '../../components/ai-flow-banner/ai-flow-banner';
+import { FiltersBar } from '../../components/filters-bar/filters-bar';
 
 @Component({
-  imports: [MaterialsGrid, Kpis, AiFlowBanner],
+  imports: [MaterialsGrid, Kpis, AiFlowBanner, FiltersBar],
   selector: 'app-library',
   styleUrl: './library.scss',
   templateUrl: './library.html',

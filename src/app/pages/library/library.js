@@ -3,27 +3,6 @@ let selectedId = null;
 let suggestionsGenerated = {};
 let currentView = "grid";
 
-function filterMaterials() {
-    const q = document.getElementById("searchInput").value.toLowerCase();
-    const sis = document.getElementById("filterSistema").value;
-    const ser = document.getElementById("filterSerie").value;
-    const disc = document.getElementById("filterDisc").value;
-    const bim = document.getElementById("filterBim").value;
-    const filtered = materials.filter((m) => {
-        const matchQ =
-            !q ||
-            m.title.toLowerCase().includes(q) ||
-            m.subtitle.toLowerCase().includes(q) ||
-            m.tags.some((t) => t.toLowerCase().includes(q));
-        const matchSis = !sis || m.sistema === sis || m.sistema === "bncc";
-        const matchSer = !ser || m.serie === ser || m.serie === "";
-        const matchDisc = !disc || m.disc === disc || m.disc === "";
-        const matchBim = !bim || m.bim === bim || m.bim === "";
-        return matchQ && matchSis && matchSer && matchDisc && matchBim;
-    });
-    renderMaterials(filtered);
-}
-
 function openPanel(id, autoSuggest) {
     const m = materials.find((x) => x.id === id);
     if (!m) return;
