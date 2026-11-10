@@ -1,0 +1,38 @@
+<div class="kpis">
+  <div class="kpi">
+    <div class="icon-container bg-light-purple purple">
+      <i class="bi bi-journals"></i>
+    </div>
+    <div>
+      <div class="number purple">{{ kpis()?.totalMaterials }}</div>
+      <div class="label">Materiais Disponíveis</div>
+    </div>
+  </div>
+  <div class="kpi">
+    <div class="icon-container bg-light-green green">
+      <i class="bi bi-mortarboard"></i>
+    </div>
+    <div>
+      <div class="number green">{{ kpis()?.totalEducationSystems }}</div>
+      <div class="label">Sistemas de Ensino</div>
+    </div>
+  </div>
+  <div class="kpi">
+    <div class="icon-container bg-light-yellow amber">
+      <i class="bi bi-cpu"></i>
+    </div>
+    <div>
+      <div class="number amber">{{ kpis()?.totalIAContents }}</div>
+      <div class="label">Conteúdos Indexados IA</div>
+    </div>
+  </div>
+  <div class="kpi">
+    <div class="icon-container bg-light-orange amber">
+      <i class="bi bi-award"></i>
+    </div>
+    <div>
+      <div class="number amber">{{ kpis()?.totalGeneratedPlans }}</div>
+      <div class="label">Planejamentos Gerados</div>
+    </div>
+  </div>
+</div>

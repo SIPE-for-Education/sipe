@@ -3,23 +3,6 @@ let selectedId = null;
 let suggestionsGenerated = {};
 let currentView = "grid";
 
-document.addEventListener("DOMContentLoaded", () => {
-    ["kpi1", "kpi2", "kpi3", "kpi4"].forEach((id, i) => {
-        setTimeout(
-            () => document.getElementById(id).classList.add("visible"),
-            100 + i * 100,
-        );
-    });
-    document
-        .querySelectorAll(".upload-item.uploaded .upload-progress-fill")
-        .forEach((el) => {
-            setTimeout(() => (el.style.width = "100%"), 300);
-        });
-    renderMaterials(materials);
-});
-
-
-
 function filterMaterials() {
     const q = document.getElementById("searchInput").value.toLowerCase();
     const sis = document.getElementById("filterSistema").value;

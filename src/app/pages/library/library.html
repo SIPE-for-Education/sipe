@@ -6,44 +6,7 @@
   </div>
 </div>
 
-<div class="kpi-grid">
-  <div class="kpi-card" id="kpi1">
-    <div class="kpi-icon bg-light-purple purple">
-      <i class="ti ti-books"></i>
-    </div>
-    <div>
-      <div class="kpi-number purple">248</div>
-      <div class="kpi-label">Materiais Disponíveis</div>
-    </div>
-  </div>
-  <div class="kpi-card" id="kpi2">
-    <div class="kpi-icon bg-light-green green">
-      <i class="ti ti-school"></i>
-    </div>
-    <div>
-      <div class="kpi-number green">3</div>
-      <div class="kpi-label">Sistemas de Ensino</div>
-    </div>
-  </div>
-  <div class="kpi-card" id="kpi3">
-    <div class="kpi-icon bg-light-yellow amber">
-      <i class="bi bi-cpu"></i>
-    </div>
-    <div>
-      <div class="kpi-number amber">12.540</div>
-      <div class="kpi-label">Conteúdos Indexados IA</div>
-    </div>
-  </div>
-  <div class="kpi-card" id="kpi4">
-    <div class="kpi-icon bg-light-orange amber">
-      <i class="ti ti-file-certificate"></i>
-    </div>
-    <div>
-      <div class="kpi-number amber">1.284</div>
-      <div class="kpi-label">Planejamentos Gerados</div>
-    </div>
-  </div>
-</div>
+<app-kpis [kpis]="kpis()"></app-kpis>
 
 <div class="ai-flow-banner">
   <div class="ai-flow-step done">
@@ -168,7 +131,7 @@
       onclick="setView('grid')"
       title="Grade"
     >
-      <i class="ti ti-layout-grid"></i>
+      <i class="bi bi-columns-gap"></i>
     </button>
     <button
       class="view-button"
@@ -176,7 +139,7 @@
       onclick="setView('list')"
       title="Lista"
     >
-      <i class="ti ti-layout-list"></i>
+      <i class="bi bi-grid-1x2"></i>
     </button>
   </div>
 </div>

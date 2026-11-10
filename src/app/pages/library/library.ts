@@ -3,9 +3,12 @@ import { Title } from '@angular/platform-browser';
 import { MaterialResponse } from '../../models/MaterialResponse';
 import { MaterialService } from '../../services/materialService';
 import { MaterialsGrid } from '../../components/materials-grid/materials-grid';
+import { Kpis } from '../../components/kpis/kpis';
+import { KpiService } from '../../services/kpiService';
+import { KpiResponse } from '../../models/KpiResponse';
 
 @Component({
-  imports: [MaterialsGrid],
+  imports: [MaterialsGrid, Kpis],
   selector: 'app-library',
   styleUrl: './library.scss',
   templateUrl: './library.html',
@@ -14,17 +17,33 @@ import { MaterialsGrid } from '../../components/materials-grid/materials-grid';
 export class Library implements OnInit {
   private titleService = inject(Title);
   protected materials = signal<MaterialResponse[]>([]);
+  protected kpis = signal<KpiResponse | undefined>(undefined);
 
-  constructor(private service: MaterialService) {}
+  constructor(
+    private materialService: MaterialService,
+    private kpiService: KpiService,
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.titleService.setTitle('SIPE - Library');
 
+    this.loadKpis();
     this.loadMaterials();
   }
 
+  loadKpis(): void {
+    this.kpiService.getAllKpis().subscribe({
+      next: (data) => {
+        this.kpis.set(data);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os kpis', err);
+      },
+    });
+  }
+
   loadMaterials(): void {
-    this.service.getAllMaterials().subscribe({
+    this.materialService.getAllMaterials().subscribe({
       next: (data) => {
         this.materials.set(data);
       },

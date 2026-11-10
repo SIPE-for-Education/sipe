@@ -727,60 +727,6 @@ html, body {
   color: var(--cotton);
 }
 
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 14px;
-}
-
-.kpi-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 20px;
-  border: 2px solid var(--cotton);
-  border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
-}
-
-.kpi-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.kpi-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
-}
-
-.kpi-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: var(--radius);
-  font-size: var(--larger-text-size);
-}
-
-.kpi-number {
-  font-size: var(--larger-text-size);
-  font-weight: bold;
-  line-height: 1;
-}
-
-.kpi-label {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .purple-element {
   padding: 14px 16px;
   border: 1px solid var(--purple-border);
@@ -828,7 +774,7 @@ i {
   font-size: 20px;
 }
 
-.icon {
+.icon-container {
   font-size: 14px;
 }
 

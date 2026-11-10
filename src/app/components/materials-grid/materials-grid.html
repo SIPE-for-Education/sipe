@@ -76,16 +76,15 @@
         <div class="usage-status">
           @switch (material.uses.lastUpdated) {
             @case (0) {
-              <span>Hoje</span>
+              <strong>Hoje</strong>
             }
             @case (1) {
-              <span>Ontem</span>
+              <strong>Ontem</strong>
             }
             @default {
-              <span>{{ material.uses.lastUpdated }} dias</span>
+              <strong>{{ material.uses.lastUpdated }} </strong>dias
             }
           }
-          <strong>{{ material.uses.last }}</strong>
         </div>
       </div>
     </div>

@@ -377,5 +377,11 @@
         }
       ]
     }
-  ]
+  ],
+  "kpis": {
+    "totalMaterials": 248,
+    "totalEducationSystems": 3,
+    "totalIAContents": 12540,
+    "totalGeneratedPlans": 1284
+  }
 }
