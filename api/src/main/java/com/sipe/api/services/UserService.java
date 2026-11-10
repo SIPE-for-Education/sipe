@@ -1,18 +1,19 @@
 package com.sipe.api.services;
 
-import com.sipe.api.exceptions.DataConflictException;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
 import com.sipe.api.dtos.request.UserRegisterRequest;
 import com.sipe.api.dtos.request.UserUpdateEmailRequest;
 import com.sipe.api.dtos.request.UserUpdatePasswordRequest;
 import com.sipe.api.dtos.request.UserUpdateRequest;
 import com.sipe.api.dtos.response.UserResponse;
 import com.sipe.api.entities.User;
+import com.sipe.api.exceptions.DataConflictException;
 import com.sipe.api.repositories.IUserRepository;
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.UUID;
 
 @Service
 public class UserService implements IUserService {
@@ -82,6 +83,11 @@ public class UserService implements IUserService {
         var request = repository.findById(id);
         if (request.isEmpty())
             throw new Exception("User not found");
+
+        var existingUserWithEmail = repository.findByEmail(dto.email());
+        if (existingUserWithEmail.isPresent() && !existingUserWithEmail.get().getId().equals(id)) {
+            throw new DataConflictException("This email is already in use by another user");
+        }
 
         repository.updateEmail(id, dto.email());
     }
