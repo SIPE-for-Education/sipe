@@ -1,0 +1,126 @@
+.permissions-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  margin-bottom: 22px;
+  background: linear-gradient(135deg, var(--navy-blue), var(--muted));
+  color: var(--white);
+}
+
+.permissions-banner i {
+  color: var(--orange);
+  font-size: var(--larger-text-size);
+}
+
+.permissions-banner strong {
+  font-size: var(--smaller-text-size);
+  display: block;
+}
+
+.permissions-banner span {
+  font-size: calc(var(--smaller-text-size) - 4px);
+  opacity: 0.7;
+}
+
+.upload-section {
+  margin-bottom: 22px;
+}
+
+.upload-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: calc(var(--smaller-text-size) - 4px);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.upload-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--light-cotton);
+}
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.upload-item {
+  padding: 16px;
+  border: 2px dashed var(--cotton);
+  border-radius: var(--radius);
+  background: var(--light-cotton);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-item:hover {
+  border-color: var(--purple);
+  background: var(--light-purple);
+}
+
+.upload-item.uploaded {
+  border: 1px solid var(--green);
+  background: var(--light-green);
+}
+
+.upload-item i {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: var(--larger-text-size);
+}
+
+.upload-item.uploaded i {
+  color: var(--green);
+}
+
+.upload-item-name {
+  color: var(--navy-blue);
+  font-size: calc(var(--smaller-text-size) - 4px);
+  font-weight: bold;
+}
+
+.upload-item-desc {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: calc(var(--smaller-text-size) - 6px);
+}
+
+.upload-progress {
+  height: 4px;
+  border-radius: var(--radius);
+  margin-top: 8px;
+  background: var(--light-cotton);
+  overflow: hidden;
+}
+
+.upload-progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--dark-green), #6db35a);
+  transition: width 1.5s ease;
+}
+
+.upload-item.uploaded .upload-progress-fill {
+  width: 100%;
+}
+
+.modal-footer {
+  padding: 14px 16px;
+  border: 1px solid var(--light-purple);
+  border-radius: var(--radius);
+  margin-top: 4px;
+  background: var(--light-cotton);
+  color: var(--dark-purple);
+  font-size: calc(var(--smaller-text-size) - 4px);
+}
