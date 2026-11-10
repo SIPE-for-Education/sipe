@@ -14,29 +14,9 @@
 
 <app-materials-grid [materials]="materials()"></app-materials-grid>
 
-<div class="empty-state" id="emptyState">
-  <i class="ti ti-search-off"></i>
-  <h3>Nenhum material encontrado</h3>
-  <p>Tente ajustar os filtros ou a busca.</p>
-</div>
-
 <div style="height: 20px"></div>
 
-<div class="detail-panel" id="detailPanel">
-  <div class="detail-inner">
-    <div class="panel-header" id="panelHeader">
-      <div>
-        <div class="panel-materials-icon" id="panelIcon"></div>
-        <div class="panel-materials-title" id="panelTitle">—</div>
-        <div class="panel-materials-sub" id="panelSub">—</div>
-      </div>
-      <button class="panel-close" onclick="closePanel()">
-        <i class="ti ti-x"></i>
-      </button>
-    </div>
-    <div class="panel-body" id="panelBody"></div>
-  </div>
-</div>
+<app-detail-panel></app-detail-panel>
 
 <div class="modal-overlay" id="adminModal">
   <div class="modal">

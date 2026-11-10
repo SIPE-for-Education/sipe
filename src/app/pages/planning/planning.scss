@@ -303,33 +303,33 @@
     overflow-y: auto;
 }
 
-.panel-header {
+.header {
     padding: 20px;
     background: var(--navy-blue);
     color: var(--white);
     overflow: hidden;
 }
 
-.panel-header h4 {
+.header h4 {
     margin-right: 10px;
     color: var(--white);
     font-size: var(--smaller-text-size);
     font-weight: bold;
 }
 
-.panel-header p {
+.header p {
     font-size: calc(var(--smaller-text-size) - 2px);
     opacity: 0.6;
 }
 
-.panel-body {
+.body {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 20px;
 }
 
-.panel-section-title {
+.section-title {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--cotton);
     margin-top: 4px;
