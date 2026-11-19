@@ -646,8 +646,6 @@ html, body {
   color: var(--white);
 }
 
-
-
 .scan-chip {
   padding: 6px 14px;
   border: 1px solid var(--cotton);
@@ -664,14 +662,93 @@ html, body {
   color: var(--cotton);
 }
 
+.section-content {
+  padding: 1.5rem;
+  border: 2px solid var(--cotton);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.planning-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--navy-blue);
+  font-size: var(--smaller-text-size);
+  font-weight: bold;
+
+  i {
+    color: var(--purple);
+  }
+}
+
+.section-content {
+  position: relative;
+  padding: 1rem;
+  border: 2px solid var(--cotton);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  background: var(--light-cotton);
+  cursor: pointer;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+
+.section-content:last-child {
+  margin-bottom: 0;
+}
+
+.section-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.section-content.approved::before {
+  background: var(--green);
+}
+
+.section-content.pending::before {
+  background: var(--amber);
+}
+
+.section-content.rejected::before {
+  background: var(--dark-red);
+}
+
+.section-content:hover {
+  border-color: var(--purple);
+  transform: translateX(3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-content.selected {
+  border-color: var(--purple);
+  background: var(--light-cotton);
+  box-shadow: 0 6px 20px rgba(109, 40, 217, 0.12);
+}
+
 .purple-element {
-  padding: 14px 16px;
+  padding: 1rem;
   border: 1px solid var(--purple-border);
   border-radius: var(--radius);
   margin-top: 20px;
   background: var(--light-purple);
   color: var(--purple);
-  font-size: calc(var(--smaller-text-size) - 4px);
+  font-size: var(--smallest-text-size);
 }
 
 .purple-button {
@@ -681,6 +758,73 @@ html, body {
   background-color: var(--dark-purple);
   color: var(--white);
   font-size: var(--larger-text-size);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--square-radius);
+  font-size: (--smaller-text-size);
+  border: none;
+  transition: all 0.2s;
+}
+
+.button-primary {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.button-primary:hover {
+  background: var(--dark-purple);
+}
+
+.button-outline {
+  border: 2px solid var(--purple);
+  background: var(--white);
+  color: var(--purple);
+}
+
+.button-outline:hover {
+  background: var(--light-cotton);
+}
+
+.button-orange {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.button-orange:hover {
+  background: var(--dark-orange);
+}
+
+.button-danger {
+  background: var(--red);
+  color: var(--white);
+}
+
+.button-danger:hover {
+  background: var(--dark-red);
+}
+
+.button-green {
+  background: var(--green);
+  color: var(--white);
+}
+
+.button-green:hover {
+  background: var(--dark-green);
+}
+
+.button-ghost {
+  border: 2px solid var(--cotton);
+  background: var(--light-cotton);
+  color: var(--muted);
+}
+
+.button-ghost:hover {
+  background: var(--cotton);
 }
 
 .larger-text-size {

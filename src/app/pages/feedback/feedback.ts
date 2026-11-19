@@ -6,7 +6,7 @@ import { Timelines } from '../../components/timeline/timelines';
 import { RevisionHistory } from '../../components/revision-history/revision-history';
 
 @Component({
-  imports: [RevisionHistory],
+  imports: [FlowBanner, Timelines, RevisionHistory, AiBoxSuggestions, Kpis],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
   templateUrl: './feedback.html',
