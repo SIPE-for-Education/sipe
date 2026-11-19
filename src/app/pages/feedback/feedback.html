@@ -290,13 +290,6 @@
   </div>
 
   <div class="detail-panel box" id="detailPanel">
-    <div class="planning-card" id="timelineCard">
-      <div class="planning-card-title">
-        <i class="ti ti-timeline"></i>
-        <span>Timeline de Aprovação</span>
-      </div>
-      <div id="timelineContent"></div>
-    </div>
     @if (selectedPlanning(); as planning) {
       <app-timeline [timelines]="planning?.timelines"></app-timeline>
 

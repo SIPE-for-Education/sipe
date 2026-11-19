@@ -2,6 +2,7 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { PlanningService } from '../../services/planningService';
 import { PlanningResponse } from '../../models/PlanningResponse';
+import { Timelines } from '../../components/timeline/timelines';
 import { RevisionHistory } from '../../components/revision-history/revision-history';
 
 @Component({
