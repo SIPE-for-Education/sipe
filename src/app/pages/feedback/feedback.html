@@ -297,14 +297,10 @@
       </div>
       <div id="timelineContent"></div>
     </div>
+    @if (selectedPlanning(); as planning) {
+      <app-timeline [timelines]="planning?.timelines"></app-timeline>
 
-    <div class="planning-card" id="revisionsCard">
-      <div class="planning-card-title">
-        <i class="ti ti-versions"></i>
-        <span>Histórico de Revisões</span>
-      </div>
-      <div id="revisionsContent"></div>
-    </div>
+      <app-revision-history [revisions]="planning?.revisions"></app-revision-history>
 
     <div class="ai-box-suggestions" id="aiBox" style="display: none">
       <div class="ai-box-suggestions-header">
@@ -330,6 +326,7 @@
         <span>Gerar Sugestões</span>
       </button>
     </div>
+    }
 
     <div class="planning-card" id="notifCard" style="display: none">
       <div class="planning-card-title">

@@ -1,0 +1,35 @@
+.revision-item {
+  background: var(--light-cotton);
+  border: 1px solid var(--cotton);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 10px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+
+    .version {
+      color: var(--purple);
+      font-size: var(--smallest-text-size);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: var(--smallest-text-size);
+    }
+  }
+
+  .comment {
+    font-size: var(--smallest-text-size);
+    color: var(--muted);
+  }
+}
+
+.revision-item:last-child {
+  margin-bottom: 0;
+}

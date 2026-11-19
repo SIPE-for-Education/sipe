@@ -1,0 +1,18 @@
+<div class="section-content" id="revisionsCard">
+  <div class="section-title">
+    <i class="bi bi-stack"></i>
+    <span>Histórico de Revisões</span>
+  </div>
+
+  <div>
+    @for (revision of revisions(); track $index) {
+      <div class="revision-item">
+        <div class="header">
+          <span class="version">{{ revision.version }}</span>
+          <span class="date">{{ revision.date }}</span>
+        </div>
+        <div class="comment">{{ revision.comment }}</div>
+      </div>
+    }
+  </div>
+</div>
