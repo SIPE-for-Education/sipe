@@ -383,7 +383,7 @@
     "totalEducationSystems": 3,
     "totalIAContents": 12540,
     "totalGeneratedPlans": 1284
-  }
+  },
   "plannings": [
     {
       "id": 1,
@@ -624,5 +624,5 @@
         }
       ]
     }
-  ],
+  ]
 }

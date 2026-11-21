@@ -4,9 +4,10 @@ import { PlanningService } from '../../services/planningService';
 import { PlanningResponse } from '../../models/PlanningResponse';
 import { Timelines } from '../../components/timeline/timelines';
 import { RevisionHistory } from '../../components/revision-history/revision-history';
+import { Kpis } from '../../components/kpis/kpis';
 
 @Component({
-  imports: [FlowBanner, Timelines, RevisionHistory, AiBoxSuggestions, Kpis],
+  imports: [Timelines, RevisionHistory],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
   templateUrl: './feedback.html',
@@ -41,8 +42,6 @@ export class Feedback implements OnInit {
     this.titleService.setTitle('SIPE - Feedback');
 
     this.loadPlannings();
-  }
-
   }
 
   loadPlannings() {
