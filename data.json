@@ -510,15 +510,15 @@
       "aiPrompt": "A coordenação solicitou atividade prática e reforço em sistema monetário. Deseja gerar sugestões pedagógicas?",
       "aiSuggestions": [
         {
-          "icon": "ti-device-gamepad-2",
+          "icon": "bi-controller",
           "text": "Atividade prática: Simulação de mercado com uso de notas fictícias — exercita operações e sistema monetário de forma lúdica."
         },
         {
-          "icon": "ti-files",
+          "icon": "bi-file-earmark-text-fill",
           "text": "Proposta: Exercício em duplas com recorte de preços de supermercado para calcular troco e comparar valores."
         },
         {
-          "icon": "ti-bulb",
+          "icon": "bi-lightbulb",
           "text": "Sugestão: Criação de um 'cardápio de lanchonete' pelos alunos, praticando adição, subtração e representação de valores."
         }
       ]

@@ -224,30 +224,10 @@
 
       <app-revision-history [revisions]="planning?.revisions"></app-revision-history>
 
-      <div class="ai-box-suggestions" id="aiBox" style="display: none">
-        <div class="ai-box-suggestions-header">
-          <i class="ti ti-sparkles"></i>
-          <div class="ai-box-suggestions-title">
-            Sugestões da IA para Correção
-          </div>
-        </div>
-        <div
-          class="ai-box-suggestions-description"
-          id="aiBoxDesc"
-        ></div>
-        <div class="ai-loading" id="aiLoading">
-          <div class="ai-spinner"></div>
-          <span>Gerando sugestões pedagógicas...</span>
-        </div>
-        <div class="ai-suggestions" id="aiSuggestions"></div>
-        <button
-          class="button button-primary"
-          onclick="generateSuggestions()"
-        >
-          <i class="ti ti-bolt"></i>
-          <span>Gerar Sugestões</span>
-        </button>
-      </div>
+      @if (planning.status != "done") {
+        <app-ai-box-suggestions [iaPrompt]="planning?.aiPrompt"
+                                [aiSuggestions]="planning?.aiSuggestions"></app-ai-box-suggestions>
+      }
     }
 
     <div class="section-content" id="notifCard" style="display: none">
