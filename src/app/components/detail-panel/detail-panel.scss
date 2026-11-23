@@ -95,7 +95,7 @@
           margin-bottom: 7px;
           background: var(--cotton);
           color: var(--dark-purple);
-          font-size: calc(var(--smaller-text-size) - 4px);
+          font-size: var(--smallest-text-size);
           font-weight: bold;
 
           i {
@@ -139,7 +139,7 @@
         .value {
           margin-top: 2px;
           color: var(--navy-blue);
-          font-size: calc(var(--smaller-text-size) - 2px);
+          font-size: var(--smaller-text-size);
           font-weight: bold;
         }
       }
@@ -195,7 +195,7 @@
           .label {
             margin-top: 3px;
             color: var(--muted);
-            font-size: calc(var(--smallest-text-size)) - 2px;
+            font-size: var(--smallest-text-size);
             font-weight: bold;
             text-transform: uppercase;
           }
@@ -273,7 +273,7 @@
         border-radius: var(--radius);
         background: var(--purple);
         color: var(--white);
-        font-size: calc(var(--smaller-text-size) - 4px);
+        font-size: var(--smallest-text-size);
         font-weight: bold;
         transition: all 0.2s;
       }

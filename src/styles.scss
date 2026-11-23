@@ -871,16 +871,20 @@ i {
   font-size: 20px;
 }
 
-.purple {
+.purple, .info {
   color: var(--purple);
 }
 
-.green {
+.green, .approved {
   color: var(--green) !important;
 }
 
 .red {
   color: var(--red) !important;
+}
+
+.rejected {
+  color: var(--dark-red) !important;
 }
 
 .yellow {
@@ -891,7 +895,7 @@ i {
   color: var(--orange) !important;
 }
 
-.amber {
+.amber, .warning {
   color: var(--amber) !important;
 }
 
@@ -903,7 +907,8 @@ i {
   color: var(--cotton) !important;
 }
 
-.bg-light-purple {
+.bg-light-purple,
+.bg-light-info {
   background: var(--light-purple) !important;
 }
 
@@ -911,7 +916,8 @@ i {
   background-color: var(--light-blue);
 }
 
-.bg-light-green {
+.bg-light-green,
+.bg-light-approved {
   background-color: var(--light-green) !important;
 }
 
@@ -919,11 +925,13 @@ i {
   background-color: var(--light-orange);
 }
 
-.bg-light-red {
+.bg-light-red,
+.bg-light-rejected {
   background-color: var(--light-red) !important;
 }
 
-.bg-light-yellow {
+.bg-light-yellow,
+.bg-light-warning {
   background-color: var(--light-yellow) !important;
 }
 

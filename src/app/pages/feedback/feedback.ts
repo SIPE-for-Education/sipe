@@ -4,10 +4,12 @@ import { PlanningService } from '../../services/planningService';
 import { PlanningResponse } from '../../models/PlanningResponse';
 import { Timelines } from '../../components/timeline/timelines';
 import { RevisionHistory } from '../../components/revision-history/revision-history';
+import { KpiService } from '../../services/kpiService';
+import { KpiResponse } from '../../models/KpiResponse';
 import { Kpis } from '../../components/kpis/kpis';
 
 @Component({
-  imports: [Timelines, RevisionHistory],
+  imports: [Timelines, RevisionHistory, Kpis],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
   templateUrl: './feedback.html',
@@ -16,11 +18,13 @@ import { Kpis } from '../../components/kpis/kpis';
 export class Feedback implements OnInit {
   private titleService = inject(Title);
 
+  private kpis = signal<KpiResponse[]>([]);
   protected plannings = signal<PlanningResponse[]>([]);
   protected selectedPlanningId = signal<number | null>(null);
 
   constructor(
     private planningService: PlanningService,
+    private kpiService: KpiService,
   ) {}
 
   protected selectedPlanning = computed(() => {
@@ -42,15 +46,28 @@ export class Feedback implements OnInit {
     this.titleService.setTitle('SIPE - Feedback');
 
     this.loadPlannings();
+    this.loadKpis();
   }
 
   loadPlannings() {
     this.planningService.getAllPlannings().subscribe({
       next: (data) => {
         this.plannings.set(data);
+        console.log(this.kpis);
       },
       error: (err) => {
         console.error('Erro ao carregar os planejamentos', err);
+      },
+    });
+  }
+
+  loadKpis(): void {
+    this.kpiService.getAllKpis("feedback").subscribe({
+      next: (data) => {
+        this.kpis.set(data);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os kpis', err);
       },
     });
   }

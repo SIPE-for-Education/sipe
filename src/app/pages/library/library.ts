@@ -20,7 +20,7 @@ import { DetailPanel } from '../../components/detail-panel/detail-panel';
 export class Library implements OnInit {
   private titleService = inject(Title);
   protected materials = signal<MaterialResponse[]>([]);
-  protected kpis = signal<KpiResponse | undefined>(undefined);
+  protected kpis = signal<KpiResponse[]>([]);
 
   constructor(
     private materialService: MaterialService,
@@ -35,7 +35,7 @@ export class Library implements OnInit {
   }
 
   loadKpis(): void {
-    this.kpiService.getAllKpis().subscribe({
+    this.kpiService.getAllKpis('library').subscribe({
       next: (data) => {
         this.kpis.set(data);
       },

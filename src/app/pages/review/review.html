@@ -43,34 +43,7 @@
   </div>
 </div>
 
-<div class="quality-bar">
-  <div class="quality-card purple">
-    <div class="quality-icon purple">
-      <i class="bi bi-bar-chart-fill"></i>
-    </div>
-    <div class="quality-value" id="qv-cob">—</div>
-    <strong class="quality-label">Cobertura do Conteúdo</strong>
-  </div>
-  <div class="quality-card green">
-    <div class="quality-icon">
-      <i class="bi bi-bookmark-check-fill"></i>
-    </div>
-    <div class="quality-value" id="qv-cont">—</div>
-    <strong class="quality-label">Conteúdos Utilizados</strong>
-  </div>
-  <div class="quality-card orange">
-    <div class="quality-icon"><i class="bi bi-bullseye"></i></div>
-    <div class="quality-value" id="qv-bncc">—</div>
-    <strong class="quality-label">Alinhamento BNCC</strong>
-  </div>
-  <div class="quality-card red">
-    <div class="quality-icon">
-      <i class="bi bi-exclamation-triangle-fill"></i>
-    </div>
-    <div class="quality-value" id="qv-pend">—</div>
-    <strong class="quality-label">Questões para Revisão</strong>
-  </div>
-</div>
+<app-kpis [kpis]="kpis()"></app-kpis>
 
 <div class="two-col">
   <div class="card-container">

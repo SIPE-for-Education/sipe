@@ -42,44 +42,7 @@
   </div>
 </div>
 
-<div class="kpis">
-  <div class="kpi" id="kpi1">
-    <div class="icon bg-light-green green">
-      <i class="ti ti-circle-check-filled"></i>
-    </div>
-    <div>
-      <div class="number green">12</div>
-      <div class="label">Planejamentos Aprovados</div>
-    </div>
-  </div>
-  <div class="kpi" id="kpi2">
-    <div class="icon bg-light-yellow amber">
-      <i class="ti ti-clock-edit"></i>
-    </div>
-    <div>
-      <div class="number amber">3</div>
-      <div class="label">Aguardando Ajustes</div>
-    </div>
-  </div>
-  <div class="kpi" id="kpi3">
-    <div class="icon bg-light-red red">
-      <i class="ti ti-circle-x-filled"></i>
-    </div>
-    <div>
-      <div class="number red">1</div>
-      <div class="label">Rejeitados</div>
-    </div>
-  </div>
-  <div class="kpi" id="kpi4">
-    <div class="icon bg-light-purple purple">
-      <i class="ti ti-file-certificate"></i>
-    </div>
-    <div>
-      <div class="number purple">8</div>
-      <div class="label">Avaliações Aprovadas</div>
-    </div>
-  </div>
-</div>
+<app-kpis [kpis]="kpis()"></app-kpis>
 
 <div class="planning-container">
   <div class="box">
@@ -295,30 +258,30 @@
 
       <app-revision-history [revisions]="planning?.revisions"></app-revision-history>
 
-    <div class="ai-box-suggestions" id="aiBox" style="display: none">
-      <div class="ai-box-suggestions-header">
-        <i class="ti ti-sparkles"></i>
-        <div class="ai-box-suggestions-title">
-          Sugestões da IA para Correção
+      <div class="ai-box-suggestions" id="aiBox" style="display: none">
+        <div class="ai-box-suggestions-header">
+          <i class="ti ti-sparkles"></i>
+          <div class="ai-box-suggestions-title">
+            Sugestões da IA para Correção
+          </div>
         </div>
+        <div
+          class="ai-box-suggestions-description"
+          id="aiBoxDesc"
+        ></div>
+        <div class="ai-loading" id="aiLoading">
+          <div class="ai-spinner"></div>
+          <span>Gerando sugestões pedagógicas...</span>
+        </div>
+        <div class="ai-suggestions" id="aiSuggestions"></div>
+        <button
+          class="button button-primary"
+          onclick="generateSuggestions()"
+        >
+          <i class="ti ti-bolt"></i>
+          <span>Gerar Sugestões</span>
+        </button>
       </div>
-      <div
-        class="ai-box-suggestions-description"
-        id="aiBoxDesc"
-      ></div>
-      <div class="ai-loading" id="aiLoading">
-        <div class="ai-spinner"></div>
-        <span>Gerando sugestões pedagógicas...</span>
-      </div>
-      <div class="ai-suggestions" id="aiSuggestions"></div>
-      <button
-        class="button button-primary"
-        onclick="generateSuggestions()"
-      >
-        <i class="ti ti-bolt"></i>
-        <span>Gerar Sugestões</span>
-      </button>
-    </div>
     }
 
     <div class="section-content" id="notifCard" style="display: none">

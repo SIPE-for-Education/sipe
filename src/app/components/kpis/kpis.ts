@@ -9,5 +9,5 @@ import { KpiResponse } from '../../models/KpiResponse';
   standalone: true,
 })
 export class Kpis {
-  kpis = input<KpiResponse>();
+  kpis = input<KpiResponse[]>([]);
 }

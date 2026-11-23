@@ -379,10 +379,84 @@
     }
   ],
   "kpis": {
-    "totalMaterials": 248,
-    "totalEducationSystems": 3,
-    "totalIAContents": 12540,
-    "totalGeneratedPlans": 1284
+    "review": [
+      {
+        "icon": "bi bi-bar-chart-fill",
+        "status": "info",
+        "value": 22,
+        "label": "cobertura do conteúdo"
+      },
+      {
+        "icon": "bi bi-book-fill",
+        "status": "approved",
+        "value": 2,
+        "label": "conteúdos utilizados"
+      },
+      {
+        "icon": "bi bi-bullseye",
+        "status": "info",
+        "value": 22,
+        "label": "alinhamento bncc"
+      },
+      {
+        "icon": "bi bi-exclamation-triangle",
+        "status": "warning",
+        "value": 12,
+        "label": "questões p/ revisão"
+      }
+    ],
+    "library": [
+      {
+        "icon": "bi bi-journal-bookmark-fill",
+        "status": "info",
+        "value": 248,
+        "label": "materias disponíveis"
+      },
+      {
+        "icon": "bi bi-mortarboard-fill",
+        "status": "approved",
+        "value": 3,
+        "label": "sistemas de ensino"
+      },
+      {
+        "icon": "bi bi-cpu-fill",
+        "status": "warning",
+        "value": 12540,
+        "label": "conteúdos indexados ia"
+      },
+      {
+        "icon": "bi bi-file-earmark-bar-graph-fill",
+        "status": "info",
+        "value": 1284,
+        "label": "planejamentos gerados"
+      }
+    ],
+    "feedback": [
+      {
+        "icon": "bi-check-circle-fill",
+        "status": "approved",
+        "value": 12,
+        "label": "planejamentos aprovados"
+      },
+      {
+        "icon": "bi-clock-history",
+        "status": "warning",
+        "value": 3,
+        "label": "aguardando ajustes"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "status": "rejected",
+        "value": 1,
+        "label": "rejeitados"
+      },
+      {
+        "icon": "bi bi-file-earmark-check",
+        "status": "info",
+        "value": 8,
+        "label": "avaliações aprovadas"
+      }
+    ]
   },
   "plannings": [
     {
