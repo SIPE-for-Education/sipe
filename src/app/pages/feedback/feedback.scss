@@ -364,62 +364,6 @@
   opacity: 0.7;
 }
 
-.flow-banner {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  background: linear-gradient(135deg, var(--navy-blue) 0%, var(--muted) 100%);
-  padding: 18px 24px;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.flow-step-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-  color: var(--cotton);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  font-weight: bold;
-}
-
-.flow-step-item.active {
-  color: var(--white);
-}
-
-.flow-step-item.done {
-  color: var(--green-border);
-}
-
-.flow-step-num {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--muted);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  font-weight: bold;
-}
-
-.flow-step-item.done .flow-step-num {
-  background: var(--green);
-}
-
-.flow-step-item.active .flow-step-num {
-  background: var(--orange);
-}
-
-.flow-arrow {
-  flex-shrink: 0;
-  margin: 0 6px;
-  color: var(--cotton);
-}
-
 .section-divider {
   display: flex;
   align-items: center;

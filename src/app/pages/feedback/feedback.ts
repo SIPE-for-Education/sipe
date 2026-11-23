@@ -7,9 +7,10 @@ import { RevisionHistory } from '../../components/revision-history/revision-hist
 import { KpiService } from '../../services/kpiService';
 import { KpiResponse } from '../../models/KpiResponse';
 import { Kpis } from '../../components/kpis/kpis';
+import { TimelineFlowBanner } from '../../components/timeline-flow-banner/timeline-flow-banner';
 
 @Component({
-  imports: [Timelines, RevisionHistory, Kpis],
+  imports: [Timelines, RevisionHistory, Kpis, TimelineFlowBanner],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
   templateUrl: './feedback.html',
@@ -62,7 +63,7 @@ export class Feedback implements OnInit {
   }
 
   loadKpis(): void {
-    this.kpiService.getAllKpis("feedback").subscribe({
+    this.kpiService.getAllKpis('feedback').subscribe({
       next: (data) => {
         this.kpis.set(data);
       },

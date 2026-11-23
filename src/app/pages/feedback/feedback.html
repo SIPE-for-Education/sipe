@@ -5,43 +5,9 @@
     análise.
   </div>
 </div>
-
-<div class="flow-banner">
-  <div class="flow-step-item done">
-    <div class="flow-step-num">
-      <i class="ti ti-check"></i>
-    </div>
-    <span>Professor Cria</span>
-  </div>
-  <div class="flow-arrow">›</div>
-  <div class="flow-step-item done">
-    <div class="flow-step-num">
-      <i class="ti ti-check"></i>
-    </div>
-    <span>Envia à Coord.</span>
-  </div>
-  <div class="flow-arrow">›</div>
-  <div class="flow-step-item active">
-    <div class="flow-step-num">3</div>
-    <span>Análise</span>
-  </div>
-  <div class="flow-arrow">›</div>
-  <div class="flow-step-item">
-    <div class="flow-step-num">4</div>
-    <span>Correções</span>
-  </div>
-  <div class="flow-arrow">›</div>
-  <div class="flow-step-item">
-    <div class="flow-step-num">5</div>
-    <span>Aprovação Final</span>
-  </div>
-  <div class="flow-arrow">›</div>
-  <div class="flow-step-item">
-    <div class="flow-step-num">6</div>
-    <span>Histórico</span>
-  </div>
-</div>
-
+@if (selectedPlanning(); as planning) {
+  <app-timeline-flow-banner [timelines]="planning?.timelines"></app-timeline-flow-banner>
+}
 <app-kpis [kpis]="kpis()"></app-kpis>
 
 <div class="planning-container">

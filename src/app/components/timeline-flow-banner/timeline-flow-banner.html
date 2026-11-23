@@ -1,0 +1,24 @@
+<section class="flow-banner">
+  @for (timeline of timelines(); track $index) {
+    <div class="item"
+         [class.done]="timeline.status === 'done'"
+         [class.active]="timeline.status === 'pending'"
+         [class.rejected]="timeline.status === 'rejected'"
+    >
+      <div class="number">
+        @if (timeline.status === 'done') {
+          <i class="bi bi-check"></i>
+        } @else if (timeline.status === 'rejected') {
+          <i class="bi bi-x-circle"></i>
+        } @else {
+          {{ $index + 1 }}
+        }
+      </div>
+      <span> {{ timeline.title }} </span>
+    </div>
+
+    @if ($index < timelines().length - 1) {
+      <div class="arrow">›</div>
+    }
+  }
+</section>
