@@ -89,7 +89,6 @@
   color: var(--green);
 }
 
-
 .status-badge.pending {
   border: 1px solid var(--yellow);
   background: var(--light-yellow);
@@ -106,68 +105,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
-
-.notification-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid var(--cotton);
-  border-radius: var(--radius);
-  margin-bottom: 10px;
-  background: var(--light-cotton);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.notification-item:last-child {
-  margin-bottom: 0;
-}
-
-.notification-item:hover {
-  border-color: var(--purple);
-  background: var(--light-purple);
-}
-
-.notification-item.unread {
-  background: var(--light-cotton);
-  border-color: var(--light-purple);
-}
-
-.notification-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 36px;
-  aspect-ratio: 1;
-  border-radius: var(--radius);
-}
-
-.notification-resume {
-  flex: 1;
-}
-
-.notification-text {
-  color: var(--navy-blue);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  font-weight: bold;
-}
-
-.notification-time {
-  margin-top: 2px;
-  color: var(--muted);
-  font-size: calc(var(--smaller-text-size) - 4px);
-}
-
-.notification-dot {
-  flex-shrink: 0;
-  width: 8px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  margin-top: 6px;
-  background: var(--purple);
 }
 
 .ai-box-suggestions {

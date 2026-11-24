@@ -10,9 +10,17 @@ import { Kpis } from '../../components/kpis/kpis';
 import { TimelineFlowBanner } from '../../components/timeline-flow-banner/timeline-flow-banner';
 import { AiBoxSuggestions } from '../../components/ai-box-suggestions/ai-box-suggestions';
 import { Status } from '../../enums/Status';
+import { NotificationCard } from '../../components/notification-card/notification-card';
 
 @Component({
-  imports: [Timelines, RevisionHistory, Kpis, TimelineFlowBanner, AiBoxSuggestions],
+  imports: [
+    Timelines,
+    RevisionHistory,
+    Kpis,
+    TimelineFlowBanner,
+    AiBoxSuggestions,
+    NotificationCard,
+  ],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
   templateUrl: './feedback.html',

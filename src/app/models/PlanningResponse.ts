@@ -10,4 +10,5 @@ export interface PlanningResponse {
   revisions: PlanningRevisionResponse[];
   aiPrompt: string;
   aiSuggestions: PlanningAiSuggestionResponse[];
+  updatedAt: string;
 }

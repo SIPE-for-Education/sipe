@@ -662,14 +662,6 @@ html, body {
   color: var(--cotton);
 }
 
-.section-content {
-  padding: 1.5rem;
-  border: 2px solid var(--cotton);
-  border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-
 .planning-card-header {
   display: flex;
   align-items: center;
@@ -693,6 +685,9 @@ html, body {
 
 .section-content {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   padding: 1rem;
   border: 2px solid var(--cotton);
   border-radius: var(--radius);
