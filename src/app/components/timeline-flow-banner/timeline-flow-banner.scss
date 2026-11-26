@@ -19,38 +19,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
       width: 28px;
       aspect-ratio: 1;
       border-radius: 50%;
-      background: var(--muted);
+      background-color: var(--light-cotton);
+      color: var(--muted);
       font-size: var(--smallest-text-size);
       font-weight: bold;
     }
   }
 
   .done {
-    color: var(--white);
-
     .number {
+      color: var(--white);
       background: var(--green);
     }
   }
 
   .active {
-    color: var(--white);
-
     .number {
+      color: var(--white);
       background: var(--orange);
     }
   }
 
   .rejected {
-    color: var(--red);
-
     .number {
-      background: var(--light-red);
       color: var(--white);
+      background: var(--dark-red);
     }
   }
 
