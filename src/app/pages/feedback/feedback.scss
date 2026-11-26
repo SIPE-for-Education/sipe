@@ -18,87 +18,10 @@
   flex: 25%;
 }
 
-.planning-card-top {
+.box-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.planning-name {
-  color: var(--navy-blue);
-  font-size: var(--smaller-text-size);
-  font-weight: bold;
-}
-
-.planning-meta {
-  display: flex;
-  gap: 15px;
-  color: var(--muted);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  flex-wrap: wrap;
-}
-
-.planning-meta span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.planning-comment {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 10px 14px;
-  border: 1px solid var(--cotton);
-  border-radius: var(--radius);
-  margin-top: 10px;
-  background: var(--white);
-  color: var(--muted);
-  font-size: calc(var(--smaller-text-size) - 4px);
-}
-
-.planning-comment i {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: var(--purple);
-  font-size: var(--smaller-text-size);
-}
-
-.planning-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  font-size: calc(var(--smaller-text-size) - 4px);
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.status-badge.approved {
-  border: 1px solid var(--green-border);
-  background: var(--light-green);
-  color: var(--green);
-}
-
-.status-badge.pending {
-  border: 1px solid var(--yellow);
-  background: var(--light-yellow);
-  color: var(--amber);
-}
-
-.status-badge.rejected {
-  border: 1px solid var(--red-border);
-  background: var(--light-red);
-  color: var(--dark-red);
 }
 
 .detail-panel {

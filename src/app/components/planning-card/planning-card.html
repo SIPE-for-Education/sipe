@@ -1,0 +1,45 @@
+<div class="section-content {{plan()?.status}}">
+  <div class="top">
+    <div>
+      <div class="name">
+        {{ plan()?.title }}
+      </div>
+      <div class="meta">
+        <i class="bi bi-people-fill"></i>
+        <span>3º Ano A</span>
+
+        <i class="bi bi-calendar-week"></i>
+        <span>12/05 a 16/05</span>
+
+        <i class="bi bi-send-check"></i>
+        <span> Enviado 14/05/2026</span>
+      </div>
+    </div>
+
+    <span class="status-badge {{plan()?.status}}">
+      @if (plan()?.status == "approved") {
+        Aprovado
+      } @else if (plan()?.status == "pending") {
+        Ajustes Solicitados
+      } @else {
+        Rejeitado
+      }
+    </span>
+  </div>
+
+  <div class="comment bg-light-{{plan()?.status}} border-{{plan()?.status}}">
+    <i class="bi bi-chat-left-dots {{plan()?.status}}"></i>
+    <span>{{ plan()?.revisions?.at(-1)?.comment }}</span>
+  </div>
+
+  <div class="actions">
+    <button class="button button-primary" (click)="applyCorrections()">
+      <i class="bi bi-pencil-square"></i>
+      <span>Aplicar Correções</span>
+    </button>
+    <button class="button button-ghost" onclick="selectPlan(1)">
+      <i class="bi bi-clock-history"></i>
+      <span>Histórico</span>
+    </button>
+  </div>
+</div>

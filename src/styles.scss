@@ -712,18 +712,6 @@ html, body {
   border-radius: var(--radius) 0 0 var(--radius);
 }
 
-.section-content.approved::before {
-  background: var(--green);
-}
-
-.section-content.pending::before {
-  background: var(--amber);
-}
-
-.section-content.rejected::before {
-  background: var(--dark-red);
-}
-
 .section-content:hover {
   border-color: var(--purple);
   transform: translateX(3px);
