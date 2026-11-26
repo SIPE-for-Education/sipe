@@ -52,7 +52,7 @@
 
       <app-revision-history [revisions]="planning?.revisions"></app-revision-history>
 
-      @if (planning.status != "done") {
+      @if (planning.status != "approved") {
         <app-ai-box-suggestions [iaPrompt]="planning?.aiPrompt"
                                 [aiSuggestions]="planning?.aiSuggestions"></app-ai-box-suggestions>
       }
