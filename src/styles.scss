@@ -21,7 +21,7 @@
   --light-blue: #e0f2fe;
   --light-green: #DCFCE7;
   --light-red: #fee2e2;
-  --light-orange: #dda787;
+  --light-orange: #FFEDD5;
   --light-yellow: #FEF9C3;
   --light-cotton: #F8FAFC;
 
@@ -737,13 +737,15 @@ html, body {
 }
 
 .purple-element {
-  padding: 1rem;
   border: 1px solid var(--purple-border);
-  border-radius: var(--radius);
-  margin-top: 20px;
   background: var(--light-purple);
   color: var(--purple);
-  font-size: var(--smallest-text-size);
+}
+
+.green-element {
+  border: 1px solid var(--green-border);
+  background: var(--light-green);
+  color: var(--green);
 }
 
 .purple-button {
