@@ -12,14 +12,9 @@ export class PlanningCard {
   plan = input<PlanningResponse>();
 
   applyCorrections() {
-    // event.stopPropagation();
     // showToast("Abrindo editor de planejamento...", "info", "ti-pencil");
     setTimeout(() => {
-      // showToast(
-      //   "Planejamento aberto para edição!",
-      //   "success",
-      //   "ti-circle-check",
-      // );
+      // showToast("Planejamento aberto para edição!", "success", "ti-circle-check");
     }, 1000);
   }
 }

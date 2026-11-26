@@ -11,6 +11,8 @@ import { TimelineFlowBanner } from '../../components/timeline-flow-banner/timeli
 import { AiBoxSuggestions } from '../../components/ai-box-suggestions/ai-box-suggestions';
 import { PlanningCard } from '../../components/planning-card/planning-card';
 import { NotificationCard } from '../../components/notification-card/notification-card';
+import { CoordinatorModal } from '../../components/modals/coordinator-modal/coordinator-modal';
+import { CoordinatorModalService } from '../../services/coordinator-modal';
 
 type PlanFilter = 'all' | 'pending' | 'approved';
 
@@ -23,6 +25,7 @@ type PlanFilter = 'all' | 'pending' | 'approved';
     AiBoxSuggestions,
     PlanningCard,
     NotificationCard,
+    CoordinatorModal,
   ],
   selector: 'app-feedback',
   styleUrl: './feedback.scss',
@@ -56,6 +59,18 @@ export class Feedback implements OnInit {
     this.selectedPlanningId.set(id);
   }
 
+  protected activePlanFilter = signal<PlanFilter>('all');
+
+  protected filteredPlans = computed(() => {
+    const filter = this.activePlanFilter();
+
+    return this.plans().filter((plan) => filter === 'all' || plan.status === filter);
+  });
+
+  protected filterPlans(filter: PlanFilter): void {
+    this.activePlanFilter.set(filter);
+  }
+
   ngOnInit(): void {
     this.titleService.setTitle('SIPE - Feedback');
 
@@ -86,39 +101,20 @@ export class Feedback implements OnInit {
     });
   }
 
-  protected activePlanFilter = signal<PlanFilter>('all');
+  private readonly coordinatorModal = inject(CoordinatorModalService);
+  protected readonly coordinatorModalOpen = this.coordinatorModal.isOpen;
 
-  protected filteredPlans = computed(() => {
-    const filter = this.activePlanFilter();
-
-    return this.plans().filter((plan) => filter === 'all' || plan.status === filter);
-  });
-
-  protected filterPlans(filter: PlanFilter): void {
-    this.activePlanFilter.set(filter);
+  protected closeCoordinatorModal(): void {
+    this.coordinatorModal.close();
   }
+  //viewDocument(){
+  //  showToast("Abrindo documento aprovado...", "success", "ti-eye");
+  //}
 
-
-  //   function viewDocument(event) {
-  //     event.stopPropagation();
-  //     showToast("Abrindo documento aprovado...", "success", "ti-eye");
-  //   }
-  //
-  //   function resendPlan(event) {
-  //     event.stopPropagation();
-  //     showToast(
-  //       "Preparando reenvio do planejamento...",
-  //       "warning",
-  //       "ti-refresh",
-  //     );
-  //     setTimeout(() => {
-  //       showToast(
-  //         "Planejamento reenviado à coordenação!",
-  //         "success",
-  //         "ti-send",
-  //       );
-  //     }, 1200);
-  //   }
-
-
+  //resendPlan(){
+  //  showToast("Preparando reenvio do planejamento", "warning", "ti-refresh");
+  //  setTimeout(() =>{
+  //    showToast("Planejamento reenviado à coordenação!", "success", "ti-send");
+  //  }, 1200);
+  //}
 }

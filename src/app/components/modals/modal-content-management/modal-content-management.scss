@@ -1,0 +1,44 @@
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    i {
+      display: block;
+      color: var(--muted);
+    }
+  }
+
+  .item.uploaded {
+    border: 1px solid var(--green);
+    background: var(--light-green);
+
+    i {
+      color: var(--green);
+    }
+  }
+
+  .progress {
+    height: 4px;
+    border-radius: var(--radius);
+    background: var(--light-cotton);
+    overflow: hidden;
+  }
+
+  .upload-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, var(--dark-green), var(--green));
+    transition: width 1.5s ease;
+  }
+
+  .item.uploaded .upload-progress-fill {
+    width: 100%;
+  }
+}

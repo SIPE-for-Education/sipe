@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CoordinatorModalService } from '../../services/coordinator-modal';
 
 @Component({
   imports: [],
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
 })
 export class Header {
+  private readonly router = inject(Router);
+  private readonly coordinatorModal = inject(CoordinatorModalService);
+
+  async openCoordinatorModal(): Promise<void> {
+    const navigated = await this.router.navigateByUrl('/feedback');
+
+    if (navigated || this.router.url === '/feedback') {
+      this.coordinatorModal.open();
+    }
+  }
   handleSchoolChange() {}
 
   openAdminModal() {
@@ -19,11 +31,8 @@ export class Header {
     //   }, 200);
   }
 
-  openCoordinatorModal() {}
-
   toggleNotifPanel() {
     // showToast('4 novas notificações', 'info', 'ti-bell');
-
     //     const notifCard = document.getElementById("notifCard");
     //     const visible = notifCard.style.display === "block";
     //     notifCard.style.display = visible ? "none" : "block";

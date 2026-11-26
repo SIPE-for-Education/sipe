@@ -24,23 +24,19 @@
             class="filter-tab"
             [class.active]="activePlanFilter() === 'all'"
             (click)="filterPlans('all')"
-          >
-            Todos
-          </button>
+          >Todos</button>
+
           <button
             class="filter-tab"
             [class.active]="activePlanFilter() === 'pending'"
             (click)="filterPlans('pending')"
-          >
-            Ajustes
-          </button>
+          >Ajustes</button>
+
           <button
             class="filter-tab"
             [class.active]="activePlanFilter() === 'approved'"
             (click)="filterPlans('approved')"
-          >
-            Aprovados
-          </button>
+          >Aprovados</button>
         </div>
       </div>
 
@@ -66,154 +62,7 @@
   </aside>
 </div>
 
-<div class="modal-overlay" id="coordModal">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <div class="modal-title">Visão da Coordenação</div>
-        <div class="modal-subtitle">
-          Painel de revisão e aprovação de planejamentos
-        </div>
-      </div>
-      <button class="modal-close" onclick="closeCoordModal()">
-        <i class="ti ti-x"></i>
-      </button>
-    </div>
-    <div class="coordination-view-badge">
-      <i class="ti ti-user-shield"></i>
-      <div>
-        <div class="coordination-view-title">
-          Coordenadora Pedagógica — Profa. Fernanda Lins
-        </div>
-        <div class="coordination-view-sub">
-          Colégio Cavlac · Ensino Fundamental II · Ano Letivo 2026
-        </div>
-      </div>
-    </div>
-    <div>Planejamentos Recebidos para Análise</div>
-    <div class="coordination-plan-item">
-      <div class="coordination-plan-top">
-        <div>
-          <div class="coordination-plan-name">
-            Planejamento Semanal — Matemática
-          </div>
-          <div class="coordination-plan-info">
-            Profª Elisabete · 3.º Ano A · 12/05 a 16/05
-          </div>
-        </div>
-        <span class="status-badge pending">
-              <i class="ti ti-clock"></i>
-              <span>Em Análise</span>
-            </span>
-      </div>
-      <div class="coordination-actions">
-        <button
-          class="coordination-action-btn coordination-approve"
-          onclick="coordAction(this, 'aprovado')"
-        >
-          <i class="ti ti-circle-check"></i>
-          <span>Aprovar</span>
-        </button>
-        <button
-          class="coordination-action-btn coordination-adjust"
-          onclick="coordAction(this, 'ajustes')"
-        >
-          <i class="ti ti-pencil"></i>
-          <span>Solicitar Ajustes</span>
-        </button>
-        <button
-          class="coordination-action-btn coordination-reject"
-          onclick="coordAction(this, 'rejeitado')"
-        >
-          <i class="ti ti-x"></i>
-          <span>Rejeitar</span>
-        </button>
-      </div>
-    </div>
-    <div class="coordination-plan-item">
-      <div class="coordination-plan-top">
-        <div>
-          <div class="coordination-plan-name">
-            Planejamento Bimestral — Artes
-          </div>
-          <div class="coordination-plan-info">
-            Profª Elisabete · 6.º Ano C · Bimestre 1
-          </div>
-        </div>
-        <span class="status-badge rejected">
-              <i class="ti ti-x"></i>
-              <span>Rejeitado</span>
-            </span>
-      </div>
-      <div class="coordination-actions">
-        <button
-          class="coordination-action-btn coordination-approve"
-          onclick="coordAction(this, 'aprovado')"
-        >
-          <i class="ti ti-circle-check"></i>
-          <span>Aprovar</span>
-        </button>
-        <button
-          class="coordination-action-btn coordination-adjust"
-          onclick="coordAction(this, 'ajustes')"
-        >
-          <i class="ti ti-pencil"></i>
-          <span>Solicitar Ajustes</span>
-        </button>
-        <button
-          class="coordination-action-btn coordination-reject"
-          onclick="coordAction(this, 'rejeitado')"
-        >
-          <i class="ti ti-x"></i>
-          <span>Rejeitar</span>
-        </button>
-      </div>
-    </div>
-    <div class="coordination-plan-item">
-      <div class="coordination-plan-top">
-        <div>
-          <div class="coordination-plan-name">
-            Planejamento Semanal — Geografia
-          </div>
-          <div class="coordination-plan-info">
-            Profª Elisabete · 7.º Ano A · 19/05 a 23/05
-          </div>
-        </div>
-        <span class="status-badge pending">
-              <i class="ti ti-clock"></i>
-              <span>Em Análise</span>
-            </span>
-      </div>
-      <div class="coordination-actions">
-        <button
-          class="coordination-action-btn coordination-approve"
-          onclick="coordAction(this, 'aprovado')"
-        >
-          <i class="ti ti-circle-check"></i> Aprovar
-        </button>
-        <button
-          class="coordination-action-btn coordination-adjust"
-          onclick="coordAction(this, 'ajustes')"
-        >
-          <i class="ti ti-pencil"></i> Solicitar Ajustes
-        </button>
-        <button
-          class="coordination-action-btn coordination-reject"
-          onclick="coordAction(this, 'rejeitado')"
-        >
-          <i class="ti ti-x"></i> Rejeitar
-        </button>
-      </div>
-    </div>
-    <div class="purple-element">
-      <i class="bi bi-lightbulb yellow"></i>
-      <strong> SIPE — Governança Pedagógica:</strong>
-      <span
-      >Todo histórico de aprovações, ajustes e rejeições fica registrado
-            permanentemente no sistema, garantindo rastreabilidade institucional
-            completa.</span
-      >
-    </div>
-  </div>
-</div>
+<app-coordinator-modal [isOpen]="coordinatorModalOpen()" (closed)="closeCoordinatorModal()">
+</app-coordinator-modal>
+
 <div class="toast-container" id="toastContainer"></div>
