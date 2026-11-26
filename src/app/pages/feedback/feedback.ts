@@ -13,6 +13,8 @@ import { PlanningCard } from '../../components/planning-card/planning-card';
 import { NotificationCard } from '../../components/notification-card/notification-card';
 import { CoordinatorModal } from '../../components/modals/coordinator-modal/coordinator-modal';
 import { CoordinatorModalService } from '../../services/coordinator-modal';
+import { ToastService } from '../../services/toastService';
+import { ToastType } from '../../enums/ToastType';
 
 type PlanFilter = 'all' | 'pending' | 'approved';
 
@@ -34,6 +36,7 @@ type PlanFilter = 'all' | 'pending' | 'approved';
 })
 export class Feedback implements OnInit {
   private titleService = inject(Title);
+  private readonly toast = inject(ToastService);
 
   private kpis = signal<KpiResponse[]>([]);
   protected plans = signal<PlanningResponse[]>([]);
@@ -107,14 +110,23 @@ export class Feedback implements OnInit {
   protected closeCoordinatorModal(): void {
     this.coordinatorModal.close();
   }
-  //viewDocument(){
-  //  showToast("Abrindo documento aprovado...", "success", "ti-eye");
-  //}
 
-  //resendPlan(){
-  //  showToast("Preparando reenvio do planejamento", "warning", "ti-refresh");
-  //  setTimeout(() =>{
-  //    showToast("Planejamento reenviado à coordenação!", "success", "ti-send");
-  //  }, 1200);
-  //}
+  viewDocument() {
+    this.toast.show('Abrindo documento aprovado', ToastType.SUCCESS, 'bi bi-eye-fill');
+  }
+
+  resendPlan() {
+    this.toast.show(
+      'Preparando reenvio do planejamento',
+      ToastType.WARNING,
+      'bi bi-arrow-clockwise',
+    );
+    setTimeout(() => {
+      this.toast.show(
+        'Planejamento reenviado à coordenação!',
+        ToastType.SUCCESS,
+        'bi bi-send-check-fill',
+      );
+    }, 1200);
+  }
 }

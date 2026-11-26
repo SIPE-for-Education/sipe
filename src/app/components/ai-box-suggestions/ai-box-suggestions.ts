@@ -2,6 +2,7 @@ import { Component, inject, input, signal } from '@angular/core';
 import { PlanningAiSuggestionResponse } from '../../models/PlanningAiSuggestionResponse';
 import { PlanningResponse } from '../../models/PlanningResponse';
 import { ToastService } from '../../services/toastService';
+import { ToastType } from '../../enums/ToastType';
 
 @Component({
   imports: [],
@@ -27,6 +28,7 @@ export class AiBoxSuggestions {
     setTimeout(() => {
       this.isGenerating.set(false);
       this.hasGenerated.set(true);
+
       this.toast.show('Sugestões pedagógicas geradas com sucesso!', ToastType.INFO, 'bi bi-stars');
     }, 1800);
   }

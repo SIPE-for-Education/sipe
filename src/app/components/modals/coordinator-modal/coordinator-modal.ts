@@ -1,4 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { ToastService } from '../../../services/toastService';
+import { ToastType } from '../../../enums/ToastType';
 
 @Component({
   imports: [],
@@ -8,6 +10,8 @@ import { Component, input, output } from '@angular/core';
   standalone: true,
 })
 export class CoordinatorModal {
+  private readonly toast = inject(ToastService);
+
   isOpen = input(false);
   closed = output<void>();
 
@@ -23,27 +27,31 @@ export class CoordinatorModal {
     //     if (action === "aprovado") {
     //       badge.className = "status-badge approved";
     //       badge.innerHTML = '<i class="ti ti-circle-check"></i> Aprovado';
-    //       showToast(
-    //         "Planejamento aprovado com sucesso!",
-    //         "success",
-    //         "ti-circle-check",
-    //       );
+
+    this.toast.show(
+      'Planejamento aprovado com sucesso!',
+      ToastType.SUCCESS,
+      'bi bi-check-circle-fill',
+    );
+
     //     } else if (action === "ajustes") {
     //       badge.className = "status-badge pending";
     //       badge.innerHTML = '<i class="ti ti-clock"></i> Ajustes Solicitados';
-    //       showToast(
-    //         "Solicitação de ajustes enviada ao professor!",
-    //         "warning",
-    //         "ti-clock",
-    //       );
+
+    this.toast.show(
+      'Solicitação de ajustes enviada ao professor!',
+      ToastType.WARNING,
+      'bi bi-wrench-adjustable-circle-fill',
+    );
     //     } else {
     //       badge.className = "status-badge rejected";
     //       badge.innerHTML = '<i class="ti ti-x"></i> Rejeitado';
-    //       showToast(
-    //         "Planejamento rejeitado. Professor será notificado.",
-    //         "warning",
-    //         "ti-x",
-    //       );
+
+    this.toast.show(
+      'Planejamento rejeitado. Professor será notificado.',
+      ToastType.WARNING,
+      'bi bi-x',
+    );
     //     }
     //     actions.querySelectorAll("button").forEach((b) => {
     //       b.disabled = true;

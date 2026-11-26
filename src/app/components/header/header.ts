@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoordinatorModalService } from '../../services/coordinator-modal';
+import { ToastService } from '../../services/toastService';
+import { ToastType } from '../../enums/ToastType';
 
 @Component({
   imports: [],
@@ -9,6 +11,8 @@ import { CoordinatorModalService } from '../../services/coordinator-modal';
   templateUrl: './header.html',
 })
 export class Header {
+  private readonly toast = inject(ToastService);
+
   private readonly router = inject(Router);
   private readonly coordinatorModal = inject(CoordinatorModalService);
 
@@ -32,7 +36,8 @@ export class Header {
   }
 
   toggleNotifPanel() {
-    // showToast('4 novas notificações', 'info', 'ti-bell');
+    this.toast.show('4 novas notificações', ToastType.INFO, 'bi bi-bell-fill');
+
     //     const notifCard = document.getElementById("notifCard");
     //     const visible = notifCard.style.display === "block";
     //     notifCard.style.display = visible ? "none" : "block";

@@ -1,5 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { PlanningResponse } from '../../models/PlanningResponse';
+import { ToastService } from '../../services/toastService';
+import { ToastType } from '../../enums/ToastType';
 
 @Component({
   imports: [],
@@ -9,12 +11,19 @@ import { PlanningResponse } from '../../models/PlanningResponse';
   standalone: true,
 })
 export class PlanningCard {
+  private readonly toast = inject(ToastService);
+
   plan = input<PlanningResponse>();
 
   applyCorrections() {
-    // showToast("Abrindo editor de planejamento...", "info", "ti-pencil");
+    this.toast.show('Abrindo editor de planejamento', ToastType.INFO, 'bi bi-pencil');
+
     setTimeout(() => {
-      // showToast("Planejamento aberto para edição!", "success", "ti-circle-check");
+      this.toast.show(
+        'Planejamento aberto para edição!',
+        ToastType.SUCCESS,
+        'bi bi-check-circle-fill',
+      );
     }, 1000);
   }
 }

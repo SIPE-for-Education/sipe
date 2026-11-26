@@ -14,8 +14,4 @@ export class MaterialsGrid {
   openPanel(id: string) {
     console.log('Opening panel for material with ID:', id);
   }
-
-  openPanelAndSuggest(id: string) {
-    console.log('Opening panel and suggesting for material with ID:', id);
-  }
 }

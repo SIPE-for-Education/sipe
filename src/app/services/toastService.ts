@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { ToastMessage } from '../models/ToastMessage';
+import { ToastType } from '../enums/ToastType';
 
 @Injectable({ providedIn: 'root' })
 export class ToastService {
@@ -18,6 +19,6 @@ export class ToastService {
   }
 
   dismiss(toast: ToastMessage): void {
-    this.toasts.update((toasts) => toasts.filter((toast) => toast !== toast));
+    this.toasts.update((toasts) => toasts.filter((current) => current !== toast));
   }
 }
