@@ -1,0 +1,39 @@
+<section class="ai-box-suggestions">
+  <div class="header">
+    <i class="bi bi-stars"></i>
+    <strong class="title">
+      Sugestões da IA para Correção
+    </strong>
+  </div>
+  <p class="description">{{ iaPrompt() }}</p>
+
+  <div class="description">
+  </div>
+
+  @if (isGenerating()) {
+    <div class="ai-loading">
+      <div class="ai-spinner"></div>
+      <span>Gerando sugestões pedagógicas...</span>
+    </div>
+  } @else if (!hasGenerated()) {
+    <button
+      class="button button-primary"
+      (click)="generateSuggestions()"
+    >
+      <i class="bi bi-lightning"></i>
+      <span>Gerar Sugestões</span>
+    </button>
+  } @else {
+    <div class="ai-suggestions">
+      @for (suggestion of aiSuggestions(); track $index) {
+        <div class="ai-suggestion-item">
+          <i class="bi {{suggestion.icon}}"></i>
+          <span>{{ suggestion.text }}</span>
+        </div>
+      } @empty {
+        <span>Houve um erro na criação das sugestões</span>
+      }
+    </div>
+  }
+</section>
+

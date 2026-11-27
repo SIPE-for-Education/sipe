@@ -1,6 +1,8 @@
+import { Status } from '../enums/Status';
+
 export interface KpiResponse {
-  totalMaterials: number;
-  totalEducationSystems: number;
-  totalIAContents: number;
-  totalGeneratedPlans: number;
+  icon: string;
+  status: Status;
+  value: number;
+  label: string;
 }

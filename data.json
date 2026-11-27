@@ -378,10 +378,363 @@
       ]
     }
   ],
+  "plannings": [
+    {
+      "id": 1,
+      "title": "Planejamento Semanal — Matemática",
+      "status": "pending",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "10/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "11/05/2026"
+        },
+        {
+          "status": "pending",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "12/05/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-check-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "11/05/2026",
+          "comment": "Adicionar atividade prática na quinta-feira."
+        },
+        {
+          "version": "Versão atual",
+          "date": "12/05/2026",
+          "comment": "Aguardando aplicação das correções solicitadas."
+        }
+      ],
+      "aiPrompt": "A coordenação solicitou atividade prática e reforço em sistema monetário. Deseja gerar sugestões pedagógicas?",
+      "aiSuggestions": [
+        {
+          "icon": "bi-controller",
+          "text": "Atividade prática: Simulação de mercado com uso de notas fictícias — exercita operações e sistema monetário de forma lúdica."
+        },
+        {
+          "icon": "bi-file-earmark-text-fill",
+          "text": "Proposta: Exercício em duplas com recorte de preços de supermercado para calcular troco e comparar valores."
+        },
+        {
+          "icon": "bi-lightbulb",
+          "text": "Sugestão: Criação de um 'cardápio de lanchonete' pelos alunos, praticando adição, subtração e representação de valores."
+        }
+      ],
+      "updatedAt": "2026-11-23T19:20:29.606909"
+    },
+    {
+      "id": 2,
+      "title": "Planejamento Semanal — História",
+      "status": "approved",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "05/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "06/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "07/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "08/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-check-circle",
+          "title": "Aprovado",
+          "date": "08/05/2026"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "06/05/2026",
+          "comment": "Aprofundar análise das causas da 2ª Guerra Mundial."
+        },
+        {
+          "version": "Versão 2",
+          "date": "07/05/2026",
+          "comment": "Incluir fonte primária como documento de análise."
+        },
+        {
+          "version": "Versão 3 — Aprovada",
+          "date": "08/05/2026",
+          "comment": "Planejamento aprovado sem ressalvas. Excelente estrutura BNCC."
+        }
+      ],
+      "aiPrompt": null,
+      "aiSuggestions": []
+    },
+    {
+      "id": 3,
+      "title": "Planejamento Bimestral — Artes",
+      "status": "rejected",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "26/04/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "27/04/2026"
+        },
+        {
+          "status": "rejected",
+          "icon": "bi-x-circle",
+          "title": "Rejeitado pela Coordenação",
+          "date": "29/04/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-arrow-repeat",
+          "title": "Aguardando Reenvio",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-plus-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1 — Rejeitada",
+          "date": "29/04/2026",
+          "comment": "Objetivos não alinhados ao PPP. Falta estratégia de recuperação."
+        }
+      ],
+      "aiPrompt": "O planejamento foi rejeitado por desalinhamento com o PPP. Deseja sugestões para reestruturação?",
+      "aiSuggestions": [
+        {
+          "icon": "ti-target",
+          "text": "Reformular objetivos de aprendizagem com base nas competências específicas do componente Arte (BNCC — EF69AR)."
+        },
+        {
+          "icon": "ti-users",
+          "text": "Incluir atividades diferenciadas: alunos em recuperação recebem roteiro simplificado com os mesmos conteúdos em linguagem visual acessível."
+        },
+        {
+          "icon": "ti-book",
+          "text": "Vincular o planejamento ao Projeto Político-Pedagógico: citar eixo temático e competências previstas no documento institucional."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Planejamento Semanal — Geografia",
+      "status": "pending",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "19/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "20/05/2026"
+        },
+        {
+          "status": "pending",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "21/05/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-check-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "20/05/2026",
+          "comment": "Incluir estratégia diferenciada para alunos com dificuldade."
+        }
+      ],
+      "aiPrompt": "A coordenação solicitou estratégia diferenciada. Deseja gerar sugestões de atividades de recuperação?",
+      "aiSuggestions": [
+        {
+          "icon": "ti-map",
+          "text": "Proposta diferenciada: Alunos com dificuldade trabalham com mapa mudo interativo — identificam biomas com legendas guiadas."
+        },
+        {
+          "icon": "ti-video",
+          "text": "Usar vídeo-aula curta (5 min) do conteúdo principal como reforço prévio para alunos em recuperação antes da aula coletiva."
+        },
+        {
+          "icon": "ti-star",
+          "text": "Atividade gamificada: Quiz por equipes onde alunos com dificuldade são estrategicamente distribuídos para aprendizagem cooperativa."
+        }
+      ]
+    }
+  ],
   "kpis": {
-    "totalMaterials": 248,
-    "totalEducationSystems": 3,
-    "totalIAContents": 12540,
-    "totalGeneratedPlans": 1284
-  }
+    "review": [
+      {
+        "icon": "bi bi-bar-chart-fill",
+        "status": "info",
+        "value": 22,
+        "label": "cobertura do conteúdo"
+      },
+      {
+        "icon": "bi bi-book-fill",
+        "status": "approved",
+        "value": 2,
+        "label": "conteúdos utilizados"
+      },
+      {
+        "icon": "bi bi-bullseye",
+        "status": "info",
+        "value": 22,
+        "label": "alinhamento bncc"
+      },
+      {
+        "icon": "bi bi-exclamation-triangle",
+        "status": "warning",
+        "value": 12,
+        "label": "questões p/ revisão"
+      }
+    ],
+    "library": [
+      {
+        "icon": "bi bi-journal-bookmark-fill",
+        "status": "info",
+        "value": 248,
+        "label": "materias disponíveis"
+      },
+      {
+        "icon": "bi bi-mortarboard-fill",
+        "status": "approved",
+        "value": 3,
+        "label": "sistemas de ensino"
+      },
+      {
+        "icon": "bi bi-cpu-fill",
+        "status": "warning",
+        "value": 12540,
+        "label": "conteúdos indexados ia"
+      },
+      {
+        "icon": "bi bi-file-earmark-bar-graph-fill",
+        "status": "info",
+        "value": 1284,
+        "label": "planejamentos gerados"
+      }
+    ],
+    "feedback": [
+      {
+        "icon": "bi-check-circle-fill",
+        "status": "approved",
+        "value": 12,
+        "label": "planejamentos aprovados"
+      },
+      {
+        "icon": "bi-clock-history",
+        "status": "warning",
+        "value": 3,
+        "label": "aguardando ajustes"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "status": "rejected",
+        "value": 1,
+        "label": "rejeitados"
+      },
+      {
+        "icon": "bi bi-file-earmark-check",
+        "status": "info",
+        "value": 8,
+        "label": "avaliações aprovadas"
+      }
+    ]
+  },
+  "notifications": [
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Seu planejamento de História foi aprovado.",
+      "type": "approved",
+      "read": false,
+      "targetUrl": "",
+      "createdAt": "2026-11-24T09:14:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "A coordenação solicitou ajustes no planejamento de Matemática.",
+      "type": "warning",
+      "read": true,
+      "targetUrl": "",
+      "createdAt": "2026-11-24T08:47:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Seu planejamento de História foi aprovado.",
+      "type": "approved",
+      "read": false,
+      "targetUrl": "",
+      "createdAt": "2026-11-23T16:22:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Prazo de entrega do planejamento bimestral se aproxima.",
+      "type": "info",
+      "read": true,
+      "targetUrl": "",
+      "createdAt": "2026-06-18T22:22:22"
+    }
+  ]
 }

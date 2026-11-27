@@ -1,0 +1,24 @@
+<section class="section-content">
+  <div class="section-title">
+    <i class="bi bi-activity"></i>
+    <span>Timeline de Aprovação</span>
+  </div>
+
+  <div>
+    @for (timeline of timelines(); track $index) {
+      <div class="timeline-item">
+        <div class="dot-col">
+          <div class="dot {{ timeline.status}}">
+            <i class="ti {{ timeline.icon}}" style="font-size:15px"></i>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="content">
+          <div class="title">{{ timeline.title }}</div>
+          <div class="date">{{ timeline.date }}</div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+

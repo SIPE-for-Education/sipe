@@ -1,0 +1,108 @@
+.modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 660px;
+    padding: 2rem;
+    border-radius: var(--radius);
+    background: var(--white);
+    animation: slideUp 0.3s ease;
+
+    .header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+      border-radius: var(--radius);
+      margin-bottom: 22px;
+      color: var(--navy-blue);
+
+      .title {
+        font-weight: bold;
+      }
+
+      .subtitle {
+        font-size: var(--smallest-text-size);
+        opacity: 0.8;
+      }
+
+      .view-badge {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--muted) 100%);
+        color: var(--white);
+
+        i {
+          color: var(--orange);
+          font-size: var(--larger-text-size);
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        aspect-ratio: 1;
+        border: none;
+        border-radius: var(--square-radius);
+        background: var(--light-cotton);
+        transition: all 0.2s;
+      }
+
+      .close:hover {
+        background: var(--light-red);
+        color: var(--red);
+      }
+    }
+  }
+}
+
+.item {
+  padding: 1rem;
+  border: 2px solid var(--cotton);
+  border-radius: var(--radius);
+  background: var(--light-cotton);
+
+  .name {
+    color: var(--navy-blue);
+    font-size: var(--smaller-text-size);
+    font-weight: bold;
+  }
+
+  .information {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: var(--smallest-text-size);
+  }
+}
+
+.modal-container.open {
+  display: flex;
+}
+
+aside {
+  padding: 1rem;
+  border-radius: var(--square-radius);
+  font-size: var(--smallest-text-size);
+}

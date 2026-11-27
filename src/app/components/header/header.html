@@ -22,18 +22,19 @@
 <header>
   <div class="left">
     <label for="school-selector"></label>
-    <select id="school-selector" class="school-selector" onchange="handleSchoolChange(this)">
+    <select id="school-selector" class="school-selector" (change)="handleSchoolChange()">
       <option value="cavlac">Colégio Cavlac</option>
       <option value="anglo">Colégio Anglo</option>
       <option value="estadual">E.E. Prof. Silva Neto</option>
     </select>
 
-    <div class="system-chip system-chip-purple">
-      <i class="ti ti-school"></i>
+    <div class="system-chip purple-element">
+      <i class="bi bi-building-fill"></i>
       <span>Sistema Anglo</span>
     </div>
-    <div class="system-chip system-chip-green">
-      <i class="ti ti-calendar-check"></i>
+
+    <div class="system-chip green-element">
+      <i class="bi bi-calendar-check-fill"></i>
       <span>2026</span>
     </div>
   </div>
@@ -44,24 +45,25 @@
       <div>2.º Bimestre · Semana 22</div>
     </div>
 
-    <div class="navigation-icon-button" onclick="toggleNotifPanel()"
-         onclick="showToast('4 novas notificações', 'info', 'ti-bell')">
-      <i class="ti ti-bell"></i>
-      <div class="badge-orange">1</div>
-    </div>
+    <section class="actions">
+      <button class="notification-button" (click)="toggleNotifPanel()">
+        <i class="bi bi-bell-fill"></i>
+        <div class="badge-orange">1</div>
+      </button>
 
-    <button class="button-admin" onclick="openAdminModal()">
-      <i class="ti ti-settings-2"></i>
-      <span>Gestão de Conteúdos</span>
-    </button>
+      <button class="modal-button" (click)="openAdminModal()">
+        <i class="bi bi-gear-fill"></i>
+        <span>Visualizar como Adminitrador</span>
+      </button>
 
-    <button class="coordination-view-trigger" onclick="openCoordModal()">
-      <i class="ti ti-user-shield"></i>
-      <span>Visualizar como Coordenador</span>
-    </button>
+      <button class="modal-button" (click)="openCoordinatorModal()">
+        <i class="bi bi-shield-lock-fill"></i>
+        <span>Visualizar como Coordenador</span>
+      </button>
+    </section>
 
-    <div class="user-profile-header">
-      <div class="user-avatar">PE</div>
+    <div class="user-profile">
+      <div class="avatar">PE</div>
       <div class="team-information">
         <strong>Profª Elisabete</strong>
         <div>História · Geografia · Artes</div>

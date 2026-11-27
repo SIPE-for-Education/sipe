@@ -55,11 +55,12 @@
         <div class="footer">
           <div class="actions">
             <button class="button button-view"
-                    (click)="openPanel(material.id)"> <!--event.stopPropagation();-->
+                    (click)="openPanel(material.id)">
               <i class="bi bi-eye"></i> Visualizar
             </button>
+
             <button class="button button-ai"
-                    (click)="openPanelAndSuggest(material.id)"><!--event.stopPropagation();-->
+                    (click)="openPanel(material.id)">
               <i class="bi bi-stars"></i> Usar IA
             </button>
           </div>

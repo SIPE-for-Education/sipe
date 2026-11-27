@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ToastService } from '../../services/toastService';
 
 @Component({
   imports: [],
@@ -8,12 +9,5 @@ import { Component } from '@angular/core';
   standalone: true,
 })
 export class Toast {
-  // function showToast(msg, type, icon) {
-  //   const container = document.getElementById("toastContainer");
-  //   const toast = document.createElement("div");
-  //   toast.className = `toast-msg toast-${type}`;
-  //   toast.innerHTML = `<i class="ti ${icon}"></i> ${msg}`;
-  //   container.appendChild(toast);
-  //   setTimeout(() => toast.remove(), 3200);
-  // }
+  readonly toastService = inject(ToastService);
 }

@@ -1,0 +1,75 @@
+<section class="modal-container" id="adminModal">
+  <div class="modal">
+    <div class="header">
+      <div>
+        <div class="title">Gestão de Conteúdos</div>
+        <div class="subtitle">Administração da base de conhecimento institucional</div>
+      </div>
+
+      <button class="close" (click)="close()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="view-badge">
+        <i class="bi bi-shield-lock-fill"></i>
+        <div>
+          <strong class="title">Acesso Restrito — Administrador e Coordenação</strong>
+          <p class="subtitle">Professores possuem acesso somente a leitura. ‘Upload’ e
+            gerenciamento são exclusivos da gestão.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload-section">
+      <div class="title">
+        <i class="bi bi-bookmarks-fill"></i>
+        <span>Apostilas e Livros Didáticos</span>
+      </div>
+
+      <div class="upload-grid">
+        <div class="item uploaded" (click)="upload(this)">
+          <i class="bi bi-journal-album"></i>
+          <div class="name">Apostila Anglo — Mat. 3º Ano</div>
+          <div class="information">Módulos 1–4 · 180 páginas</div>
+          <div class="progress">
+            <div class="upload-progress-fill"></div>
+          </div>
+
+        </div>
+        <div class="upload-item" (click)="upload(this)">
+          <i class="bi bi-journal-album"></i>
+          <div class="name">Apostila Anglo — Hist. 8º Ano</div>
+          <div class="information">Clique para enviar</div>
+          <div class="progress">
+            <div class="upload-progress-fill"></div>
+          </div>
+
+        </div>
+        <div class="item uploaded" (click)="upload(this)">
+          <i class="bi bi-journal-bookmark-fill"></i>
+          <div class="name">Livro Didático Geografia 7º</div>
+          <div class="information">Editora FTD · 220 páginas</div>
+          <div class="progress">
+            <div class="upload-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="upload-item" (click)="upload(this)">
+          <i class="bi bi-journal-bookmark-fill"></i>
+          <div class="name">Livro Didático Artes 6.º Ano</div>
+          <div class="information">Clique para enviar</div>
+          <div class="progress">
+            <div class="upload-progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="purple-element">
+      <i class="bi bi-robot"></i>
+      <strong> Indexação Automática:</strong>
+      <span>Após o ‘upload’, o SIPE processa, indexa e disponibiliza o conteúdo para a IA em até 2 minutos.
+      Todo material indexado fica rastreável — o sistema registra quais documentos geraram cada planejamento ou avaliação.</span>
+    </aside>
+  </div>
+</section>
