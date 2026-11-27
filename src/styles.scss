@@ -571,20 +571,6 @@ html, body {
   color: var(--cotton);
 }
 
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  color: var(--navy-blue);
-  font-size: var(--smaller-text-size);
-  font-weight: bold;
-
-  i {
-    color: var(--purple);
-  }
-}
-
 .section-content {
   position: relative;
   display: flex;

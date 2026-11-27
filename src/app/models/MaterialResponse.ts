@@ -3,7 +3,7 @@ import { MaterialTopicsResponse } from './MaterialTopicsResponse';
 import { MaterialSuggestionsResponse } from './MaterialSuggestionsResponse';
 
 export interface MaterialResponse {
-  id: string;
+  id: number;
   system: number;
   serie: string;
   discipline: string;

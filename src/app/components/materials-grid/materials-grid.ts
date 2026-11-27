@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MaterialResponse } from '../../models/MaterialResponse';
 
 @Component({
@@ -10,8 +10,9 @@ import { MaterialResponse } from '../../models/MaterialResponse';
 })
 export class MaterialsGrid {
   materials = input<MaterialResponse[]>([]);
+  materialSelected = output<number>();
 
-  openPanel(id: string) {
-    console.log('Opening panel for material with ID:', id);
+  openPanel(id: number) {
+    this.materialSelected.emit(id);
   }
 }

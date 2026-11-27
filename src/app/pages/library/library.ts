@@ -16,11 +16,28 @@ import { DetailPanel } from '../../components/detail-panel/detail-panel';
   styleUrl: './library.scss',
   templateUrl: './library.html',
   standalone: true,
+  host: { '[class.panel-open]': 'detailPanelOpen()' },
 })
 export class Library implements OnInit {
   private titleService = inject(Title);
   protected materials = signal<MaterialResponse[]>([]);
+  protected selectedMaterial = signal<MaterialResponse | null>(null);
+
   protected kpis = signal<KpiResponse[]>([]);
+
+  protected detailPanelOpen = signal(false);
+
+  protected openDetailPanel(id: number): void {
+    const material = this.materials().find((item) => item.id === id);
+    if (!material) return;
+
+    this.selectedMaterial.set(material);
+    this.detailPanelOpen.set(true);
+  }
+
+  protected closeDetailPanel(): void {
+    this.detailPanelOpen.set(false);
+  }
 
   constructor(
     private materialService: MaterialService,

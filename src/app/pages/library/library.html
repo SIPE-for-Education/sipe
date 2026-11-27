@@ -12,10 +12,16 @@
 
 <app-filters-bar></app-filters-bar>
 
-<app-materials-grid [materials]="materials()"></app-materials-grid>
+<div class="library-content">
+  <app-materials-grid
+    [materials]="materials()"
+    (materialSelected)="openDetailPanel($event)"
+  ></app-materials-grid>
 
-<div style="height: 20px"></div>
-
-<app-detail-panel></app-detail-panel>
-
+  <app-detail-panel
+    [material]="selectedMaterial()"
+    [isOpen]="detailPanelOpen()"
+    (closed)="closeDetailPanel()"
+  ></app-detail-panel>
+</div>
 
