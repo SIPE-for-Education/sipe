@@ -1,0 +1,58 @@
+.flow-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--navy-blue) 0%, var(--muted) 200%);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--cotton);
+    font-size: var(--smallest-text-size);
+    font-weight: bold;
+
+    .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: var(--light-cotton);
+      color: var(--muted);
+      font-size: var(--smallest-text-size);
+      font-weight: bold;
+    }
+  }
+
+  .done {
+    .number {
+      color: var(--white);
+      background: var(--green);
+    }
+  }
+
+  .active {
+    .number {
+      color: var(--white);
+      background: var(--orange);
+    }
+  }
+
+  .rejected {
+    .number {
+      color: var(--white);
+      background: var(--dark-red);
+    }
+  }
+
+  .arrow {
+    flex-shrink: 0;
+    margin: 0 6px;
+    color: var(--cotton);
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "materials": [
+    {
+      "id": 1,
+      "system": "anglo",
+      "series": 3,
+      "discipline": "mat",
+      "bimester": 2,
+      "type": "apostila",
+      "title": "Apostila Anglo Matemática",
+      "subtitle": "Módulo 4 · 3º Ano · Pág. 140–180",
+      "tags": ["3º Ano", "Matemática", "2º Bimestre", "Anglo"],
+      "pages": 180,
+      "updated": "15/04/2026",
+      "status": "approved",
+      "uses": { "plans": 156, "evals": 89, "lastUpdated": 1 },
+      "topics": [
+        {
+          "icon": "bi bi-coin",
+          "name": "Sistema Monetário",
+          "description": "Pp. 140–152 · EF03MA23"
+        },
+        {
+          "icon": "bi bi-plus-slash-minus",
+          "name": "Operações Fundamentais",
+          "description": "Pp. 153–165 · EF03MA07"
+        },
+        {
+          "icon": "bi bi-wallet2",
+          "name": "Educação Financeira",
+          "description": "Pp. 166–180 · EF03MA25"
+        },
+        {
+          "icon": "bi bi-clock-history",
+          "name": "História do Dinheiro",
+          "description": "Pp. 140–143 · Contexto"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Avaliações Objetivas",
+        "Atividades Práticas",
+        "Sugestões Didáticas",
+        "Recomendações BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-award",
+          "text": "Com base no Módulo 4, recomenda-se trabalhar o Sistema Monetário com situações-problema contextualizadas ao cotidiano dos alunos."
+        },
+        {
+          "icon": "bi bi-joystick",
+          "text": "Atividade prática sugerida: simulação de mercado em sala com notas fictícias, exercitando operações e representação de valores."
+        },
+        {
+          "icon": "bi bi-bar-chart-fill",
+          "text": "A IA identificou 3 competências BNCC não exploradas nas pp. 153–165. Recomenda inclusão em avaliação bimestral."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "system": "anglo",
+      "series": 8,
+      "discipline": "hist",
+      "bimester": 1,
+      "type": "apostila",
+      "title": "Apostila Anglo História",
+      "subtitle": "Módulo 2 · 8º Ano · Pág. 60–95",
+      "tags": ["8º Ano", "História", "1º Bimestre", "Anglo"],
+      "pages": 230,
+      "updated": "10/03/2026",
+      "status": "approved",
+      "uses": { "plans": 98, "evals": 54, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "bi bi-globe-americas",
+          "name": "2ª Guerra Mundial",
+          "description": "Pp. 60–75 · EF08HI03"
+        },
+        {
+          "icon": "bi bi-flag-fill",
+          "name": "Nazismo e Fascismo",
+          "description": "Pp. 76–85 · EF08HI04"
+        },
+        {
+          "icon": "bi bi-people",
+          "name": "Movimentos de Resistência",
+          "description": "Pp. 86–95 · EF08HI05"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Avaliações Discursivas",
+        "Fontes Primárias",
+        "Sugestões BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-file-text",
+          "text": "Sugestão: incluir análise de documento histórico como fonte primária (ex: Manifesto Nazista) para trabalhar EF08HI03."
+        },
+        {
+          "icon": "bi bi-people",
+          "text": "A IA recomenda uso de debate estruturado sobre movimentos de resistência — competência socioemocional + BNCC integrada."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "system": "anglo",
+      "series": 7,
+      "discipline": "geo",
+      "bimester": 2,
+      "type": "livro",
+      "title": "Livro Didático Geografia",
+      "subtitle": "FTD · 7º Ano · 2º Bimestre",
+      "tags": ["7º Ano", "Geografia", "2º Bimestre", "FTD"],
+      "pages": 220,
+      "updated": "01/02/2026",
+      "status": "approved",
+      "uses": { "plans": 72, "evals": 38, "lastUpdated": 3 },
+      "topics": [
+        {
+          "icon": "bi bi-leaf-fill",
+          "name": "Biomas Brasileiros",
+          "description": "Pp. 80–110 · EF07GE08"
+        },
+        {
+          "icon": "bi bi-droplet-fill",
+          "name": "Bacias Hidrográficas",
+          "description": "Pp. 111–130 · EF07GE09"
+        },
+        {
+          "icon": "bi bi-map",
+          "name": "Cartografia Temática",
+          "description": "Pp. 60–79 · EF07GE01"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Mapas e Atividades",
+        "Avaliações Objetivas",
+        "Recomendações BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-map",
+          "text": "Recomenda-se trabalhar Biomas com mapa mudo interativo — identifica regiões e características com legenda guiada."
+        },
+        {
+          "icon": "bi bi-droplet-fill",
+          "text": "Atividade integrada sugerida: cartografia de bacias hidrográficas com dados reais do IBGE, trabalhando EF07GE09."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "system": "sas",
+      "series": 6,
+      "discipline": "arte",
+      "bimester": 1,
+      "type": "apostila",
+      "title": "Material SAS Artes",
+      "subtitle": "Linguagens Visuais · 6º Ano · 1º Bim.",
+      "tags": ["6º Ano", "Artes", "1º Bimestre", "SAS"],
+      "pages": 96,
+      "updated": "05/02/2026",
+      "status": "pending",
+      "uses": { "plans": 31, "evals": 14, "lastUpdated": 7 },
+      "topics": [
+        {
+          "icon": "bi bi-brush",
+          "name": "Linguagem Visual",
+          "description": "Pp. 10–28 · EF69AR01"
+        },
+        {
+          "icon": "bi bi-camera2",
+          "name": "Arte Contemporânea",
+          "description": "Pp. 29–50 · EF69AR04"
+        },
+        {
+          "icon": "bi bi-eye",
+          "name": "Elementos Visuais",
+          "description": "Pp. 51–70 · EF69AR02"
+        }
+      ],
+      "aiUses": ["Planejamento Bimestral", "Avaliações Práticas", "Sugestões Criativas"],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-camera",
+          "text": "Sugestão: criar portfólio visual como atividade avaliativa — alunos registram produções em diferentes linguagens visuais."
+        },
+        {
+          "icon": "bi bi-lightbulb",
+          "text": "A IA identificou desalinhamento com o PPP vigente. Recomenda-se revisar objetivos da unidade 1 antes do próximo planejamento."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "system": "bncc",
+      "series": null,
+      "discipline": "",
+      "bimester": null,
+      "type": "bncc",
+      "title": "BNCC — Ensino Fundamental",
+      "subtitle": "MEC · 2018 · Todas as disciplinas",
+      "tags": ["Nacional", "Oficial", "MEC", "Vigente", "Todas as Séries"],
+      "pages": 472,
+      "updated": "01/01/2026",
+      "status": "approved",
+      "uses": { "plans": 1284, "evals": 891, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "bi bi-star-fill",
+          "name": "Competências Gerais",
+          "description": "10 competências · Base curricular"
+        },
+        {
+          "icon": "bi bi-list-check",
+          "name": "Habilidades por Componente",
+          "description": "EF01 a EF09 · 569 habilidades"
+        },
+        {
+          "icon": "bi bi-bounding-box-circles",
+          "name": "Áreas do Conhecimento",
+          "description": "5 áreas · Integração curricular"
+        }
+      ],
+      "aiUses": [
+        "Todos os Planejamentos",
+        "Todas as Avaliações",
+        "Verificação de Cobertura",
+        "Recomendações Didáticas",
+        "Rastreabilidade Curricular"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-list-stars",
+          "text": "A BNCC é a fonte principal de rastreabilidade da IA. Cada planejamento gerado é automaticamente vinculado às competências correspondentes."
+        },
+        {
+          "icon": "bi bi-thermometer-half",
+          "text": "Termômetro BNCC ativo: cobertura atual de 84% das competências previstas para o 3º Ano no 2º Bimestre. Recomenda-se priorizar EF03HI06."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "system": "anglo",
+      "series": null,
+      "discipline": "",
+      "bimester": null,
+      "type": "institucional",
+      "title": "PPP — Colégio Cavlac 2026",
+      "subtitle": "Projeto Político-Pedagógico · Vigente",
+      "tags": ["Institucional", "PPP", "2026", "Cavlac"],
+      "pages": 128,
+      "updated": "15/01/2026",
+      "status": "approved",
+      "uses": { "plans": 342, "evals": 178, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "bi bi-bullseye",
+          "name": "Missão e Visão Institucional",
+          "description": "Pp. 12–18 · Identidade pedagógica"
+        },
+        {
+          "icon": "bi bi-sign-turn-slight-right-fill",
+          "name": "Diretrizes Curriculares",
+          "description": "Pp. 40–78 · Eixos pedagógicos"
+        },
+        {
+          "icon": "bi bi-people",
+          "name": "Perfil dos Estudantes",
+          "description": "Pp. 20–38 · Público-alvo"
+        }
+      ],
+      "aiUses": [
+        "Alinhamento de Planejamentos",
+        "Validação pela Coordenação",
+        "Sugestões Pedagógicas",
+        "Diretrizes de Avaliação"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-building",
+          "text": "O PPP é cruzado automaticamente com cada planejamento submetido para aprovação, garantindo alinhamento institucional."
+        },
+        {
+          "icon": "bi bi-exclamation-triangle-fill",
+          "text": "A IA identificou que o Planejamento Bimestral de Artes (6º Ano) apresenta desvio em relação ao eixo temático do PPP. Recomenda revisão."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "system": "positivo",
+      "series": 3,
+      "discipline": "port",
+      "bimester": 3,
+      "type": "apostila",
+      "title": "Apostila Positivo Português",
+      "subtitle": "Vol. 3 · 3º Ano · 3º Bimestre",
+      "tags": ["3º Ano", "Português", "3º Bimestre", "Positivo"],
+      "pages": 160,
+      "updated": "01/07/2026",
+      "status": "approved",
+      "uses": { "plans": 64, "evals": 29, "lastUpdated": 5 },
+      "topics": [
+        {
+          "icon": "bi bi-fonts",
+          "name": "Produção Textual",
+          "description": "Pp. 80–105 · EF35LP07"
+        },
+        {
+          "icon": "bi bi-quote",
+          "name": "Gêneros Textuais",
+          "description": "Pp. 106–130 · EF35LP14"
+        },
+        {
+          "icon": "bi bi-spellcheck",
+          "name": "Gramática Contextualizada",
+          "description": "Pp. 131–160 · EF35LP28"
+        }
+      ],
+      "aiUses": [
+        "Planejamento Semanal",
+        "Ditados e Produção",
+        "Avaliações de Escrita",
+        "Sugestões BNCC"
+      ],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-pencil",
+          "text": "Sugestão de sequência didática: iniciar com leitura coletiva de gênero (notícia), identificar estrutura, produzir texto individual."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "system": "sas",
+      "series": 8,
+      "discipline": "hist",
+      "bimester": 2,
+      "type": "modelo",
+      "title": "Modelo de Avaliação Bimestral",
+      "subtitle": "Padrão Cavlac · Todas as disciplinas",
+      "tags": ["Modelo", "Avaliação", "Institucional", "Todas as Séries"],
+      "pages": 8,
+      "updated": "10/02/2026",
+      "status": "approved",
+      "uses": { "plans": 0, "evals": 421, "lastUpdated": 0 },
+      "topics": [
+        {
+          "icon": "bi bi-list-ul",
+          "name": "Questões Objetivas",
+          "description": "15 questões · Gabarito incluso"
+        },
+        {
+          "icon": "bi bi-markdown-fill",
+          "name": "Questões Discursivas",
+          "description": "3 questões · Critérios de correção"
+        },
+        {
+          "icon": "bi bi-list-nested",
+          "name": "Cabeçalho Institucional",
+          "description": "Logo, turma, data, professor"
+        }
+      ],
+      "aiUses": ["Geração de Avaliações", "Formatação Automática", "Alinhamento Curricular"],
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-stars",
+          "text": "A IA gera avaliações completas usando este modelo como template, preenchendo automaticamente com conteúdos indexados da apostila selecionada."
+        }
+      ]
+    }
+  ],
+  "plannings": [
+    {
+      "id": 1,
+      "title": "Planejamento Semanal — Matemática",
+      "status": "pending",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "10/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "11/05/2026"
+        },
+        {
+          "status": "pending",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "12/05/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-check-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "11/05/2026",
+          "comment": "Adicionar atividade prática na quinta-feira."
+        },
+        {
+          "version": "Versão atual",
+          "date": "12/05/2026",
+          "comment": "Aguardando aplicação das correções solicitadas."
+        }
+      ],
+      "aiPrompt": "A coordenação solicitou atividade prática e reforço em sistema monetário. Deseja gerar sugestões pedagógicas?",
+      "aiSuggestions": [
+        {
+          "icon": "bi-controller",
+          "text": "Atividade prática: Simulação de mercado com uso de notas fictícias — exercita operações e sistema monetário de forma lúdica."
+        },
+        {
+          "icon": "bi-file-earmark-text-fill",
+          "text": "Proposta: Exercício em duplas com recorte de preços de supermercado para calcular troco e comparar valores."
+        },
+        {
+          "icon": "bi-lightbulb",
+          "text": "Sugestão: Criação de um 'cardápio de lanchonete' pelos alunos, praticando adição, subtração e representação de valores."
+        }
+      ],
+      "updatedAt": "2026-11-23T19:20:29.606909"
+    },
+    {
+      "id": 2,
+      "title": "Planejamento Semanal — História",
+      "status": "approved",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "05/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "06/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "07/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "08/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-check-circle",
+          "title": "Aprovado",
+          "date": "08/05/2026"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "06/05/2026",
+          "comment": "Aprofundar análise das causas da 2ª Guerra Mundial."
+        },
+        {
+          "version": "Versão 2",
+          "date": "07/05/2026",
+          "comment": "Incluir fonte primária como documento de análise."
+        },
+        {
+          "version": "Versão 3 — Aprovada",
+          "date": "08/05/2026",
+          "comment": "Planejamento aprovado sem ressalvas. Excelente estrutura BNCC."
+        }
+      ],
+      "aiPrompt": null,
+      "aiSuggestions": []
+    },
+    {
+      "id": 3,
+      "title": "Planejamento Bimestral — Artes",
+      "status": "rejected",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "26/04/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "27/04/2026"
+        },
+        {
+          "status": "rejected",
+          "icon": "bi-x-circle",
+          "title": "Rejeitado pela Coordenação",
+          "date": "29/04/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-arrow-repeat",
+          "title": "Aguardando Reenvio",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-plus-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1 — Rejeitada",
+          "date": "29/04/2026",
+          "comment": "Objetivos não alinhados ao PPP. Falta estratégia de recuperação."
+        }
+      ],
+      "aiPrompt": "O planejamento foi rejeitado por desalinhamento com o PPP. Deseja sugestões para reestruturação?",
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-bullseye",
+          "text": "Reformular objetivos de aprendizagem com base nas competências específicas do componente Arte (BNCC — EF69AR)."
+        },
+        {
+          "icon": "bi bi-people",
+          "text": "Incluir atividades diferenciadas: alunos em recuperação recebem roteiro simplificado com os mesmos conteúdos em linguagem visual acessível."
+        },
+        {
+          "icon": "bi bi-journal-text",
+          "text": "Vincular o planejamento ao Projeto Político-Pedagógico: citar eixo temático e competências previstas no documento institucional."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Planejamento Semanal — Geografia",
+      "status": "pending",
+      "timelines": [
+        {
+          "status": "done",
+          "icon": "bi-plus-circle",
+          "title": "Planejamento Criado",
+          "date": "19/05/2026"
+        },
+        {
+          "status": "done",
+          "icon": "bi-send",
+          "title": "Enviado para Coordenação",
+          "date": "20/05/2026"
+        },
+        {
+          "status": "pending",
+          "icon": "bi-clock-history",
+          "title": "Ajustes Solicitados",
+          "date": "21/05/2026"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-pencil",
+          "title": "Correções Aplicadas",
+          "date": "—"
+        },
+        {
+          "status": "upcoming",
+          "icon": "bi-check-circle",
+          "title": "Aprovação Final",
+          "date": "—"
+        }
+      ],
+      "revisions": [
+        {
+          "version": "Versão 1",
+          "date": "20/05/2026",
+          "comment": "Incluir estratégia diferenciada para alunos com dificuldade."
+        }
+      ],
+      "aiPrompt": "A coordenação solicitou estratégia diferenciada. Deseja gerar sugestões de atividades de recuperação?",
+      "aiSuggestions": [
+        {
+          "icon": "bi bi-map",
+          "text": "Proposta diferenciada: Alunos com dificuldade trabalham com mapa mudo interativo — identificam biomas com legendas guiadas."
+        },
+        {
+          "icon": "bi bi-play-circle-fill",
+          "text": "Usar vídeo-aula curta (5 min) do conteúdo principal como reforço prévio para alunos em recuperação antes da aula coletiva."
+        },
+        {
+          "icon": "bi bi-stars",
+          "text": "Atividade gamificada: Quiz por equipes onde alunos com dificuldade são estrategicamente distribuídos para aprendizagem cooperativa."
+        }
+      ]
+    }
+  ],
+  "kpis": {
+    "review": [
+      {
+        "icon": "bi bi-bar-chart-fill",
+        "status": "info",
+        "value": 22,
+        "label": "cobertura do conteúdo"
+      },
+      {
+        "icon": "bi bi-book-fill",
+        "status": "approved",
+        "value": 2,
+        "label": "conteúdos utilizados"
+      },
+      {
+        "icon": "bi bi-bullseye",
+        "status": "info",
+        "value": 22,
+        "label": "alinhamento bncc"
+      },
+      {
+        "icon": "bi bi-exclamation-triangle",
+        "status": "warning",
+        "value": 12,
+        "label": "questões p/ revisão"
+      }
+    ],
+    "library": [
+      {
+        "icon": "bi bi-journal-bookmark-fill",
+        "status": "info",
+        "value": 248,
+        "label": "materias disponíveis"
+      },
+      {
+        "icon": "bi bi-mortarboard-fill",
+        "status": "approved",
+        "value": 3,
+        "label": "sistemas de ensino"
+      },
+      {
+        "icon": "bi bi-cpu-fill",
+        "status": "warning",
+        "value": 12540,
+        "label": "conteúdos indexados ia"
+      },
+      {
+        "icon": "bi bi-file-earmark-bar-graph-fill",
+        "status": "info",
+        "value": 1284,
+        "label": "planejamentos gerados"
+      }
+    ],
+    "feedback": [
+      {
+        "icon": "bi-check-circle-fill",
+        "status": "approved",
+        "value": 12,
+        "label": "planejamentos aprovados"
+      },
+      {
+        "icon": "bi-clock-history",
+        "status": "warning",
+        "value": 3,
+        "label": "aguardando ajustes"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "status": "rejected",
+        "value": 1,
+        "label": "rejeitados"
+      },
+      {
+        "icon": "bi bi-file-earmark-check",
+        "status": "info",
+        "value": 8,
+        "label": "avaliações aprovadas"
+      }
+    ]
+  },
+  "notifications": [
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Seu planejamento de História foi aprovado.",
+      "type": "approved",
+      "read": false,
+      "targetUrl": "",
+      "createdAt": "2026-11-24T09:14:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "A coordenação solicitou ajustes no planejamento de Matemática.",
+      "type": "warning",
+      "read": true,
+      "targetUrl": "",
+      "createdAt": "2026-11-24T08:47:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Seu planejamento de História foi aprovado.",
+      "type": "approved",
+      "read": false,
+      "targetUrl": "",
+      "createdAt": "2026-11-23T16:22:22"
+    },
+    {
+      "id": 0,
+      "userId": 0,
+      "message": "Prazo de entrega do planejamento bimestral se aproxima.",
+      "type": "info",
+      "read": true,
+      "targetUrl": "",
+      "createdAt": "2026-06-18T22:22:22"
+    }
+  ]
+}

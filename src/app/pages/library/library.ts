@@ -1,16 +1,75 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { MaterialResponse } from '../../models/MaterialResponse';
+import { MaterialService } from '../../services/materialService';
+import { MaterialsGrid } from '../../components/materials-grid/materials-grid';
+import { Kpis } from '../../components/kpis/kpis';
+import { KpiService } from '../../services/kpiService';
+import { KpiResponse } from '../../models/KpiResponse';
+import { AiFlowBanner } from '../../components/ai-flow-banner/ai-flow-banner';
+import { FiltersBar } from '../../components/filters-bar/filters-bar';
+import { DetailPanel } from '../../components/detail-panel/detail-panel';
 
 @Component({
-  imports: [],
+  imports: [MaterialsGrid, Kpis, AiFlowBanner, FiltersBar, DetailPanel],
   selector: 'app-library',
   styleUrl: './library.scss',
   templateUrl: './library.html',
   standalone: true,
+  host: { '[class.panel-open]': 'detailPanelOpen()' },
 })
 export class Library implements OnInit {
   private titleService = inject(Title);
-  ngOnInit(): void {
+  protected materials = signal<MaterialResponse[]>([]);
+  protected selectedMaterial = signal<MaterialResponse | null>(null);
+
+  protected kpis = signal<KpiResponse[]>([]);
+
+  protected detailPanelOpen = signal(false);
+
+  protected openDetailPanel(id: number): void {
+    const material = this.materials().find((item) => item.id === id);
+    if (!material) return;
+
+    this.selectedMaterial.set(material);
+    this.detailPanelOpen.set(true);
+  }
+
+  protected closeDetailPanel(): void {
+    this.detailPanelOpen.set(false);
+  }
+
+  constructor(
+    private materialService: MaterialService,
+    private kpiService: KpiService,
+  ) {}
+
+  ngOnInit() {
     this.titleService.setTitle('SIPE - Library');
+
+    this.loadKpis();
+    this.loadMaterials();
+  }
+
+  loadKpis(): void {
+    this.kpiService.getAllKpis('library').subscribe({
+      next: (data) => {
+        this.kpis.set(data);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os kpis', err);
+      },
+    });
+  }
+
+  loadMaterials(): void {
+    this.materialService.getAllMaterials().subscribe({
+      next: (data) => {
+        this.materials.set(data);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os materiais', err);
+      },
+    });
   }
 }

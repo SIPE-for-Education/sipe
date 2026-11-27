@@ -1,0 +1,16 @@
+services:
+  json-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.json-server
+    ports:
+      - "3001:3000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - json-server

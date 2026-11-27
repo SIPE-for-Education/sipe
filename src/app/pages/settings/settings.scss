@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: 20px;
     min-width: 0;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .card-section {
@@ -40,7 +40,6 @@
     background: var(--white);
     padding: 0.5rem 1rem;
     border-radius: var(--radius);
-    cursor: pointer;
 }
 
 .form-grid {

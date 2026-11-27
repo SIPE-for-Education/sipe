@@ -1,0 +1,156 @@
+<section class="detail-panel" [class.open]="isOpen()">
+  @if (material(); as material) {
+    <div class="inner">
+      <div class="header">
+        <div>
+          <div class="icon">
+            <i class="bi bi-journals"
+               [class.bg-light-green]="material.status === 'approved'"
+               [class.bg-light-pending]="material.status === 'pending'"
+               [class.approved]="material.status === 'approved'"
+               [class.pending]="material.status === 'pending'"
+            ></i>
+          </div>
+
+          <div class="title">{{ material.title }}</div>
+          <div class="subtitle">{{ material.subtitle }}</div>
+        </div>
+
+        <button class="close" (click)="closed.emit()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="body">
+        <section>
+          <div class="title">Informações do Material</div>
+          <div class="information-grid">
+            <div class="item">
+              <div class="label">Páginas</div>
+              <div class="value">{{ material.pages }}</div>
+            </div>
+
+            <div class="item">
+              <div class="label">Atualizado</div>
+              <div class="value">{{ material.updated }}</div>
+            </div>
+
+            <div class="item">
+              <div class="label">Sistema</div>
+              <div class="value">
+                @let system = material.system.toString();
+                {{ system.toUpperCase() === 'BNCC' ? (system | uppercase) : (system | titlecase) }}
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="label">Status</div>
+              <div class="value" [class.approved]="material.status === 'approved'">
+                @if (material.status === "approved") {
+                  <i class="bi bi-check"></i> <span>Homologado</span>
+                } @else {
+                  <i class="bi bi-hourglass-split"></i> <span>Em revisão</span>
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="title">Conteúdos Encontrados</div>
+          <div class="topics">
+            @for (topic of this.material()?.topics; track topic) {
+              <div class="topic">
+                <i class="{{topic.icon}}"></i>
+                <div>
+                  <div class="name">{{ topic.name }}</div>
+                  <div class="description">{{ topic.description }}</div>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+
+        <section>
+          <div class="title">Como a IA utiliza este material</div>
+          <div class="ia-uses">
+            @for (use of this.material()?.aiUses; track use) {
+              <div class="ai-use-row">
+                <i class="bi bi-check-circle"></i> {{ use }}
+              </div>
+            }
+          </div>
+        </section>
+
+        <section>
+          <div class="title">Utilização deste Material</div>
+          <div class="stats-row">
+            <div class="box">
+              <div class="number">{{ material.uses.plans }}</div>
+              <div class="label">Planos Gerados</div>
+            </div>
+
+            <div class="box">
+              <div class="number">{{ material.uses.evals }}</div>
+              <div class="usage-stat-label">Avaliações</div>
+            </div>
+
+            <div class="box">
+              <div class="number">
+                @let day = material.uses.lastUpdated;
+                @if (day == 0) {
+                  Hoje
+                } @else if (day == 1) {
+                  Ontem
+                } @else {
+                  {{ day }} dias
+                }
+              </div>
+              <div class="label">Último uso</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ai-box">
+          <div class="ai-header">
+            <i class="bi bi-stars"></i>
+            <div class="text">Sugestões da IA para este Conteúdo</div>
+          </div>
+
+          <div class="ai-description">A IA analisou o material e pode gerar recomendações pedagógicas específicas
+            baseadas neste conteúdo homologado.
+          </div>
+
+          <div class="ai-results">
+            @if (material.suggestions) {
+              @for (suggestion of material.suggestions; track suggestion) {
+                <div class="ai-result">
+                  <i class="{{suggestion.icon}}"></i>
+                  <span>{{ suggestion.text }}</span>
+                </div>
+              }
+            }
+          </div>
+
+          <div class="panelAiLoading">
+            <span class="ai-spinner visible"></span>
+            Analisando conteúdo indexado...
+          </div>
+
+          @let already = true;
+          @if (already) {
+            <button class="button-generate-suggestions" (click)="generatePanelSuggestions()">
+              <i class="bi bi-lightning-fill"></i>
+              <span>Gerar Sugestões</span>
+            </button>
+          }
+        </section>
+      </div>
+    </div>
+  }
+</section>
+
+
+
+
+

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .step-trail {
@@ -91,10 +91,6 @@
     color: var(--light-green);
 }
 
-.chip-pulse {
-    animation: pulse-chip 1.5s ease-in-out infinite;
-}
-
 .doc-action-bar-right {
     display: flex;
     gap: 10px;
@@ -111,7 +107,6 @@
     color: var(--cotton);
     font-size: calc(var(--smaller-text-size) - 2px);
     font-weight: bold;
-    cursor: pointer;
     transition: all 0.2s;
 }
 
@@ -131,7 +126,6 @@
     color: var(--white);
     font-size: calc(var(--smaller-text-size) - 2px);
     font-weight: bold;
-    cursor: pointer;
     transition: all 0.2s;
 }
 
@@ -305,33 +299,33 @@
     overflow-y: auto;
 }
 
-.panel-header {
+.header {
     padding: 20px;
     background: var(--navy-blue);
     color: var(--white);
     overflow: hidden;
 }
 
-.panel-header h4 {
+.header h4 {
     margin-right: 10px;
     color: var(--white);
     font-size: var(--smaller-text-size);
     font-weight: bold;
 }
 
-.panel-header p {
+.header p {
     font-size: calc(var(--smaller-text-size) - 2px);
     opacity: 0.6;
 }
 
-.panel-body {
+.body {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 20px;
 }
 
-.panel-section-title {
+.title {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--cotton);
     margin-top: 4px;

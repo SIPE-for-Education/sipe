@@ -4,9 +4,10 @@ import { Sidebar } from './components/sidebar/sidebar';
 import { Header } from './components/header/header';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
+import { Toast } from './components/toast/toast';
 
 @Component({
-  imports: [RouterOutlet, Sidebar, Header],
+  imports: [RouterOutlet, Sidebar, Header, Toast],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

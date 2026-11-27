@@ -1,0 +1,54 @@
+.ai-flow-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--navy-blue) 0%, var(--muted) 100%);
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    text-align: center;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+    }
+
+    .label {
+      color: var(--cotton);
+      font-size: var(--smallest-text-size);
+      font-weight: bold;
+    }
+  }
+
+  .arrow {
+    flex-shrink: 0;
+    align-self: center;
+    color: var(--cotton);
+  }
+
+  .step.hl .icon {
+    background-color: color-mix(in srgb, var(--dark-purple) 30%, transparent);
+    color: var(--purple);
+  }
+
+  .step.done .icon {
+    background: color-mix(in srgb, var(--dark-green) 30%, transparent);
+    color: var(--green);
+  }
+
+  .step.out .icon {
+    background: color-mix(in srgb, var(--brown) 30%, transparent);
+    color: var(--amber);
+  }
+}

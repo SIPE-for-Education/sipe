@@ -1,0 +1,62 @@
+<section class="modal-container" [class.open]="isOpen()">
+  <div class="modal">
+    <div class="header">
+      <div>
+        <div class="title">Visão da Coordenação</div>
+        <div class="subtitle">Painel de revisão e aprovação de planejamentos</div>
+      </div>
+
+      <button class="close" (click)="close()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="view-badge">
+        <i class="bi bi-person-circle"></i>
+        <div>
+          <strong class="title">Coordenadora Pedagógica — Profa. Fernanda Lins</strong>
+          <p class="subtitle">Colégio Cavlac · Ensino Fundamental II · Ano Letivo 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Planejamentos Recebidos para Análise</h4>
+
+    <div class="item">
+      <div class="top">
+        <div>
+          <div class="name">Planejamento Semanal — Matemática</div>
+          <div class="information">Profª Elisabete · 3.º Ano A · 12/05 a 16/05</div>
+        </div>
+
+        <span class="status-badge pending">
+              <span>Em Análise</span>
+            </span>
+      </div>
+
+      <div class="actions">
+        <button class="button approve" (click)="reviewPlanning(this, 'aprovado')">
+          <i class="bi bi-check-circle"></i>
+          <span>Aprovar</span>
+        </button>
+
+        <button class="button adjust" (click)="reviewPlanning(this, 'ajustes')">
+          <i class="bi bi-pencil-square"></i>
+          <span>Solicitar Ajustes</span>
+        </button>
+
+        <button class="button reject" (click)="reviewPlanning(this, 'rejeitado')">
+          <i class="bi bi-x-lg"></i>
+          <span>Rejeitar</span>
+        </button>
+      </div>
+    </div>
+
+    <aside class="purple-element">
+      <i class="bi bi-lightbulb-fill"></i>
+      <strong>Governança Pedagógica: </strong>
+      <span>Todo histórico de aprovações, ajustes e rejeições fica registrado
+            permanentemente no sistema, garantindo rastreabilidade institucional
+            completa.</span>
+    </aside>
+  </div>
+</section>

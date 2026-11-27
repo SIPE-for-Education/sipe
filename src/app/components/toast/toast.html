@@ -1,0 +1,8 @@
+<div class="toast-container" aria-live="polite">
+  @for (toast of toastService.toasts(); track toast) {
+    <div class="toast-message toast-{{ toast.type }}">
+      <i [class]="toast.icon"></i>
+      <span>{{ toast.message }}</span>
+    </div>
+  }
+</div>

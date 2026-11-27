@@ -1,0 +1,56 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: var(--radius);
+    font-size: var(--smallest-text-size);
+    font-weight: bold;
+    border: none;
+    transition: all 0.2s;
+
+    i {
+      font-size: var(--smaller-text-size);
+    }
+  }
+
+  .approve {
+    border: 1px solid var(--green-border);
+    background: var(--light-green);
+    color: var(--green);
+  }
+
+  .approve:hover {
+    background: var(--light-green);
+  }
+
+  .adjust {
+    border: 1px solid var(--yellow);
+    background: var(--light-yellow);
+    color: var(--amber);
+  }
+
+  .adjust:hover {
+    background: var(--light-yellow);
+  }
+
+  .reject {
+    border: 1px solid var(--red-border);
+    background: var(--light-red);
+    color: var(--dark-red);
+  }
+
+  .reject:hover {
+    background: var(--light-red);
+  }
+}

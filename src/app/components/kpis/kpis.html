@@ -1,0 +1,13 @@
+<div class="kpis">
+  @for (kpi of this.kpis(); track $index) {
+    <div class="kpi">
+      <div class="icon-container bg-light-{{ kpi.status }} {{ kpi.status }}">
+        <i class="bi {{ kpi.icon }}"></i>
+      </div>
+      <div>
+        <div class="number {{ kpi.status }}">{{ kpi.value }}</div>
+        <div class="label">{{ kpi.label }}</div>
+      </div>
+    </div>
+  }
+</div>

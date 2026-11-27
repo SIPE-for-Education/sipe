@@ -1,0 +1,59 @@
+<section class="notification-card">
+  <div class="title">
+    <i class="bi bi-bell-fill"></i>
+    <span>Notificações</span>
+  </div>
+
+  @for (notification of notifications(); track $index) {
+    <div class="item"
+         [class.unread]="!notification.read"
+         (click)="readNotification(notification)">
+
+      <div class="icon"
+           [class.bg-light-green]="notification.type === NotificationType.APPROVED"
+           [class.green]="notification.type === NotificationType.APPROVED"
+
+           [class.bg-light-warning]="notification.type === NotificationType.WARNING"
+           [class.orange]="notification.type === NotificationType.WARNING"
+
+           [class.bg-light-purple]="notification.type === NotificationType.INFO"
+           [class.purple]="notification.type === NotificationType.INFO"
+
+           [class.bg-light-red]="notification.type === NotificationType.REJECTED"
+           [class.red]="notification.type === NotificationType.REJECTED"
+      >
+        @switch (notification.type) {
+          @case (NotificationType.APPROVED) {
+            <i class="bi bi-check-circle-fill"></i>
+          }
+          @case (NotificationType.WARNING) {
+            <i class="bi bi-exclamation-triangle-fill"></i>
+          }
+          @case (NotificationType.INFO) {
+            <i class="bi bi-exclamation-circle-fill"></i>
+          }
+          @case (NotificationType.REJECTED) {
+            <i class="bi bi-x-circle-fill"></i>
+          }
+        }
+      </div>
+      <div class="resume">
+        <div class="text"> {{ notification.message }}</div>
+
+        <div class="time">
+          @if (isHoje(notification.createdAt)) {
+            <span>Hoje, {{ notification.createdAt | date:'HH:mm' }}</span>
+          } @else if (isOntem(notification.createdAt)) {
+            <span>Ontem, {{ notification.createdAt | date:'HH:mm' }}</span>
+          } @else {
+            <span>{{ notification.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+          }
+        </div>
+      </div>
+
+      @if (!notification.read) {
+        <div class="dot"></div>
+      }
+    </div>
+  }
+</section>
