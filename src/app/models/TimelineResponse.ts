@@ -1,4 +1,4 @@
-export interface PlanningTimelineResponse {
+export interface TimelineResponse {
   status: string;
   icon: string;
   title: string;

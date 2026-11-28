@@ -619,6 +619,33 @@
       ]
     }
   ],
+  "reviews": [
+    {
+      "id": 1,
+      "timelines": [
+        {
+          "status": "done",
+          "title": "Planejamento Aprovado",
+          "date": "09–13/06"
+        },
+        {
+          "status": "done",
+          "title": "Conteúdo Ministrado",
+          "date": "09–13/06"
+        },
+        {
+          "status": "pending",
+          "title": "IA Gerando Avaliação",
+          "date": "09–13/06"
+        },
+        {
+          "status": "done",
+          "title": "Envio para Aprovação",
+          "date": "09–13/06"
+        }
+      ]
+    }
+  ],
   "questions": [
     {
       "type": "objectives",
