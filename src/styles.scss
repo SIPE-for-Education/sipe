@@ -152,33 +152,6 @@ html, body {
   font-size: calc(var(--smaller-text-size) - 4px);
 }
 
-.card-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px
-}
-
-.card {
-  border: 2px solid var(--cotton);
-  border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  color: var(--navy-blue);
-  font-size: var(--smaller-text-size);
-  font-weight: bold;
-}
-
-.card-title i {
-  color: var(--purple);
-}
-
 .field-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
