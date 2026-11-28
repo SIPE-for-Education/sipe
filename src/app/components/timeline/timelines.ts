@@ -1,5 +1,5 @@
 import { Component, input, OnInit } from '@angular/core';
-import { PlanningTimelineResponse } from '../../models/PlanningTimelineResponse';
+import { TimelineResponse } from '../../models/TimelineResponse';
 
 @Component({
   imports: [],
@@ -9,5 +9,5 @@ import { PlanningTimelineResponse } from '../../models/PlanningTimelineResponse'
   standalone: true,
 })
 export class Timelines {
-  timelines = input<PlanningTimelineResponse[]>([]);
+  timelines = input<TimelineResponse[]>([]);
 }

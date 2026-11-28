@@ -3,24 +3,43 @@ import { Title } from '@angular/platform-browser';
 import { Kpis } from '../../components/kpis/kpis';
 import { KpiResponse } from '../../models/KpiResponse';
 import { KpiService } from '../../services/kpiService';
+import { TimelineFlowBanner } from '../../components/timeline-flow-banner/timeline-flow-banner';
+import { ReviewResponse } from '../../models/ReviewResponse';
+import { ReviewService } from '../../services/review';
 
 @Component({
-  imports: [Kpis],
+  imports: [Kpis, TimelineFlowBanner],
   selector: 'app-review',
   styleUrl: './review.scss',
   templateUrl: './review.html',
   standalone: true,
 })
 export class Review implements OnInit {
+  private review = signal<ReviewResponse | null>(null);
   private kpis = signal<KpiResponse[]>([]);
 
   private titleService = inject(Title);
 
-  constructor(private kpiService: KpiService) {}
+  constructor(
+    private reviewService: ReviewService,
+    private kpiService: KpiService,
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('SIPE - Review');
     this.loadKpis();
+    this.loadReviews();
+  }
+
+  loadReviews(): void {
+    this.reviewService.getAllReview().subscribe({
+      next: (data) => {
+        this.review.set(data[0]);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os kpis', err);
+      },
+    });
   }
 
   loadKpis(): void {
